@@ -18,11 +18,11 @@
 (package-initialize)
 
 ;;;Vanilla Emacs settings.
-(global-set-key (kbd "C-c o") 'occur)
+(global-set-key (kbd "C-c o") 	'occur)
 (global-set-key (kbd "C-<return>") 'eval-buffer)
-(global-set-key (kbd "TAB") 'self-insert-command)
+(global-set-key (kbd "TAB") 	'self-insert-command)
 (global-set-key (kbd "C-x C-b") 'mode-line-other-buffer)
-(global-set-key (kbd "C-x k") 'kill-this-buffer)
+(global-set-key (kbd "C-x k") 	'kill-this-buffer)
 (setq scroll-margin 5)
 (setq scroll-step 1)
 (global-linum-mode 1)
@@ -30,10 +30,11 @@
 ;;;Specifies window in which certain buffers open. 
 (customize-set-variable
  'display-buffer-alist
- '(("\\*Help\\*" display-buffer-below-selected)
-   ("\\*magit: .*" display-buffer-same-window)
-   ("\\*ruby\\*.*" display-buffer-same-window)
-   ("\\*shell\\*" display-buffer-same-window)))
+ '(("\\*Help\\*" 	display-buffer-below-selected)
+   ("\\*magit: .*" 	display-buffer-same-window)
+   ("\\*ruby\\*.*" 	display-buffer-same-window)
+   ("\\*ansi-term\\*" 	display-buffer-same-window)
+   ("\\*shell\\*" 	display-buffer-same-window)))
 
 ;;;Installs given evil dependency from Melpa (unstable) if necessary,
 ;;;then reverts to initial package archives.
@@ -53,6 +54,34 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;;;Evil-leader configuration
+  (use-package evil-leader
+    :ensure t
+    :init
+    (fset 'highlight-off
+       [?: ?n ?o ?h ?l ?s return])
+    (fset 'put-last-yank
+	  "\"0p")
+    (fset 'put-from-clipboard
+	  "\"*p")
+    (fset 'carriage-return-reverse
+	  [?O escape ?j])
+    :config
+    (global-evil-leader-mode)
+    (evil-leader/set-leader ",")
+    (evil-leader/set-key
+      "," 'other-window
+      "o" 'delete-other-windows
+      "w" 'delete-window
+      "k" 'kill-some-buffers
+      "d" 'cd
+      "h" 'highlight-off
+      "t" 'ansi-term
+      "b" 'mode-line-other-buffer
+      "yp" 'put-last-yank
+      "8p" 'put-from-clipboard
+      "RET" 'carriage-return-reverse))
+
 ;;;Evil configuration
 (use-package evil
   :ensure t
@@ -66,8 +95,10 @@
   :config
   (evil-mode t)
   (dolist (mode '(git-rebase-mode
-		  inf-ruby-mode))
+		  inf-ruby-mode
+		  term-mode))
     (add-to-list 'evil-emacs-state-modes mode))
+  (delete 'term-mode evil-insert-state-modes)
   
   (evil-add-hjkl-bindings occur-mode-map 'emacs
     (kbd "/")       'evil-search-forward
@@ -78,34 +109,6 @@
     (kbd "C-w C-w") 'other-window)
   
   (define-key evil-normal-state-map (kbd "RET") 'carriage-return)
-
-;;;Evil-leader configuration
-  (use-package evil-leader
-    :ensure t
-    :init
-    (fset 'highlight-off
-       [?: ?n ?o ?h ?l ?s return])
-    (fset 'put-last-yank
-	  "\"0p")
-    (fset 'put-from-clipboard
-	  "\"*p")
-
-    (fset 'carriage-return-reverse
-	  [?^ ?O escape ?j])
-
-    :config
-    (global-evil-leader-mode)
-    (evil-leader/set-leader ",")
-    (evil-leader/set-key
-      "," 'other-window
-      "o" 'delete-other-windows
-      "w" 'delete-window
-      "h" 'highlight-off
-      "t" 'ansi-term
-      "b" 'mode-line-other-buffer
-      "yp" 'put-last-yank
-      "8p" 'put-from-clipboard
-      "RET" 'carriage-return-reverse))
 
 ;;;Evil-surround configuration
   (use-package evil-surround
