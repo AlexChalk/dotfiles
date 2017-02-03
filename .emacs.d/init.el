@@ -1,0 +1,1 @@
+/home/adc/.emacs.d/init.el
