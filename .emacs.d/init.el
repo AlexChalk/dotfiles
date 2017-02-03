@@ -161,7 +161,7 @@
 (use-package auto-complete
   :ensure t
   :config
-  (global-auto-complete-mode t)
+  (ac-config-default)
   (setq ac-auto-start 4)
   (setq ac-auto-show-menu 0.8))
 
