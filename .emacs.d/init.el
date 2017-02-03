@@ -74,7 +74,7 @@
       "o" 'delete-other-windows
       "w" 'delete-window
       "k" 'kill-some-buffers
-      "d" 'cd
+      "c" 'cd
       "h" 'highlight-off
       "t" 'ansi-term
       "b" 'mode-line-other-buffer
