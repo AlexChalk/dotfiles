@@ -23,9 +23,25 @@
 (global-set-key (kbd "TAB") 	'self-insert-command)
 (global-set-key (kbd "C-x C-b") 'mode-line-other-buffer)
 (global-set-key (kbd "C-x k") 	'kill-this-buffer)
+(global-set-key (kbd "C-,") 	'other-window)
 (setq scroll-margin 5)
 (setq scroll-step 1)
-(global-linum-mode 1)
+
+;; Tell emacs when to use linum-mode
+(define-global-minor-mode my-global-linum-mode linum-mode
+  (lambda ()
+    (when (not (memq major-mode
+                     (list 'inf-ruby-mode 'shell-mode 'term-mode 'help-mode)))
+      (linum-mode 1))))
+(my-global-linum-mode 1)
+
+;;...and when to use visual-line-mode
+(define-global-minor-mode my-global-visual-line-mode visual-line-mode
+  (lambda ()
+    (when (memq major-mode
+                     (list 'inf-ruby-mode 'help-mode))
+      (visual-line-mode 1))))
+(my-global-visual-line-mode 1)
 
 ;;;Specifies window in which certain buffers open. 
 (customize-set-variable
@@ -65,7 +81,7 @@
     (fset 'put-from-clipboard
 	  "\"*p")
     (fset 'carriage-return-reverse
-	  [?O escape ?j])
+	  [?O escape ?0])
     :config
     (global-evil-leader-mode)
     (evil-leader/set-leader ",")
@@ -95,6 +111,7 @@
   :config
   (evil-mode t)
   (dolist (mode '(git-rebase-mode
+		  flycheck-error-list-mode
 		  inf-ruby-mode
 		  term-mode))
     (add-to-list 'evil-emacs-state-modes mode))
@@ -143,7 +160,7 @@
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
   (sp-local-pair 'markdown-mode "`" nil :actions '(insert))  
   :bind
-  ("C-c C-s" . smartparens-mode)
+  ("C-c s" . smartparens-mode)
   ("C-)" . sp-forward-slurp-sexp)
   ("C-}" . sp-forward-barf-sexp)
   ("C-(" . sp-backward-slurp-sexp)
@@ -170,13 +187,18 @@
   :ensure t
   :bind ("C-x g" . magit-status))
 
+(use-package flycheck
+  :ensure t
+  :bind ("C-c f" . flycheck-mode))
+
 (use-package rvm
   :ensure t
   :init
   (rvm-use-default))
 
 (use-package inf-ruby
-  :ensure t)
+  :ensure t
+  :bind ("C-c r" . inf-ruby))
 
 (use-package rainbow-delimiters
   :ensure t
