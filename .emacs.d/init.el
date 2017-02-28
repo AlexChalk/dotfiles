@@ -187,9 +187,16 @@
   :ensure t
   :bind ("C-x g" . magit-status))
 
+(use-package dumb-jump
+  :ensure t
+  :init
+  (dumb-jump-mode))
+
 (use-package flycheck
   :ensure t
-  :bind ("C-c f" . flycheck-mode))
+  :bind ("C-c f" . flycheck-mode)
+  :config
+  (setq-default flycheck-disabled-checkers '(ruby)))
 
 (use-package rvm
   :ensure t
