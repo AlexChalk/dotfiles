@@ -12,7 +12,7 @@
 (setq package-archives
       '(("gnu elpa"     . "http://elpa.gnu.org/packages/")
 	("org" 		. "http://orgmode.org/elpa/")
-        ("melpa-stable"	. "https://stable.melpa.org/packages/")))
+        ("melpa"	. "https://melpa.org/packages/")))
 
 (setq package-enable-at-startup nil)
 (package-initialize)
@@ -24,6 +24,7 @@
 (global-set-key (kbd "C-x C-b") 'mode-line-other-buffer)
 (global-set-key (kbd "C-x k") 	'kill-this-buffer)
 (global-set-key (kbd "C-,") 	'other-window)
+(set-face-attribute 'default nil :height 140)
 (setq scroll-margin 5)
 (setq scroll-step 1)
 
@@ -46,24 +47,24 @@
 ;;;Specifies window in which certain buffers open. 
 (customize-set-variable
  'display-buffer-alist
- '(("\\*Help\\*" 	display-buffer-below-selected)
-   ("\\*magit: .*" 	display-buffer-same-window)
+ '(("\\*magit: .*" 	display-buffer-same-window)
    ("\\*ruby\\*.*" 	display-buffer-same-window)
    ("\\*ansi-term\\*" 	display-buffer-same-window)
    ("\\*shell\\*" 	display-buffer-same-window)))
 
 ;;;Installs given evil dependency from Melpa (unstable) if necessary,
 ;;;then reverts to initial package archives.
+;;;n.b. Currently trying out Melpa so this is unused for now.
 
-(unless (package-installed-p 'goto-chg)
-  (setq package-archives '(("melpa" . "http://melpa.org/packages/")))
-  (package-refresh-contents)
-  (package-install 'goto-chg)
-  (setq package-archives
-      '(("gnu elpa"     . "http://elpa.gnu.org/packages/")
-	("org" 		. "http://orgmode.org/elpa/")
-        ("melpa-stable"	. "https://stable.melpa.org/packages/")))
-  (package-refresh-contents))
+;(unless (package-installed-p 'goto-chg)
+;  (setq package-archives '(("melpa" . "http://melpa.org/packages/")))
+;  (package-refresh-contents)
+;  (package-install 'goto-chg)
+;  (setq package-archives
+;      '(("gnu elpa"     . "http://elpa.gnu.org/packages/")
+;	("org" 		. "http://orgmode.org/elpa/")
+;        ("melpa-stable"	. "https://stable.melpa.org/packages/")))
+;  (package-refresh-contents))
 
 ;;;Bootloader for use-package.
 (unless (package-installed-p 'use-package)
