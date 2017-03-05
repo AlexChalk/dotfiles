@@ -111,12 +111,12 @@
 	[?A return escape])
   :config
   (evil-mode t)
-  (dolist (mode '(git-rebase-mode
+  (dolist (mode '(help-mode
+		  git-rebase-mode
 		  flycheck-error-list-mode
 		  inf-ruby-mode
 		  term-mode))
-    (add-to-list 'evil-emacs-state-modes mode))
-  (delete 'term-mode evil-insert-state-modes)
+    (evil-set-initial-state mode 'emacs))
   
   (evil-add-hjkl-bindings occur-mode-map 'emacs
     (kbd "/")       'evil-search-forward
