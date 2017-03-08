@@ -32,7 +32,7 @@
 (define-global-minor-mode my-global-linum-mode linum-mode
   (lambda ()
     (when (not (memq major-mode
-                     (list 'inf-ruby-mode 'shell-mode 'term-mode 'help-mode)))
+                     (list 'inf-ruby-mode 'eshell-mode 'shell-mode 'term-mode 'help-mode)))
       (linum-mode 1))))
 (my-global-linum-mode 1)
 
@@ -94,6 +94,7 @@
       "c" 'cd
       "h" 'highlight-off
       "t" 'ansi-term
+      "s" 'eshell
       "b" 'mode-line-other-buffer
       "yp" 'put-last-yank
       "8p" 'put-from-clipboard
@@ -115,6 +116,7 @@
 		  git-rebase-mode
 		  flycheck-error-list-mode
 		  inf-ruby-mode
+		  eshell-mode
 		  term-mode))
     (evil-set-initial-state mode 'emacs))
   
