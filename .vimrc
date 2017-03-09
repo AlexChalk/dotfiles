@@ -41,7 +41,7 @@ set nowrap                " don't wrap text
 "Colours
 syntax enable             " enable syntax highlighting (previously syntax on).
 
-"Use system clipboard (no * or + necessary to copy out of/paste into vim).
+"Use system clipboard.
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
