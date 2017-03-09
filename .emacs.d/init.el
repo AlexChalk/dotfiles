@@ -29,12 +29,8 @@
 (setq scroll-step 1)
 
 ;; Tell emacs when to use linum-mode
-(define-global-minor-mode my-global-linum-mode linum-mode
-  (lambda ()
-    (when (not (memq major-mode
-                     (list 'inf-ruby-mode 'eshell-mode 'shell-mode 'term-mode 'help-mode)))
-      (linum-mode 1))))
-(my-global-linum-mode 1)
+(add-hook 'text-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook 'linum-mode)
 
 ;;...and when to use visual-line-mode
 (define-global-minor-mode my-global-visual-line-mode visual-line-mode
@@ -129,6 +125,7 @@
     (kbd "C-w C-w") 'other-window)
   
   (define-key evil-normal-state-map (kbd "RET") 'carriage-return)
+  (customize-set-variable 'evil-shift-width '2)
 
 ;;;Evil-surround configuration
   (use-package evil-surround
@@ -153,11 +150,12 @@
   :ensure t
   :demand t
   :config
-  (smartparens-global-strict-mode t)
+  (add-hook 'prog-mode-hook 'smartparens-strict-mode)
   (use-package smartparens-config)
   (sp-pair "(" ")" :wrap "M-(")
   (sp-pair "[" "]" :wrap "M-[")
   (sp-pair "{" "}" :wrap "M-{")
+  (sp-pair "<%" "%>" :wrap "M-%")
   (sp-pair "'" "'" :wrap "M-'")
   (sp-pair "\"" "\"" :wrap "M-\"")
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
@@ -170,6 +168,19 @@
   ("C-{" . sp-backward-barf-sexp)
   ("C-M-(" . sp-beginning-of-sexp)
   ("C-M-)" . sp-end-of-sexp))
+
+;;;Web-mode configuration
+(use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (setq web-mode-enable-auto-pairing nil)
+  (setq web-mode-attr-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-indent-style 2)
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-sql-indent-offset 2))
 
 ;;;Configure theme
 (use-package color-theme-sanityinc-solarized
@@ -194,6 +205,12 @@
   :ensure t
   :init
   (dumb-jump-mode))
+
+(use-package tagedit
+  :ensure t
+  :config
+  (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))
+  (tagedit-add-experimental-features))
 
 (use-package flycheck
   :ensure t
@@ -245,6 +262,7 @@
      ("\\*ruby\\*.*" display-buffer-same-window)
      ("\\*ansi-term\\*" display-buffer-same-window)
      ("\\*shell\\*" display-buffer-same-window))))
+ '(evil-shift-width 2)
  '(package-selected-packages
    (quote
-    (use-package smartparens rvm rainbow-delimiters powerline magit inf-ruby helm-projectile flycheck evil-surround evil-leader dumb-jump color-theme-sanityinc-solarized auto-complete))))
+    (tagedit use-package rvm rainbow-delimiters powerline magit inf-ruby helm-projectile flycheck evil-surround evil-leader dumb-jump color-theme-sanityinc-solarized auto-complete))))
