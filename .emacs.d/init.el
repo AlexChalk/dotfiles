@@ -25,6 +25,7 @@
 (global-set-key (kbd "C-x k") 	'kill-this-buffer)
 (global-set-key (kbd "C-,") 	'other-window)
 (set-face-attribute 'default nil :height 140)
+(setq x-select-enable-clipboard nil)
 (setq scroll-margin 5)
 (setq scroll-step 1)
 
@@ -76,7 +77,7 @@
     (fset 'put-last-yank
 	  "\"0p")
     (fset 'put-from-clipboard
-	  "\"*p")
+	  "\"+p")
     (fset 'carriage-return-reverse
 	  [?O escape ?0])
     :config
@@ -155,7 +156,7 @@
   (sp-pair "(" ")" :wrap "M-(")
   (sp-pair "[" "]" :wrap "M-[")
   (sp-pair "{" "}" :wrap "M-{")
-  (sp-pair "<%" "%>" :wrap "M-%")
+  (sp-pair "%" "%" :wrap "M-%")
   (sp-pair "'" "'" :wrap "M-'")
   (sp-pair "\"" "\"" :wrap "M-\"")
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
@@ -163,9 +164,9 @@
   :bind
   ("C-c s" . smartparens-mode)
   ("C-)" . sp-forward-slurp-sexp)
-  ("C-}" . sp-forward-barf-sexp)
-  ("C-(" . sp-backward-slurp-sexp)
-  ("C-{" . sp-backward-barf-sexp)
+  ("C-(" . sp-forward-barf-sexp)
+  ("C-{" . sp-backward-slurp-sexp)
+  ("C-}" . sp-backward-barf-sexp)
   ("C-M-(" . sp-beginning-of-sexp)
   ("C-M-)" . sp-end-of-sexp))
 
