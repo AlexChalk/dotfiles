@@ -88,6 +88,7 @@
       "o" 'delete-other-windows
       "w" 'delete-window
       "k" 'kill-some-buffers
+      "|" 'evil-paste-after
       "c" 'cd
       "h" 'highlight-off
       "t" 'ansi-term
@@ -107,6 +108,8 @@
 	evil-want-fine-undo t)
   (fset 'carriage-return
 	[?A return escape])
+  (fset 'paste-and-indent
+    ",|`[v`]=")
   :config
   (evil-mode t)
   (dolist (mode '(help-mode
@@ -123,9 +126,11 @@
     (kbd "N")       'evil-search-previous
     (kbd "C-d")     'evil-scroll-down
     (kbd "C-u")     'evil-scroll-up
+
     (kbd "C-w C-w") 'other-window)
   
   (define-key evil-normal-state-map (kbd "RET") 'carriage-return)
+  (evil-define-key 'normal global-map (kbd "p")  'paste-and-indent)
   (customize-set-variable 'evil-shift-width '2)
 
 ;;;Evil-surround configuration

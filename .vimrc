@@ -25,7 +25,7 @@ set nohlsearch            " Don't continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
 "Use relativenumber
 set relativenumber
-set number
+"set number  " if uncommented also adds actual line number for current line.
 
 "Tabs and wrapping
 filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
@@ -37,6 +37,7 @@ set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
+:nnoremap p p`[v`]=
 
 "Colours
 syntax enable             " enable syntax highlighting (previously syntax on).
