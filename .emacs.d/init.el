@@ -41,27 +41,14 @@
       (visual-line-mode 1))))
 (my-global-visual-line-mode 1)
 
-;;;Specifies window in which certain buffers open. 
+;;;Specifies window in which certain buffers open.
+
 (customize-set-variable
  'display-buffer-alist
  '(("\\*magit: .*" 	display-buffer-same-window)
    ("\\*ruby\\*.*" 	display-buffer-same-window)
    ("\\*ansi-term\\*" 	display-buffer-same-window)
    ("\\*shell\\*" 	display-buffer-same-window)))
-
-;;;Installs given evil dependency from Melpa (unstable) if necessary,
-;;;then reverts to initial package archives.
-;;;n.b. Currently trying out Melpa so this is unused for now.
-
-;(unless (package-installed-p 'goto-chg)
-;  (setq package-archives '(("melpa" . "http://melpa.org/packages/")))
-;  (package-refresh-contents)
-;  (package-install 'goto-chg)
-;  (setq package-archives
-;      '(("gnu elpa"     . "http://elpa.gnu.org/packages/")
-;	("org" 		. "http://orgmode.org/elpa/")
-;        ("melpa-stable"	. "https://stable.melpa.org/packages/")))
-;  (package-refresh-contents))
 
 ;;;Bootloader for use-package.
 (unless (package-installed-p 'use-package)
@@ -80,6 +67,8 @@
 	  "\"+p")
     (fset 'carriage-return-reverse
 	  [?O escape ?0])
+    (fset 'indent-pasted-text
+	  "`[v`]=")
     :config
     (global-evil-leader-mode)
     (evil-leader/set-leader ",")
@@ -88,7 +77,7 @@
       "o" 'delete-other-windows
       "w" 'delete-window
       "k" 'kill-some-buffers
-      "|" 'evil-paste-after
+      "p" 'indent-pasted-text
       "c" 'cd
       "h" 'highlight-off
       "t" 'ansi-term
@@ -108,8 +97,6 @@
 	evil-want-fine-undo t)
   (fset 'carriage-return
 	[?A return escape])
-  (fset 'paste-and-indent
-    ",|`[v`]=")
   :config
   (evil-mode t)
   (dolist (mode '(help-mode
@@ -130,7 +117,6 @@
     (kbd "C-w C-w") 'other-window)
   
   (define-key evil-normal-state-map (kbd "RET") 'carriage-return)
-  (evil-define-key 'normal global-map (kbd "p")  'paste-and-indent)
   (customize-set-variable 'evil-shift-width '2)
 
 ;;;Evil-surround configuration
