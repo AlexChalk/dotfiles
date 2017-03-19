@@ -1,0 +1,11 @@
+[core]
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+	safecrlf = true
+[user]
+	name = Alex Chalk
+	email = alexchalk17@gmail.com
+[color]
+	ui = auto
+[alias]
+	nicelog = log --oneline --decorate --graph --all
