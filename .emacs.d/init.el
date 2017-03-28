@@ -23,9 +23,11 @@
 (global-set-key (kbd "TAB") 	'self-insert-command)
 (global-set-key (kbd "C-x C-b") 'mode-line-other-buffer)
 (global-set-key (kbd "C-x k") 	'kill-this-buffer)
-(global-set-key (kbd "C-,") 	'other-window)
+(global-unset-key (kbd "C-x C-x"))
+(global-set-key (kbd "C-x C-x C-a") 'exchange-point-and-mark)
+(global-set-key (kbd "C-x C-x C-b") 'other-window)
 (set-face-attribute 'default nil :height 140)
-(setq x-select-enable-clipboard nil)
+;(setq x-select-enable-clipboard nil)
 (setq scroll-margin 5)
 (setq scroll-step 1)
 
@@ -144,12 +146,9 @@
   :config
   (add-hook 'prog-mode-hook 'smartparens-strict-mode)
   (use-package smartparens-config)
-  (sp-pair "(" ")" :wrap "M-(")
-  (sp-pair "[" "]" :wrap "M-[")
-  (sp-pair "{" "}" :wrap "M-{")
-  (sp-pair "%" "%" :wrap "M-%")
-  (sp-pair "'" "'" :wrap "M-'")
-  (sp-pair "\"" "\"" :wrap "M-\"")
+  (sp-pair "'" nil :actions :rem)
+  (sp-pair "\"" nil :actions :rem)
+  (sp-local-pair 'web-mode "%" "%" :wrap "M-%")
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
   (sp-local-pair 'markdown-mode "`" nil :actions '(insert))  
   :bind
@@ -196,7 +195,10 @@
 (use-package dumb-jump
   :ensure t
   :init
-  (dumb-jump-mode))
+  (dumb-jump-mode)
+  :bind
+  ("C-x C-x C-s" . dumb-jump-go)
+  ("C-x C-x C-x" . dumb-jump-go-prefer-external))
 
 (use-package tagedit
   :ensure t
