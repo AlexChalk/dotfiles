@@ -27,9 +27,9 @@
 (global-set-key (kbd "C-x C-x C-a") 'exchange-point-and-mark)
 (global-set-key (kbd "C-x C-x C-b") 'other-window)
 (set-face-attribute 'default nil :height 140)
-;(setq x-select-enable-clipboard nil)
 (setq scroll-margin 5)
 (setq scroll-step 1)
+(setq explicit-shell-file-name "/bin/zsh")
 
 ;; Tell emacs when to use linum-mode
 (add-hook 'text-mode-hook 'linum-mode)
@@ -217,6 +217,9 @@
   :init
   (rvm-use-default))
 
+(use-package rspec-mode
+  :ensure t)
+
 (use-package inf-ruby
   :ensure t
   :bind ("C-c r" . inf-ruby))
@@ -259,4 +262,4 @@
  '(evil-shift-width 2)
  '(package-selected-packages
    (quote
-    (tagedit use-package rvm rainbow-delimiters powerline magit inf-ruby helm-projectile flycheck evil-surround evil-leader dumb-jump color-theme-sanityinc-solarized auto-complete))))
+    (rspec-mode tagedit use-package rvm rainbow-delimiters powerline magit inf-ruby helm-projectile flycheck evil-surround evil-leader dumb-jump color-theme-sanityinc-solarized auto-complete))))

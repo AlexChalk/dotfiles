@@ -1,6 +1,40 @@
 set nocompatible  " Use vim-mode, no vi mode. Should be first command.
+filetype off                  " required
 
-execute pathogen#infect()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-surround'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'vim-airline/vim-airline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ctrlpvim/ctrlp.vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"execute pathogen#infect()
+
+"Airline Settings
+set laststatus=2
+let g:airline_theme='solarized'
+
+"Leader customizations
+let mapleader = ","
+nnoremap <Leader>n :NERDTree<CR>
+
+"Rspec test customizations
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 
 "Editing
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
@@ -28,7 +62,7 @@ set relativenumber
 "set number  " if uncommented also adds actual line number for current line.
 
 "Tabs and wrapping
-filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
+"filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
 set autoindent            " auto-indent
 set tabstop=4             " tab spacing
 set softtabstop=4         " unify
