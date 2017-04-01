@@ -75,6 +75,8 @@ set nowrap                " don't wrap text
 
 "Colours
 syntax enable             " enable syntax highlighting (previously syntax on).
+set background=light
+colorscheme solarized
 
 "Use system clipboard.
 if has('unnamedplus')

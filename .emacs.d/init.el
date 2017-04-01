@@ -142,9 +142,9 @@
 ;;;Smartparens configuration
 (use-package smartparens
   :ensure t
-  :demand t
-  :config
+  :init
   (add-hook 'prog-mode-hook 'smartparens-strict-mode)
+  :config
   (use-package smartparens-config)
   (sp-pair "'" nil :actions :rem)
   (sp-pair "\"" nil :actions :rem)
@@ -159,6 +159,11 @@
   ("C-}" . sp-backward-barf-sexp)
   ("C-M-(" . sp-beginning-of-sexp)
   ("C-M-)" . sp-end-of-sexp))
+(use-package evil-smartparens
+  :ensure t
+  :diminish evil-smartparens-mode
+  :init
+  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
 
 ;;;Web-mode configuration
 (use-package web-mode
@@ -233,6 +238,10 @@
   :ensure t
   :config
   (powerline-default-theme))
+
+(use-package undo-tree
+  :ensure t
+  :diminish undo-tree-mode)
 
 (use-package projectile
   :ensure t)
