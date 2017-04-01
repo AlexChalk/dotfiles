@@ -29,6 +29,7 @@
 (set-face-attribute 'default nil :height 140)
 (setq scroll-margin 5)
 (setq scroll-step 1)
+(setq ns-pop-up-frames nil)
 (setq explicit-shell-file-name "/bin/zsh")
 
 ;; Tell emacs when to use linum-mode
