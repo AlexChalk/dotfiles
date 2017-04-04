@@ -26,7 +26,7 @@
 (global-unset-key (kbd "C-x C-x"))
 (global-set-key (kbd "C-x C-x C-a") 'exchange-point-and-mark)
 (global-set-key (kbd "C-x C-x C-b") 'other-window)
-(set-face-attribute 'default nil :height 140)
+(set-default-font "Menlo for Powerline 14")
 (setq scroll-margin 5)
 (setq scroll-step 1)
 (setq ns-pop-up-frames nil)
@@ -237,6 +237,9 @@
 
 (use-package powerline
   :ensure t
+  :init
+;  (setq powerline-default-separator 'utf-8)
+  (setq ns-use-srgb-colorspace nil)
   :config
   (powerline-default-theme))
 

@@ -23,11 +23,26 @@ filetype plugin indent on    " required
 
 "Airline Settings
 set laststatus=2
-let g:airline_theme='solarized'
+let g:airline_powerline_fonts = 1
+let g:airline_extensions = []
+let g:airline_theme='understated'
+set ttimeoutlen=10
 
-"Leader customizations
+function! AirlineInit()
+  let g:airline_section_a = airline#section#create(['mode'])
+  let g:airline_section_b = airline#section#create(['file'])
+  let g:airline_section_c = airline#section#create([''])
+  let g:airline_section_x = airline#section#create([''])
+  let g:airline_section_y = airline#section#create(['filetype'])
+  let g:airline_section_z = airline#section#create(['%l',':','%c'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+
+"Key customizations
 let mapleader = ","
 nnoremap <Leader>n :NERDTree<CR>
+nnoremap <CR> o<ESC>
+nnoremap <Leader><CR> O<ESC>
 
 "Rspec test customizations
 map <Leader>t :call RunCurrentSpecFile()<CR>
