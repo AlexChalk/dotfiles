@@ -145,6 +145,8 @@
   :ensure t
   :init
   (add-hook 'prog-mode-hook 'smartparens-strict-mode)
+  (add-hook 'ruby-mode-hook 'turn-off-smartparens-mode)
+  (add-hook 'web-mode-hook 'turn-off-smartparens-mode)
   :config
   (use-package smartparens-config)
   (sp-pair "'" nil :actions :rem)
