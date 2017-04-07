@@ -149,6 +149,7 @@
   (sp-pair "'" nil :actions :rem)
   (sp-pair "\"" nil :actions :rem)
   (sp-pair "<" ">")
+  (sp-pair "|" "|")
   (sp-local-pair 'web-mode "%" "%" :wrap "M-%")
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
   (sp-local-pair 'markdown-mode "`" nil :actions '(insert))  
