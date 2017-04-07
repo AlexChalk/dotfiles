@@ -32,14 +32,6 @@
 (setq ns-pop-up-frames nil)
 (setq explicit-shell-file-name "/bin/zsh")
 
-;;;Terminal-specific settings.
-(defun is-in-terminal()
-    (not (display-graphic-p)))
-(defmacro when-term (&rest body)
-  "Works just like `progn' but will only evaluate expressions in VAR when Emacs is running in a terminal else just nil."
-  `(when (is-in-terminal) ,@body))
-(when-term (menu-bar-mode 0))
-
 ;; Tell emacs when to use linum-mode
 (add-hook 'text-mode-hook 'linum-mode)
 (add-hook 'prog-mode-hook 'linum-mode)
@@ -146,16 +138,14 @@
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
   (global-set-key (kbd "M-x") 'helm-M-x)
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
-  (global-set-key (kbd "C-s") 'helm-occur)
-  (when-term (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)))
+  (global-set-key (kbd "C-s") 'helm-occur))
 
 ;;;Smartparens configuration
 (use-package smartparens
   :ensure t
   :init
 ;  (add-hook 'prog-mode-hook 'smartparens-strict-mode)
-  (dolist (hook '(emacs-lisp-mode-hook))
-    (add-hook hook 'smartparens-strict-mode))
+  (dolist (hook '(emacs-lisp-mode-hook)) (add-hook hook 'smartparens-strict-mode))
   :config
   (use-package smartparens-config)
   (sp-pair "'" nil :actions :rem)
@@ -194,7 +184,7 @@
 (use-package color-theme-sanityinc-solarized
   :ensure t
   :config
-  (if (display-graphic-p) (load-theme 'sanityinc-solarized-light t)))
+  (load-theme 'sanityinc-solarized-light t))
 
 ;;;Auto-complete configuration
 (use-package auto-complete
