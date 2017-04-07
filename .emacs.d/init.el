@@ -144,10 +144,8 @@
 (use-package smartparens
   :ensure t
   :init
-;  (add-hook 'prog-mode-hook 'smartparens-strict-mode)
-  (dolist (hook '(emacs-lisp-mode-hook)) (add-hook hook 'smartparens-strict-mode))
+  (add-hook 'prog-mode-hook 'smartparens-strict-mode)
   :config
-  (use-package smartparens-config)
   (sp-pair "'" nil :actions :rem)
   (sp-pair "\"" nil :actions :rem)
   (sp-local-pair 'web-mode "%" "%" :wrap "M-%")
