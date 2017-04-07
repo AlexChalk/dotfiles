@@ -85,8 +85,8 @@ set nohlsearch            " Don't continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
 
 "Use relativenumber
-set relativenumber
-"set number  " if uncommented also adds actual line number for current line.
+"set relativenumber
+set number
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabs and wrapping

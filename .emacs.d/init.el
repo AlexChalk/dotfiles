@@ -64,7 +64,7 @@
     :ensure t
     :init
     (fset 'highlight-off
-       [?: ?n ?o ?h ?l ?s return])
+      [?: ?n ?o ?h ?l ?s return])
     (fset 'put-last-yank
 	  "\"0p")
     (fset 'put-from-clipboard
@@ -82,6 +82,8 @@
       "w" 'delete-window
       "k" 'kill-some-buffers
       "p" 'indent-pasted-text
+      "b" 'evil-prev-buffer
+      "n" 'evil-next-buffer
       "c" 'cd
       "h" 'highlight-off
       "t" 'ansi-term
@@ -152,7 +154,7 @@
   (sp-pair "\"" nil :actions :rem)
   (sp-local-pair 'web-mode "%" "%" :wrap "M-%")
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
-  (sp-local-pair 'markdown-mode "`" nil :actions '(insert))  
+  (sp-local-pair 'markdown-mode "`" nil :actions '(insert))
   :bind
   ("C-c s" . smartparens-mode)
   ("C-)" . sp-forward-slurp-sexp)
@@ -225,7 +227,9 @@
   (rvm-use-default))
 
 (use-package rspec-mode
-  :ensure t)
+  :ensure t
+  :init
+  (add-hook 'ruby-mode-hook #'rspec-mode))
 
 (use-package inf-ruby
   :ensure t
