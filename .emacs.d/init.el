@@ -16,6 +16,7 @@
 
 (setq package-enable-at-startup nil)
 (package-initialize)
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 ;;;Vanilla Emacs settings.
 (global-set-key (kbd "C-c o") 	'occur)
@@ -146,10 +147,9 @@
   :init
   (add-hook 'prog-mode-hook 'smartparens-strict-mode)
   :config
+  (use-package my-smartparens-config)
   (sp-pair "'" nil :actions :rem)
   (sp-pair "\"" nil :actions :rem)
-  (sp-pair "<" ">")
-  (sp-pair "|" "|")
   (sp-local-pair 'web-mode "%" "%" :wrap "M-%")
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
   (sp-local-pair 'markdown-mode "`" nil :actions '(insert))  
