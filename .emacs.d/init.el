@@ -149,12 +149,13 @@
   :init
   (add-hook 'prog-mode-hook 'smartparens-strict-mode)
   :config
-  (use-package my-smartparens-config)
+  (use-package smartparens-config)
   (sp-pair "'" nil :actions :rem)
   (sp-pair "\"" nil :actions :rem)
   (sp-local-pair 'web-mode "%" "%" :wrap "M-%")
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
   (sp-local-pair 'markdown-mode "`" nil :actions '(insert))
+  (eval-after-load 'smartparens-ruby (lambda () (load "sp-custom-ruby")))
   :bind
   ("C-c s" . smartparens-mode)
   ("C-)" . sp-forward-slurp-sexp)
@@ -167,7 +168,9 @@
   :ensure t
   :diminish evil-smartparens-mode
   :init
-  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
+  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
+  :config
+  (eval-after-load 'smartparens-ruby (lambda () (load "sp-custom-ruby"))))
 
 ;;;Web-mode configuration
 (use-package web-mode
