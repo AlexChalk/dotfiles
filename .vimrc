@@ -14,8 +14,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-fugitive'
 Plugin 'thoughtbot/vim-rspec'
-Bundle 'jgdavey/tslime.vim'
+Plugin 'valloric/youcompleteme'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline-themes'
@@ -93,9 +95,9 @@ set number
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
 set autoindent            " auto-indent
-set tabstop=4             " tab spacing
-set softtabstop=4         " unify
-set shiftwidth=4          " indent/outdent by 4 columns
+set tabstop=2             " tab spacing
+set softtabstop=2         " unify
+set shiftwidth=2          " indent/outdent by 4 columns
 set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
@@ -126,3 +128,8 @@ autocmd User AirlineAfterInit call AirlineInit()
 syntax enable             " enable syntax highlighting (previously syntax on).
 set background=light
 colorscheme solarized
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" repeat.vim code
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
