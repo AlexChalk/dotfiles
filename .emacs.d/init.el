@@ -16,31 +16,51 @@
 
 (setq package-enable-at-startup nil)
 (package-initialize)
+
+;;;Other init files go in here.
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-;;;Terminal-specific settings.
+;;;Define when-term: I can use it when I want a setting to be terminal-only.
 (defun is-in-terminal()
     (not (display-graphic-p)))
 (defmacro when-term (&rest body)
   "Works just like `progn' but will only evaluate expressions in VAR when Emacs is running in a terminal else just nil."
   `(when (is-in-terminal) ,@body))
 
-;;;Vanilla Emacs settings.
-(global-set-key (kbd "C-c o") 	'occur)
-(global-set-key (kbd "C-<return>") 'eval-buffer)
-(global-set-key (kbd "TAB") 	'self-insert-command)
-(global-set-key (kbd "C-x C-b") 'mode-line-other-buffer)
-(global-set-key (kbd "C-x k") 	'kill-this-buffer)
-(global-set-key (kbd "C-x p") 	'mark-page)
+;;;Some vanilla emacs settings.
+
+;;Reserve for my own custom bindings.
 (global-unset-key (kbd "C-x C-x"))
-(global-set-key (kbd "C-x C-x C-a") 'exchange-point-and-mark)
+
+;;Buffer navigaton
+(global-set-key (kbd "C-<return>") 'eval-buffer)
 (global-set-key (kbd "C-x C-x C-b") 'other-window)
-(when-term (menu-bar-mode 0))
+(global-set-key (kbd "C-x k") 	'kill-this-buffer)
+(global-set-key (kbd "C-x C-b") 'mode-line-other-buffer)
+(setq ns-pop-up-frames nil)
+
+;;Specify window in which certain buffers will open.
+(customize-set-variable
+ 'display-buffer-alist
+ '(("\\*magit: .*" 	display-buffer-same-window)
+   ("\\*ruby\\*.*" 	display-buffer-same-window)
+   ("\\*ansi-term\\*" 	display-buffer-same-window)
+   ("\\*shell\\*" 	display-buffer-same-window)))
+
+;;Display 
 (set-default-font "Menlo 14")
 (setq scroll-margin 5)
 (setq scroll-step 1)
-(setq ns-pop-up-frames nil)
+(when-term (menu-bar-mode 0))
+
+;;Ansi-term
 (setq explicit-shell-file-name "/bin/zsh")
+
+;;Miscellaneous
+(global-set-key (kbd "C-c o") 	'occur)
+(global-set-key (kbd "C-x p") 	'mark-page)
+(global-set-key (kbd "TAB") 	'self-insert-command)
+(global-set-key (kbd "C-x C-x C-a") 'exchange-point-and-mark)
 
 ;; Tell emacs when to use linum-mode
 (add-hook 'text-mode-hook 'linum-mode)
@@ -50,18 +70,10 @@
 (define-global-minor-mode my-global-visual-line-mode visual-line-mode
   (lambda ()
     (when (memq major-mode
-                     (list 'inf-ruby-mode 'help-mode))
+		(list 'inf-ruby-mode
+		      'help-mode))
       (visual-line-mode 1))))
 (my-global-visual-line-mode 1)
-
-;;;Specifies window in which certain buffers open.
-
-(customize-set-variable
- 'display-buffer-alist
- '(("\\*magit: .*" 	display-buffer-same-window)
-   ("\\*ruby\\*.*" 	display-buffer-same-window)
-   ("\\*ansi-term\\*" 	display-buffer-same-window)
-   ("\\*shell\\*" 	display-buffer-same-window)))
 
 ;;;Bootloader for use-package.
 (unless (package-installed-p 'use-package)
