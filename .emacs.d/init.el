@@ -24,6 +24,7 @@
 (global-set-key (kbd "TAB") 	'self-insert-command)
 (global-set-key (kbd "C-x C-b") 'mode-line-other-buffer)
 (global-set-key (kbd "C-x k") 	'kill-this-buffer)
+(global-set-key (kbd "C-x p") 	'mark-page)
 (global-unset-key (kbd "C-x C-x"))
 (global-set-key (kbd "C-x C-x C-a") 'exchange-point-and-mark)
 (global-set-key (kbd "C-x C-x C-b") 'other-window)
@@ -259,7 +260,7 @@
 
 (use-package helm-projectile
   :ensure t
-  :bind ("C-x p" . helm-projectile))
+  :bind ("C-x C-p" . helm-projectile))
 
 ;;;Emacs custom-set-* settings (Emacs advises that you leave these alone!)
 (custom-set-faces
