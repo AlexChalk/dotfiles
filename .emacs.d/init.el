@@ -18,6 +18,13 @@
 (package-initialize)
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
+;;;Terminal-specific settings.
+(defun is-in-terminal()
+    (not (display-graphic-p)))
+(defmacro when-term (&rest body)
+  "Works just like `progn' but will only evaluate expressions in VAR when Emacs is running in a terminal else just nil."
+  `(when (is-in-terminal) ,@body))
+
 ;;;Vanilla Emacs settings.
 (global-set-key (kbd "C-c o") 	'occur)
 (global-set-key (kbd "C-<return>") 'eval-buffer)
@@ -28,7 +35,8 @@
 (global-unset-key (kbd "C-x C-x"))
 (global-set-key (kbd "C-x C-x C-a") 'exchange-point-and-mark)
 (global-set-key (kbd "C-x C-x C-b") 'other-window)
-(set-default-font "Menlo for Powerline 14")
+(when-term (menu-bar-mode 0))
+(set-default-font "Menlo 14")
 (setq scroll-margin 5)
 (setq scroll-step 1)
 (setq ns-pop-up-frames nil)
@@ -142,7 +150,8 @@
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
   (global-set-key (kbd "M-x") 'helm-M-x)
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
-  (global-set-key (kbd "C-s") 'helm-occur))
+  (global-set-key (kbd "C-s") 'helm-occur)
+  (when-term (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)))
 
 ;;;Smartparens configuration
 (use-package smartparens
@@ -190,7 +199,14 @@
 (use-package color-theme-sanityinc-solarized
   :ensure t
   :config
-  (load-theme 'sanityinc-solarized-light t))
+  (if (display-graphic-p)
+    (load-theme 'sanityinc-solarized-light t)))
+
+(when-term
+ (use-package monokai-theme
+   :ensure t
+   :config
+   (load-theme 'monokai t)))
 
 ;;;Auto-complete configuration
 (use-package auto-complete
@@ -244,12 +260,13 @@
   :init
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-(use-package powerline
-  :ensure t
-  :init
-  (setq ns-use-srgb-colorspace nil)
-  :config
-  (powerline-default-theme))
+(if (display-graphic-p) 
+  (use-package powerline
+    :ensure t
+    :init
+    (setq ns-use-srgb-colorspace nil)
+    :config
+    (powerline-default-theme)))
 
 (use-package undo-tree
   :ensure t
