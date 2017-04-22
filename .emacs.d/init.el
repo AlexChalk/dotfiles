@@ -180,12 +180,12 @@
   (eval-after-load 'smartparens-ruby (lambda () (load "sp-custom-ruby")))
   :bind
   ("C-c s" . smartparens-mode)
-  ("C-)" . sp-forward-slurp-sexp)
-  ("C-(" . sp-forward-barf-sexp)
-  ("C-{" . sp-backward-slurp-sexp)
-  ("C-}" . sp-backward-barf-sexp)
-  ("C-M-(" . sp-beginning-of-sexp)
-  ("C-M-)" . sp-end-of-sexp))
+  ("M-)" . sp-forward-slurp-sexp)
+  ("M-(" . sp-forward-barf-sexp)
+  ("M-{" . sp-backward-slurp-sexp)
+  ("M-}" . sp-backward-barf-sexp)
+  ("M-[" . sp-beginning-of-sexp)
+  ("M-]" . sp-end-of-sexp))
 (use-package evil-smartparens
   :ensure t
   :diminish evil-smartparens-mode
@@ -215,10 +215,10 @@
     (load-theme 'sanityinc-solarized-light t)))
 
 (when-term
- (use-package monokai-theme
-   :ensure t
-   :config
-   (load-theme 'monokai t)))
+  (use-package gruvbox-theme
+    :ensure t
+    :config
+    (load-theme 'gruvbox t)))
 
 ;;;Auto-complete configuration
 (use-package auto-complete
