@@ -19,6 +19,7 @@
 
 ;;;Other init files go in here.
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(require 'init-custom)
 
 ;;;Define when-term: I can use it when I want a setting to be terminal-only.
 (defun is-in-terminal()
@@ -37,6 +38,7 @@
 (global-set-key (kbd "C-x C-x C-b") 'other-window)
 (global-set-key (kbd "C-x k") 	'kill-this-buffer)
 (global-set-key (kbd "C-x C-b") 'mode-line-other-buffer)
+(when-term (global-set-key (kbd "C-x C-v") 'mode-line-other-buffer))
 (setq ns-pop-up-frames nil)
 
 ;;Specify window in which certain buffers will open.
@@ -169,7 +171,9 @@
 (use-package smartparens
   :ensure t
   :init
-  (add-hook 'prog-mode-hook 'smartparens-strict-mode)
+  (dolist (mode-hook '(emacs-lisp-mode-hook))
+    (add-hook mode-hook 'smartparens-strict-mode))
+  ;(add-hook 'prog-mode-hook 'smartparens-strict-mode)
   :config
   (use-package smartparens-config)
   (sp-pair "'" nil :actions :rem)
@@ -208,17 +212,10 @@
   (setq web-mode-sql-indent-offset 2))
 
 ;;;Configure theme
-(use-package color-theme-sanityinc-solarized
+(use-package color-theme-sanityinc-tomorrow
   :ensure t
   :config
-  (if (display-graphic-p)
-    (load-theme 'sanityinc-solarized-light t)))
-
-(when-term
-  (use-package gruvbox-theme
-    :ensure t
-    :config
-    (load-theme 'gruvbox t)))
+  (load-theme 'sanityinc-tomorrow-eighties))
 
 ;;;Auto-complete configuration
 (use-package auto-complete
@@ -272,13 +269,12 @@
   :init
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-(if (display-graphic-p) 
-  (use-package powerline
-    :ensure t
-    :init
-    (setq ns-use-srgb-colorspace nil)
-    :config
-    (powerline-default-theme)))
+(use-package smart-mode-line
+  :ensure t
+  :init
+  (setq sml/no-confirm-load-theme t)
+  (setq sml/theme 'respectful)
+  (sml/setup))
 
 (use-package undo-tree
   :ensure t
@@ -290,26 +286,3 @@
 (use-package helm-projectile
   :ensure t
   :bind ("C-x C-p" . helm-projectile))
-
-;;;Emacs custom-set-* settings (Emacs advises that you leave these alone!)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(powerline-active1 ((t (:background "#073642" :foreground "#93a1a1")))))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(display-buffer-alist
-   (quote
-    (("\\*magit: .*" display-buffer-same-window)
-     ("\\*ruby\\*.*" display-buffer-same-window)
-     ("\\*ansi-term\\*" display-buffer-same-window)
-     ("\\*shell\\*" display-buffer-same-window))))
- '(evil-shift-width 2)
- '(package-selected-packages
-   (quote
-    (rspec-mode tagedit use-package rvm rainbow-delimiters powerline magit inf-ruby helm-projectile flycheck evil-surround evil-leader dumb-jump color-theme-sanityinc-solarized auto-complete))))

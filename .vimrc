@@ -16,6 +16,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'valloric/youcompleteme'
+Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-fugitive'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'vim-airline/vim-airline'
@@ -109,7 +110,7 @@ set nowrap                " don't wrap text
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_extensions = []
-let g:airline_theme='understated'
+"let g:airline_theme='understated'
 set ttimeoutlen=10
 
 function! AirlineInit()
@@ -126,8 +127,10 @@ autocmd User AirlineAfterInit call AirlineInit()
 " Theme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable             " enable syntax highlighting (previously syntax on).
-set background=light
-colorscheme solarized
+"set background=light
+"colorscheme solarized
+set background=dark
+colorscheme gruvbox
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " repeat.vim code
