@@ -1,9 +1,10 @@
 ;;;;adc17's emacs.d/init.el file (I started doing this properly on 12/29/2016). 
 
 ;;;Specifies how emacs window will initially render.
-(setq initial-frame-alist '((top . 0) (left . 190) (width . 100) (height . 40)))
+(setq initial-frame-alist '((top . 0) (left . 100) (width . 150) (height . 50)))
 (setq inhibit-splash-screen t)
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;;;Adds package archives and disables package loading until init file has been executed.
 
@@ -171,7 +172,8 @@
 (use-package smartparens
   :ensure t
   :init
-  (dolist (mode-hook '(emacs-lisp-mode-hook))
+  (dolist (mode-hook '(emacs-lisp-mode-hook
+		       clojure-mode-hook))
     (add-hook mode-hook 'smartparens-strict-mode))
   ;(add-hook 'prog-mode-hook 'smartparens-strict-mode)
   :config
@@ -212,10 +214,17 @@
   (setq web-mode-sql-indent-offset 2))
 
 ;;;Configure theme
-(use-package color-theme-sanityinc-tomorrow
+(use-package color-theme-sanityinc-solarized
   :ensure t
   :config
-  (load-theme 'sanityinc-tomorrow-eighties))
+  (if (display-graphic-p)
+    (load-theme 'sanityinc-solarized-dark)))
+
+(when-term
+  (use-package gruvbox-theme
+    :ensure t
+    :config
+      (load-theme 'gruvbox)))
 
 ;;;Auto-complete configuration
 (use-package auto-complete
@@ -264,6 +273,18 @@
   :ensure t
   :bind ("C-c r" . inf-ruby))
 
+(use-package clojure-mode
+  :ensure t)
+
+(use-package cider
+  :ensure t)
+
+(use-package aggressive-indent
+  :ensure t
+  :init
+  (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+  (add-hook 'clojure-mode-hook #'aggressive-indent-mode))
+
 (use-package rainbow-delimiters
   :ensure t
   :init
@@ -286,3 +307,27 @@
 (use-package helm-projectile
   :ensure t
   :bind ("C-x C-p" . helm-projectile))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("10e231624707d46f7b2059cc9280c332f7c7a530ebc17dba7e506df34c5332c4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
+ '(display-buffer-alist
+   (quote
+    (("\\*magit: .*" display-buffer-same-window)
+     ("\\*ruby\\*.*" display-buffer-same-window)
+     ("\\*ansi-term\\*" display-buffer-same-window)
+     ("\\*shell\\*" display-buffer-same-window))))
+ '(evil-shift-width 2)
+ '(package-selected-packages
+   (quote
+    (zenburn-theme solarized-theme smart-mode-line-powerline-theme smart-mode-line rspec-mode tagedit use-package rvm rainbow-delimiters powerline magit inf-ruby helm-projectile flycheck evil-surround evil-leader dumb-jump color-theme-sanityinc-solarized auto-complete))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(powerline-active1 ((t (:background "#073642" :foreground "#93a1a1")))))

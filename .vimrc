@@ -127,8 +127,6 @@ autocmd User AirlineAfterInit call AirlineInit()
 " Theme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable             " enable syntax highlighting (previously syntax on).
-"set background=light
-"colorscheme solarized
 set background=dark
 colorscheme gruvbox
 
