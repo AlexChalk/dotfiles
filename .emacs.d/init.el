@@ -278,10 +278,7 @@
   :ensure t)
 
 (use-package cider
-  :ensure t
-  :bind (:map cider-repl-mode-map
-	      ("C-p" . cider-repl-backward-input)
-	      ("C-n" . cider-repl-forward-input)))
+  :ensure t)
 
 (use-package aggressive-indent
   :ensure t
