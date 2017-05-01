@@ -131,6 +131,7 @@
   (evil-mode t)
   (dolist (mode '(help-mode
 		  git-rebase-mode
+		  cider-repl-mode
 		  flycheck-error-list-mode
 		  inf-ruby-mode
 		  eshell-mode
@@ -277,7 +278,10 @@
   :ensure t)
 
 (use-package cider
-  :ensure t)
+  :ensure t
+  :bind (:map cider-repl-mode-map
+	      ("C-p" . cider-repl-backward-input)
+	      ("C-n" . cider-repl-forward-input)))
 
 (use-package aggressive-indent
   :ensure t

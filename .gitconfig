@@ -9,3 +9,5 @@
 	ui = auto
 [alias]
 	nicelog = log --oneline --decorate --graph --all
+[diff]
+	renames = copies

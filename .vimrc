@@ -15,7 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'valloric/youcompleteme'
+Plugin 'lifepillar/vim-mucomplete'
 Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-fugitive'
 Plugin 'thoughtbot/vim-rspec'
@@ -34,8 +34,8 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
 nnoremap <Leader>f :NERDTree<CR>
-nnoremap <Leader>b :bnext<CR>
-nnoremap <Leader>n :bNext<CR>
+nnoremap <Leader>b :bNext<CR>
+nnoremap <Leader>n :bnext<CR>
 nnoremap <CR> o<ESC>
 nnoremap <Leader><CR> O<ESC>
 nnoremap p p`[v`]=
@@ -122,6 +122,17 @@ function! AirlineInit()
     let g:airline_section_z = airline#section#create(['%l',':','%c'])
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autocomplete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set completeopt+=menuone
+inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
+inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
+inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
+set completeopt+=noselect
+set shortmess+=c
+let g:mucomplete#enable_auto_at_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
