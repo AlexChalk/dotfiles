@@ -164,6 +164,7 @@
   :config
   (helm-mode 1)
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+  (setq helm-split-window-in-side-p t)
   (global-set-key (kbd "M-x") 'helm-M-x)
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
   (global-set-key (kbd "C-s") 'helm-occur)
@@ -176,7 +177,7 @@
   (dolist (mode-hook '(emacs-lisp-mode-hook
 		       clojure-mode-hook))
     (add-hook mode-hook 'smartparens-strict-mode))
-  ;(add-hook 'prog-mode-hook 'smartparens-strict-mode)
+  (add-hook 'web-mode-hook 'smartparens-mode)
   :config
   (use-package smartparens-config)
   (sp-pair "'" nil :actions :rem)
@@ -219,7 +220,7 @@
   :ensure t
   :config
   (if (display-graphic-p)
-    (load-theme 'sanityinc-solarized-dark)))
+      (load-theme 'sanityinc-solarized-dark)))
 
 (when-term
   (use-package gruvbox-theme
@@ -236,6 +237,9 @@
   (setq ac-auto-show-menu 0.8))
 
 ;;;(Short) configuration settings for other packages.
+(use-package flymd
+  :ensure t)
+
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status))
@@ -268,7 +272,8 @@
 (use-package rspec-mode
   :ensure t
   :init
-  (add-hook 'ruby-mode-hook #'rspec-mode))
+  (add-hook 'ruby-mode-hook #'rspec-mode)
+  (add-hook 'web-mode-hook #'rspec-mode))
 
 (use-package inf-ruby
   :ensure t
@@ -289,7 +294,8 @@
 (use-package rainbow-delimiters
   :ensure t
   :init
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+  (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode))
 
 (use-package smart-mode-line
   :ensure t
