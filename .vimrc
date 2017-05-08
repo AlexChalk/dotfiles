@@ -14,6 +14,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
+Plugin 'Chiel92/vim-autoformat'
 Plugin 'tpope/vim-repeat'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'morhetz/gruvbox'
@@ -53,6 +54,14 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autoformat
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:autoformat_verbosemode=1
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Editing Misc. 

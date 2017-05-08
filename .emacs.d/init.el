@@ -59,6 +59,9 @@
 ;;Ansi-term
 (setq explicit-shell-file-name "/bin/zsh")
 
+;;Javascript indent level
+(setq js-indent-level 2)
+
 ;;Miscellaneous
 (global-set-key (kbd "C-c o") 	'occur)
 (global-set-key (kbd "C-x p") 	'mark-page)
@@ -84,38 +87,38 @@
   (package-install 'use-package))
 
 ;;;Evil-leader configuration
-  (use-package evil-leader
-    :ensure t
-    :init
-    (fset 'highlight-off
-      [?: ?n ?o ?h ?l ?s return])
-    (fset 'put-last-yank
-	  "\"0p")
-    (fset 'put-from-clipboard
-	  "\"+p")
-    (fset 'carriage-return-reverse
-	  [?O escape ?0])
-    (fset 'indent-pasted-text
-	  "`[v`]=")
-    :config
-    (global-evil-leader-mode)
-    (evil-leader/set-leader ",")
-    (evil-leader/set-key
-      "," 'other-window
-      "o" 'delete-other-windows
-      "w" 'delete-window
-      "k" 'kill-some-buffers
-      "p" 'indent-pasted-text
-      "b" 'evil-prev-buffer
-      "n" 'evil-next-buffer
-      "c" 'cd
-      "h" 'highlight-off
-      "t" 'ansi-term
-      "s" 'eshell
-      "b" 'mode-line-other-buffer
-      "yp" 'put-last-yank
-      "8p" 'put-from-clipboard
-      "RET" 'carriage-return-reverse))
+(use-package evil-leader
+  :ensure t
+  :init
+  (fset 'highlight-off
+	[?: ?n ?o ?h ?l ?s return])
+  (fset 'put-last-yank
+	"\"0p")
+  (fset 'put-from-clipboard
+	"\"+p")
+  (fset 'carriage-return-reverse
+	[?O escape ?0])
+  (fset 'indent-pasted-text
+	"`[v`]=")
+  :config
+  (global-evil-leader-mode)
+  (evil-leader/set-leader ",")
+  (evil-leader/set-key
+    "," 'other-window
+    "o" 'delete-other-windows
+    "w" 'delete-window
+    "k" 'kill-some-buffers
+    "p" 'indent-pasted-text
+    "b" 'evil-prev-buffer
+    "n" 'evil-next-buffer
+    "c" 'cd
+    "h" 'highlight-off
+    "t" 'ansi-term
+    "s" 'eshell
+    "b" 'mode-line-other-buffer
+    "yp" 'put-last-yank
+    "8p" 'put-from-clipboard
+    "RET" 'carriage-return-reverse))
 
 ;;;Evil configuration
 (use-package evil
@@ -237,6 +240,16 @@
   (setq ac-auto-show-menu 0.8))
 
 ;;;(Short) configuration settings for other packages.
+
+(use-package web-beautify
+  :ensure t)
+
+(use-package exec-path-from-shell
+  :ensure t
+  :init
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+
 (use-package flymd
   :ensure t)
 
@@ -261,8 +274,10 @@
 (use-package flycheck
   :ensure t
   :bind ("C-c f" . flycheck-mode)
+  :init
+  (add-hook 'js-mode-hook #'flycheck-mode)
   :config
-  (setq-default flycheck-disabled-checkers '(ruby)))
+  (setq-default flycheck-disabled-checkers '(ruby javascript-standard)))
 
 (use-package rvm
   :ensure t
