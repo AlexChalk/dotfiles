@@ -180,7 +180,8 @@
   (dolist (mode-hook '(emacs-lisp-mode-hook
 		       clojure-mode-hook))
     (add-hook mode-hook 'smartparens-strict-mode))
-  (add-hook 'web-mode-hook 'smartparens-mode)
+  (dolist (mode-hook '(web-mode-hook))
+    (add-hook mode-hook 'smartparens-mode))
   :config
   (use-package smartparens-config)
   (sp-pair "'" nil :actions :rem)
