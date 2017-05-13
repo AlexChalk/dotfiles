@@ -61,6 +61,7 @@
 
 ;;Javascript indent level
 (setq js-indent-level 2)
+(setq css-indent-offset 2)
 
 ;;Miscellaneous
 (global-set-key (kbd "C-c o") 	'occur)
