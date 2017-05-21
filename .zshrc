@@ -10,7 +10,7 @@ export ZSH=/Users/adc/.oh-my-zsh
 
 # Launch terminal emacs from terminal with 'emacs'
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-alias tree='tree -I "*~|*#"'
+alias tree='tree -I "*~|*#|node_modules"'
 alias chrome='open -a "Google Chrome"'
 
 # Speedy startup in spite of nvm

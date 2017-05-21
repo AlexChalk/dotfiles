@@ -63,6 +63,9 @@
 (setq js-indent-level 2)
 (setq css-indent-offset 2)
 
+;;No tabs, only spaces
+(setq-default indent-tabs-mode nil)
+
 ;;Miscellaneous
 (global-set-key (kbd "C-c o") 	'occur)
 (global-set-key (kbd "C-x p") 	'mark-page)
@@ -212,6 +215,7 @@
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
   (setq web-mode-enable-auto-pairing nil)
   (setq web-mode-attr-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
@@ -279,7 +283,7 @@
   :init
   (add-hook 'js-mode-hook #'flycheck-mode)
   :config
-  (setq-default flycheck-disabled-checkers '(ruby javascript-standard)))
+  (setq-default flycheck-disabled-checkers '(ruby javascript-standard javascript-eslint)))
 
 (use-package rvm
   :ensure t
