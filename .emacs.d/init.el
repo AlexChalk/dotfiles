@@ -64,7 +64,9 @@
 (setq css-indent-offset 2)
 
 ;;No tabs, only spaces
-(setq-default indent-tabs-mode nil)
+(add-hook 'js-mode-hook
+          '(lambda ()
+             (setq-default indent-tabs-mode nil)))
 
 ;;Miscellaneous
 (global-set-key (kbd "C-c o") 	'occur)
