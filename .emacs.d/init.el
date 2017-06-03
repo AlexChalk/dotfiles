@@ -12,8 +12,8 @@
 
 (setq package-archives
       '(("gnu elpa"     . "http://elpa.gnu.org/packages/")
-	("org" 		. "http://orgmode.org/elpa/")
-        ("melpa"	. "https://melpa.org/packages/")))
+        ("org"          . "http://orgmode.org/elpa/")
+        ("melpa"        . "https://melpa.org/packages/")))
 
 (setq package-enable-at-startup nil)
 (package-initialize)
@@ -37,7 +37,7 @@
 ;;Buffer navigaton
 (global-set-key (kbd "C-<return>") 'eval-buffer)
 (global-set-key (kbd "C-x C-x C-b") 'other-window)
-(global-set-key (kbd "C-x k") 	'kill-this-buffer)
+(global-set-key (kbd "C-x k")   'kill-this-buffer)
 (global-set-key (kbd "C-x C-b") 'mode-line-other-buffer)
 (when-term (global-set-key (kbd "C-x C-v") 'mode-line-other-buffer))
 (setq ns-pop-up-frames nil)
@@ -45,10 +45,10 @@
 ;;Specify window in which certain buffers will open.
 (customize-set-variable
  'display-buffer-alist
- '(("\\*magit: .*" 	display-buffer-same-window)
-   ("\\*ruby\\*.*" 	display-buffer-same-window)
-   ("\\*ansi-term\\*" 	display-buffer-same-window)
-   ("\\*shell\\*" 	display-buffer-same-window)))
+ '(("\\*magit: .*"      display-buffer-same-window)
+   ("\\*ruby\\*.*"      display-buffer-same-window)
+   ("\\*ansi-term\\*"   display-buffer-same-window)
+   ("\\*shell\\*"       display-buffer-same-window)))
 
 ;;Display 
 (set-default-font "Menlo 14")
@@ -69,10 +69,11 @@
              (setq-default indent-tabs-mode nil)))
 
 ;;Miscellaneous
-(global-set-key (kbd "C-c o") 	'occur)
-(global-set-key (kbd "C-x p") 	'mark-page)
-(global-set-key (kbd "TAB") 	'self-insert-command)
+(global-set-key (kbd "C-c o")   'occur)
+(global-set-key (kbd "C-x p")   'mark-page)
+(global-set-key (kbd "TAB")     'self-insert-command)
 (global-set-key (kbd "C-x C-x C-a") 'exchange-point-and-mark)
+(setq-default indent-tabs-mode nil)
 
 ;; Tell emacs when to use linum-mode
 (add-hook 'text-mode-hook 'linum-mode)
@@ -82,8 +83,8 @@
 (define-global-minor-mode my-global-visual-line-mode visual-line-mode
   (lambda ()
     (when (memq major-mode
-		(list 'inf-ruby-mode
-		      'help-mode))
+                (list 'inf-ruby-mode
+                      'help-mode))
       (visual-line-mode 1))))
 (my-global-visual-line-mode 1)
 
@@ -97,15 +98,15 @@
   :ensure t
   :init
   (fset 'highlight-off
-	[?: ?n ?o ?h ?l ?s return])
+        [?: ?n ?o ?h ?l ?s return])
   (fset 'put-last-yank
-	"\"0p")
+        "\"0p")
   (fset 'put-from-clipboard
-	"\"+p")
+        "\"+p")
   (fset 'carriage-return-reverse
-	[?O escape ?0])
+        [?O escape ?0])
   (fset 'indent-pasted-text
-	"`[v`]=")
+        "`[v`]=")
   :config
   (global-evil-leader-mode)
   (evil-leader/set-leader ",")
@@ -131,20 +132,20 @@
   :ensure t
   :init
   (setq evil-search-module 'evil-search
-	evil-want-C-u-scroll t
-	evil-want-C-w-in-emacs-state t
-	evil-want-fine-undo t)
+        evil-want-C-u-scroll t
+        evil-want-C-w-in-emacs-state t)
+        ;evil-want-fine-undo t
   (fset 'carriage-return
-	[?A return escape])
+        [?A return escape])
   :config
   (evil-mode t)
   (dolist (mode '(help-mode
-		  git-rebase-mode
-		  cider-repl-mode
-		  flycheck-error-list-mode
-		  inf-ruby-mode
-		  eshell-mode
-		  term-mode))
+                  git-rebase-mode
+                  cider-repl-mode
+                  flycheck-error-list-mode
+                  inf-ruby-mode
+                  eshell-mode
+                  term-mode))
     (evil-set-initial-state mode 'emacs))
   
   (evil-add-hjkl-bindings occur-mode-map 'emacs
@@ -179,46 +180,13 @@
   (global-set-key (kbd "C-s") 'helm-occur)
   (when-term (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)))
 
-;;;Smartparens configuration
-(use-package smartparens
-  :ensure t
-  :init
-  (dolist (mode-hook '(emacs-lisp-mode-hook
-		       clojure-mode-hook))
-    (add-hook mode-hook 'smartparens-strict-mode))
-  (dolist (mode-hook '(web-mode-hook))
-    (add-hook mode-hook 'smartparens-mode))
-  :config
-  (use-package smartparens-config)
-  (sp-pair "'" nil :actions :rem)
-  (sp-pair "\"" nil :actions :rem)
-  (sp-local-pair 'web-mode "%" "%" :wrap "M-%")
-  (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
-  (sp-local-pair 'markdown-mode "`" nil :actions '(insert))
-  (eval-after-load 'smartparens-ruby (lambda () (load "sp-custom-ruby")))
-  :bind
-  ("C-c s" . smartparens-mode)
-  ("M-)" . sp-forward-slurp-sexp)
-  ("M-(" . sp-forward-barf-sexp)
-  ("M-{" . sp-backward-slurp-sexp)
-  ("M-}" . sp-backward-barf-sexp)
-  ("M-[" . sp-beginning-of-sexp)
-  ("M-]" . sp-end-of-sexp))
-(use-package evil-smartparens
-  :ensure t
-  :diminish evil-smartparens-mode
-  :init
-  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
-  :config
-  (eval-after-load 'smartparens-ruby (lambda () (load "sp-custom-ruby"))))
-
 ;;;Web-mode configuration
 (use-package web-mode
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
-  (setq web-mode-enable-auto-pairing nil)
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (setq web-mode-attr-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
@@ -226,18 +194,31 @@
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-sql-indent-offset 2))
 
+;;;Parinfer configuration
+(use-package parinfer
+  :ensure t
+  :bind
+  (("C-," . parinfer-toggle-mode))
+  :init
+  (progn
+    (setq parinfer-extensions
+          '(defaults       ; should be included.
+             pretty-parens  ; different paren styles for different modes.
+             evil           ; If you use Evil.
+            ;lispy          ; If you use Lispy. With this extension, you should install Lispy and do not enable lispy-mode directly.
+             paredit        ; Introduce some paredit commands.
+             smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
+             smart-yank))   ; Yank behavior depend on mode.
+
+    (dolist (mode-hook '(emacs-lisp-mode-hook
+                         clojure-mode-hook))
+      (add-hook mode-hook 'parinfer-mode))))
+
 ;;;Configure theme
-(use-package color-theme-sanityinc-solarized
+(use-package gruvbox-theme
   :ensure t
   :config
-  (if (display-graphic-p)
-      (load-theme 'sanityinc-solarized-dark)))
-
-(when-term
-  (use-package gruvbox-theme
-    :ensure t
-    :config
-      (load-theme 'gruvbox)))
+  (load-theme 'gruvbox))
 
 ;;;Auto-complete configuration
 (use-package auto-complete
@@ -273,19 +254,15 @@
   ("C-x C-x C-s" . dumb-jump-go)
   ("C-x C-x C-x" . dumb-jump-go-prefer-external))
 
-(use-package tagedit
-  :ensure t
-  :config
-  (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))
-  (tagedit-add-experimental-features))
-
 (use-package flycheck
   :ensure t
   :bind ("C-c f" . flycheck-mode)
   :init
-  (add-hook 'js-mode-hook #'flycheck-mode)
+  (dolist (mode-hook '(js-mode-hook))
+                      ;ruby-mode-hook
+    (add-hook mode-hook #'flycheck-mode))
   :config
-  (setq-default flycheck-disabled-checkers '(ruby javascript-standard javascript-eslint)))
+  (setq-default flycheck-disabled-checkers '(ruby javascript-standard javascript-jshint)))
 
 (use-package rvm
   :ensure t
@@ -307,12 +284,6 @@
 
 (use-package cider
   :ensure t)
-
-(use-package aggressive-indent
-  :ensure t
-  :init
-  (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
-  (add-hook 'clojure-mode-hook #'aggressive-indent-mode))
 
 (use-package rainbow-delimiters
   :ensure t

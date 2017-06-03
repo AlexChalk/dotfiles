@@ -16,5 +16,5 @@
  '(package-selected-packages
    (quote
     (zenburn-theme solarized-theme smart-mode-line-powerline-theme smart-mode-line rspec-mode tagedit use-package rvm rainbow-delimiters powerline magit inf-ruby helm-projectile flycheck evil-surround evil-leader dumb-jump color-theme-sanityinc-solarized auto-complete))))
-
+ 
 (provide 'init-custom)
