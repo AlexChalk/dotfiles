@@ -18,31 +18,23 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-;;;Other init files go in here.
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(require 'init-custom)
+;;; Bootloader for use-package.
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
-;;;Define when-term: I can use it when I want a setting to be terminal-only.
-(defun is-in-terminal()
-  (not (display-graphic-p)))
-(defmacro when-term (&rest body)
-  "Works just like `progn' but will only evaluate expressions in VAR when Emacs is running in a terminal else just nil."
-  `(when (is-in-terminal) ,@body))
-
-;;;Some vanilla emacs settings.
-
-;;Reserve for my own custom bindings.
+;;; Some vanilla emacs settings.
+;; Reserve for my own custom bindings.
 (global-unset-key (kbd "C-x C-x"))
 
-;;Buffer navigaton
+;; Buffer navigaton
 (global-set-key (kbd "C-<return>") 'eval-buffer)
 (global-set-key (kbd "C-x C-x C-b") 'other-window)
 (global-set-key (kbd "C-x k")   'kill-this-buffer)
 (global-set-key (kbd "C-x C-b") 'mode-line-other-buffer)
-(when-term (global-set-key (kbd "C-x C-v") 'mode-line-other-buffer))
 (setq ns-pop-up-frames nil)
 
-;;Specify window in which certain buffers will open.
+;; Specify window in which certain buffers will open.
 (customize-set-variable
  'display-buffer-alist
  '(("\\*magit: .*"      display-buffer-same-window)
@@ -50,60 +42,18 @@
    ("\\*ansi-term\\*"   display-buffer-same-window)
    ("\\*shell\\*"       display-buffer-same-window)))
 
-;; Shell copy and paste for osx.
-(when-term
-  (defun copy-from-osx ()
-    (shell-command-to-string "pbpaste"))
-  (defun paste-to-osx (text &optional push)
-    (let ((process-connection-type nil))
-      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-        (process-send-string proc text)
-        (process-send-eof proc))))
-  (defun clipboard-on ()
-    (interactive)
-    (setq interprogram-cut-function 'paste-to-osx)
-    (setq interprogram-paste-function 'copy-from-osx))
-  (defun clipboard-off ()
-    (interactive)
-    (setq interprogram-cut-function 'gui-select-text)
-    (setq interprogram-paste-function 'gui-selection-value))
-  (global-set-key (kbd "C-c C-p") 'clipboard-on)
-  (global-set-key (kbd "C-c C-y") 'clipboard-off))
-
-;;Display 
-(set-default-font "Menlo 14")
+;; Display
+(set-default-font "Roboto Mono 15")
 (setq scroll-margin 5)
 (setq scroll-step 1)
-(when-term (menu-bar-mode 0))
 
-;Turn off scroll margin in terminal/repl buffers
-(dolist (mode-hook '(cider-repl-mode-hook
-                     inf-ruby-mode-hook
-                     eshell-mode-hook
-                     term-mode-hook))
-  (add-hook mode-hook
-            '(lambda()
-               (make-local-variable 'scroll-margin)
-               (setq scroll-margin 0))))
-
-;;Ansi-term
-(setq explicit-shell-file-name "/bin/zsh")
-
-;;Javascript indent level
-(setq js-indent-level 2)
-(setq css-indent-offset 2)
-
-;;No tabs, only spaces
-(add-hook 'js-mode-hook
-          '(lambda ()
-             (setq-default indent-tabs-mode nil)))
-
-;;Miscellaneous
+;; Miscellaneous
 (global-set-key (kbd "C-c o")   'occur)
 (global-set-key (kbd "C-x p")   'mark-page)
 (global-set-key (kbd "TAB")     'self-insert-command)
 (global-set-key (kbd "C-x C-x C-a") 'exchange-point-and-mark)
 (setq-default indent-tabs-mode nil)
+(setq explicit-shell-file-name "/bin/zsh")
 
 ;; Tell emacs when to use linum-mode
 (add-hook 'text-mode-hook 'linum-mode)
@@ -118,13 +68,63 @@
       (visual-line-mode 1))))
 (my-global-visual-line-mode 1)
 
-;;;Bootloader for use-package.
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+;;; Filetype-specific settings
+;; Javascript indent level
+(setq js-indent-level 2)
+(setq css-indent-offset 2)
 
+;; No tabs, only spaces
+(add-hook 'js-mode-hook
+          '(lambda ()
+             (setq-default indent-tabs-mode nil)))
+
+;Turn off scroll margin in terminal/repl buffers
+(dolist (mode-hook '(cider-repl-mode-hook
+                     inf-ruby-mode-hook
+                     eshell-mode-hook
+                     term-mode-hook))
+  (add-hook mode-hook
+            '(lambda()
+               (make-local-variable 'scroll-margin)
+               (setq scroll-margin 0))))
+
+;;; Settings for terminal emacs
+;; Define when-term: I can use it when I want a setting to be terminal-only.
+(defun is-in-terminal()
+  (not (display-graphic-p)))
+(defmacro when-term (&rest body)
+  "Works just like `progn' but will only evaluate expressions in VAR when Emacs is running in a terminal else just nil."
+  `(when (is-in-terminal) ,@body))
+
+;; Copy to osx clipboard
+(when-term
+  (defun copy-to-clipboard (text &optional push)
+    (let ((process-connection-type nil))
+      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+        (process-send-string proc text)
+        (process-send-eof proc))))
+  (setq interprogram-cut-function 'copy-to-clipboard))
+
+;; Misc
+(when-term (global-set-key (kbd "C-x C-v") 'mode-line-other-buffer))
+(when-term (menu-bar-mode 0))
+
+;;; Other init files go in here.
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(require 'init-custom)
 (require 'init-evil)
-;;;Helm configuration
+(require 'init-short-package-configs)
+
+;;; Configure theme
+(use-package gruvbox-theme
+  :ensure t
+  :init
+  (setq gruvbox-contrast 'soft)
+  :config
+  (load-theme 'gruvbox))
+
+;;;; Package configs that are >6 lines in length
+;;; Helm configuration
 (use-package helm
   :ensure t
   :demand t
@@ -138,7 +138,11 @@
   (global-set-key (kbd "C-s") 'helm-occur)
   (when-term (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)))
 
-;;;Web-mode configuration
+(use-package helm-projectile
+  :ensure t
+  :bind ("C-x C-p" . helm-projectile))
+
+;;; Web-mode configuration
 (use-package web-mode
   :ensure t
   :config
@@ -152,7 +156,7 @@
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-sql-indent-offset 2))
 
-;;;Parinfer configuration
+;;; Parinfer configuration
 (use-package parinfer
   :ensure t
   :bind
@@ -163,8 +167,6 @@
           '(defaults       ; should be included.
              pretty-parens  ; different paren styles for different modes.
              evil           ; If you use Evil.
-            ;lispy          ; If you use Lispy. With this extension, you should install Lispy and do not enable lispy-mode directly.
-            ;paredit        ; Introduce some paredit commands.
              smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
              smart-yank))   ; Yank behavior depend on mode.
 
@@ -172,16 +174,7 @@
                          clojure-mode-hook))
       (add-hook mode-hook 'parinfer-mode))))
 
-;;;Configure theme
-(use-package gruvbox-theme
-  :ensure t
-  :init
-  (setq gruvbox-contrast 'soft)
-  ;(gruvbox-light0          "#ffd7a6" "#ffffaf")
-  :config
-  (load-theme 'gruvbox))
-
-;;;Auto-complete configuration
+;;; Other >6 line length configs
 (use-package auto-complete
   :ensure t
   :config
@@ -189,23 +182,14 @@
   (setq ac-auto-start 4)
   (setq ac-auto-show-menu 0.8))
 
-;;;(Short) configuration settings for other packages.
-
-(use-package web-beautify
-  :ensure t)
-
-(use-package exec-path-from-shell
+(use-package flycheck
   :ensure t
+  :bind ("C-c f" . flycheck-mode)
   :init
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)))
-
-(use-package flymd
-  :ensure t)
-
-(use-package magit
-  :ensure t
-  :bind ("C-x g" . magit-status))
+  (dolist (mode-hook '(js-mode-hook))
+    (add-hook mode-hook #'flycheck-mode))
+  :config
+  (setq-default flycheck-disabled-checkers '(ruby javascript-standard javascript-jshint)))
 
 (use-package dumb-jump
   :ensure t
@@ -215,70 +199,6 @@
   ("C-x C-x C-s" . dumb-jump-go)
   ("C-x C-x C-x" . dumb-jump-go-prefer-external))
 
-(use-package flycheck
-  :ensure t
-  :bind ("C-c f" . flycheck-mode)
-  :init
-  (dolist (mode-hook '(js-mode-hook))
-                                        ;ruby-mode-hook
-    (add-hook mode-hook #'flycheck-mode))
-  :config
-  (setq-default flycheck-disabled-checkers '(ruby javascript-standard javascript-jshint)))
-
-(use-package rvm
-  :ensure t
-  :init
-  (rvm-use-default))
-
-(use-package rspec-mode
-  :ensure t
-  :init
-  (add-hook 'ruby-mode-hook #'rspec-mode)
-  (add-hook 'web-mode-hook #'rspec-mode))
-
-(use-package inf-ruby
-  :ensure t
-  :bind ("C-c r" . inf-ruby))
-
-(use-package clojure-mode
-  :ensure t)
-
-(use-package cider
-  :ensure t)
-
-(use-package rainbow-delimiters
-  :ensure t
-  :init
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-  (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode))
-
-(use-package smart-mode-line
-  :ensure t
-  :init
-  (setq sml/no-confirm-load-theme t)
-  (setq sml/theme 'respectful)
-  (sml/setup))
-
-(use-package undo-tree
-  :ensure t
-  :diminish undo-tree-mode)
-
-(use-package projectile
-  :ensure t)
-
-(use-package helm-projectile
-  :ensure t
-  :bind ("C-x C-p" . helm-projectile))
-
-(use-package json-mode
-  :ensure t)
-
-(use-package yaml-mode
-  :ensure t)
-
-(use-package eshell-z
-  :ensure t)
-
 (use-package eshell-prompt-extras
   :ensure t
   :init
@@ -286,3 +206,6 @@
     (autoload 'epe-theme-lambda "eshell-prompt-extras")
     (setq eshell-highlight-prompt nil
           eshell-prompt-function 'epe-theme-lambda)))
+
+(use-package eshell-z
+  :ensure t)
