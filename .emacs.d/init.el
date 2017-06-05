@@ -1,7 +1,7 @@
 ;;;;adc17's emacs.d/init.el file (I started doing this properly on 12/29/2016). 
 
 ;;;Specifies how emacs window will initially render.
-(setq initial-frame-alist '((top . 0) (left . 100) (width . 150) (height . 50)))
+(setq initial-frame-alist '((top . 0) (left . 97) (width . 140) (height . 50)))
 (setq inhibit-splash-screen t)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -24,7 +24,7 @@
 
 ;;;Define when-term: I can use it when I want a setting to be terminal-only.
 (defun is-in-terminal()
-    (not (display-graphic-p)))
+  (not (display-graphic-p)))
 (defmacro when-term (&rest body)
   "Works just like `progn' but will only evaluate expressions in VAR when Emacs is running in a terminal else just nil."
   `(when (is-in-terminal) ,@body))
@@ -50,11 +50,41 @@
    ("\\*ansi-term\\*"   display-buffer-same-window)
    ("\\*shell\\*"       display-buffer-same-window)))
 
+;; Shell copy and paste for osx.
+(when-term
+  (defun copy-from-osx ()
+    (shell-command-to-string "pbpaste"))
+  (defun paste-to-osx (text &optional push)
+    (let ((process-connection-type nil))
+      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+        (process-send-string proc text)
+        (process-send-eof proc))))
+  (defun clipboard-on ()
+    (interactive)
+    (setq interprogram-cut-function 'paste-to-osx)
+    (setq interprogram-paste-function 'copy-from-osx))
+  (defun clipboard-off ()
+    (interactive)
+    (setq interprogram-cut-function 'gui-select-text)
+    (setq interprogram-paste-function 'gui-selection-value))
+  (global-set-key (kbd "C-c C-p") 'clipboard-on)
+  (global-set-key (kbd "C-c C-y") 'clipboard-off))
+
 ;;Display 
 (set-default-font "Menlo 14")
 (setq scroll-margin 5)
 (setq scroll-step 1)
 (when-term (menu-bar-mode 0))
+
+;Turn off scroll margin in terminal/repl buffers
+(dolist (mode-hook '(cider-repl-mode-hook
+                     inf-ruby-mode-hook
+                     eshell-mode-hook
+                     term-mode-hook))
+  (add-hook mode-hook
+            '(lambda()
+               (make-local-variable 'scroll-margin)
+               (setq scroll-margin 0))))
 
 ;;Ansi-term
 (setq explicit-shell-file-name "/bin/zsh")
@@ -93,79 +123,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;;;Evil-leader configuration
-(use-package evil-leader
-  :ensure t
-  :init
-  (fset 'highlight-off
-        [?: ?n ?o ?h ?l ?s return])
-  (fset 'put-last-yank
-        "\"0p")
-  (fset 'put-from-clipboard
-        "\"+p")
-  (fset 'carriage-return-reverse
-        [?O escape ?0])
-  (fset 'indent-pasted-text
-        "`[v`]=")
-  :config
-  (global-evil-leader-mode)
-  (evil-leader/set-leader ",")
-  (evil-leader/set-key
-    "," 'other-window
-    "o" 'delete-other-windows
-    "w" 'delete-window
-    "k" 'kill-some-buffers
-    "p" 'indent-pasted-text
-    "b" 'evil-prev-buffer
-    "n" 'evil-next-buffer
-    "c" 'cd
-    "h" 'highlight-off
-    "t" 'ansi-term
-    "s" 'eshell
-    "b" 'mode-line-other-buffer
-    "yp" 'put-last-yank
-    "8p" 'put-from-clipboard
-    "RET" 'carriage-return-reverse))
-
-;;;Evil configuration
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-search-module 'evil-search
-        evil-want-C-u-scroll t
-        evil-want-C-w-in-emacs-state t)
-        ;evil-want-fine-undo t
-  (fset 'carriage-return
-        [?A return escape])
-  :config
-  (evil-mode t)
-  (dolist (mode '(help-mode
-                  git-rebase-mode
-                  cider-repl-mode
-                  flycheck-error-list-mode
-                  inf-ruby-mode
-                  eshell-mode
-                  term-mode))
-    (evil-set-initial-state mode 'emacs))
-  
-  (evil-add-hjkl-bindings occur-mode-map 'emacs
-    (kbd "/")       'evil-search-forward
-    (kbd "n")       'evil-search-next
-    (kbd "N")       'evil-search-previous
-    (kbd "C-d")     'evil-scroll-down
-    (kbd "C-u")     'evil-scroll-up
-
-    (kbd "C-w C-w") 'other-window)
-  
-  (define-key evil-normal-state-map (kbd "RET") 'carriage-return)
-  (customize-set-variable 'evil-shift-width '2)
-
-;;;Evil-surround configuration
-  (use-package evil-surround
-    :ensure t
-    :config
-    (global-evil-surround-mode 1)))
-
+(require 'init-evil)
 ;;;Helm configuration
 (use-package helm
   :ensure t
@@ -206,7 +164,7 @@
              pretty-parens  ; different paren styles for different modes.
              evil           ; If you use Evil.
             ;lispy          ; If you use Lispy. With this extension, you should install Lispy and do not enable lispy-mode directly.
-             paredit        ; Introduce some paredit commands.
+            ;paredit        ; Introduce some paredit commands.
              smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
              smart-yank))   ; Yank behavior depend on mode.
 
@@ -217,6 +175,9 @@
 ;;;Configure theme
 (use-package gruvbox-theme
   :ensure t
+  :init
+  (setq gruvbox-contrast 'soft)
+  ;(gruvbox-light0          "#ffd7a6" "#ffffaf")
   :config
   (load-theme 'gruvbox))
 
@@ -259,7 +220,7 @@
   :bind ("C-c f" . flycheck-mode)
   :init
   (dolist (mode-hook '(js-mode-hook))
-                      ;ruby-mode-hook
+                                        ;ruby-mode-hook
     (add-hook mode-hook #'flycheck-mode))
   :config
   (setq-default flycheck-disabled-checkers '(ruby javascript-standard javascript-jshint)))
@@ -308,3 +269,20 @@
 (use-package helm-projectile
   :ensure t
   :bind ("C-x C-p" . helm-projectile))
+
+(use-package json-mode
+  :ensure t)
+
+(use-package yaml-mode
+  :ensure t)
+
+(use-package eshell-z
+  :ensure t)
+
+(use-package eshell-prompt-extras
+  :ensure t
+  :init
+  (with-eval-after-load "esh-opt"
+    (autoload 'epe-theme-lambda "eshell-prompt-extras")
+    (setq eshell-highlight-prompt nil
+          eshell-prompt-function 'epe-theme-lambda)))
