@@ -120,7 +120,6 @@
   :ensure t
   :init
   (setq gruvbox-contrast 'soft)
-  :config
   (load-theme 'gruvbox))
 
 ;;;; Package configs that are >6 lines in length
@@ -145,7 +144,8 @@
 ;;; Web-mode configuration
 (use-package web-mode
   :ensure t
-  :config
+  :defer t
+  :init
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
@@ -177,10 +177,12 @@
 ;;; Other >6 line length configs
 (use-package auto-complete
   :ensure t
+  :init
+  (add-hook 'robe-mode-hook 'ac-robe-setup)
+  (setq ac-auto-show-menu 0.4)
   :config
   (ac-config-default)
-  (setq ac-auto-start 4)
-  (setq ac-auto-show-menu 0.8))
+  (global-auto-complete-mode t))
 
 (use-package flycheck
   :ensure t
@@ -188,13 +190,10 @@
   :init
   (dolist (mode-hook '(js-mode-hook))
     (add-hook mode-hook #'flycheck-mode))
-  :config
   (setq-default flycheck-disabled-checkers '(ruby javascript-standard javascript-jshint)))
 
 (use-package dumb-jump
   :ensure t
-  :init
-  (dumb-jump-mode)
   :bind
   ("C-x C-x C-s" . dumb-jump-go)
   ("C-x C-x C-x" . dumb-jump-go-prefer-external))
@@ -209,3 +208,8 @@
 
 (use-package eshell-z
   :ensure t)
+
+(use-package robe
+  :ensure t
+  :init
+  (add-hook 'ruby-mode-hook 'robe-mode))

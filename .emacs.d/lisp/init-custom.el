@@ -15,11 +15,11 @@
  '(evil-shift-width 2)
  '(package-selected-packages
    (quote
-    (eshell-z zenburn-theme yaml-mode xclip web-mode web-beautify use-package tagedit spacemacs-theme solarized-theme smart-mode-line-powerline-theme rvm rspec-mode rainbow-delimiters parinfer magit json-mode inf-ruby helm-projectile gruvbox-theme flymd flycheck exec-path-from-shell evil-surround evil-leader dumb-jump dash-functional darktooth-theme dakrone-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cider badwolf-theme auto-complete aggressive-indent))))
+    (robe eshell-z zenburn-theme yaml-mode xclip web-mode web-beautify use-package tagedit spacemacs-theme solarized-theme smart-mode-line-powerline-theme rvm rspec-mode rainbow-delimiters parinfer magit json-mode inf-ruby helm-projectile gruvbox-theme flymd flycheck exec-path-from-shell evil-surround evil-leader dumb-jump dash-functional darktooth-theme dakrone-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cider badwolf-theme auto-complete aggressive-indent))))
 (custom-set-faces)
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-
+ 
 (provide 'init-custom)

@@ -22,7 +22,7 @@
 
 (use-package rvm
   :ensure t
-  :init
+  :config
   (rvm-use-default))
 
 (use-package exec-path-from-shell
@@ -52,9 +52,6 @@
   :ensure t)
 
 (use-package cider
-  :ensure t)
-
-(use-package projectile
   :ensure t)
 
 (use-package json-mode
