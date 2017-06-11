@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="/usr/local/bin:$PATH"
+# export PATH="/usr/local/bin:$PATH"
+# Add n (nvm alternative) to PATH
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -10,11 +12,10 @@ export ZSH=/Users/adc/.oh-my-zsh
 
 # Launch terminal emacs from terminal with 'emacs'
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-alias tree='tree -I "*~|*#|node_modules"'
+alias tree='tree -I "*~|*#|node_modules|sprockets"'
 alias chrome='open -a "Google Chrome"'
-
-# Speedy startup in spite of nvm
-# export NVM_LAZY_LOAD=true
+#alias vim='nvim'
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -68,7 +69,7 @@ ZSH_THEME="fishy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-nvm git brew osx)
+plugins=(git brew osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,3 +102,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  
+
+# added by travis gem
+[ -f /Users/adc/.travis/travis.sh ] && source /Users/adc/.travis/travis.sh
