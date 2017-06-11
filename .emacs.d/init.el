@@ -43,7 +43,7 @@
    ("\\*shell\\*"       display-buffer-same-window)))
 
 ;; Display
-(set-default-font "Roboto Mono 15")
+(set-default-font "Menlo 14")
 (setq scroll-margin 5)
 (setq scroll-step 1)
 
