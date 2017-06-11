@@ -13,17 +13,31 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-surround'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'tpope/vim-repeat'
+Plugin 'christoomey/vim-system-copy'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-highlight'
+"Plugin 'janko-m/vim-test'
+Plugin 'junegunn/rainbow_parentheses.vim'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'morhetz/gruvbox'
-Plugin 'tpope/vim-fugitive'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-repeat'
+Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-scripts/ReplaceWithRegister'
+Plugin 'w0rp/ale'
+if has("nvim")
+  Plugin 'neovim/node-host'
+  Plugin 'clojure-vim/nvim-parinfer.js'
+endif
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -40,6 +54,11 @@ nnoremap <Leader>n :bnext<CR>
 nnoremap <CR> o<ESC>
 nnoremap <Leader><CR> O<ESC>
 nnoremap p p`[v`]=
+nnoremap P P`[v`]=
+if has("nvim")
+  nnoremap <c-s> :w<CR>
+endif
+
 "Frame movement commands
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -47,13 +66,31 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Linting with ALE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_linters = {
+      \ 'javascript': ['eslint'],
+      \ 'ruby': [],
+      \}
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rspec test customizations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
-map <Leader>t :call RunCurrentSpecFile()<CR>
+if has("nvim")
+  let g:rspec_command = "vsplit | term bundle exec rspec {spec}"
+endif
+map <Leader>v :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
+map <Leader>f :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CtrlP
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules',
+  \}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autoformat
@@ -95,15 +132,11 @@ set ruler		" show the cursor position all the time
 set incsearch		" do incremental searching
 set nohlsearch            " Don't continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
-
-"Use relativenumber
-"set relativenumber
 set number
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabs and wrapping
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
 set autoindent            " auto-indent
 set tabstop=2             " tab spacing
 set softtabstop=2         " unify
@@ -114,12 +147,19 @@ set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Rainbow Parens
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType lisp,elisp,racket,clojure,scheme RainbowParentheses
+augroup END
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_extensions = []
-"let g:airline_theme='understated'
 set ttimeoutlen=10
 
 function! AirlineInit()
