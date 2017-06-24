@@ -14,6 +14,7 @@ export ZSH=/Users/adc/.oh-my-zsh
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 alias tree='tree -I "*~|*#|node_modules|sprockets"'
 alias chrome='open -a "Google Chrome"'
+alias wdio='./node_modules/.bin/wdio wdio.conf.js'
 #alias vim='nvim'
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
