@@ -60,16 +60,18 @@ nnoremap P P`[v`]=
 " C-s bindings for neovim (don't work in vim)
 if has("nvim")
   nnoremap <c-s> :w<CR>
-  imap <C-s> <esc>:w<cr>
+  imap <C-s> <esc>:w<CR>
 endif
 
+" Nerdtree equivalent
+nnoremap <Leader>f :e .<CR>
 " Escape hatch from help files
 autocmd Filetype help nnoremap <buffer> q :q<CR>
 
 " Open and source vimrc
-nmap <leader>ro :sp $MYVIMRC<cr>
-nmap <leader>rt :tabedit ~/.vimrc<cr>
-nmap <leader>rs :source $MYVIMRC<cr>
+nmap <leader>co :sp $MYVIMRC<cr>
+nmap <leader>ct :tabedit ~/.vimrc<cr>
+nmap <leader>cs :source $MYVIMRC<cr>
 
 " Pre-populate a split command with the current directory
 nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
