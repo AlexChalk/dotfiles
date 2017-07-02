@@ -67,9 +67,9 @@ endif
 autocmd Filetype help nnoremap <buffer> q :q<CR>
 
 " Open and source vimrc
-nmap <leader>sr :sp $MYVIMRC<cr>
-nmap <leader>vi :tabedit ~/.vimrc<cr>
-nmap <leader>so :source $MYVIMRC<cr>
+nmap <leader>ro :sp $MYVIMRC<cr>
+nmap <leader>rt :tabedit ~/.vimrc<cr>
+nmap <leader>rs :source $MYVIMRC<cr>
 
 " Pre-populate a split command with the current directory
 nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
