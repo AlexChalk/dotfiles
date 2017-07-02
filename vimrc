@@ -34,6 +34,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'w0rp/ale'
 if has("nvim")
+  Plugin 'machakann/vim-highlightedyank'
   Plugin 'neovim/node-host'
   Plugin 'clojure-vim/nvim-parinfer.js'
 endif
@@ -171,6 +172,9 @@ set incsearch		          " do incremental searching
 set nohlsearch            " Don't continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
 set number
+if has("nvim")
+  set inccommand=nosplit
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabs and wrapping
