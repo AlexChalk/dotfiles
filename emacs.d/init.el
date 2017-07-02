@@ -116,11 +116,10 @@
 (require 'init-short-package-configs)
 
 ;;; Configure theme
-(use-package gruvbox-theme
+(use-package color-theme-sanityinc-tomorrow
   :ensure t
-  :init
-  (setq gruvbox-contrast 'soft)
-  (load-theme 'gruvbox))
+  :config)
+(load-theme 'sanityinc-tomorrow-eighties)
 
 ;;;; Package configs that are >6 lines in length
 ;;; Helm configuration

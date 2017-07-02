@@ -24,7 +24,6 @@ Plugin 'mxw/vim-jsx'
 Plugin 'junegunn/rainbow_parentheses.vim'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'morhetz/gruvbox'
-Plugin 'scrooloose/nerdtree'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
@@ -45,21 +44,44 @@ filetype plugin indent on    " required
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key Customizations
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Change leader and change space to prior leader functionality
 let mapleader = ","
-nnoremap <Leader>f :NERDTree<CR>
-nnoremap <Leader>b :bNext<CR>
-nnoremap <Leader>n :bnext<CR>
-nnoremap <CR> o<ESC>
-nnoremap <Leader><CR> O<ESC>
-nnoremap p p`[v`]=
-nnoremap P P`[v`]=
-if has("nvim")
-  nnoremap <c-s> :w<CR>
-endif
 nnoremap <space> ,
 
-"Frame movement commands
+" Start new lines from within normal mode
+nnoremap <CR> o<ESC>
+nnoremap <Leader><CR> O<ESC>
+
+" Autocorrect indentation after pasting
+nnoremap p p`[v`]=
+nnoremap P P`[v`]=
+
+" C-s bindings for neovim (don't work in vim)
+if has("nvim")
+  nnoremap <c-s> :w<CR>
+  imap <C-s> <esc>:w<cr>
+endif
+
+" Escape hatch from help files
+autocmd Filetype help nnoremap <buffer> q :q<CR>
+
+" Open and source vimrc
+nmap <leader>sr :sp $MYVIMRC<cr>
+nmap <leader>vi :tabedit ~/.vimrc<cr>
+nmap <leader>so :source $MYVIMRC<cr>
+
+" Pre-populate a split command with the current directory
+nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+
+" Copy the entire buffer into the system register
+nmap <leader>co ggVG"+y
+
+" Move up and down by visible lines if current line is wrapped
+nmap j gj
+nmap k gk
+
+" Frame movement commands
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
@@ -67,14 +89,20 @@ nnoremap <c-l> <c-w>l
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
+
 " zoom a vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim Tmux Runner
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>sl :VtrSendLinesToRunner<cr>
 nnoremap <leader>sf :VtrSendFile<cr>
 nnoremap <leader>sc :VtrSendCommand<cr>
 nnoremap <leader>sa :VtrAttachToPane<cr>
 nnoremap <leader>sr :VtrFocusRunner<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linting with ALE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -91,10 +119,7 @@ let g:jsx_ext_required = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rspec test customizations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("nvim")
-  let g:rspec_command = "vsplit | term bundle exec rspec {spec}"
-endif
-"let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
+let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
 map <Leader>rv :call RunCurrentSpecFile()<CR>
 map <Leader>rs :call RunNearestSpec()<CR>
 map <Leader>rf :call RunLastSpec()<CR>
@@ -119,16 +144,15 @@ let g:autoformat_remove_trailing_spaces = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Editing Misc. 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set backspace=indent,eol,start      " Allow backspacing over everything in insert mode.
-set scrolloff=3	                	" maintain slight scroll
-map Q gq                            " Don't use Ex mode, use Q for formatting
-set showcmd		                    " display incomplete commands
-set history=50	                	" keep 50 lines of command line history
-set ignorecase                      " Make searches case-insensitive.
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
+set backspace=indent,eol,start    " Allow backspacing over everything in insert mode.
+set scrolloff=3	                 	" Maintain slight scroll
+set showcmd		                    " Display incomplete commands
+set history=50	                 	" Keep 50 lines of command line history
+set ignorecase                    " Make searches case-insensitive.
+set textwidth=80                  " Make it obvious where 80 characters is
+set colorcolumn=+1
+set splitbelow
+set splitright
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
@@ -143,9 +167,8 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guifont=Consolas:h13 " just in case I decide to use the gui
-set ruler		" show the cursor position all the time
-set incsearch		" do incremental searching
+set ruler		              " show the cursor position all the time
+set incsearch		          " do incremental searching
 set nohlsearch            " Don't continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
 set number
@@ -160,7 +183,7 @@ set shiftwidth=2          " indent/outdent by 4 columns
 set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
-set nowrap                " don't wrap text
+set wrap                  " don't wrap text
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rainbow Parens
@@ -198,6 +221,26 @@ inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
 set completeopt+=noselect
 set shortmess+=c
 let g:mucomplete#enable_auto_at_startup = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ag
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+
+  if !exists(":Ag")
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+  endif
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
