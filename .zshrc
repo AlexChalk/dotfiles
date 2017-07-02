@@ -1,6 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export PATH="/usr/local/bin:$PATH"
+
+# Add personal scripts to PATH
+export PATH="$PATH:$HOME/dotfiles/custom-binaries"
+
 # Add n (nvm alternative) to PATH
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 

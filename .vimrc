@@ -15,12 +15,15 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'christoomey/vim-system-copy'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-runner'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
 "Plugin 'janko-m/vim-test'
 Plugin 'jelera/vim-javascript-syntax'
 "Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'junegunn/rainbow_parentheses.vim'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'morhetz/gruvbox'
@@ -30,10 +33,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'vim-scripts/JavaScript-Indent'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'w0rp/ale'
@@ -61,6 +62,7 @@ nnoremap P P`[v`]=
 if has("nvim")
   nnoremap <c-s> :w<CR>
 endif
+nnoremap <space> ,
 
 "Frame movement commands
 nnoremap <c-j> <c-w>j
@@ -68,6 +70,16 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+nnoremap <leader>sl :VtrSendLinesToRunner<cr>
+nnoremap <leader>sf :VtrSendFile<cr>
+nnoremap <leader>sc :VtrSendCommand<cr>
+nnoremap <leader>sa :VtrAttachToPane<cr>
+nnoremap <leader>sr :VtrFocusRunner<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linting with ALE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -77,15 +89,21 @@ let g:ale_linters = {
       \}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" JSX
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jsx_ext_required = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rspec test customizations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("nvim")
   let g:rspec_command = "vsplit | term bundle exec rspec {spec}"
 endif
-map <Leader>v :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>f :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+"let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
+map <Leader>rv :call RunCurrentSpecFile()<CR>
+map <Leader>rs :call RunNearestSpec()<CR>
+map <Leader>rf :call RunLastSpec()<CR>
+map <Leader>ra :call RunAllSpecs()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
