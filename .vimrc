@@ -12,7 +12,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -20,9 +19,7 @@ Plugin 'christoomey/vim-tmux-runner'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
-"Plugin 'janko-m/vim-test'
 Plugin 'jelera/vim-javascript-syntax'
-"Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'junegunn/rainbow_parentheses.vim'
 Plugin 'lifepillar/vim-mucomplete'
@@ -35,7 +32,6 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-scripts/JavaScript-Indent'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'w0rp/ale'
 if has("nvim")
@@ -45,7 +41,6 @@ endif
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-"execute pathogen#infect()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
