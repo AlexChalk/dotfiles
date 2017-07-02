@@ -129,9 +129,6 @@ map <Leader>ra :call RunAllSpecs()<CR>
 " CtrlP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  'node_modules',
-  \}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autoformat
