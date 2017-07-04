@@ -1,5 +1,9 @@
-set nocompatible  " Use vim-mode, no vi mode. Should be first command.
-filetype plugin indent on    " required
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Top settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+filetype plugin indent on
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -34,6 +38,7 @@ if has("nvim")
 endif
 
 call plug#end()
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key Customizations
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -110,10 +115,10 @@ let g:ale_linters = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Parinfer
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" if has("nvim")
-"   nnoremap <leader>pp :let g:parinfer_mode = "paren"<cr>
-"   nnoremap <leader>pi :let g:parinfer_mode = "indent"<cr>
-" endif
+if has("nvim")
+  nnoremap <leader>pp :let g:parinfer_mode = "paren"<cr>
+  nnoremap <leader>pi :let g:parinfer_mode = "indent"<cr>
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " JSX
