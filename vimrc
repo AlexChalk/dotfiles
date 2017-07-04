@@ -1,48 +1,39 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible  " Use vim-mode, no vi mode. Should be first command.
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'christoomey/vim-system-copy'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'christoomey/vim-tmux-runner'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-clojure-highlight'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'mxw/vim-jsx'
-Plugin 'junegunn/rainbow_parentheses.vim'
-Plugin 'lifepillar/vim-mucomplete'
-Plugin 'morhetz/gruvbox'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-scripts/ReplaceWithRegister'
-Plugin 'w0rp/ale'
-if has("nvim")
-  Plugin 'machakann/vim-highlightedyank'
-  Plugin 'neovim/node-host'
-  Plugin 'clojure-vim/nvim-parinfer.js'
-endif
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim Plug
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
 
+Plug 'Chiel92/vim-autoformat'
+Plug 'christoomey/vim-system-copy'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-highlight'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'mxw/vim-jsx'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'lifepillar/vim-mucomplete'
+Plug 'morhetz/gruvbox'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'w0rp/ale'
+if has("nvim")
+  Plug 'machakann/vim-highlightedyank'
+  Plug 'neovim/node-host'
+  Plug 'clojure-vim/nvim-parinfer.js'
+endif
 
+call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key Customizations
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -70,7 +61,7 @@ nnoremap <Leader>f :e .<CR>
 autocmd Filetype help nnoremap <buffer> q :q<CR>
 
 " Open and source vimrc
-nmap <leader>co :sp $MYVIMRC<cr>
+nmap <leader>cp :sp ~/.vimrc<cr>
 nmap <leader>ct :tabedit ~/.vimrc<cr>
 nmap <leader>cs :source $MYVIMRC<cr>
 
@@ -84,6 +75,8 @@ nmap <leader>co ggVG"+y
 nmap j gj
 nmap k gk
 
+" Correct annoying typo
+nmap q: :q
 " Frame movement commands
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -113,6 +106,14 @@ let g:ale_linters = {
       \ 'javascript': ['eslint'],
       \ 'ruby': [],
       \}
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Parinfer
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" if has("nvim")
+"   nnoremap <leader>pp :let g:parinfer_mode = "paren"<cr>
+"   nnoremap <leader>pi :let g:parinfer_mode = "indent"<cr>
+" endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " JSX
