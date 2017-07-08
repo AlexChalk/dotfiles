@@ -17,6 +17,12 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 ZSH_THEME="fishy"
 
 # setopt nolistbeep
+#
+# virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
 
 # Needed for Z installataion.
 . `brew --prefix`/etc/profile.d/z.sh
@@ -38,7 +44,7 @@ source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f /Users/adc/.travis/travis.sh ] && source /Users/adc/.travis/travis.sh
 
 # added by fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # User configuration
 _not_inside_tmux() { [[ -z "$TMUX" ]] }

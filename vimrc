@@ -68,7 +68,7 @@ autocmd Filetype help nnoremap <buffer> q :q<CR>
 " Open and source vimrc
 nmap <leader>cp :sp ~/.vimrc<cr>
 nmap <leader>ct :tabedit ~/.vimrc<cr>
-nmap <leader>cs :source $MYVIMRC<cr>
+nmap <leader>cs :w<cr>:source $MYVIMRC<cr>
 
 " Pre-populate a split command with the current directory
 nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
@@ -81,7 +81,7 @@ nmap j gj
 nmap k gk
 
 " Correct annoying typo
-nmap q: :q
+nmap q: :
 " Frame movement commands
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -118,6 +118,7 @@ let g:ale_linters = {
 if has("nvim")
   nnoremap <leader>pp :let g:parinfer_mode = "paren"<cr>
   nnoremap <leader>pi :let g:parinfer_mode = "indent"<cr>
+  nnoremap cp :w<cr>cp
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
