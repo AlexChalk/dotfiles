@@ -10,31 +10,32 @@ filetype plugin indent on
 call plug#begin('~/.vim/plugged')
 
 Plug 'Chiel92/vim-autoformat'
-Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'guns/vim-clojure-static'
-Plug 'guns/vim-clojure-highlight'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'mxw/vim-jsx'
-Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'morhetz/gruvbox'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'thoughtbot/vim-rspec'
-Plug 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-scripts/ReplaceWithRegister'
+
+" Javascript
+Plug 'jelera/vim-javascript-syntax'
+Plug 'mxw/vim-jsx'
+Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'w0rp/ale'
+
+" Clojure
 if has("nvim")
+  Plug 'clojure-vim/nvim-parinfer.js'
+  Plug 'guns/vim-clojure-static'
+  Plug 'guns/vim-clojure-highlight'
+  Plug 'junegunn/rainbow_parentheses.vim'
   Plug 'machakann/vim-highlightedyank'
   Plug 'neovim/node-host'
-  Plug 'clojure-vim/nvim-parinfer.js'
+  Plug 'tpope/vim-fireplace'
 endif
 
 call plug#end()
