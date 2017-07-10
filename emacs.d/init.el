@@ -116,10 +116,10 @@
 (require 'init-short-package-configs)
 
 ;;; Configure theme
-(use-package color-theme-sanityinc-tomorrow
+(use-package spacemacs-theme
   :ensure t
   :config)
-(load-theme 'sanityinc-tomorrow-eighties)
+(load-theme 'spacemacs-dark)
 
 ;;;; Package configs that are >6 lines in length
 ;;; Helm configuration

@@ -81,6 +81,9 @@ nmap <leader>co ggVG"+y
 nmap j gj
 nmap k gk
 
+" Make a window big
+nmap <leader>wb <c-w>50+
+
 " Correct annoying typo
 nmap q: :
 " Frame movement commands
@@ -114,27 +117,22 @@ let g:ale_linters = {
       \}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Parinfer
+" Clojure
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("nvim")
   nnoremap <leader>pp :let g:parinfer_mode = "paren"<cr>
   nnoremap <leader>pi :let g:parinfer_mode = "indent"<cr>
-  nnoremap cp :w<cr>cp
+  nmap <leader>tv :Require!<cr>:w<cr>:RunTests<cr>
+  nmap <leader>ts :Require!<cr>cpp
+  nmap <leader>ta :Require!<cr>:w<cr>:0RunTests<cr>
+  nmap <leader>q :ccl<cr>
+  autocmd FileType clojure map <leader>r :Require!<cr>
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " JSX
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:jsx_ext_required = 0
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Rspec test customizations
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
-map <Leader>rv :call RunCurrentSpecFile()<CR>
-map <Leader>rs :call RunNearestSpec()<CR>
-map <Leader>rf :call RunLastSpec()<CR>
-map <Leader>ra :call RunAllSpecs()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
