@@ -14,10 +14,10 @@ export ZSH=/Users/adc/.oh-my-zsh
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # Theme
-ZSH_THEME="fishy"
+ZSH_THEME="cjt"
 
 # setopt nolistbeep
-#
+
 # virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
@@ -34,7 +34,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # Plugins (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git brew osx)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
