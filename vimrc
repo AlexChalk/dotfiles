@@ -126,7 +126,7 @@ if has("nvim")
   nmap <leader>ts :Require!<cr>cpp
   nmap <leader>ta :Require!<cr>:w<cr>:0RunTests<cr>
   nmap <leader>q :ccl<cr>
-  autocmd FileType clojure map <leader>r :Require!<cr>
+  autocmd FileType clojure map <leader>r :w<cr>:Require!<cr>
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -187,20 +187,21 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent            " auto-indent
 set tabstop=2             " tab spacing
-set softtabstop=2         " unify
-set shiftwidth=2          " indent/outdent by 4 columns
+set softtabstop=0         " tab stop
+set shiftwidth=2          " indent/outdent by 2 columns
 set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
-set smarttab              " use tabs at the start of a line, spaces elsewhere
-set wrap                  " don't wrap text
+set wrap                  " wrap text
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rainbow Parens
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-augroup rainbow_lisp
-  autocmd!
-  autocmd FileType lisp,elisp,racket,clojure,scheme RainbowParentheses
-augroup END
+if has("nvim")
+  augroup rainbow_lisp
+    autocmd!
+    autocmd FileType lisp,elisp,racket,clojure,scheme RainbowParentheses
+  augroup END
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline
