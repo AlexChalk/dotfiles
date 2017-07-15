@@ -14,7 +14,7 @@ export ZSH=/Users/adc/.oh-my-zsh
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # Theme
-ZSH_THEME="cjt"
+ZSH_THEME="pure-red-stars"
 
 # setopt nolistbeep
 
