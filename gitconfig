@@ -2,12 +2,32 @@
 	excludesfile = ~/.gitignore_global
 	autocrlf = input
 	safecrlf = true
+  pager = less -F -X
 [user]
 	name = Alex Chalk
 	email = alexchalk17@gmail.com
 [color]
 	ui = auto
+[push]
+  default = upstream
+[merge]
+  ff = only
+[fetch]
+  prune = true
 [alias]
-	nicelog = log --oneline --decorate --graph --all
+  browse = !hub browse
+  car = commit --amend --no-edit
+  ci = !hub ci-status
+  compare = !hub compare
+  fall = fetch --all
+	glog = log -E -i --grep
+  ipr = !hub pull-request
+  issues = !hub browse --issues
+  mup = !git checkout master && git pull && git checkout -
+  praise = blame
+  sla = log --oneline --decorate --graph --all
+  slu = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
+  uncommit = reset --soft HEAD^
+  unstage = reset
 [diff]
 	renames = copies
