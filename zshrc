@@ -18,7 +18,7 @@ ZSH_THEME="pure-red-stars"
 
 # setopt nolistbeep
 
-# virtualenvwrapper
+# Virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
@@ -27,24 +27,14 @@ source /usr/local/bin/virtualenvwrapper.sh
 # Needed for Z installataion.
 . `brew --prefix`/etc/profile.d/z.sh
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Plugins (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  
 
-# added by travis gem
+# Added by travis gem
 [ -f /Users/adc/.travis/travis.sh ] && source /Users/adc/.travis/travis.sh
-
-# added by fzf
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # User configuration
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
@@ -69,9 +59,6 @@ g() {
 
 # Complete g like git
 compdef g=git
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Personal Aliases
 # For a full list of active aliases, run `alias`.
