@@ -1,5 +1,5 @@
 # Add personal scripts to PATH
-export PATH="$PATH:$HOME/dotfiles/custom-binaries"
+export PATH="$PATH:$HOME/dotfiles/bin"
 
 # Add n (nvm alternative) to PATH
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
@@ -57,12 +57,26 @@ ensure_tmux_is_running() {
 
 ensure_tmux_is_running
 
+# No arguments: `git status`
+# With arguments: acts like `git`
+g() {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status
+  fi
+}
+
+# Complete g like git
+compdef g=git
+
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Personal Aliases
 # For a full list of active aliases, run `alias`.
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-alias tree='tree -I "*~|*#|node_modules|sprockets"'
+alias magit="emacs -q -l ~/dotfiles/emacs.d/magit-init.el"
+alias tree='tree -C -I "*~|*#|node_modules|sprockets"'
 alias chrome='open -a "Google Chrome"'
 alias wdio='./node_modules/.bin/wdio wdio.conf.js'

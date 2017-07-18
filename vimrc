@@ -10,6 +10,7 @@ filetype plugin indent on
 call plug#begin('~/.vim/plugged')
 
 Plug 'Chiel92/vim-autoformat'
+Plug 'christoomey/vim-conflicted'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -82,7 +83,7 @@ nmap j gj
 nmap k gk
 
 " Make a window big
-nmap <leader>wb <c-w>50+
+nmap <leader>ew <c-w>50+
 
 " Correct annoying typo
 nmap q: :
