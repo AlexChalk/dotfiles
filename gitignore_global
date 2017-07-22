@@ -7,6 +7,12 @@
 ##############################
 *.swp
 
+# Clojure #
+##############################
+.lein-repl-history
+.nrepl-port
+target
+
 # Compiled source #
 ###################
 *.com

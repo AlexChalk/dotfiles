@@ -15,7 +15,9 @@
 [fetch]
   prune = true
 [alias]
+  aa = add .
   browse = !hub browse
+  c = commit
   car = commit --amend --no-edit
   ci = !hub ci-status
   compare = !hub compare
