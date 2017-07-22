@@ -21,6 +21,8 @@
   car = commit --amend --no-edit
   ci = !hub ci-status
   compare = !hub compare
+  dc = diff --word-diff --cached --color-words
+  df = diff --word-diff --color-words
   fall = fetch --all
 	glog = log -E -i --grep
   ipr = !hub pull-request
