@@ -20,6 +20,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 
 " Javascript
@@ -30,9 +31,9 @@ Plug 'w0rp/ale'
 
 " Clojure
 if has("nvim")
+  Plug 'clojure-vim/async-clj-highlight'
   Plug 'clojure-vim/nvim-parinfer.js'
   Plug 'guns/vim-clojure-static'
-  Plug 'guns/vim-clojure-highlight'
   Plug 'junegunn/rainbow_parentheses.vim'
   Plug 'machakann/vim-highlightedyank'
   Plug 'neovim/node-host'
@@ -85,8 +86,6 @@ nmap k gk
 " Make a window big
 nmap <leader>ew <c-w>50+
 
-" Correct annoying typo
-nmap q: :
 " Frame movement commands
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -128,6 +127,8 @@ if has("nvim")
   nmap <leader>ta :Require!<cr>:w<cr>:0RunTests<cr>
   nmap <leader>q :ccl<cr>
   autocmd FileType clojure map <leader>r :w<cr>:Require!<cr>
+  let g:clojure_fuzzy_indent = 2
+  let g:clojure_fuzzy_indent_patterns = ['^fact']
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
