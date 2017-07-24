@@ -16,8 +16,8 @@ nnoremap <Leader>f :e .<CR>
 autocmd Filetype help nnoremap <buffer> q :q<CR>
 
 " Open and source vimrc
-nmap <leader>cp :sp ~/.vimrc<cr>
-nmap <leader>ct :tabedit ~/.vimrc<cr>
+nmap <leader>cp :sp ~/dotfiles/vimrc<cr>
+nmap <leader>ct :tabedit ~/dotfiles/vimrc<cr>
 nmap <leader>cs :w<cr>:source $MYVIMRC<cr>
 
 " Pre-populate a split command with the current directory
