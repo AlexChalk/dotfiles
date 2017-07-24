@@ -25,7 +25,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 
 " Javascript
-Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'w0rp/ale'
