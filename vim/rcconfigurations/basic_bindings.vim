@@ -9,14 +9,9 @@ nnoremap <Leader><CR> O<ESC>
 nnoremap p p`[v`]=
 nnoremap P P`[v`]=
 
-" C-s bindings for neovim (don't work in vim)
-if has("nvim")
-  nnoremap <c-s> :w<CR>
-  imap <C-s> <esc>:w<CR>
-endif
-
 " Nerdtree equivalent
 nnoremap <Leader>f :e .<CR>
+
 " Escape hatch from help files
 autocmd Filetype help nnoremap <buffer> q :q<CR>
 
