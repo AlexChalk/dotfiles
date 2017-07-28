@@ -12,8 +12,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'Chiel92/vim-autoformat'
 Plug 'christoomey/vim-conflicted'
 Plug 'christoomey/vim-sort-motion'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'christoomey/vim-tmux-runner'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'morhetz/gruvbox'
@@ -23,6 +21,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
+
+" Tmux
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
+Plug 'benmills/vimux'
+
+" Ruby
+Plug 'thoughtbot/vim-rspec'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
