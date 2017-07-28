@@ -29,7 +29,7 @@ set number
 if has("nvim")
   set inccommand=nosplit
 endif
-set textwidth=80                  " Make it obvious where 80 characters is
+set textwidth=72          " Make it obvious where 80 characters is
 set colorcolumn=+1
 set splitbelow
 set splitright
