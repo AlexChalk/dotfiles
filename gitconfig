@@ -15,19 +15,22 @@
 [fetch]
   prune = true
 [alias]
+  a = add
   aa = add .
   browse = !hub browse
   c = commit
   car = commit --amend --no-edit
   ci = !hub ci-status
+  co = checkout
   compare = !hub compare
-  dc = diff --word-diff --cached --color-words
+  dfc = diff --word-diff --cached --color-words
   df = diff --word-diff --color-words
   fall = fetch --all
 	glog = log -E -i --grep
   ipr = !hub pull-request
   issues = !hub browse --issues
   mup = !git checkout master && git pull && git checkout -
+  p = push
   praise = blame
   sla = log --oneline --decorate --graph --all
   slu = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
