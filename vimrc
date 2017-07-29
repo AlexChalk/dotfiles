@@ -15,12 +15,18 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'morhetz/gruvbox'
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-scripts/matchit.zip'
+
+" Custom text objects
+Plug 'kana/vim-textobj-user'
+Plug 'adc17/vim-textobj-wiw'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-surround'
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
