@@ -9,6 +9,10 @@ nnoremap <Leader><CR> O<ESC>
 nnoremap p p`[v`]=
 nnoremap P P`[v`]=
 
+" Indent and close when line ends with open bracket
+imap {<cr> {<cr>}<esc>O
+imap (<cr> (<cr>)<esc>O
+
 " Nerdtree equivalent
 nnoremap <Leader>f :e .<CR>
 
