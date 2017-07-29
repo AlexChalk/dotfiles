@@ -8,6 +8,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Neovim colors
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+# use <c-s> in all applications
+stty -ixon
+
 # Needed for Z installataion.
 . `brew --prefix`/etc/profile.d/z.sh
 
