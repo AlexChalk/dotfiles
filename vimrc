@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/matchit.zip'
 
 " Custom text objects
+Plug 'bkad/CamelCaseMotion'
 Plug 'kana/vim-textobj-user'
 Plug 'adc17/vim-textobj-wiw'
 Plug 'tomtom/tcomment_vim'
