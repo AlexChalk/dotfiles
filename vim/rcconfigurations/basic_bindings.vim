@@ -5,9 +5,12 @@
 nnoremap <CR> o<ESC>
 nnoremap <Leader><CR> O<ESC>
 
-" Autocorrect indentation after pasting
+" Autocorrect indentation after pasting, but keep non-indenting option
+" for when pasting large files from clipboard.
 nnoremap p p`[v`]=
 nnoremap P P`[v`]=
+nnoremap <leader>"+p "+p
+nnoremap <leader>"+P "+P
 
 " Indent and close when line ends with open bracket
 imap {<cr> {<cr>}<esc>O
