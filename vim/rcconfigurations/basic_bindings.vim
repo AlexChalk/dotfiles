@@ -15,6 +15,7 @@ nnoremap <leader>"+P "+P
 " Indent and close when line ends with open bracket
 imap {<cr> {<cr>}<esc>O
 imap (<cr> (<cr>)<esc>O
+inoremap ({<cr> ({<cr>})<esc>O
 
 " Nerdtree equivalent
 nnoremap <Leader>f :e .<CR>
