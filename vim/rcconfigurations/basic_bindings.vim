@@ -29,8 +29,8 @@ nmap <leader>ct :tabedit ~/dotfiles/vimrc<cr>
 nmap <leader>cs :w<cr>:source $MYVIMRC<cr>
 
 " Pre-populate a split command with the current directory
-nmap <leader>svn :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
-nmap <leader>sn :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <leader>vs :vsp <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <leader>hs :sp <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
 " Copy the entire buffer into the system register
 nmap <leader>co ggVG"+y
