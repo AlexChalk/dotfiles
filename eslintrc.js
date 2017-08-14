@@ -33,6 +33,7 @@ module.exports = {
       'error',
       'always'
     ],
+    'no-console': 'warn',
     'no-unused-vars': 'warn',
     // Add more fine-grained react plugin rules like this:
     // 'react/jsx-uses-react': 'error',

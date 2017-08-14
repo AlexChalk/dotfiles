@@ -34,6 +34,8 @@ nmap <leader>hs :sp <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
 " Copy the entire buffer into the system register
 nmap <leader>co ggVG"+y
+" Copy the entire buffer into vim register
+nmap <leader>ca ggVGy
 
 " Move up and down by visible lines if current line is wrapped
 nmap j gj
