@@ -13,6 +13,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'christoomey/vim-conflicted'
 Plug 'christoomey/vim-sort-motion'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'janko-m/vim-test'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-eunuch'
@@ -33,9 +34,6 @@ Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'benmills/vimux'
-
-" Ruby
-Plug 'thoughtbot/vim-rspec'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
