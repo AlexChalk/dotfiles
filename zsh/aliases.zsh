@@ -7,3 +7,4 @@ alias magit="emacs -q -l ~/dotfiles/emacs.d/magit-init.el"
 alias tree='tree -C -I "*~|*#|node_modules|sprockets"'
 alias chrome='open -a "Google Chrome"'
 alias c='clear'
+alias eslint-quick-init="cp ~/dotfiles/eslintrc.js ./.eslintrc.js && yarn add --dev eslint@latest eslint-plugin-react@latest"
