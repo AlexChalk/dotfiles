@@ -22,6 +22,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/matchit.zip'
+Plug 'vim-scripts/ReplaceWithRegister'
 
 " Custom text objects
 Plug 'bkad/CamelCaseMotion'
