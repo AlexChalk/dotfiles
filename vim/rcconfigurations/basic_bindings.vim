@@ -18,7 +18,7 @@ imap (<cr> (<cr>)<esc>O
 inoremap ({<cr> ({<cr>})<esc>O
 
 " Nerdtree equivalent
-nnoremap <Leader>f :e .<CR>
+nnoremap <Leader>ft :e .<CR>
 
 " Escape hatch from help files
 autocmd Filetype help nnoremap <buffer> q :q<CR>
