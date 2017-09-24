@@ -20,6 +20,7 @@
   browse = !hub browse
   c = commit
   car = commit --amend --no-edit
+  aacar = !git aa && git car
   ci = !hub ci-status
   co = checkout
   compare = !hub compare
@@ -30,6 +31,9 @@
   ipr = !hub pull-request
   issues = !hub browse --issues
   mup = !git checkout master && git pull && git checkout -
+  rmup = !git mup && git rebase master
+  sup = !git checkout staging && git pull && git checkout -
+  rsup = !git sup && git rebase staging
   p = push
   praise = blame
   sla = log --oneline --decorate --graph --all
