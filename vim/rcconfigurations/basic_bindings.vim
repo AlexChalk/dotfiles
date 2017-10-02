@@ -38,11 +38,13 @@ nmap <leader>co ggVG"+y
 nmap <leader>ca ggVGy
 
 " Move up and down by visible lines if current line is wrapped
-nmap j gj
-nmap k gk
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 
 " Make a window big
-nmap <leader>ew <c-w>50+
+nmap <leader>ew <c-w>50+<c-w>100>
 
 " Frame movement commands
 nnoremap <c-j> <c-w>j
