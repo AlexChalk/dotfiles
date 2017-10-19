@@ -24,7 +24,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set ruler		              " show the cursor position all the time
 set incsearch		          " do incremental searching
-set nohlsearch            " Don't continue to highlight searched phrases.
+" set nohlsearch            " Don't continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
 set number relativenumber
 if has("nvim")

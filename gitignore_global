@@ -3,6 +3,9 @@
 *~
 *#
 
+# Testing Coverage Files #
+testing/coverage
+
 # Swap files #
 ##############################
 *.swp
