@@ -1,3 +1,15 @@
-.git/
-node_modules/
-**.swp
+# Testing Coverage Files #
+##############################
+testing/coverage
+
+# Package-Lock File #
+##############################
+package-lock.json
+
+# Node Modules #
+##############################
+node_modules
+
+# .git #
+##############################
+.git
