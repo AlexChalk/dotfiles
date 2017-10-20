@@ -59,7 +59,9 @@ autocmd VimResized * :wincmd =
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
-
 " replace-with-register bindings for system clipboard
 nmap <leader>gr "+gr
 nmap <leader>gR "+gR
+
+" shortcut to turn search highlighting off
+nmap <leader>nh :nohls<cr>
