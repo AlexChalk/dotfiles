@@ -25,6 +25,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/ReplaceWithRegister'
 
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Custom text objects
 Plug 'bkad/CamelCaseMotion'
 Plug 'kana/vim-textobj-user'

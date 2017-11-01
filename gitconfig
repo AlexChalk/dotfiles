@@ -4,7 +4,7 @@
 	safecrlf = true
   pager = less -F -X
 [user]
-	name = Alex Chalk
+	name = Alexander Chalk
 	email = alexchalk17@gmail.com
 [color]
 	ui = auto

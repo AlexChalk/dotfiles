@@ -17,6 +17,9 @@ imap {<cr> {<cr>}<esc>O
 imap (<cr> (<cr>)<esc>O
 inoremap ({<cr> ({<cr>})<esc>O
 
+" Easier command-mode binding
+nmap <leader>; :
+
 " Nerdtree equivalent
 nnoremap <Leader>ft :e .<CR>
 
