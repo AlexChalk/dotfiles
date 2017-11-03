@@ -1,12 +1,13 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Top settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Plug
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Remember to run :PlugUpdate and :PlugUpgrade once in a while
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
 Plug 'Chiel92/vim-autoformat'
@@ -27,7 +28,6 @@ Plug 'vim-scripts/ReplaceWithRegister'
 
 " Snippets
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " Custom text objects
 Plug 'bkad/CamelCaseMotion'

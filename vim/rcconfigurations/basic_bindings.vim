@@ -20,6 +20,9 @@ inoremap ({<cr> ({<cr>})<esc>O
 " Easier command-mode binding
 nmap <leader>; :
 
+" En-dashes (in insert mode) <ctrl>k -N
+" Em-dashes (in insert mode) <ctrl>k -M
+
 " Nerdtree equivalent
 nnoremap <Leader>ft :e .<CR>
 
