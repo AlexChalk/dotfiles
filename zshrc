@@ -16,10 +16,12 @@ stty -ixon
 # Needed for Z installataion.
 . `brew --prefix`/etc/profile.d/z.sh
 
+# Remember to run zplug update every once in a while
 source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "adc17/pure-red-stars", as:theme
+
 zplug load
 
 # Added by travis gem
