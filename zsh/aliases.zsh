@@ -9,5 +9,5 @@ alias chrome='open -a "Google Chrome"'
 alias c='clear'
 alias eslint-quick-init="cp ~/dotfiles/eslintrc.js ./.eslintrc.js && yarn add --dev eslint@latest eslint-plugin-react@latest"
 alias brewup="brew update && brew upgrade && brew cleanup"
-# alias redis-cli="~/roof-ai/redis-3.2.10/src/redis-cli"
-# alias redis-server="~/roof-ai/redis-3.2.10/src/redis-server"
+# You need to update your ag configs in ctrlp.vim and ack.vim if this changes
+alias ag='ag --path-to-ignore ~/.ignore'
