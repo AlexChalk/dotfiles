@@ -20,15 +20,17 @@
   * `xcode-select --install`
 2. Get Homebrew back:
   * Follow instructions here: https://brew.sh/
-3. ssh-agent configuration:
+3. Heroku
+  * Good instructions at these two addresses: https://devcenter.heroku.com/articles/authentication, https://devcenter.heroku.com/articles/heroku-cli
+4. ssh-agent configuration:
   * Good instructions can be found here: https://help.github.com/articles/connecting-to-github-with-ssh/
-4. Don't forget your env variables:
+5. Don't forget your env variables:
   * Make a copy of `.zshenv`
 
 ## Brew and languages
 1. Homebrew:
   * Make a note of what you're autostarting with `brew services list`
-  * Do a brew bundle dump of your brew leaves and brew cask list.
+  * Do a brew bundle dump of your brew leaves and brew cask list. Check brew list as well (e.g. for git)
   * Then add back packages you want on new machine and `brew services start` as appropriate.
   * Keep leaves/cask backup from previous system. If you want to keep a new backup, maintain it alongside the old one.
   * If anything has stopped working, installing things from your old brew leaves backups is the first thing to try
@@ -38,6 +40,7 @@
   * If eslint acts weird, install it globally in brew's node
 3. Ruby:
   * Follow instructions at https://medium.com/@adc17/use-rbenv-for-cleaner-rspec-stack-traces-4e5ce2ff5cd0
+  * Don't forget `gem install rubocop`
 4. Clojure/Cljs:
   * brew install leiningen
   * The first time you run `lein`, install the latest jdk if prompted (consider using brew cask)
