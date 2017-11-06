@@ -55,6 +55,7 @@
   * Follow instructions here: https://github.com/junegunn/vim-plug
   * Run `:CheckHealth` and follow instructions
   * For nvim-parinfer follow instructions here: https://github.com/clojure-vim/nvim-parinfer.js
+  * Also check out info here: https://github.com/clojure-vim/nvim-parinfer.js/issues/32
 2. zsh:
   * Follow instructions here: https://github.com/zplug/zplug
   * Set shell: Préférences Système > Users and Groups > Unlock > Right Click on Picture > Advanced options
