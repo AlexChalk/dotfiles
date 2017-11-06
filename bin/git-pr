@@ -35,7 +35,7 @@ def open_or_build_pull_request
   pulls = JSON.parse(response)
   pull = pulls.detect { |pull| pull['head']['ref'] == remote_tracking_branch }
   if !pull.nil?
-    system "open-tab --reload #{pull['html_url']}"
+    system "open #{pull['html_url']}"
   else
     system("open https://github.com/#{remote_url}/pull/#{remote_tracking_branch}")
   end
