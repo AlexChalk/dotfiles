@@ -68,19 +68,20 @@
   * Color scheme: https://github.com/herrbischoff/iterm2-gruvbox
   * I don't know how to export settings, so just screenshot everything :(
 
-## Misc (info missing here)
+## Misc
 1. /etc/hosts
   * Note any adjustments made and replicate them
 2. Work dir:
   * Copy as-is or at least copy back non-github files
 3. Redis
   * Check which version you're using
-  * Download from homebrew? (check)
-  * Good installation instructions here for manual compile: https://medium.com/@stockholmux/setting-up-redis-on-macos-sierra-5cd795e1644d
-  * Use work config (check which one) but set daemonize to `no`
+  * Download from homebrew, or good installation instructions here for manual compile: https://medium.com/@stockholmux/setting-up-redis-on-macos-sierra-5cd795e1644d
+  * conf to copy is here: /Users/adc/.redis/redis.conf
 4. nginx
-  * Adjust config file at `/usr/local/etc/nginx/nginx.conf` (check if necessary)
+  * Copy config file at `/usr/local/etc/nginx/nginx.conf`
+  * Symlink to infra/conf/local/default.conf at `conf.d/default.conf` inside `/usr/local/etc/nginx`
+  * `sudo brew services start nginx`
 5. mongodb
-  * `. ./scripts/local/restore-from-staging` (check if anything else)
+  * `. ./scripts/local/restore-from-staging`
 6. Nightwatch
   * Good info at `msn-lives-again` repo and here: https://github.com/dwyl/learn-nightwatch 

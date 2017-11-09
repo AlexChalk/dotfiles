@@ -11,3 +11,4 @@ alias eslint-quick-init="cp ~/dotfiles/eslintrc.js ./.eslintrc.js && yarn add --
 alias brewup="brew update && brew upgrade && brew cleanup"
 # You need to update your ag configs in ctrlp.vim and ack.vim if this changes
 alias ag='ag --path-to-ignore ~/.ignore'
+alias gh='hub'
