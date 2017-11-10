@@ -5,11 +5,10 @@
   * Any fonts you want to keep from fontbook.
   * Excel scripts: /Users/adc/Library/Group Containers/UBF8T346G9.Office/User Content.localized/Queries
   * Word config: /Users/adc/Library/Group Containers/UBF8T346G9.Office/User Content.localized/Templates.localized
-  * Copy them all back
 2. Make a copy of your entire home directory
-  * Copy back the files you need onto new system
+  * Copy back the files you need as you need them
 3. Go through applications folder and note everything you'd like to keep
-  * On new machine, install from (order of preference) brew cask, app store, company site
+  * Install from (order of preference) brew cask, app store, company site
 4. Bookmarks/history
   * Export from all browsers (just in case);
 5. Microsoft Office
@@ -19,9 +18,9 @@
 1. First things first:
   * `xcode-select --install`
 2. Get Homebrew back:
-  * Follow instructions here: https://brew.sh/
+  * https://brew.sh/
 3. Heroku
-  * Good instructions at these two addresses: https://devcenter.heroku.com/articles/authentication, https://devcenter.heroku.com/articles/heroku-cli
+  * https://devcenter.heroku.com/articles/heroku-cli
 4. ssh-agent configuration:
   * Good instructions can be found here: https://help.github.com/articles/connecting-to-github-with-ssh/
 5. Don't forget your env variables:
@@ -31,9 +30,9 @@
 1. Homebrew:
   * Make a note of what you're autostarting with `brew services list`
   * Do a brew bundle dump of your brew leaves and brew cask list. Check brew list as well (e.g. for git)
-  * Then add back packages you want on new machine and `brew services start` as appropriate.
-  * Keep leaves/cask backup from previous system. If you want to keep a new backup, maintain it alongside the old one.
-  * If anything has stopped working, installing things from your old brew leaves backups is the first thing to try
+  * Add back/ `brew services start` as appropriate.
+  * Keep leaves/cask backup list from previous system. If you want to keep a new backup, maintain it alongside the old one.
+  * If anything has stopped working, installing things from your old lists is the first thing to try
 2. Node:
   * Install n using n-install: https://github.com/mklement0/n-install 
   * Find globally installed packages you want to keep: npm list -g --depth=0
@@ -52,9 +51,10 @@
 ## Tools
 1. Neovim:
   * Recreate symlinks as organized in `config` and `vim` (you don't need to symlink `rcconfigurations`)
-  * Follow instructions here: https://github.com/junegunn/vim-plug
-  * Run `:CheckHealth` and follow instructions
-  * For nvim-parinfer follow instructions here: https://github.com/clojure-vim/nvim-parinfer.js
+  * If you don't want your config to affect vim, put `vim` contents in `config/neovim`
+  * VimPlug: https://github.com/junegunn/vim-plug
+  * `:CheckHealth`—follow instructions
+  * Nvim-parinfer: follow instructions here—https://github.com/clojure-vim/nvim-parinfer.js
   * Also check out info here: https://github.com/clojure-vim/nvim-parinfer.js/issues/32
 2. zsh:
   * Follow instructions here: https://github.com/zplug/zplug
@@ -85,3 +85,5 @@
   * `. ./scripts/local/restore-from-staging`
 6. Nightwatch
   * Good info at `msn-lives-again` repo and here: https://github.com/dwyl/learn-nightwatch 
+7. Chrome
+  * Backup custom security certificates
