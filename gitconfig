@@ -35,6 +35,7 @@
   sup = !git checkout staging && git pull && git checkout -
   rsup = !git sup && git rebase staging
   p = push
+  pf = push --force-with-lease
   pr = !hub compare
   praise = blame
   sla = log --oneline --decorate --graph --all
