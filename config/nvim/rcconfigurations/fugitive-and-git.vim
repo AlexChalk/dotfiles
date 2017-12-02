@@ -4,3 +4,4 @@ cnoreabbrev gr Gread
 cnoreabbrev gdf Gvdiff
 cnoreabbrev glog Glog
 cnoreabbrev gaa Git aa
+cnoreabbrev gaacar Git aacar
