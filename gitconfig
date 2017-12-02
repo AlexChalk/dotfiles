@@ -3,6 +3,7 @@
 	autocrlf = input
 	safecrlf = true
   pager = less -F -X
+	editor = nvim
 [user]
 	name = Alexander Chalk
 	email = alexchalk17@gmail.com
