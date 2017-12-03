@@ -1,108 +1,102 @@
 # Upgrade Process
 
-## Non-coding
-1. Save important files:
-  * Any fonts you want to keep from fontbook.
+## Before you begin
+1. Office backups:
   * Excel scripts: /Users/adc/Library/Group Containers/UBF8T346G9.Office/User Content.localized/Queries
-  * Word config: /Users/adc/Library/Group Containers/UBF8T346G9.Office/User Content.localized/Templates.localized
-2. Make a copy of your entire home directory
-  * Copy back the files you need as you need them
-3. Go through applications folder and note everything you'd like to keep
-  * Install from (order of preference) brew cask, app store, company site
-4. Bookmarks/history
-  * Export from all browsers (just in case);
-5. Microsoft Office
-  * Login at office.com/myaccount and redownload
+  * Word template: /Users/adc/Library/Group Containers/UBF8T346G9.Office/User Content.localized/Templates.localized
+  * Above paths only work from CLI
+2. Homebrew:
+  * Note everything you want to keep.
+  * Also do a `brew bundle dump`—if something isn't working on your new machine, the bundle dump will give you a good idea of what might be missing.
+3. Node:
+  * Find globally installed packages you want to keep: `npm list -g --depth=0`.
+4. Mac system settings:
+  * Note customizations in Finder > Preferences, and Finder > Presentation.
+  * System Preferences > Keyboard—take screenshot of settings.
+5. iTerm settings:
+  * Note changes to working_dir setting and profile settings: colors, window, font, left option key.
+6. Misc:
+  * Make a note of everything you want to keep in applications folder.
+  * Copy any fonts you want to keep from fontbook.
+  * Copy `.zshenv` and `.zsh_history`.
+7. System backup, and copy of entire home directory.
 
-## Fundamentals
-1. First things first:
+## Initial Upgrade Process:
+1. MacOS system settings:
+  * Dock position/behaviour.
+  * Computer name in "Sharing".
+  * Airplay settings in "Monitors".
+  * Finder: Finder > Preferences, Finder > Presentation, Finder > cmd+j for default behaviour.
+  * Keyboard: caps, repetitions, text, shortcuts.
+  * Mouse tap.
+  * `touch ~/.hushlogin`.
+2. Code fundamentals:
   * `xcode-select --install`
-2. Get Homebrew back:
-  * https://brew.sh/
-3. Heroku
-  * https://devcenter.heroku.com/articles/heroku-cli
-4. ssh-agent configuration:
-  * Good instructions can be found here: https://help.github.com/articles/connecting-to-github-with-ssh/
-5. Don't forget your env variables:
-  * Make a copy of `.zshenv`
-
-## Brew and languages
-1. Homebrew:
-  * Make a note of what you're autostarting with `brew services list`
-  * Do a brew bundle dump of your brew leaves and brew cask list. Check brew list as well (e.g. for git)
-  * Add back/ `brew services start` as appropriate.
-  * Keep leaves/cask backup list from previous system. If you want to keep a new backup, maintain it alongside the old one.
-  * If anything has stopped working, installing things from your old lists is the first thing to try
-2. Node:
+  * Get Homebrew back: https://brew.sh/
+  * Heroku: https://devcenter.heroku.com/articles/heroku-cli
+  * ssh-agent configuration: https://help.github.com/articles/connecting-to-github-with-ssh/
+  * Put `.zshenv` (and `.zsh_history` if you want it) back.
+3. Apps needed for config to work:
+  * Install all your brew packages.
   * Install n using n-install: https://github.com/mklement0/n-install 
-  * Find globally installed packages you want to keep: npm list -g --depth=0
-  * If eslint acts weird, install it globally in brew's node
-3. Ruby:
-  * Follow instructions at https://medium.com/@adc17/use-rbenv-for-cleaner-rspec-stack-traces-4e5ce2ff5cd0
-  * Don't forget `gem install rubocop`
-4. Clojure/Cljs:
-  * brew install leiningen
-  * The first time you run `lein`, install the latest jdk if prompted (consider using brew cask)
-  * For cljs: lein new figwheel 
-5. Python:
-  * brew install python && brew install python3
-  * pip3 install virtualenv
-
-## Tools
-1. Neovim:
-  * Recreate symlinks as organized in `config` and `vim` (you don't need to symlink `rcconfigurations`)
-  * If you don't want your config to affect vim, put `vim` contents in `config/neovim`
-  * VimPlug: https://github.com/junegunn/vim-plug
-  * `:CheckHealth`—follow instructions
-  * Nvim-parinfer: follow instructions here—https://github.com/clojure-vim/nvim-parinfer.js
-  * Also check out info here: https://github.com/clojure-vim/nvim-parinfer.js/issues/32
-2. zsh:
-  * Follow instructions here: https://github.com/zplug/zplug
-  * Set shell: Préférences Système > Users and Groups > Unlock > Right Click on Picture > Advanced options
-  * Open shell, zplug install, restart shell
-  * If theme doesn't download, clone it manually into `~/.zplug/repos/adc17/`
-3. Other dotfiles:
-  * Organization of repo correctly describes where symlinks should go
-  * If you want to use emacs, use real `.emacs.d` directory and add symlinks to `init.el` file and `lisp` dir.
+  * Python: `pip3 install virtualenv` && `pip3 install virtualenvwrapper`
+  * Ruby: `rbenv init`  &&  `rbenv install *-ruby-version-*` && `rbenv global *-ruby-version-*` && `gem install bundler` && `gem install rubocop`
 4. iTerm2:
   * Color scheme: https://github.com/herrbischoff/iterm2-gruvbox
-  * I don't know how to export settings, so just screenshot everything :(
+5. Zplug:
+  * Set shell: Préférences Système > Users and Groups > Unlock > Right Click on Picture > Advanced options > `/usr/local/bin/zsh`
+  * Follow instructions here: https://github.com/zplug/zplug
+  * Symlink to `zshrc` and `tmux.conf`, open shell, zplug install, restart shell
+## Now that your configs will work:
+1. Neovim:
+  * Recreate symlinks at `~/.config/nvim` as organized in `nvim` (you don't need to symlink `rcconfigurations`).
+  * VimPlug: https://github.com/junegunn/vim-plug
+  * `:CheckHealth`—follow instructions
+  * You'll probably need `pip2 install neovim` && `pip3 install neovim` && `gem install neovim`.
+  * Nvim-parinfer: follow instructions here—https://github.com/clojure-vim/nvim-parinfer.js
+  * Also check out info here: https://github.com/clojure-vim/nvim-parinfer.js/issues/32
+
+2. Other dotfiles:
+  * Organization of repo correctly describes where symlinks should go, (except for nvim). 
+  * If you want to use emacs, use real `.emacs.d` directory and add symlinks to `init.el` file and `lisp` dir.
+
+3. mongodb
+  * `. ./scripts/local/restore-from-staging`
+
+4. Redis
+  * Good installation instructions here for manual compile: `https://medium.com/@stockholmux/setting-up-redis-on-macos-sierra-5cd795e1644d`
+
+5. nginx
+
+  * Put `127.0.0.1   local.roof.ai` under `127.0.0.1   localhost` in` /etc/hosts`.
+
+  * Symlinks to config files at `/usr/local/etc/nginx/`
+
+  * If you're using brew services, you need `sudo`.
+
+  * Security certificate files go in `/usr/local/etc`: 
+
+    ``````
+    ~/ssl_creation  ❯ openssl req \
+         -newkey rsa:2048 \
+         -x509 \
+         -nodes \
+         -keyout localhost.key \
+         -new \
+         -out localhost.crt \
+         -subj /CN=local.roof.ai \
+         -reqexts SAN \
+         -extensions SAN \
+         -config <(cat /System/Library/OpenSSL/openssl.cnf \
+             <(printf '[SAN]\nsubjectAltName=DNS:local.roof.ai')) \
+         -sha256 \
+         -days 3650
+    ~/ssl_creation  ❯ mv localhost.key roof_ssl_certificate_key
+    ~/ssl_creation  ❯ mv localhost.crt roof_ssl_certificate
+    ``````
+
+  * `localhost.crt` should also be stored in the "Trousseaux d'accès" as `local.roof.ai.cer`.
 
 ## Misc
-1. /etc/hosts
-  * Note any adjustments made and replicate them
-2. Work dir:
-  * Copy as-is or at least copy back non-github files
-3. Redis
-  * Check which version you're using
-  * Download from homebrew, or good installation instructions here for manual compile: https://medium.com/@stockholmux/setting-up-redis-on-macos-sierra-5cd795e1644d
-  * conf to copy is here: /Users/adc/.redis/redis.conf
-4. nginx
-  * Copy config file at `/usr/local/etc/nginx/nginx.conf`
-  * Symlink to infra/conf/local/default.conf at `conf.d/default.conf` inside `/usr/local/etc/nginx`
-  * `sudo brew services start nginx`
-5. mongodb
-  * `. ./scripts/local/restore-from-staging`
-6. Nightwatch
-  * Good info at `msn-lives-again` repo and here: https://github.com/dwyl/learn-nightwatch 
-7. Chrome
-  * Backup custom security certificates
-8. SSL certificate
-  * Copy back into trousseau d'accès
-  * If you need to generate a new key, this is the code to use: 
-  ```
-  openssl req \
-    -newkey rsa:2048 \
-    -x509 \
-    -nodes \
-    -keyout localhost.key \
-    -new \
-    -out localhost.crt \
-    -subj /CN={root address here} \
-    -reqexts SAN \
-    -extensions SAN \
-    -config <(cat /System/Library/OpenSSL/openssl.cnf \
-        <(printf '[SAN]\nsubjectAltName=DNS:{root address here}')) \
-    -sha256 \
-    -days 3650
-    ```
+* Put back your system fonts.
+* Remember to improve this guide as you perform your next upgrade.
