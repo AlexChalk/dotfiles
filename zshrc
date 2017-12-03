@@ -28,7 +28,7 @@ zplug load
 # [ -f /Users/adc/.travis/travis.sh ] && source /Users/adc/.travis/travis.sh
 
 # Add redis executables
-# export PATH="$PATH:/Users/adc/.redis"
+export PATH="$PATH:/Users/adc/dotfiles/redis"
 
 # User configuration
 for zsh_source in $HOME/dotfiles/zsh/*.zsh; do
