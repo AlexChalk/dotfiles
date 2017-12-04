@@ -70,7 +70,7 @@ nnoremap <space> ,
 " Source my customizations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! s:SourceConfigFilesIn(directory)
-  let directory_splat = '~/dotfiles/config/nvim/' . a:directory . '/*'
+  let directory_splat = '~/dotfiles/nvim/' . a:directory . '/*'
   for config_file in split(glob(directory_splat), '\n')
     if filereadable(config_file)
       execute 'source' config_file
