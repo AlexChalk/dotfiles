@@ -99,4 +99,5 @@
 
 ## Misc
 * Put back your system fonts.
+* Adguard: add ###hot-network-questions as a user filter rule.
 * Remember to improve this guide as you perform your next upgrade.
