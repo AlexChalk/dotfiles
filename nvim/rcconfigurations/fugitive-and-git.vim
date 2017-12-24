@@ -1,5 +1,6 @@
 cnoreabbrev gs Gstatus
 cnoreabbrev ge Gedit
+cnoreabbrev gecc Gedit HEAD^{}
 cnoreabbrev gr Gread
 cnoreabbrev gdf Gvdiff
 cnoreabbrev glog Glog

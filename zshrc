@@ -7,6 +7,10 @@ export PATH="$N_PREFIX/bin:$PATH"
 # Add rbenv init command
 eval "$(rbenv init -)"
 
+# jenv init command
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
+
 # Neovim colors
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 

@@ -41,8 +41,10 @@
   praise = blame
   sla = log --oneline --decorate --graph --all
   slu = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
-  pforce = push -f
+  ri = rebase --interactive
   uncommit = reset --soft HEAD^
   unstage = reset
 [diff]
 	renames = copies
+[rebase]
+	autosquash = true
