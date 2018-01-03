@@ -46,9 +46,6 @@ Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'w0rp/ale'
 
-Plug 'posva/vim-vue'
-Plug 'leafgarland/typescript-vim'
-
 " Clojure
 if has("nvim")
   Plug 'clojure-vim/async-clj-highlight'
