@@ -20,7 +20,9 @@
   aa = add .
   browse = !hub browse
   c = commit
+  ca = commit --amend
   aac = !git aa && git c
+  aaca = !git aa && git ca
   car = commit --amend --no-edit
   aacar = !git aa && git car
   ci = !hub ci-status
@@ -40,6 +42,7 @@
   pr = !hub compare
   praise = blame
   sla = log --oneline --decorate --graph --all
+  slas = log --oneline --decorate --graph --all -10
   slu = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
   ri = rebase --interactive
   uncommit = reset --soft HEAD^

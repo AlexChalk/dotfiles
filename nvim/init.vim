@@ -37,7 +37,6 @@ Plug 'tpope/vim-surround'
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'christoomey/vim-tmux-runner'
 Plug 'benmills/vimux'
 
 " Javascript

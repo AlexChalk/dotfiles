@@ -34,9 +34,10 @@ nmap <leader>cp :sp ~/dotfiles/nvim/init.vim<cr>
 nmap <leader>ct :tabedit ~/dotfiles/nvim/init.vim<cr>
 nmap <leader>cs :w<cr>:source $MYVIMRC<cr>
 
-" Pre-populate a split command with the current directory
+" Pre-populate a split/edit command with the current directory
 nmap <leader>vs :vsp <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
-nmap <leader>hs :sp <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <leader>sp :sp <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <leader>ns :e <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
 " Copy the entire buffer into the system register
 nmap <leader>co ggVG"+y
