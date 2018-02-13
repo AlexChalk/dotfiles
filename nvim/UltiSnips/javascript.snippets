@@ -45,3 +45,21 @@ it('${1:description}', () => {
 	$0
 });
 endsnippet
+
+snippet sfc
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const ${1:Component} = (${2:props}) => {
+	$0
+	return (
+		
+	);
+};
+
+$1.propTypes = {
+	$2,
+};
+
+export default $1;
+endsnippet
