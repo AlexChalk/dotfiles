@@ -4,6 +4,8 @@
 set laststatus=2
 " let g:airline_powerline_fonts = 1
 let g:airline_extensions = []
+" let g:airline_theme="base16_atelierheath"
+" let g:airline_theme="deus"
 set ttimeoutlen=10
 
 function! AirlineInit()

@@ -16,14 +16,18 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'janko-m/vim-test'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'mileszs/ack.vim'
-Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/ReplaceWithRegister'
+
+"Themes
+Plug 'morhetz/gruvbox'
+Plug 'Blevs/vim-dzo'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Snippets
 Plug 'SirVer/ultisnips'
