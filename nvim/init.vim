@@ -50,15 +50,14 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'w0rp/ale'
 
 " Clojure
-if has("nvim")
   Plug 'clojure-vim/async-clj-highlight'
+  Plug 'snoe/clj-refactor.nvim'
   Plug 'clojure-vim/nvim-parinfer.js'
   Plug 'guns/vim-clojure-static'
   Plug 'junegunn/rainbow_parentheses.vim'
   Plug 'machakann/vim-highlightedyank'
   Plug 'neovim/node-host'
   Plug 'tpope/vim-fireplace'
-endif
 
 call plug#end()
 
