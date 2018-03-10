@@ -56,6 +56,8 @@ nnoremap <c-l> <c-w>l
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
+" balance windows on shortcut
+nnoremap <leader>bw :wincmd =<cr>
 
 " zoom a vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
