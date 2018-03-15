@@ -47,6 +47,8 @@
   ri = rebase --interactive
   uncommit = reset --soft HEAD^
   unstage = reset
+  hard = reset --hard
+  lm = log -1
 [diff]
 	renames = copies
 [rebase]
