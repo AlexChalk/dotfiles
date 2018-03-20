@@ -26,6 +26,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 "Themes
 Plug 'morhetz/gruvbox'
 Plug 'Blevs/vim-dzo'
+Plug 'trevordmiller/nova-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
