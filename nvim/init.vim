@@ -22,6 +22,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'rust-lang/rust.vim'
 
 "Themes
 Plug 'morhetz/gruvbox'

@@ -1,5 +1,7 @@
 # Add personal scripts to PATH
 export PATH="$PATH:$HOME/dotfiles/bin"
+# Add rust to PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 # Add n (nvm alternative) to PATH
 export N_PREFIX="$HOME/n" # ; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 export PATH="$N_PREFIX/bin:$PATH"
