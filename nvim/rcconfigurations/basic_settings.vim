@@ -14,11 +14,6 @@ if has('mouse')
   set mouse=a
 endif
 
-"Use system clipboard.
-if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
-endif
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
