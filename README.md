@@ -8,6 +8,11 @@ Vim, git, zsh, and tmux are the main tools I use. I have [zplug][] to manage zsh
 [zplug]: https://github.com/zplug/zplug
 [ag]: https://github.com/ggreer/the_silver_searcher
 
+### Dependencies
+
+* reattach-to-user-namespace, a package available on homebrew. 
+* python2 and 3, neovim plugins for both, virtualenv and virtualenv wrapper for 3.
+
 ### Sources of Inspiration
 
 * Upcase: tutorials by Thoughtbot—I learnt a lot from the Git, Tmux, and Vim tracks. If you use [this link](http://ssqt.co/m5c5igy) when you sign up, we both get a month's subscription half-price. 

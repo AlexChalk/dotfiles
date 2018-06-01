@@ -45,15 +45,14 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-" Make a window big
-nmap <leader>ew <c-w>50+<c-w>100>
-
 " Frame movement commands
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" Make a window big
+nmap <leader>ew <c-w>50+<c-w>100>
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 " balance windows on shortcut

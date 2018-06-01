@@ -50,6 +50,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'w0rp/ale'
+Plug 'mhartington/nvim-typescript', { 'for': ['typescript', 'tsx'], 'do': ':UpdateRemotePlugins' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'moll/vim-node'
 
 " Clojure
   Plug 'clojure-vim/async-clj-highlight'
