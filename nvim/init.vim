@@ -23,6 +23,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'rust-lang/rust.vim'
+Plug 'neovim/node-host'
+Plug 'w0rp/ale'
+Plug 'machakann/vim-highlightedyank'
 
 "Themes
 Plug 'morhetz/gruvbox'
@@ -49,20 +52,19 @@ Plug 'benmills/vimux'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'w0rp/ale'
-Plug 'mhartington/nvim-typescript', { 'for': ['typescript', 'tsx'], 'do': ':UpdateRemotePlugins' }
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'moll/vim-node'
 
+" Typescript
+Plug 'mhartington/nvim-typescript', { 'for': ['typescript', 'tsx'], 'do': ':UpdateRemotePlugins' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+
 " Clojure
-  Plug 'clojure-vim/async-clj-highlight'
-  Plug 'snoe/clj-refactor.nvim'
-  Plug 'clojure-vim/nvim-parinfer.js'
-  Plug 'guns/vim-clojure-static'
-  Plug 'junegunn/rainbow_parentheses.vim'
-  Plug 'machakann/vim-highlightedyank'
-  Plug 'neovim/node-host'
-  Plug 'tpope/vim-fireplace'
+Plug 'clojure-vim/async-clj-highlight'
+Plug 'snoe/clj-refactor.nvim'
+Plug 'guns/vim-clojure-static'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'tpope/vim-fireplace'
+Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 call plug#end()
 

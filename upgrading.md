@@ -53,8 +53,6 @@
   * VimPlug: https://github.com/junegunn/vim-plug
   * `:CheckHealth`—follow instructions
   * You'll probably need `pip2 install neovim` && `pip3 install neovim` && `gem install neovim`.
-  * Nvim-parinfer: follow instructions here—https://github.com/clojure-vim/nvim-parinfer.js
-  * Also check out info here: https://github.com/clojure-vim/nvim-parinfer.js/issues/32
 
 2. Other dotfiles:
   * Organization of repo correctly describes where symlinks should go, (except for nvim). 
@@ -66,36 +64,6 @@
 4. Redis
   * Good installation instructions here for manual compile: `https://medium.com/@stockholmux/setting-up-redis-on-macos-sierra-5cd795e1644d`
 
-5. nginx
-
-  * Put `127.0.0.1   local.roof.ai` under `127.0.0.1   localhost` in` /etc/hosts`.
-
-  * Symlinks to config files at `/usr/local/etc/nginx/`
-
-  * If you're using brew services, you need `sudo`.
-
-  * Security certificate files go in `/usr/local/etc`: 
-
-    ``````
-    ~/ssl_creation  ❯ openssl req \
-         -newkey rsa:2048 \
-         -x509 \
-         -nodes \
-         -keyout localhost.key \
-         -new \
-         -out localhost.crt \
-         -subj /CN=local.roof.ai \
-         -reqexts SAN \
-         -extensions SAN \
-         -config <(cat /System/Library/OpenSSL/openssl.cnf \
-             <(printf '[SAN]\nsubjectAltName=DNS:local.roof.ai')) \
-         -sha256 \
-         -days 3650
-    ~/ssl_creation  ❯ mv localhost.key roof_ssl_certificate_key
-    ~/ssl_creation  ❯ mv localhost.crt roof_ssl_certificate
-    ``````
-
-  * `localhost.crt` should also be stored in the "Trousseaux d'accès" as `local.roof.ai.cer`.
 
 ## Misc
 * Put back your system fonts.
