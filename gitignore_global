@@ -1,3 +1,6 @@
+# Nested tslint files #
+*/tslint.json
+
 # Vim and Emacs backup files #
 ##############################
 *~
