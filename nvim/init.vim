@@ -51,12 +51,12 @@ Plug 'benmills/vimux'
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'moll/vim-node'
 
 " Typescript
-Plug 'mhartington/nvim-typescript', { 'for': ['typescript', 'tsx'], 'do': ':UpdateRemotePlugins' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+" May have no features beyond ale—check
+Plug 'mhartington/nvim-typescript', { 'for': ['typescript', 'tsx'], 'do': ':UpdateRemotePlugins' }
 
 " Clojure
 Plug 'clojure-vim/async-clj-highlight'
