@@ -10,19 +10,12 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'christoomey/vim-sort-motion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'janko-m/vim-test'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'mileszs/ack.vim'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-unimpaired'
-Plug 'vim-scripts/matchit.zip'
-Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'rust-lang/rust.vim'
-Plug 'neovim/node-host'
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
 
@@ -43,6 +36,14 @@ Plug 'adc17/vim-textobj-wiw'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 
+" Other custom text editing/navigation
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vim-scripts/matchit.zip'
+Plug 'christoomey/vim-sort-motion'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-eunuch'
+
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
@@ -54,7 +55,6 @@ Plug 'moll/vim-node'
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-" May have no features beyond ale—check
 Plug 'mhartington/nvim-typescript', { 'for': ['typescript', 'tsx'], 'do': ':UpdateRemotePlugins' }
 
 " Clojure
