@@ -10,7 +10,8 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'ctrlpvim/ctrlp.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'janko-m/vim-test'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'mileszs/ack.vim'
