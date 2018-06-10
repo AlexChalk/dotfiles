@@ -14,11 +14,15 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'janko-m/vim-test'
 Plug 'lifepillar/vim-mucomplete'
-Plug 'mileszs/ack.vim'
+Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
+
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
 
 "Themes
 Plug 'morhetz/gruvbox'

@@ -10,8 +10,8 @@ Vim, git, zsh, and tmux are the main tools I use. I have [zplug][] to manage zsh
 
 ### Dependencies
 
-* reattach-to-user-namespace, a package available on homebrew. 
-* python2 and 3, neovim plugins for both, virtualenv and virtualenv wrapper for 3.
+* tmux.conf: reattach-to-user-namespace, on homebrew. 
+* zshrc: zplug, https://github.com/zplug/zplug
 
 ### Sources of Inspiration
 
