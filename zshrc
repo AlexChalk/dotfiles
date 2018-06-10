@@ -15,8 +15,11 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 # use <c-s> in all applications
 stty -ixon
 
-# Needed for Z installataion.
+# Needed for Z installation.
 . `brew --prefix`/etc/profile.d/z.sh
+
+# Source fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Remember to run zplug update every once in a while
 source ~/.zplug/init.zsh
