@@ -36,6 +36,7 @@
   * Heroku: https://devcenter.heroku.com/articles/heroku-cli
   * ssh-agent configuration: https://help.github.com/articles/connecting-to-github-with-ssh/
   * Put `.zshenv` (and `.zsh_history` if you want it) back.
+  * Remember to source aliases file from `.zshenv` so you can get them in vim.
 3. Apps needed for config to work:
   * Install all your brew packages.
   * Install n using n-install: https://github.com/mklement0/n-install 

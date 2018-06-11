@@ -2,8 +2,9 @@
 " FZF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Respect ~/.ignore
-nnoremap <c-p> :call fzf#vim#files('', {'source': 'ag -g "" --path-to-ignore ~/.ignore'})<CR>
+nnoremap <c-p> :Files<CR>
+
 " Search everything
-nnoremap <leader><c-p> :Files<CR>
+nnoremap <leader><c-p> :call fzf#vim#files('', {'source': '\ag -ag ""'})<CR>
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
