@@ -5,6 +5,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Add n (nvm alternative) to PATH
 export N_PREFIX="$HOME/n" # Added by n-install (see http://git.io/n-install-repo).
 export PATH="$N_PREFIX/bin:$PATH"
+# Add go to PATH
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 
 # Add rbenv init command
 eval "$(rbenv init -)"

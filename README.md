@@ -12,6 +12,7 @@ Vim, git, zsh, and tmux are the main tools I use. I have [zplug][] to manage zsh
 
 * tmux.conf: reattach-to-user-namespace, on homebrew. 
 * zshrc: zplug, https://github.com/zplug/zplug
+* vim prettifiers: https://github.com/tdewolff/minify/tree/master/cmd/minify
 
 ### Sources of Inspiration
 
