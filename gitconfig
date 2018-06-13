@@ -27,7 +27,7 @@
   aacar = !git aa && git car
   ci = !hub ci-status
   co = checkout
-  cof = !git co . && git clean -f
+  cohard = !git co . && git clean -fd
   dfc = diff --word-diff --cached --color-words
   df = diff --word-diff --color-words
   fall = fetch --all
