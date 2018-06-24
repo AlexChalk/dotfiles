@@ -2,6 +2,6 @@
 let g:jsx_ext_required = 0
 
 " Open TS Definition
-nmap <silent> <leader>do :TSDefPreview<CR>
+nmap <silent> <leader>gd :TSDefPreview<CR>
 " Open in split
-nmap <silent> <leader>dg :TSDef<CR>
+nmap <silent> <leader>sd :TSDef<CR>

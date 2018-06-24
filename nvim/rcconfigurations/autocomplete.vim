@@ -10,5 +10,3 @@ let g:mucomplete#enable_auto_at_startup = 0
 
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 let g:UltiSnipsExpandTrigger = '<C-]>'
-" let g:mucomplete#chains = { 'javascript': [ 'ulti', 'omni'] }
-" let g:mucomplete#chains = { 'default': ['omni', 'ulti', 'path', 'keyn', 'dict', 'uspl'] }
