@@ -7,8 +7,10 @@ nnoremap <leader>gaf :Gwrite<cr>
 nnoremap <leader>guf :silent exec '!git unstage %'<cr>
 nnoremap <leader>gaa :silent exec '!git aa'<cr>
 nnoremap <leader>gua :silent exec '!git unstage .'<cr>
-nnoremap <leader>ge :Gedit
-nnoremap <leader>gdf :Gvdiff 
+nnoremap <leader>ge<space> :Gedit<space>
+nnoremap <leader>gec :Gedit<cr>
+nnoremap <leader>gdf<space> :Gvdiff<space>
+nnoremap <leader>gdfc :Gvdiff<cr>
 
 " Logging/searching 
 
