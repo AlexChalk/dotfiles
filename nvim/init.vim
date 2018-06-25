@@ -16,7 +16,7 @@ Plug 'janko-m/vim-test'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
 
@@ -54,21 +54,21 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
 
 " Javascript
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'moll/vim-node'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
+Plug 'moll/vim-node', { 'for': ['javascript', 'jsx', 'typescript', 'tsx'] }
 
 " Typescript
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'tsx'] }
 Plug 'mhartington/nvim-typescript', { 'for': ['typescript', 'tsx'], 'do': ':UpdateRemotePlugins' }
 
 " Clojure
-Plug 'clojure-vim/async-clj-highlight'
-Plug 'snoe/clj-refactor.nvim'
-Plug 'guns/vim-clojure-static'
+Plug 'clojure-vim/async-clj-highlight', { 'for': ['clojure', 'clojurescript'] }
+Plug 'snoe/clj-refactor.nvim', { 'for': ['clojure', 'clojurescript'] }
+Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'clojurescript'] }
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'tpope/vim-fireplace'
-Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
+Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'clojurescript'] }
+Plug 'eraserhd/parinfer-rust', { 'for': ['clojure', 'clojurescript'], 'do': 'cargo build --release' }
 
 call plug#end()
 
