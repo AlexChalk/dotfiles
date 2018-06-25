@@ -14,8 +14,8 @@ let g:clojure_fuzzy_indent_patterns = ['.*']
 let g:clojure_fuzzy_indent_blacklist = ['->', ':require']
 
 
-" Connect to figwheel repl
-" nnoremap <leader>cfr :exe 'Connect nrepl://localhost:7002 ' getcwd()<cr>
+" Begin connection to figwheel repl
+nnoremap <leader>cfr :Connect<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline config for parinfer
