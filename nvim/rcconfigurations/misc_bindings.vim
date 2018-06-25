@@ -23,8 +23,8 @@ nmap <leader>oct :tabedit ~/dotfiles/nvim/init.vim<cr>
 nmap <leader>rc :w<cr>:source $MYVIMRC<cr>
 
 " Change dir to current file's directory
-nmap <leader>cad :cd %:p:h<cr>
-nmap <leader>cd :lcd %:p:h<cr>
+nmap <silent> <leader>cad :cd %:p:h<cr>
+nmap <silent> <leader>cd :lcd %:p:h<cr>
 
 " shortcut to turn search highlighting off
 nmap <leader>nh :nohls<cr>
