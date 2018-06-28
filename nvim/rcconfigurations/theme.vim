@@ -1,9 +1,12 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 syntax enable
-set background=dark
-colorscheme gruvbox
+colorscheme base16-gruvbox-dark-medium
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline

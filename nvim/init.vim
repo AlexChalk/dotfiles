@@ -16,6 +16,7 @@ Plug 'janko-m/vim-test'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-fugitive'
+
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
@@ -25,9 +26,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 
 "Themes
-Plug 'morhetz/gruvbox'
-Plug 'Blevs/vim-dzo'
-Plug 'trevordmiller/nova-vim'
+Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
