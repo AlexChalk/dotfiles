@@ -21,6 +21,7 @@ nnoremap <Leader>fl :ALEFix<CR>
 let g:ale_fixers = {
       \   'javascript': [
       \       'eslint',
+      \       'prettier'
       \   ],
       \   'typescript': [
       \       'tslint',
