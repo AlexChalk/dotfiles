@@ -56,7 +56,7 @@
   uncommit = reset --soft HEAD^
   unstage = reset
   upm = !git checkout master && git pull && git checkout -
-  upmr = !git mup && git rebase master
+  upmr = !git upm && git rebase master
   ups = !git checkout staging && git pull && git checkout -
   upsr = !git sup && git rebase staging
 [diff]

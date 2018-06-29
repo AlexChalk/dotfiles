@@ -55,7 +55,7 @@ Plug 'benmills/vimux'
 " Javascript
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
-Plug 'moll/vim-node', { 'for': ['javascript', 'jsx', 'typescript', 'tsx'] }
+Plug 'moll/vim-node'
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'tsx'] }
