@@ -11,7 +11,8 @@ nnoremap <leader>ge<space> :Gedit<space>
 nnoremap <leader>gec :Gedit<cr>
 nnoremap <leader>gdf<space> :Gvdiff<space>
 nnoremap <leader>gdfc :Gvdiff<cr>
-nnoremap <leader>gvs :Gvsplit<cr>
+nnoremap <leader>gvs :Gvsplit<space>
+nnoremap <leader>gvsc :Gvsplit<cr>
 
 " Logging/searching 
 
