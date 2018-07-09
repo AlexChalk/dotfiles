@@ -17,6 +17,9 @@ let g:clojure_fuzzy_indent_blacklist = ['->', ':require']
 " Begin connection to figwheel repl
 nnoremap <leader>cfr :Connect<cr>
 
+" Treat pixie like clojure
+au BufNewFile,BufRead *.pxi set filetype=clojure
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline config for parinfer
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
