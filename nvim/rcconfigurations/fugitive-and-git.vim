@@ -2,8 +2,8 @@
 
 nnoremap <leader>gcc :Gcommit<cr>
 nnoremap <leader>gca :Gcommit --amend<cr>
-nnoremap <leader>grf :Gread<cr>
-nnoremap <leader>gsf :Gwrite<cr>
+nnoremap <leader>gcof :Gread<cr>
+nnoremap <leader>gaf :Gwrite<cr>
 nnoremap <leader>guf :silent exec '!git unstage %'<cr>
 nnoremap <leader>gaa :silent exec '!git aa'<cr>
 nnoremap <leader>gua :silent exec '!git unstage .'<cr>
