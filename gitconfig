@@ -51,7 +51,6 @@
   sl = stash list
   sla = log --oneline --decorate --graph --all -10
   sm = "!f() { git stash push -u -m $1; }; f"
-  sp = stash pop
   spn = "!f() { git stash pop stash@{$1}; }; f"
   uncommit = reset --soft HEAD^
   unstage = reset
