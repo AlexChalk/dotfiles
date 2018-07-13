@@ -1,5 +1,6 @@
 # Add personal scripts to PATH
 export PATH="$PATH:$HOME/dotfiles/bin"
+export PATH="$PATH:$HOME/bin-personal"
 # Add rust to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 # Add n (nvm alternative) to PATH
