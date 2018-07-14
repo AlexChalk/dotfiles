@@ -57,6 +57,9 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
 Plug 'moll/vim-node'
 
+" Elm
+Plug 'elmcast/elm-vim', { 'for': ['elm'] }
+
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'tsx'] }
 Plug 'mhartington/nvim-typescript', { 'for': ['typescript', 'tsx'], 'do': ':UpdateRemotePlugins' }
