@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-test setup
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let test#strategy = 'vimux'
+let test#strategy = 'vtr'
 let test#javascript#jasmine#file_pattern = '\.test\.js'
 
 " Run Test Assertion/File/Suite/Repeat

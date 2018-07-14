@@ -50,7 +50,7 @@ Plug 'tpope/vim-eunuch'
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-runner'
 
 " Javascript
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'jsx'] }
