@@ -3,7 +3,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
-let g:VtrAppendNewline = 1
 let g:VtrPercentage = 40 
 let g:VtrOrientation = "h"
 
