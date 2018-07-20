@@ -7,9 +7,9 @@ nmap <leader>nns :e <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 " maximize a vim window
 nnoremap <c-w>z :wincmd _<cr>:wincmd \|<cr> 
 " max width
-nnoremap <c-w>\ :wincmd \|<cr> 
+nnoremap <c-w>- :wincmd \|<cr> 
 " max height
-nnoremap <c-w>- :wincmd _<cr> 
+nnoremap <c-w>\ :wincmd _<cr> 
 " <c-w>=: rebalance windows
 " <c-w>R: Swap top/bottom or left/right split
 " <c-w>T: Break out current window into a new tabview
