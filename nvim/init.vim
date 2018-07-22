@@ -70,7 +70,7 @@ Plug 'snoe/clj-refactor.nvim', { 'for': ['clojure', 'clojurescript'] }
 Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'clojurescript'] }
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'clojurescript'] }
-Plug 'eraserhd/parinfer-rust', { 'for': ['clojure', 'clojurescript'], 'do': 'cargo build --release' }
+Plug 'eraserhd/parinfer-rust', { 'for': ['clojure', 'clojurescript', 'lisp'], 'do': 'cargo build --release' }
 
 call plug#end()
 
