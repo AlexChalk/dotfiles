@@ -26,6 +26,9 @@ let g:ale_fixers = {
       \   'typescript': [
       \       'tslint',
       \   ],
+      \   'elm': [
+      \       'elm-format',
+      \   ],
       \   'json': [
       \       'fixjson', 
       \       'jq'
