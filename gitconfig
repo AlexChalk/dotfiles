@@ -47,6 +47,7 @@
   ri = rebase --interactive
   rrF = "!f() { git reset --hard HEAD@{$1}; }; f"
   s = stash -u
+  sdF = stash drop
   sc = commit --amend --no-edit
   sl = stash list
   sla = log --oneline --decorate --graph --all -10
