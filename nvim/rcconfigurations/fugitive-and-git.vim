@@ -31,10 +31,10 @@ nnoremap <leader>gscc :Glog -S --<left><left><left>
 nnoremap <leader>gfp :only<cr>
 
 " Two-way diffing
-xnoremap <leader>gsh :diffput \| diffupdate<cr>
-xnoremap <leader>gcoh :diffget \| diffupdate<cr>
-nnoremap <leader>gsh :diffput \| diffupdate<cr>
-nnoremap <leader>gcoh :diffget \| diffupdate<cr>
+xnoremap <leader>gsph :diffput \| diffupdate<cr>
+xnoremap <leader>gsh :diffget \| diffupdate<cr>
+nnoremap <leader>gsph :diffput \| diffupdate<cr>
+nnoremap <leader>gsh :diffget \| diffupdate<cr>
 
 " Three-way diffing (merge conflicts)
 
