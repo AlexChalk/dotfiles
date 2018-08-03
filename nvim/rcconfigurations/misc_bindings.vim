@@ -18,8 +18,8 @@ nnoremap <Leader>sf :e .<CR>
 autocmd Filetype help nnoremap <buffer> q :q<CR>
 
 " Open and source vimrc
-nmap <leader>ocs :sp ~/dotfiles/nvim/init.vim<cr>
-nmap <leader>oct :tabedit ~/dotfiles/nvim/init.vim<cr>
+nmap <leader>ocs :sp $HOME/dotfiles/nvim/init.vim<cr>
+nmap <leader>oct :tabedit $HOME/dotfiles/nvim/init.vim<cr>
 nmap <leader>rc :w<cr>:source $MYVIMRC<cr>
 
 " Change dir to current file's directory

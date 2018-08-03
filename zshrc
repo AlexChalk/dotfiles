@@ -23,10 +23,10 @@ stty -ixon
 . `brew --prefix`/etc/profile.d/z.sh
 
 # Source fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 # Remember to run zplug update every once in a while
-source ~/.zplug/init.zsh
+source $HOME/.zplug/init.zsh
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "adc17/pure-red-stars", as:theme
