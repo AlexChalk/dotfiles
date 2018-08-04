@@ -59,6 +59,8 @@ Plug 'moll/vim-node'
 
 " Elm
 Plug 'elmcast/elm-vim', { 'for': ['elm'] }
+" Haskell
+Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'tsx'] }
