@@ -9,3 +9,4 @@ alias c='clear'
 alias brewup="brew update && brew upgrade && brew cleanup"
 alias gh='hub'
 alias ag='ag --path-to-ignore $HOME/.ignore'
+alias unix-linebreaks="vim -u NONE -c 'e ++ff=dos' -c 'w ++ff=unix' -c q"
