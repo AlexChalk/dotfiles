@@ -55,7 +55,7 @@ Plug 'christoomey/vim-tmux-runner'
 " Javascript
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
-Plug 'moll/vim-node'
+Plug 'moll/vim-node', { 'for': ['javascript', 'jsx', 'typescript', 'tsx'] }
 
 " Elm
 Plug 'elmcast/elm-vim', { 'for': ['elm'] }
