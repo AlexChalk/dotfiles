@@ -22,8 +22,6 @@ Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
 
 Plug 'easymotion/vim-easymotion'
-" Plug 'haya14busa/incsearch.vim'
-" Plug 'haya14busa/incsearch-easymotion.vim'
 
 "Themes
 Plug 'chriskempson/base16-vim'

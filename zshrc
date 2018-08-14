@@ -9,6 +9,8 @@ export PATH="$N_PREFIX/bin:$PATH"
 # Add go to PATH
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+# Add haskell packages to PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 # Add rbenv init command
 eval "$(rbenv init -)"
