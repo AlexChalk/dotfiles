@@ -16,6 +16,7 @@ Plug 'janko-m/vim-test'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'w0rp/ale'
