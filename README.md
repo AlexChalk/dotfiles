@@ -2,11 +2,11 @@
 
 The dotfiles for my macOS unix environment.
 
-Vim, git, zsh, and tmux are the main tools I use. I have [zplug][] to manage zsh plugins and [vim-plug][] to manage vim plugins. [ag][] is my searcher of choice.
+Vim, git, zsh, and tmux are the main tools I use. I have [zplug][] to manage zsh plugins and [vim-plug][] to manage vim plugins. [ripgrep][] is my searcher of choice.
 
 [vim-plug]: https://github.com/junegunn/vim-plug.
 [zplug]: https://github.com/zplug/zplug
-[ag]: https://github.com/ggreer/the_silver_searcher
+[ripgrep]: https://github.com/BurntSushi/ripgrep
 
 ### Dependencies
 
