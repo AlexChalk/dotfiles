@@ -7,6 +7,7 @@ set scrolloff=3	              " Maintain slight scroll
 set showcmd		                " Display incomplete commands
 set history=50	              " Keep 50 lines of command line history
 set ignorecase                " Make searches case-insensitive by default.
+set smartcase                 " Override ignorecase if caps are used.
 set iskeyword+=-              " Define `w` consistently for - and _
 
 " In many terminal emulators the mouse works just fine, thus enable it.
