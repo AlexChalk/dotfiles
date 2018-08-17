@@ -9,6 +9,7 @@ alias c='clear'
 alias brewup="brew update && brew upgrade && brew cleanup"
 alias gh='hub'
 alias rga='rg --no-ignore --hidden --glob "!.git/*"'
+alias ag='ag --path-to-ignore $HOME/.ignore'
 alias unix-linebreaks="vim -u NONE -c 'e ++ff=dos' -c 'w ++ff=unix' -c q"
 alias hjoin="heroku apps -t busbud | tail -n+2 | grep . | sed 's/ .*$//' | fzf --header='Select the app you want to join' | xargs heroku join -a"
 alias hlogs="heroku apps --all | tail -n+2 | grep . | sed 's/ .*$//' | fzf --header='Select the app whose logs you want to tail' | xargs heroku logs -t -a"
