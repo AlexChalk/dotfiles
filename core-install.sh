@@ -18,6 +18,7 @@ brew cask install \
 brew install \
   awk \
   curl \
+  fd \
   fzf \
   git \
   heroku/brew/heroku \

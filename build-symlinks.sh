@@ -2,8 +2,8 @@ cd $HOME
 ln -s dotfiles/zshrc .zshrc
 ln -s dotfiles/tmux.conf .tmux.conf
 ln -s dotfiles/ignore .ignore
+ln -s dotfiles/ignore .fdignore
 ln -s dotfiles/gitconfig .gitconfig
-ln -s dotfiles/gitignore_global .gitignore_global
 ln -s dotfiles/rubocop.yml .rubocop.yml
 mkdir .lein
 ln -s dotfiles/lein/profiles.clj .lein/profiles.clj
