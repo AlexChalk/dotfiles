@@ -67,3 +67,5 @@ nnoremap <leader>gp :Gblame<cr>
 " U checkout
 " g? other options
 nnoremap <leader>gss :Gstatus<cr>
+" Browse in github
+nnoremap <leader>gb :Gbrowse<cr>
