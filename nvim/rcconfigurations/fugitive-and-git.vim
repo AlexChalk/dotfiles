@@ -69,3 +69,4 @@ nnoremap <leader>gp :Gblame<cr>
 nnoremap <leader>gss :Gstatus<cr>
 " Browse in github
 nnoremap <leader>gb :Gbrowse<cr>
+xnoremap <leader>gb :Gbrowse<cr>
