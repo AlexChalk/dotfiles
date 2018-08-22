@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+bip() {
+  local inst=$(brew search | fzf -m)
+
+  if [[ $inst ]]; then
+    for prog in $(echo $inst);
+    do brew install $prog; done;
+  fi
+}
+
+bip
