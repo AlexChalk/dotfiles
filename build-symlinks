@@ -16,3 +16,5 @@ mkdir .config/nvim/ftdetect
 ln -s dotfiles/nvim/ftdetect/* .config/nvim/ftdetect
 ln -s dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips
 ln -s dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips/typescript.snippets
+mkdir Library/KeyBindings
+ln -s dotfiles/DefaultKeyBinding.dict Library/KeyBindings/DefaultKeyBinding.dict
