@@ -28,3 +28,6 @@ nmap <silent> <leader>cd :lcd %:p:h<cr>
 
 " shortcut to turn search highlighting off
 nmap <leader>nh :nohls<cr>
+
+" diff open files
+nmap <leader>dt :difft<cr>

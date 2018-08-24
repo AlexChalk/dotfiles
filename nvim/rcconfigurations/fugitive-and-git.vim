@@ -70,3 +70,6 @@ nnoremap <leader>gss :Gstatus<cr>
 " Browse in github
 nnoremap <leader>gb :Gbrowse<cr>
 xnoremap <leader>gb :Gbrowse<cr>
+
+" Review a PR
+nnoremap <leader>grpr :Git! request-pull -p master ./<cr>
