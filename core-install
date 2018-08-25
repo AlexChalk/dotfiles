@@ -40,6 +40,7 @@ brew install \
   tmux \
   tree \
   watchman \
+  w3m \
   z \
   zsh
 
