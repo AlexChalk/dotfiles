@@ -23,6 +23,7 @@ brew install \
   fd \
   fzf \
   git \
+  gnu-sed --with-default-names \
   heroku/brew/heroku \
   httpie \
   hub \
