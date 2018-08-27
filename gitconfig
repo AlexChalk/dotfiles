@@ -32,7 +32,6 @@
   fall = fetch --all
   glog = log -E -i --grep
   hardF = reset --hard
-  ipr = !hub pull-request
   issues = !hub browse --issues
   la = log --oneline --decorate --graph --all
   lc = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+ipr() {
+  github_token=$GITHUB_TOKEN
+  unset GITHUB_TOKEN
+
+  current_remote=$(sed "s/origin\///" <<< $(git rev-parse --abbrev-ref @{u}))
+  hub pull-request -h $current_remote
+
+  export GITHUB_TOKEN=$github_token
+}
+
+ipr
