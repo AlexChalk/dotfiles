@@ -18,3 +18,4 @@ ln -s dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips
 ln -s dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips/typescript.snippets
 mkdir Library/KeyBindings
 ln -s dotfiles/DefaultKeyBinding.dict Library/KeyBindings/DefaultKeyBinding.dict
+ln -s dotfiles/ghci.conf .ghc/ghci.conf
