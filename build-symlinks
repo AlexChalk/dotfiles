@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 
 cd $HOME
-ln -s dotfiles/zshrc .zshrc
-ln -s dotfiles/tmux.conf .tmux.conf
-ln -s dotfiles/ignore .ignore
-ln -s dotfiles/ignore .fdignore
-ln -s dotfiles/gitconfig .gitconfig
-ln -s dotfiles/rubocop.yml .rubocop.yml
+ln -s $HOME/dotfiles/zshrc .zshrc
+ln -s $HOME/dotfiles/tmux.conf .tmux.conf
+ln -s $HOME/dotfiles/ignore .ignore
+ln -s $HOME/dotfiles/ignore .fdignore
+ln -s $HOME/dotfiles/gitconfig .gitconfig
+ln -s $HOME/dotfiles/rubocop.yml .rubocop.yml
 mkdir .lein
-ln -s dotfiles/lein/profiles.clj .lein/profiles.clj
+ln -s $HOME/dotfiles/lein/profiles.clj .lein/profiles.clj
 mkdir -p .config/nvim
-ln -s dotfiles/nvim/init.vim .config/nvim/init.vim
+ln -s $HOME/dotfiles/nvim/init.vim .config/nvim/init.vim
 mkdir .config/nvim/Ultisnips
 mkdir .config/nvim/ftdetect
-ln -s dotfiles/nvim/ftdetect/* .config/nvim/ftdetect
-ln -s dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips
-ln -s dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips/typescript.snippets
+ln -s $HOME/dotfiles/nvim/ftdetect/* .config/nvim/ftdetect
+ln -s $HOME/dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips
+ln -s $HOME/dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips/typescript.snippets
 mkdir Library/KeyBindings
-ln -s dotfiles/DefaultKeyBinding.dict Library/KeyBindings/DefaultKeyBinding.dict
-ln -s dotfiles/ghci.conf .ghc/ghci.conf
+ln -s $HOME/dotfiles/DefaultKeyBinding.dict Library/KeyBindings/DefaultKeyBinding.dict
+ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
