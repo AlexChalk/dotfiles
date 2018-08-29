@@ -5,9 +5,10 @@ ipr() {
   unset GITHUB_TOKEN
 
   current_remote=$(sed "s/origin\///" <<< $(git rev-parse --abbrev-ref @{u}))
-  hub pull-request -h $current_remote
+  hub pull-request -c -h $current_remote
 
   export GITHUB_TOKEN=$github_token
+  echo $(pbpaste)
 }
 
 ipr
