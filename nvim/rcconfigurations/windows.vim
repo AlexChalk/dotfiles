@@ -16,4 +16,7 @@ nnoremap <c-w>\ :wincmd _<cr>
 " <c-w>o: Close every window in the current tabview but the current one
 
 " automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
+augroup windows
+  autocmd!
+  autocmd VimResized * :wincmd =
+augroup END

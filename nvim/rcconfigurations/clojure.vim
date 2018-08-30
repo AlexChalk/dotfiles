@@ -6,7 +6,10 @@ nnoremap <leader>pi :let g:parinfer_mode = "indent"<cr>
 nnoremap <leader>ps :let g:parinfer_mode = "smart"<cr>
 
 " Reload all definitions for file in repl
-autocmd FileType clojure map <leader>ra :w<cr>:Require!<cr>
+augroup clojure
+  autocmd!
+  autocmd FileType clojure map <leader>ra :w<cr>:Require!<cr>
+augroup END
 
 " Indentation settings
 let g:clojure_fuzzy_indent = 1
@@ -18,7 +21,10 @@ let g:clojure_fuzzy_indent_blacklist = ['->', ':require']
 nnoremap <leader>cfr :Connect<cr>
 
 " Treat pixie like clojure
-au BufNewFile,BufRead *.pxi set filetype=clojure
+augroup pixie
+  autocmd!
+  autocmd BufNewFile,BufRead *.pxi set filetype=clojure
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline config for parinfer

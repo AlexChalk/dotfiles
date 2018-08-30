@@ -23,4 +23,8 @@ function! AirlineInit()
   let g:airline_section_y = airline#section#create(['filetype'])
   let g:airline_section_z = airline#section#create(['%l',':','%c'])
 endfunction
-autocmd User AirlineAfterInit call AirlineInit()
+
+if !exists("airline_loaded")
+  let airline_loaded = 1
+  autocmd User AirlineAfterInit call AirlineInit()
+endif

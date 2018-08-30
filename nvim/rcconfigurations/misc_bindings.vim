@@ -15,7 +15,10 @@ nmap <leader>; :
 nnoremap <Leader>sf :e .<CR>
 
 " Escape hatch from help files
-autocmd Filetype help nnoremap <buffer> q :q<CR>
+augroup help
+  autocmd!
+  autocmd Filetype help nnoremap <buffer> q :q<CR>
+augroup END
 
 " Open and source vimrc
 nmap <leader>ocs :sp $HOME/dotfiles/nvim/init.vim<cr>
