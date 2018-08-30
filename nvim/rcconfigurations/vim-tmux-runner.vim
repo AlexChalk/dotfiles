@@ -15,3 +15,5 @@ nmap <leader>sr :VtrSendLinesToRunner<CR>
 vmap <leader>sr :VtrSendLinesToRunner<CR>
 nmap <leader>scr :VtrSendCommandToRunner<CR>
 nmap <leader>ccr :VtrFlushCommand<CR>
+
+nmap <leader>sbr vip<leader>sr
