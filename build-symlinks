@@ -19,3 +19,4 @@ ln -s $HOME/dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips/t
 mkdir Library/KeyBindings
 ln -s $HOME/dotfiles/DefaultKeyBinding.dict Library/KeyBindings/DefaultKeyBinding.dict
 ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
+ln -s $HOME/dotfiles/ctags .ctags

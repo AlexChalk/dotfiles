@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+if [ -d .git ]; then
+  tempfile=$(mktemp ".git/tags.XXXXX")
+  ctags -R -f "$tempfile" && mv "$tempfile" .git/tags
+fi

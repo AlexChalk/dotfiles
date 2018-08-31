@@ -19,6 +19,7 @@ brew cask install \
 
 brew install \
   awk \
+  ctags \
   curl \
   fd \
   fzf \

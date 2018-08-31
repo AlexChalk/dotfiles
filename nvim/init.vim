@@ -12,6 +12,7 @@ call plug#begin('$HOME/.local/share/nvim/plugged')
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'prabirshrestha/async.vim'
 Plug 'janko-m/vim-test'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'dyng/ctrlsf.vim'
