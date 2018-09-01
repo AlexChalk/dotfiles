@@ -17,10 +17,17 @@ function! s:on_exit(job_id, exit_code, _)
   endif
 endfunction
 
+" function! s:notif()
+"     echom 'notification'
+" endfunction
+
 augroup async_ctags
   autocmd!
   autocmd VimEnter * CtagsAsync
   autocmd BufWritePost * CtagsAsync
+  " can use this pattern to create different tag commands for different fts
+  " autocmd BufWritePost * if &ft!~?'haskell'|:call <sid>notif()|endif
+  " autocmd BufWritePost * if &ft=='haskell'|:call <sid>notif()|endif
 augroup END
 
 " - Use ^] to jump to tag under cursor

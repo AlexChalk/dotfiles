@@ -19,7 +19,6 @@ brew cask install \
 
 brew install \
   awk \
-  ctags \
   curl \
   fd \
   fzf \
@@ -41,6 +40,7 @@ brew install \
   the_silver_searcher \
   tmux \
   tree \
+  universal-ctags \
   watchman \
   w3m \
   z \
