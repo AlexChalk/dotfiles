@@ -22,6 +22,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh', }
 
 Plug 'easymotion/vim-easymotion'
 
@@ -66,7 +67,6 @@ Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'tsx'] }
-Plug 'mhartington/nvim-typescript', { 'for': ['typescript', 'tsx'], 'do': ':UpdateRemotePlugins' }
 
 " Clojure
 Plug 'clojure-vim/async-clj-highlight', { 'for': ['clojure', 'clojurescript'] }

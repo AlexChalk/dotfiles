@@ -36,3 +36,6 @@ augroup END
 
 " Vanilla
 " - :b lets you autocomplete any open buffer
+
+" If you want to get back to previous buffer but didn't move using ctags.
+nnoremap <leader><C-T> :b#<cr>

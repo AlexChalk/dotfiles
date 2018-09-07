@@ -10,7 +10,6 @@ let g:ale_linters = {
 
 nmap <silent> <leader><C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <leader><C-j> <Plug>(ale_next_wrap)
-nmap <silent> <leader>ds <Plug>(ale_hover)
 nmap <silent> <leader>em <Plug>(ale_detail)
 
 
