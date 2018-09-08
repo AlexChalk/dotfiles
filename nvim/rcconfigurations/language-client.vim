@@ -10,18 +10,23 @@ let g:LanguageClient_serverCommands = {
 " let g:LanguageClient_windowLogMessageLevel = 'Error'
 " let g:LanguageClient_diagnosticsEnable = 0
 
-nmap <leader>lcm :call LanguageClient_contextMenu()<CR>
+nmap <leader>lom :call LanguageClient_contextMenu()<CR>
 " consider shift-k instead of lch
-nmap <leader>lch :call LanguageClient#textDocument_hover()<CR>
+nmap <leader>lh :call LanguageClient#textDocument_hover()<CR>
 nnoremap <leader>hq <C-W>j:q<CR>
-nmap <leader>lcr :call LanguageClient#textDocument_rename()<CR>
-nmap <leader>lcs :call LanguageClient#textDocument_documentSymbol()<CR>
-nmap <leader>lcps :call LanguageClient#workspace_symbol()<CR>
-nmap <leader>lca :call LanguageClient#textDocument_codeAction()<CR>
-nmap <leader>lcf :call LanguageClient#textDocument_formatting()<CR>
-vmap <leader>lcf :call LanguageClient#textDocument_rangeFormatting()<CR>
-nmap <leader>lcem :call LanguageClient#explainErrorAtPoint()<CR>
-nmap <leader>gdd :call LanguageClient#textDocument_definition()<CR>
-nmap <leader>gdt :call LanguageClient#textDocument_typeDefinition()<CR>
-nmap <leader>gdi :call LanguageClient#textDocument_implementation()<CR>
-nmap <leader>gdu :call LanguageClient#textDocument_references()<CR>
+nmap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+nmap <leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+nmap <leader>lps :call LanguageClient#workspace_symbol()<CR>
+nmap <leader>la :call LanguageClient#textDocument_codeAction()<CR>
+nmap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+vmap <leader>lf :call LanguageClient#textDocument_rangeFormatting()<CR>
+nnoremap <leader>lm :call LanguageClient#explainErrorAtPoint()<CR>
+nmap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+nmap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+nmap <leader>li :call LanguageClient#textDocument_implementation()<CR>
+nmap <leader>lu :call LanguageClient#textDocument_references()<CR>
+
+" To avoid lag, create jsconfig.json file containing at least this:
+" {
+"   \"exclude": [ \"node_modules" ]
+" }
