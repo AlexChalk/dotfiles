@@ -44,6 +44,7 @@
   ra = rebase --abort
   rc = rebase --continue
   ri = rebase --interactive
+  rpm = "!f() { g rebase --onto master $1 $2 }; f"
   rrF = "!f() { git reset --hard HEAD@{$1}; }; f"
   s = stash -u
   sdF = stash drop
