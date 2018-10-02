@@ -11,9 +11,6 @@ nmap <leader>; :
 " En-dashes (in insert mode) <ctrl>k -N
 " Em-dashes (in insert mode) <ctrl>k -M
 
-" Nerdtree equivalent
-nnoremap <Leader>sf :e .<CR>
-
 " Escape hatch from help files
 augroup help
   autocmd!
