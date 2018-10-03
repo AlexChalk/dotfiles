@@ -27,6 +27,4 @@ nmap <leader>li :call LanguageClient#textDocument_implementation()<CR>
 nmap <leader>lu :call LanguageClient#textDocument_references()<CR>
 
 " To avoid lag, create jsconfig.json file containing at least this:
-" {
-"   \"exclude": [ \"node_modules" ]
-" }
+"" { "exclude": [ "node_modules" ] }
