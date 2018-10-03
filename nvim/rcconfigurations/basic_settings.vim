@@ -1,6 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Editing Misc. 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin indent on
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start    
 set scrolloff=3	              " Maintain slight scroll
@@ -24,8 +25,8 @@ set ruler		              " show the cursor position all the time
 set incsearch		          " do incremental searching
 set number relativenumber " set numbers behaviour
 set inccommand=nosplit    " show results of command incrementally
-set textwidth=72          " Make it obvious where 
-set colorcolumn=+1        " 72 characters is
+set textwidth=90          " Make it obvious where 
+set colorcolumn=+1        " 90 characters is
 set splitbelow            " set default :sp position
 set splitright            " set default :vsp position
 
