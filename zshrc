@@ -33,7 +33,8 @@ stty -ixon
 
 setopt prompt_subst
 
-source $HOME/.zsh_plugins.sh
+[ -f $HOME/.zsh_plugins.sh ] && source $HOME/.zsh_plugins.sh
+
 autoload -Uz compinit
 
 if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
