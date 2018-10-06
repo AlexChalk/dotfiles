@@ -1,3 +1,5 @@
+# Not all terminal emulators seem to add this—uncomment if needed.
+# export PATH="$PATH:/usr/local/bin"
 # Add personal scripts to PATH
 export PATH="$PATH:$HOME/dotfiles/bin"
 export PATH="$PATH:$HOME/bin-personal"
