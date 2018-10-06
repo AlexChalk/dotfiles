@@ -12,10 +12,11 @@ export PATH="$GOPATH/bin:$PATH"
 # Add haskell packages to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # Run `rbenvinit` before doing any ruby coding
-rbenvinit() {
+rbinit() {
   eval "$(command rbenv init -)"
 }
 
@@ -35,6 +36,7 @@ setopt prompt_subst
 
 [ -f $HOME/.zsh_plugins.sh ] && source $HOME/.zsh_plugins.sh
 
+# Compdef initialization only slows down startup once every 20hrs
 autoload -Uz compinit
 _comp_files=(${ZDOTDIR:-$HOME}/.zcompdump(Nm-20))
 if (( $#_comp_files )); then
