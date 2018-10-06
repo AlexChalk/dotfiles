@@ -12,6 +12,8 @@ export PATH="$GOPATH/bin:$PATH"
 # Add haskell packages to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+export LC_ALL="en_US.UTF-8"
+
 # Add rbenv init command
 eval "$(rbenv init -)"
 
@@ -28,12 +30,16 @@ stty -ixon
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 # Remember to run zplug update every once in a while
-source $HOME/.zplug/init.zsh
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "adc17/pure-red-stars", as:theme
+# source $HOME/.zplug/init.zsh
+# zplug "zsh-users/zsh-completions"
+# zplug "zsh-users/zsh-syntax-highlighting"
+# zplug "adc17/pure-red-stars", as:theme
+#
+# zplug load
 
-zplug load
+setopt prompt_subst
+source $HOME/.zsh_plugins.sh
+autoload -U compinit && compinit
 
 # User configuration
 for zsh_source in $HOME/dotfiles/zsh/*.zsh; do
