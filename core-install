@@ -13,6 +13,7 @@ brew cask install \
   google-chrome \
   haskell-platform \
   iterm2 \
+  kitty \
   java \
   ngrok \
   typora
@@ -22,15 +23,18 @@ brew install \
   curl \
   fd \
   fzf \
+  getantibody/tap/antibody \
   git \
   gnu-sed --with-default-names \
   heroku/brew/heroku \
   httpie \
   hub \
+  jq \
   leiningen \
   neovim \
   nginx \
   planck \
+  postgresql \
   python \
   python@2 \
   rbenv \
@@ -40,36 +44,30 @@ brew install \
   the_silver_searcher \
   tmux \
   tree \
-  universal-ctags \
   watchman \
-  w3m \
   z \
-  zsh
+  zsh \
+
+brew tap 'universal-ctags/universal-ctags'
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+brew services start postgres
 
 echo "Performing homebrew post-installations"
 $(brew --prefix)/opt/fzf/install
+antibodyupdate
 
 echo "Setting up SSH"
-ssh-keygen -t rsa -b 4096 -C "alexchalk17@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "alex@alexchalk.net"
 echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_rsa" >> $HOME/.ssh/config
 eval "$(ssh-agent -s)"
 ssh-add -K $HOME/.ssh/id_rsa
 
-echo "Other fun stuff"
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+echo "Node"
+curl -L https://git.io/n-install | bash
 
+echo "Rust"
+curl https://sh.rustup.rs -sSf | sh
+
+echo "Vim Plug Setup"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-pip2 install \
-  neovim
-pip3 install \
-  neovim \
-  virtualenv \
-  virtualenvwrapper
-
-curl -L https://git.io/n-install | bash
-npm i -g neovim
-
-rbenv init
-echo "Remember to \`rbenv install -l\`, \`rbenv global\`, and \`gem install bundler rubocop neovim\`"

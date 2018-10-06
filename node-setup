@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+npm i -g neovim \
+  elm \
+  elm-format \
+  elm-oracle \
+  elm-test \
+  javascript-typescript-langserver \
+  neovim \
+  typescript

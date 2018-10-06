@@ -7,6 +7,7 @@ ln -s $HOME/dotfiles/ignore .ignore
 ln -s $HOME/dotfiles/ignore .fdignore
 ln -s $HOME/dotfiles/gitconfig .gitconfig
 ln -s $HOME/dotfiles/rubocop.yml .rubocop.yml
+ln -s $HOME/dotfiles/psqlrc .psqlrc
 mkdir .lein
 ln -s $HOME/dotfiles/lein/profiles.clj .lein/profiles.clj
 mkdir -p .config/nvim
@@ -21,3 +22,7 @@ ln -s $HOME/dotfiles/DefaultKeyBinding.dict Library/KeyBindings/DefaultKeyBindin
 ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
 mkdir .ctags.d
 ln -s $HOME/dotfiles/ctags .ctags.d/defaults.ctags
+mkdir ./config/alacritty
+mkdir ./config/kitty
+ln -s $HOME/dotfiles/alacritty.yml .config/alacritty/alacritty.yml
+ln -s $HOME/dotfiles/kitty.conf .config/kitty/kitty.conf
