@@ -15,11 +15,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-# Run `rbenvinit` before doing any ruby coding
-rbinit() {
-  eval "$(command rbenv init -)"
-}
-
 # Neovim colors
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
@@ -36,15 +31,7 @@ setopt prompt_subst
 
 [ -f $HOME/.zsh_plugins.sh ] && source $HOME/.zsh_plugins.sh
 
-# Compdef initialization only slows down startup once every 20hrs
-autoload -Uz compinit
-_comp_files=(${ZDOTDIR:-$HOME}/.zcompdump(Nm-20))
-if (( $#_comp_files )); then
-  compinit -i -C
-else
-  compinit -i
-fi
-unset _comp_files
+source $HOME/dotfiles/compinit.zsh
 
 # User configuration
 for zsh_source in $HOME/dotfiles/zsh/*.zsh; do
