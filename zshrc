@@ -36,12 +36,13 @@ setopt prompt_subst
 [ -f $HOME/.zsh_plugins.sh ] && source $HOME/.zsh_plugins.sh
 
 autoload -Uz compinit
-
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-  compinit
+_comp_files=(${ZDOTDIR:-$HOME}/.zcompdump(Nm-20))
+if (( $#_comp_files )); then
+  compinit -i -C
 else
-  compinit -C
+  compinit -i
 fi
+unset _comp_files
 
 # User configuration
 for zsh_source in $HOME/dotfiles/zsh/*.zsh; do
