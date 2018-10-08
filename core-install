@@ -11,7 +11,6 @@ echo "Setting up homebrew and packages"
 brew cask install \
   basictex \
   google-chrome \
-  haskell-platform \
   iterm2 \
   kitty \
   java \
@@ -24,6 +23,7 @@ brew install \
   fd \
   fzf \
   getantibody/tap/antibody \
+  ghc \
   git \
   gnu-sed --with-default-names \
   heroku/brew/heroku \
@@ -41,6 +41,7 @@ brew install \
   reattach-to-user-namespace \
   ripgrep \
   rlwrap \
+  stack \
   the_silver_searcher \
   tmux \
   tree \
