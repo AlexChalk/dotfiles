@@ -49,8 +49,9 @@ brew install \
   z \
   zsh \
 
-brew tap 'universal-ctags/universal-ctags'
+brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+
 brew services start postgres
 
 echo "Performing homebrew post-installations"
