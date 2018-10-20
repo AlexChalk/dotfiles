@@ -3,7 +3,7 @@
 chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm/plugins
 chunkc core::hotload 0
 
-chunkc set global_desktop_mode           monacle
+chunkc set global_desktop_mode           monocle
 chunkc set global_desktop_offset_top     0
 chunkc set global_desktop_offset_bottom  0
 chunkc set global_desktop_offset_left    0

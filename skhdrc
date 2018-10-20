@@ -23,44 +23,38 @@ ctrl + cmd - 1  : chunkc tiling::window --send-to-monitor 1; chunkc tiling::moni
 ctrl + cmd - 2  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
 
 # move window
-ctrl + shift + cmd - h  : chunkc tiling::window --warp west
-ctrl + shift + cmd - j  : chunkc tiling::window --warp south
-ctrl + shift + cmd - k  : chunkc tiling::window --warp north
-ctrl + shift + cmd - l  : chunkc tiling::window --warp east
+ctrl + cmd - h  : chunkc tiling::window --warp west
+ctrl + cmd - j  : chunkc tiling::window --warp south
+ctrl + cmd - k  : chunkc tiling::window --warp north
+ctrl + cmd - l  : chunkc tiling::window --warp east
 
 ################################################################
 # Resizing
 ################################################################
 
-# increase region size
-ctrl + cmd - h : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west
-ctrl + cmd - j : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge south
-ctrl + cmd - k : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge north
-ctrl + cmd - l : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
+# adjust region size
+ctrl + shift + cmd - h : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge east
+ctrl + shift + cmd - j : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge south; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge north
+ctrl + shift + cmd - k : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge north; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge south
+ctrl + shift + cmd - l : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge east; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge west
 
 # equalize size of windows
-ctrl + cmd - 0 : chunkc tiling::desktop --equalize
-
-# decrease region size
-ctrl + cmd - right : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge west
-ctrl + cmd - up    : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge south
-ctrl + cmd - down  : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge north
-ctrl + cmd - left  : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
+ctrl + shift + cmd - 0 : chunkc tiling::desktop --equalize
 
 ################################################################
 # Misc
 ################################################################
 
 # toggle window fullscreen
-alt - g : chunkc tiling::window --toggle fullscreen
+ctrl + alt - return : chunkc tiling::window --toggle fullscreen
 
 # change layout of desktop
-ctrl + alt + cmd - u : chunkc tiling::desktop --layout monocle
-ctrl + alt + cmd - i : chunkc tiling::desktop --layout bsp
-ctrl + alt + cmd - o : chunkc tiling::desktop --layout float
+ctrl + alt + cmd - y : chunkc tiling::desktop --layout monocle
+ctrl + alt + cmd - o : chunkc tiling::desktop --layout bsp
+ctrl + alt + cmd - p : chunkc tiling::desktop --layout float
 
 # mirror tree y-axis
-alt - u : chunkc tiling::desktop --mirror vertical
+alt - m : chunkc tiling::desktop --mirror vertical
 
 # rotate tree
 alt - r : chunkc tiling::desktop --rotate 90
@@ -70,14 +64,14 @@ alt - r : chunkc tiling::desktop --rotate 90
 ################################################################
 
 # float / unfloat window and center on screen
-alt - y : chunkc tiling::window --toggle float;\
+ctrl + alt - w : chunkc tiling::window --toggle float;\
 chunkc tiling::window --grid-layout 12:12:1:1:10:10
 
 # float next window to be tiled
-ctrl + alt - y : chunkc set window_float_next 1
+ctrl + alt - n : chunkc set window_float_next 1
 
 # Move focused window to middle (ideal readability)
-ctrl + alt + cmd - y : chunkc tiling::window --grid-layout 5:5:1:0:3:5
+ctrl + alt + cmd - space : chunkc tiling::window --grid-layout 5:5:1:0:3:5
 
 
 # make floating window fill left-half of screen
