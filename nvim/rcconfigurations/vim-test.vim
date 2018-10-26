@@ -3,7 +3,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let test#strategy = 'vtr'
 let test#javascript#jasmine#file_pattern = '\.test\.js'
-let test#javascript#mocha#options = '--compilers js:babel-core/register'
+" let test#javascript#mocha#options = '--compilers js:babel-core/register'
+let test#javascript#mocha#options = ''
 
 " Run Test Assertion/File/Suite/Repeat
 nmap <silent> <leader>rta :TestNearest<CR>
