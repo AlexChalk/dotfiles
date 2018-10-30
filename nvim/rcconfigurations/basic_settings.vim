@@ -11,6 +11,7 @@ set ignorecase                " Make searches case-insensitive by default.
 set smartcase                 " Override ignorecase if caps are used.
 set iskeyword+=-              " Define `w` consistently for - and _
 set wildmenu
+set lazyredraw
 " set path+=**                  " Disabled because it doesn't play nice with node_modules
 
 " In many terminal emulators the mouse works just fine, thus enable it.
