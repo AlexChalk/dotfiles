@@ -6,8 +6,8 @@
 
 # focus window
 ctrl + alt - h : chunkc tiling::window --focus west
-ctrl + alt - j : chunkc tiling::window --focus south
-ctrl + alt - k : chunkc tiling::window --focus north
+ctrl + alt - j : chunkc tiling::window --focus south; chunkc tiling::window --focus west
+ctrl + alt - k : chunkc tiling::window --focus north; chunkc tiling::window --focus east
 ctrl + alt - l : chunkc tiling::window --focus east
 
 # focus monitor
@@ -23,10 +23,10 @@ ctrl + cmd - 1  : chunkc tiling::window --send-to-monitor 1; chunkc tiling::moni
 ctrl + cmd - 2  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
 
 # move window
-ctrl + cmd - h  : chunkc tiling::window --warp west
-ctrl + cmd - j  : chunkc tiling::window --warp south
-ctrl + cmd - k  : chunkc tiling::window --warp north
-ctrl + cmd - l  : chunkc tiling::window --warp east
+ctrl + cmd - h  : chunkc tiling::window --swap west
+ctrl + cmd - j  : chunkc tiling::window --swap south
+ctrl + cmd - k  : chunkc tiling::window --swap north
+ctrl + cmd - l  : chunkc tiling::window --swap east
 
 ################################################################
 # Resizing
