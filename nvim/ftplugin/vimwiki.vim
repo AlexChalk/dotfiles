@@ -1,1 +1,2 @@
-nnoremap <leader><CR> o<ESC>
+nmap <C-]> <Plug>VimwikiFollowLink
+nmap <C-T> <Plug>VimwikiGoBackLink
