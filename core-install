@@ -11,6 +11,7 @@ echo "Setting up homebrew and packages"
 
 brew cask install \
   basictex \
+  homebrew/cask-fonts/font-camingocode \
   google-chrome \
   iterm2 \
   kitty \
