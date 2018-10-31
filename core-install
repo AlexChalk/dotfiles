@@ -8,6 +8,7 @@ xcode-select --install
 
 echo "Setting up homebrew and packages"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 brew cask install \
   basictex \
   google-chrome \
@@ -23,7 +24,6 @@ brew install \
   fd \
   fzf \
   getantibody/tap/antibody \
-  ghc \
   git \
   gnu-sed --with-default-names \
   heroku/brew/heroku \
