@@ -46,7 +46,7 @@ ctrl + shift + cmd - 0 : chunkc tiling::desktop --equalize
 ################################################################
 
 # toggle window fullscreen
-ctrl + alt - return : chunkc tiling::window --toggle fullscreen
+ctrl + alt - y : chunkc tiling::window --toggle fullscreen
 
 # change layout of desktop
 ctrl + alt + cmd - y : chunkc tiling::desktop --layout monocle
