@@ -66,7 +66,7 @@ Plug 'elmcast/elm-vim', { 'for': ['elm'] }
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }
 
 " Typescript
-Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'tsx'] }
+Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'tsx'] }
 
 " Clojure
 Plug 'clojure-vim/async-clj-highlight', { 'for': ['clojure', 'clojurescript'] }
