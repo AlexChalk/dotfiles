@@ -102,14 +102,3 @@ call s:SourceConfigFilesIn('rcconfigurations')
 " repeat.vim code
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
-
-function! Pairing()
-  if(&rnu == 1)
-    set nornu
-    set guicursor=
-  else
-    set rnu
-    set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
-  endif
-endfunc
-command! Pairing :call Pairing()
