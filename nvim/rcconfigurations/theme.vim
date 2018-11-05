@@ -1,7 +1,10 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let base16colorspace=256
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 syntax enable
 colorscheme base16-gruvbox-dark-medium
 
