@@ -2,17 +2,12 @@
 
 The dotfiles for my macOS unix environment.
 
-Vim, git, zsh, and tmux are the main tools I use. I have [zplug][] to manage zsh plugins and [vim-plug][] to manage vim plugins. [ripgrep][] is my searcher of choice.
+Vim, git, zsh, and tmux are the main tools I use. I have [antibody][] to manage zsh plugins and [vim-plug][] to manage vim plugins. [ripgrep][] and [fd][] are my searchers of choice.
 
-[vim-plug]: https://github.com/junegunn/vim-plug.
-[zplug]: https://github.com/zplug/zplug
+[antibody]: https://github.com/getantibody/antibody
+[vim-plug]: https://github.com/junegunn/vim-plug
 [ripgrep]: https://github.com/BurntSushi/ripgrep
-
-### Dependencies
-
-* tmux.conf: reattach-to-user-namespace, on homebrew. 
-* zshrc: zplug, https://github.com/zplug/zplug
-* vim prettifiers: https://github.com/tdewolff/minify/tree/master/cmd/minify
+[fd]: https://github.com/sharkdp/fd
 
 ### Sources of Inspiration
 
