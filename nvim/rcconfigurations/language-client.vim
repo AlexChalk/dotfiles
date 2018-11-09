@@ -7,6 +7,11 @@ let g:LanguageClient_serverCommands = {
       \ 'typescript': ['javascript-typescript-stdio'],
       \ }
 
+" https://github.com/autozimu/LanguageClient-neovim/issues/464
+" let g:LanguageClient_serverCommands = {
+"       \ 'haskell': ['hie-wrapper', '--lsp', '-r', getcwd()],
+"       \ }
+
 " let g:LanguageClient_windowLogMessageLevel = 'Error'
 " let g:LanguageClient_diagnosticsEnable = 0
 
@@ -25,6 +30,8 @@ nmap <leader>ld :call LanguageClient#textDocument_definition()<CR>
 nmap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
 nmap <leader>li :call LanguageClient#textDocument_implementation()<CR>
 nmap <leader>lu :call LanguageClient#textDocument_references()<CR>
+nmap <leader>ql :LanguageClientStop<CR>
+nmap <leader>sl :LanguageClientStart<CR>
 
 " To avoid lag, create jsconfig.json file containing at least this:
 "" { "exclude": [ "node_modules" ] }
