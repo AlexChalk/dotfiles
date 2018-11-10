@@ -7,13 +7,18 @@ let g:LanguageClient_serverCommands = {
       \ 'typescript': ['javascript-typescript-stdio'],
       \ }
 
-" https://github.com/autozimu/LanguageClient-neovim/issues/464
-" let g:LanguageClient_serverCommands = {
-"       \ 'haskell': ['hie-wrapper', '--lsp', '-r', getcwd()],
-"       \ }
+" let g:LanguageClient_rootMarkers = {                                      
+"       \ 'javascript': ['package-lock.json', 'yarn.lock'],
+"       \ 'javascript.jsx': ['package-lock.json', 'yarn.lock'],
+"       \ 'typescript': ['package-lock.json', 'yarn.lock'],
+"       \ }   
+
+" If a tsconfig exists for a project, consider copying it as your jsconfig.json.
 
 " let g:LanguageClient_windowLogMessageLevel = 'Error'
 " let g:LanguageClient_diagnosticsEnable = 0
+" Project root issues: https://github.com/autozimu/LanguageClient-neovim/issues/464
+" jsconfig.json info: https://code.visualstudio.com/docs/languages/jsconfig
 
 nmap <leader>lom :call LanguageClient_contextMenu()<CR>
 " consider shift-k instead of lch
@@ -32,6 +37,3 @@ nmap <leader>li :call LanguageClient#textDocument_implementation()<CR>
 nmap <leader>lu :call LanguageClient#textDocument_references()<CR>
 nmap <leader>ql :LanguageClientStop<CR>
 nmap <leader>sl :LanguageClientStart<CR>
-
-" To avoid lag, create jsconfig.json file containing at least this:
-"" { "exclude": [ "node_modules" ] }
