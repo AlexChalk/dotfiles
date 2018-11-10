@@ -12,6 +12,7 @@ echo "Setting up homebrew and packages"
 brew cask install \
   basictex \
   homebrew/cask-fonts/font-camingocode \
+  homebrew/cask-fonts/font-opendyslexic \
   google-chrome \
   iterm2 \
   kitty \
@@ -38,6 +39,7 @@ brew install \
   postgresql \
   python \
   python@2 \
+  pipenv \
   rbenv \
   reattach-to-user-namespace \
   ripgrep \
