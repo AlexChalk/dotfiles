@@ -34,5 +34,7 @@ chunkc core::load tiling.so
 # NOTE: sample rules for the tiling plugin
 chunkc tiling::rule --owner 1Password --state float
 chunkc tiling::rule --owner Finder --state float
+chunkc tiling::rule --owner FaceTime --state float
+chunkc tiling::rule --owner Calculette --state float
 chunkc tiling::rule --owner \"App Store\" --state float
 chunkc tiling::rule --owner Emacs --except "^$" --state tile

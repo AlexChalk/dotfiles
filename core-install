@@ -62,7 +62,7 @@ $(brew --prefix)/opt/fzf/install
 antibodyupdate
 
 echo "Setting up SSH"
-ssh-keygen -t rsa -b 4096 -C "alex@alexchalk.net"
+ssh-keygen -t rsa -b 4096 -C "contact@alexchalk.net"
 echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_rsa" >> $HOME/.ssh/config
 eval "$(ssh-agent -s)"
 ssh-add -K $HOME/.ssh/id_rsa
