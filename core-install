@@ -14,7 +14,6 @@ brew cask install \
   homebrew/cask-fonts/font-camingocode \
   homebrew/cask-fonts/font-opendyslexic \
   google-chrome \
-  iterm2 \
   kitty \
   java \
   ngrok \
@@ -40,7 +39,7 @@ brew install \
   python \
   python@2 \
   pipenv \
-  rbenv \
+  ruby \
   reattach-to-user-namespace \
   ripgrep \
   rlwrap \
@@ -72,6 +71,9 @@ curl -L https://git.io/n-install | bash
 
 echo "Rust"
 curl https://sh.rustup.rs -sSf | sh
+
+echo "Ruby Gems"
+gem install bundler rubocop neovim jekyll
 
 echo "Vim Plug Setup"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

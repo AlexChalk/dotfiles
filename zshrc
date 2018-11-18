@@ -8,6 +8,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Add n (nvm alternative) to PATH
 export N_PREFIX="$HOME/n" # Added by n-install (see http://git.io/n-install-repo).
 export PATH="$N_PREFIX/bin:$PATH"
+# Add ruby to PATH
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 # Add go to PATH
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"

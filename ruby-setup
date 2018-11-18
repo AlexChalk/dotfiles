@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# rbinit() && rbenv install --list
-# rbenv install ~version~ && rbenv global ~version~
-gem install bundler rubocop neovim jekyll

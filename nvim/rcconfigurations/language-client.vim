@@ -13,6 +13,9 @@ let g:LanguageClient_serverCommands = {
 "       \ 'typescript': ['package-lock.json', 'yarn.lock'],
 "       \ }   
 
+" http://vim.wikia.com/wiki/Omni_completion
+" ctrl-o/ctrl-i to navigate jump stack
+
 " If a tsconfig exists for a project, consider copying it as your jsconfig.json.
 
 " let g:LanguageClient_windowLogMessageLevel = 'Error'
