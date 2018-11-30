@@ -10,6 +10,7 @@ nmap <leader>; :
 
 " En-dashes (in insert mode) <ctrl>k -N
 " Em-dashes (in insert mode) <ctrl>k -M
+" All funky characters: `:h digraphs`
 
 " Escape hatch from help files
 augroup help

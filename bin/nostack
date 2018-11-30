@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+export PATH=$(stack path | grep 'compiler-bin' | sed "s/compiler-bin: //"):$PATH

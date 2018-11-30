@@ -74,3 +74,5 @@ xnoremap <leader>gb :Gbrowse<cr>
 " Review a PR
 nnoremap <leader>grpr :Git! request-pull -p master ./<cr>
 nnoremap <leader>gdfa :Git! diff<cr>
+
+" Fix line length on commit messages: gqip

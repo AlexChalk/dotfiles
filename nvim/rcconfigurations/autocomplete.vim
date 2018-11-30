@@ -11,6 +11,7 @@ let g:mucomplete#enable_auto_at_startup = 0
 let g:UltiSnipsSnippetsDir="$HOME/.vim/UltiSnips"
 let g:UltiSnipsExpandTrigger = '<C-]>'
 
+" Mucomplete: C-J/C-H to move between completion types
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Built-in
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

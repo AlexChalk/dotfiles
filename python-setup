@@ -5,3 +5,6 @@ pip2 install \
 pip3 install \
   neovim \
   sqlparse
+
+# If neovim has issues finding the package
+# pip2 install --upgrade --force-reinstall neovim

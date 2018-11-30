@@ -19,6 +19,7 @@ endfunc
 command! MochaBabel :call MochaBabel()
 
 " Run Test Assertion/File/Suite/Repeat
+nmap <silent> <leader>abt :MochaBabel<CR>
 nmap <silent> <leader>rta :TestNearest<CR>
 nmap <silent> <leader>rtf :TestFile<CR>
 nmap <silent> <leader>rts :TestSuite<CR>

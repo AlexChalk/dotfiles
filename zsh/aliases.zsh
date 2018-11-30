@@ -15,3 +15,4 @@ alias hname="heroku apps --all | tail -n+2 | grep . | sed 's/ .*$//' | fzf --hea
 alias nuse="n \$(cat .nvmrc)"
 alias antibodyupdate='antibody bundle < $HOME/dotfiles/zsh_plugins.txt | sed -e "s:$HOME:\$HOME:g" > $HOME/.zsh_plugins.sh && antibody update'
 alias jsconfinit='cp $HOME/dotfiles/default.jsconfig.json jsconfig.json'
+alias nostack='source $HOME/dotfiles/bin/nostack'
