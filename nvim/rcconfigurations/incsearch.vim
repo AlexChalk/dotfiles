@@ -1,6 +1,0 @@
-" nmap /  <Plug>(incsearch-forward)
-" nmap ?  <Plug>(incsearch-backward)
-" nmap g/ <Plug>(incsearch-stay)
-" nmap <leader><leader>/ <Plug>(incsearch-easymotion-/)
-" nmap <leader><leader>? <Plug>(incsearch-easymotion-?)
-" nmap <leader><leader>g/ <Plug>(incsearch-easymotion-stay)

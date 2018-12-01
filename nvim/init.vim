@@ -3,6 +3,9 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 
+" Redefine conflicting vim wiki binding
+let g:vimwiki_map_prefix = '<Leader><Leader>w'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Plug
 " Remember to run :PlugUpdate and :PlugUpgrade once in a while
@@ -35,7 +38,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'SirVer/ultisnips'
 
 " Custom text objects
-Plug 'bkad/CamelCaseMotion'
+Plug 'chaoren/vim-wordmotion'
 Plug 'kana/vim-textobj-user'
 Plug 'adc17/vim-textobj-wiw'
 Plug 'tomtom/tcomment_vim'

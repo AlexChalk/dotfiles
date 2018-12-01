@@ -1,6 +1,10 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Word Motions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call camelcasemotion#CreateMotionMappings('<leader><leader>')
-omap <silent> <leader><leader>iw <Plug>CamelCaseMotion_iw
-xmap <silent> <leader><leader>iw <Plug>CamelCaseMotion_iw
+let g:wordmotion_prefix = '<Leader>'
+let g:wordmotion_spaces = '_-.'
+
+let g:wordmotion_mappings = {
+  \ 'e' : '<Leader><Leader>e',
+  \ 'ge' : '<Leader><Leader>ge',
+  \ }
