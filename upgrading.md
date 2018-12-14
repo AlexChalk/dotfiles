@@ -1,10 +1,12 @@
 # Upgrade Process
 
 ## Before you begin
-1. Office backups:
+1. Backups:
   * Excel scripts: /Users/adc/Library/Group Containers/UBF8T346G9.Office/User Content.localized/Queries
   * Word template: /Users/adc/Library/Group Containers/UBF8T346G9.Office/User Content.localized/Templates.localized
   * Above paths only work from CLI
+  * Super duper clone
+  * Copy of select files from home directory.
 2. Homebrew:
   * Note everything you want to keep.
   * Also do a `brew bundle dump`—if something isn't working on your new machine, the bundle dump will give you a good idea of what might be missing.
@@ -18,7 +20,6 @@
   * Copy any fonts you want to keep from fontbook.
   * Copy `.zshenv` and `.zsh_history`.
   * Note Arq backup config.
-6. System backup, and copy of entire home directory.
 
 ## Initial Upgrade Process:
 1. MacOS system settings:
@@ -30,9 +31,7 @@
   * Mouse tap.
 2. Terminal
   * Run `build-symlinks`.
-  * Run `core-install`, `python-setup`, and `node-setup`.
-  * Install latest ruby version using rbenv and run `ruby-setup`.
-  * For postgres setup: `psql -d postgres -c "create database ~username~"`.
+  * Run `core-install`, `python-setup`,  `node-setup` and `wm-install`.
   * Set shell: Préférences Système > Users and Groups > Unlock > Right Click on Picture > Advanced options > `/usr/local/bin/zsh`.
   * Restart shell, open neovim, run `:CheckHealth` and follow any instructions.
   * If you want to use emacs, create real `.emacs.d` directory in `$HOME` and add symlinks to `init.el` file and `lisp` dir from dotfiles.

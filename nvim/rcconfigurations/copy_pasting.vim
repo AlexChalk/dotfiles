@@ -5,11 +5,10 @@ nnoremap P P`[v`]=
 nnoremap <leader>"+p "+p
 nnoremap <leader>"+P "+P
 
-" Similar mappings for vim-system-copy
-nnoremap cpp o<esc>"+p`[v`]=
-nnoremap cpP O<esc>"+p`[v`]=
-nnoremap <leader>cpp o<esc>"+p
-nnoremap <leader>cpP O<esc>"+P
+nmap gy <Plug>SystemCopy
+xmap gy <Plug>SystemCopy
+nmap gY <Plug>SystemCopyLine
+nmap gp <Plug>SystemPaste
 
 " Copy the entire buffer into the system register
 nmap <leader>cac ggVG"+y

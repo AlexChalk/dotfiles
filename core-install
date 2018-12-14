@@ -11,16 +11,16 @@ echo "Setting up homebrew and packages"
 
 brew cask install \
   basictex \
-  homebrew/cask-fonts/font-camingocode \
-  homebrew/cask-fonts/font-opendyslexic \
   google-chrome \
   kitty \
-  java \
+  java8 \
   ngrok \
   typora
 
 brew install \
   awk \
+  boot-clj \
+  clojure \
   curl \
   fd \
   fzf \
@@ -28,13 +28,9 @@ brew install \
   git \
   gnu-sed --with-default-names \
   heroku/brew/heroku \
-  httpie \
   hub \
-  jq \
   leiningen \
   neovim \
-  nginx \
-  planck \
   postgresql \
   python \
   python@2 \
@@ -55,6 +51,7 @@ brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
 brew services start postgres
+psql -d postgres -c "create database adc".
 
 echo "Performing homebrew post-installations"
 $(brew --prefix)/opt/fzf/install
