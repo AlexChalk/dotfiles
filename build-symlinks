@@ -21,11 +21,12 @@ ln -s $HOME/dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips
 ln -s $HOME/dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips/typescript.snippets
 mkdir Library/KeyBindings
 ln -s $HOME/dotfiles/DefaultKeyBinding.dict Library/KeyBindings/DefaultKeyBinding.dict
+mkdir .ghc
 ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
 mkdir .ctags.d
 ln -s $HOME/dotfiles/ctags .ctags.d/defaults.ctags
-mkdir ./config/alacritty
-mkdir ./config/kitty
+mkdir .config/alacritty
+mkdir .config/kitty
 ln -s $HOME/dotfiles/alacritty.yml .config/alacritty/alacritty.yml
 ln -s $HOME/dotfiles/kitty.conf .config/kitty/kitty.conf
 ln -s $HOME/dotfiles/chunkwmrc .chunkwmrc

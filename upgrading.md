@@ -30,13 +30,16 @@
   * Keyboard: caps, repetitions, text, shortcuts.
   * Mouse tap.
 2. Terminal
+  * Run `core-install` selectively (delete lines as appropriate)
   * Run `build-symlinks`.
-  * Run `core-install`, `python-setup`,  `node-setup` and `wm-install`.
   * Set shell: Préférences Système > Users and Groups > Unlock > Right Click on Picture > Advanced options > `/usr/local/bin/zsh`.
-  * Restart shell, open neovim, run `:CheckHealth` and follow any instructions.
+  * Restart shell, run `antibodyupdate`, `python-setup`,  `node-setup`, `ruby-setup`, `wm-install`, and anything missing from `core-install`.
+  * Open neovim, run `:CheckHealth` and follow any instructions.
   * If you want to use emacs, create real `.emacs.d` directory in `$HOME` and add symlinks to `init.el` file and `lisp` dir from dotfiles.
 3. Apps
-  * Put them back—only fancy case is arq, for which instructions are [here](https://www.arqbackup.com/documentation/pages/recovering.html).
+  * Put them back—only fancy case is arq, for which instructions are [here](https://www.arqbackup.com/documentation/pages/recovering.html). 
+  * Click restore once you've added the account.
+  * Settings are saved with backup, you only need to note the general advanced preferences.
 
 ## Misc
 * Put back your system fonts.

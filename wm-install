@@ -2,10 +2,9 @@
 
 cd $HOME
 
-brew tap crisidev/homebrew-chunkwm
+brew tap koekeishiya/formulae
 brew install chunkwm
-
-brew install koekeishiya/formulae/skhd
+brew install skhd
 
 brew services start chunkwm
 brew services start skhd

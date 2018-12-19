@@ -29,6 +29,7 @@ brew install \
   gnu-sed --with-default-names \
   heroku/brew/heroku \
   hub \
+  jq \
   leiningen \
   neovim \
   postgresql \
@@ -55,7 +56,6 @@ psql -d postgres -c "create database adc".
 
 echo "Performing homebrew post-installations"
 $(brew --prefix)/opt/fzf/install
-antibodyupdate
 
 echo "Setting up SSH"
 ssh-keygen -t rsa -b 4096 -C "contact@alexchalk.net"
@@ -68,9 +68,6 @@ curl -L https://git.io/n-install | bash
 
 echo "Rust"
 curl https://sh.rustup.rs -sSf | sh
-
-echo "Ruby Gems"
-gem install bundler rubocop neovim jekyll
 
 echo "Vim Plug Setup"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
