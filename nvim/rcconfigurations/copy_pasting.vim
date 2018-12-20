@@ -7,7 +7,7 @@ nnoremap <leader>"+P "+P
 
 nmap gy <Plug>SystemCopy
 xmap gy <Plug>SystemCopy
-nmap gY <Plug>SystemCopyLine
+nmap gyy <Plug>SystemCopyLine
 nmap gp <Plug>SystemPaste
 
 " Copy the entire buffer into the system register

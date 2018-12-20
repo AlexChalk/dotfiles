@@ -1,3 +1,6 @@
+# Lsp dir
+.lsp
+
 # Nested tslint files #
 */tslint.json
 jsconfig.json

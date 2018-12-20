@@ -26,6 +26,10 @@ augroup pixie
   autocmd BufNewFile,BufRead *.pxi set filetype=clojure
 augroup END
 
+" Source
+" open: ]<C-D>
+" split <C-W>d 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline config for parinfer
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

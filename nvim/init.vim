@@ -20,7 +20,10 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-speeddating'
 Plug 'vimwiki/vimwiki'
+Plug 'rizzatti/dash.vim'
 
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'w0rp/ale'
@@ -77,6 +80,7 @@ Plug 'snoe/clj-refactor.nvim', { 'for': ['clojure', 'clojurescript'] }
 Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'clojurescript'] }
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'clojurescript'] }
+Plug 'tpope/vim-classpath', { 'for': ['clojure', 'clojurescript'] }
 Plug 'eraserhd/parinfer-rust', { 'for': ['clojure', 'clojurescript', 'lisp'], 'do': 'cargo build --release' }
 
 call plug#end()
