@@ -17,6 +17,7 @@ let g:clojure_fuzzy_indent_patterns = ['.*']
 let g:clojure_fuzzy_indent_blacklist = ['->', ':require']
 
 
+" https://github.com/bhauman/lein-figwheel/wiki/Using-the-Figwheel-REPL-with-Vim
 " Begin connection to figwheel repl
 nnoremap <leader>cfr :Connect<cr>
 

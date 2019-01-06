@@ -10,6 +10,8 @@ ln -s $HOME/dotfiles/rubocop.yml .rubocop.yml
 ln -s $HOME/dotfiles/psqlrc .psqlrc
 mkdir .lein
 ln -s $HOME/dotfiles/lein/profiles.clj .lein/profiles.clj
+mkdir .boot
+ln -s $HOME/dotfiles/boot.properties .boot/boot.properties
 mkdir -p .config/nvim
 ln -s $HOME/dotfiles/nvim/init.vim .config/nvim/init.vim
 mkdir .config/nvim/Ultisnips
