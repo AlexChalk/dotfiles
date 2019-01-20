@@ -16,13 +16,14 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'janko-m/vim-test'
-Plug 'lifepillar/vim-mucomplete'
+" Plug 'lifepillar/vim-mucomplete'
 Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-speeddating'
 Plug 'vimwiki/vimwiki'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rizzatti/dash.vim'
 
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
