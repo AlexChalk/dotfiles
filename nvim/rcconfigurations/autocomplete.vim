@@ -12,9 +12,14 @@ let g:UltiSnipsSnippetsDir="$HOME/.vim/UltiSnips"
 let g:UltiSnipsExpandTrigger = '<C-]>'
 
 " Deoplete
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
+autocmd InsertEnter * call deoplete#enable()
 call deoplete#custom#option('auto_complete_delay', 350)
 " call deoplete#custom#option('auto_complete', v:false)
+nmap <silent> <leader>ad :call deoplete#enable()<CR>
+nmap <silent> <leader>qd :call deoplete#disable()<CR>
+
 
 inoremap <silent><expr> <TAB>
     \ pumvisible() ? "\<C-n>" :
