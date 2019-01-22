@@ -1,3 +1,3 @@
 \set COMP_KEYWORD_CASE upper
-\x auto
+\x off
 \pset null ¤

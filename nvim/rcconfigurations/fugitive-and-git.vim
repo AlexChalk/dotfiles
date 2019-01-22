@@ -1,3 +1,8 @@
+
+" :1:%            The current file's common ancestor during a conflict
+" :2:#            The alternate file in the target branch during a conflict
+" :3:#5           The file from buffer #5 in the merged branch during a conflict
+
 " Adding/removing/viewing/splitting
 
 nnoremap <leader>gcc :Gcommit<cr>
@@ -74,6 +79,7 @@ xnoremap <leader>gb :Gbrowse<cr>
 
 " Review a PR
 nnoremap <leader>grpr :Git! request-pull -p master ./<cr>
-nnoremap <leader>gdfa :Git! diff<cr>
+nnoremap <leader>gdfaf :Git! diff HEAD<cr>
+nnoremap <leader>gdfa<space> :Git! diff<space>
 
 " Fix line length on commit messages: gqip
