@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-branch_name=$(git rev-parse --abbrev-ref HEAD)
-fork_point=$(git merge-base --fork-point origin/master $branch_name)
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+base_branch=$1
+fork_point=$(git merge-base --fork-point $base_branch $current_branch)
 
 git rebase --onto master $fork_point $branch_name
