@@ -16,7 +16,6 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'janko-m/vim-test'
-" Plug 'lifepillar/vim-mucomplete'
 Plug 'clojure-vim/async-clj-omni'
 Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-fugitive'
@@ -24,13 +23,15 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-speeddating'
 Plug 'vimwiki/vimwiki'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rizzatti/dash.vim'
 
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh', }
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 
 Plug 'easymotion/vim-easymotion'
 

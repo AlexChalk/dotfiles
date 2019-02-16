@@ -1,43 +1,45 @@
-" Required for operations modifying multiple buffers like rename.
-set hidden
-
-let g:LanguageClient_serverCommands = {
-      \ 'javascript': ['javascript-typescript-stdio'],
-      \ 'javascript.jsx': ['javascript-typescript-stdio'],
-      \ 'typescript': ['javascript-typescript-stdio'],
-      \ 'clojure': ['clojure-lsp'],
-      \ }
-
-" let g:LanguageClient_rootMarkers = {                                      
-"       \ 'javascript': ['package-lock.json', 'yarn.lock'],
-"       \ 'javascript.jsx': ['package-lock.json', 'yarn.lock'],
-"       \ 'typescript': ['package-lock.json', 'yarn.lock'],
-"       \ }   
-
 " http://vim.wikia.com/wiki/Omni_completion
 " ctrl-o/ctrl-i to navigate jump stack
 
 " If a tsconfig exists for a project, consider copying it as your jsconfig.json.
 
-" let g:LanguageClient_windowLogMessageLevel = 'Error'
-" let g:LanguageClient_diagnosticsEnable = 0
 " Project root issues: https://github.com/autozimu/LanguageClient-neovim/issues/464
 " jsconfig.json info: https://code.visualstudio.com/docs/languages/jsconfig
 
-nmap <leader>lom :call LanguageClient_contextMenu()<CR>
-" consider shift-k instead of lch
-nmap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <leader>hq <C-W>j:q<CR>
-nmap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-nmap <leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
-nmap <leader>lps :call LanguageClient#workspace_symbol()<CR>
-nmap <leader>la :call LanguageClient#textDocument_codeAction()<CR>
-nmap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-vmap <leader>lf :call LanguageClient#textDocument_rangeFormatting()<CR>
-nnoremap <leader>lm :call LanguageClient#explainErrorAtPoint()<CR>
-nmap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-nmap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-nmap <leader>li :call LanguageClient#textDocument_implementation()<CR>
-nmap <leader>lu :call LanguageClient#textDocument_references()<CR>
-nmap <leader>ql :LanguageClientStop<CR>
-nmap <leader>sl :LanguageClientStart<CR>
+nmap <leader>gd :LspDefinition<CR>
+nmap <leader>lK :LspHover<CR>
+nmap <leader><C-N> :LspNextError<CR>
+nmap <leader><C-P> :LspPreviousError<CR>
+nmap fR :LspReferences<CR>
+nmap <leader>lr :LspRename<CR>
+nmap fI :LspImplementation<CR>
+nmap gd :LspTypeDefinition<CR>
+nmap <leader>lcs <plug>(lsp-status)
+
+nmap <leader>ql :call lsp#disable()<CR>
+nmap <leader>sl :call lsp#enable()<CR>
+
+if executable('typescript-language-server')
+  au User lsp_setup call lsp#register_server({
+      \ 'name': 'typescript-language-server',
+      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+      \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+      \ 'whitelist': ['typescript'],
+      \ })
+
+
+  au User lsp_setup call lsp#register_server({
+      \ 'name': 'javascript support using typescript-language-server',
+      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+      \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
+      \ 'whitelist': ['javascript', 'javascript.jsx'],
+      \ })
+endif
+
+if executable('clojure-lsp')
+  au User lsp_setup call lsp#register_server({
+      \ 'name': 'clojure-lsp',
+      \ 'cmd': {server_info->['clojure-lsp']},
+      \ 'whitelist': ['clojure'],
+      \ })
+endif

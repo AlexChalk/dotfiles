@@ -1,40 +1,30 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocomplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set completeopt+=menuone
-" set completeopt+=longest
-" set completeopt-=preview  " Don't use preview window for autocomplete
-" set shortmess+=c
-" set belloff+=ctrlg
-" let g:mucomplete#enable_auto_at_startup = 0
-
 let g:UltiSnipsSnippetsDir="$HOME/.vim/UltiSnips"
 let g:UltiSnipsExpandTrigger = '<C-]>'
 
-" Deoplete
-" let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_at_startup = 0
-autocmd InsertEnter * call deoplete#enable()
-call deoplete#custom#option('auto_complete_delay', 350)
-" call deoplete#custom#option('auto_complete', v:false)
-nmap <silent> <leader>ad :call deoplete#enable()<CR>
-nmap <silent> <leader>qd :call deoplete#disable()<CR>
+let g:asyncomplete_smart_completion = 1
+let g:asyncomplete_auto_popup = 0
 
-
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "{{{
+" Manual popup
+function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
+endfunction
 
-inoremap <silent><expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
-inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ asyncomplete#force_refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+" Auto popup
+" let g:asyncomplete_auto_popup = 0
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
-" Mucomplete: C-J/C-H to move between completion types
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Built-in
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

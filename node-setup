@@ -6,7 +6,7 @@ npm i -g neovim \
   elm-oracle \
   elm-test \
   typescript \
-  javascript-typescript-langserver \
+  typescript-language-server \
   purescript \
   purescript-psa \
   pulp \
