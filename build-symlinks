@@ -12,6 +12,8 @@ mkdir .lein
 ln -s $HOME/dotfiles/lein/profiles.clj .lein/profiles.clj
 mkdir .boot
 ln -s $HOME/dotfiles/boot.properties .boot/boot.properties
+mkdir .clojure
+ln -s $HOME/dotfiles/clojure/deps.edn .clojure/deps.edn
 mkdir -p .config/nvim
 ln -s $HOME/dotfiles/nvim/init.vim .config/nvim/init.vim
 mkdir .config/nvim/Ultisnips
