@@ -45,3 +45,16 @@ set wrap                  " wrap text
 
 " Replace carriage return characters with real linebreaks
 " %s/\\n/\r/g
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set undofile
+set undodir=~/.vim/undo
+set undolevels=1000
+set undoreload=10000
+
+augroup notempundofile
+  autocmd!
+  autocmd BufWritePre /tmp/* setlocal noundofile
+augroup END
