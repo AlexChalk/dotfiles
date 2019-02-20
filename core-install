@@ -13,7 +13,7 @@ brew tap homebrew/cask-versions
 
 brew cask install \
   basictex \
-  google-chrome \
+  brave-browser \
   kitty \
   java8 \
   ngrok \
