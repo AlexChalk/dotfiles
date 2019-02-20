@@ -24,6 +24,7 @@ Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-speeddating'
 Plug 'vimwiki/vimwiki'
 Plug 'rizzatti/dash.vim'
+Plug 'mattboehm/vim-unstack'
 
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'w0rp/ale'
