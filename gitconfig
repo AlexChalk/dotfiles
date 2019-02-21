@@ -36,6 +36,7 @@
   la = log --oneline --decorate --graph --all
   lc = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
   lm = log -1
+  mo = "!f() { git merge $(git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)); }; f"
   p = push
   pf = push --force-with-lease
   pr = !hub compare
@@ -44,14 +45,14 @@
   ra = rebase --abort
   rc = rebase --continue
   ri = rebase --interactive
-  rpm = "!f() { g rebase --onto master $1 $2 }; f"
+  rpm = "!f() { git rebase --onto master $1 $2; }; f"
   rrF = "!f() { git reset --hard HEAD@{$1}; }; f"
   s = stash -u
   sdF = stash drop
   sc = commit --amend --no-edit
   sl = stash list
   sla = log --oneline --decorate --graph --all -10
-  sm = "!f() { git stash push -u -m $1; }; f"
+  sm = "!f() { git stash push -u --message $1; }; f"
   spn = "!f() { git stash pop stash@{$1}; }; f"
   uncommit = reset --soft HEAD^
   unstage = reset

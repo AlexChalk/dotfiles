@@ -34,6 +34,14 @@ snippet {},
 },
 endsnippet
 
+snippet ('
+('$0');
+endsnippet
+
+snippet req
+require("${0:module}");
+endsnippet
+
 snippet des "Describe (js)" b
 describe("${1:description}", () => {
 	$0

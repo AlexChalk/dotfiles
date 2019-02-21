@@ -27,7 +27,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'SirVer/ultisnips'
 Plug 'easymotion/vim-easymotion'
 
-Plug 'vim-scripts/matchit.zip'
+Plug 'chrisbra/matchit' " Including in nvim runtime/plugin
 Plug 'machakann/vim-highlightedyank'
 
 Plug 'w0rp/ale'

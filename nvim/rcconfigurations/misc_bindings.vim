@@ -18,6 +18,12 @@ augroup help
   autocmd Filetype help nnoremap <buffer> q :q<CR>
 augroup END
 
+" Escape hatch from quickfix files
+augroup quickfix
+  autocmd!
+  autocmd Filetype qf nnoremap <buffer> q :ccl<CR>
+augroup END
+
 " Open and source vimrc
 nmap <leader>ocs :sp $HOME/dotfiles/nvim/init.vim<cr>
 nmap <leader>oct :tabedit $HOME/dotfiles/nvim/init.vim<cr>
