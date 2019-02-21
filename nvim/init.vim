@@ -12,80 +12,79 @@ let g:vimwiki_map_prefix = '<Leader><Leader>w'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('$HOME/.local/share/nvim/plugged')
 
+" General
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'janko-m/vim-test'
-Plug 'clojure-vim/async-clj-omni'
-Plug 'dyng/ctrlsf.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-dadbod'
-Plug 'tpope/vim-speeddating'
-Plug 'vimwiki/vimwiki'
-Plug 'rizzatti/dash.vim'
-Plug 'mattboehm/vim-unstack'
 
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'w0rp/ale'
+Plug 'dyng/ctrlsf.vim'
+
+Plug 'chaoren/vim-wordmotion'
+Plug 'tomtom/tcomment_vim'
+
+Plug 'tommcdo/vim-exchange'
+Plug 'vim-scripts/ReplaceWithRegister'
+
+Plug 'SirVer/ultisnips'
+Plug 'easymotion/vim-easymotion'
+
+Plug 'vim-scripts/matchit.zip'
 Plug 'machakann/vim-highlightedyank'
+
+Plug 'w0rp/ale'
+Plug 'janko-m/vim-test'
+
+" prabirshrestha
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/async.vim'
 
+" Toomey other
+Plug 'christoomey/vim-sort-motion'
+Plug 'christoomey/vim-system-copy'
 
-Plug 'easymotion/vim-easymotion'
+" Tpope other
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
-"Themes
+" Themes
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Snippets
-Plug 'SirVer/ultisnips'
-
-" Custom text objects
-Plug 'chaoren/vim-wordmotion'
-Plug 'kana/vim-textobj-user'
-Plug 'adc17/vim-textobj-wiw'
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-surround'
-
-" Other custom text editing/navigation
-Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'vim-scripts/matchit.zip'
-Plug 'christoomey/vim-sort-motion'
-Plug 'christoomey/vim-system-copy'
-Plug 'tommcdo/vim-exchange'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-eunuch'
-
-" Tmux
+" Shell interop
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
+Plug 'mattboehm/vim-unstack'
 
 " Javascript
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
 Plug 'moll/vim-node'
 
-" Elm
+" Misc Langs
 Plug 'elmcast/elm-vim', { 'for': ['elm'] }
-" Haskell
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }
-
-" Typescript
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'tsx'] }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Clojure
-Plug 'clojure-vim/async-clj-highlight', { 'for': ['clojure', 'clojurescript'] }
-Plug 'snoe/clj-refactor.nvim', { 'for': ['clojure', 'clojurescript'] }
-Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'clojurescript'] }
-Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'clojurescript'] }
 Plug 'tpope/vim-classpath', { 'for': ['clojure', 'clojurescript'] }
+Plug 'clojure-vim/async-clj-highlight', { 'for': ['clojure', 'clojurescript'] }
+Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'clojurescript'] }
+Plug 'markwoodhall/vim-sayid', { 'for': ['clojure', 'clojurescript'] }
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'eraserhd/parinfer-rust', { 'for': ['clojure', 'clojurescript', 'lisp'], 'do': 'cargo build --release' }
+
+" Wiki
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
