@@ -11,15 +11,14 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 # Add ruby to PATH
 export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 # Add go to PATH
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 # Add n (nvm alternative) to PATH
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
 
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+export LANG="en_CA.UTF-8"
+export LC_ALL="en_CA.UTF-8"
 
 
 # Neovim colors

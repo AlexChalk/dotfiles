@@ -33,6 +33,8 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'w0rp/ale'
 Plug 'janko-m/vim-test'
 
+Plug 'rizzatti/dash.vim'
+
 " prabirshrestha
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -73,6 +75,9 @@ Plug 'elmcast/elm-vim', { 'for': ['elm'] }
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'tsx'] }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
+" Plug 'vim-python/python-syntax', { 'for': 'python' }
+Plug 'LnL7/vim-nix', { 'for': 'nix' }
 
 " Clojure
 Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'clojurescript'] }

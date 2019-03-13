@@ -29,6 +29,8 @@ let g:ctrlsf_mapping = {
 
 nnoremap <leader>tsr :CtrlSFToggle<cr>
 
+nmap <leader>K <Plug>DashSearch
+
 " Project-wide search and replace
 " :args `rg -l search_expression .`
 " :argdo %s/old/new/g | w

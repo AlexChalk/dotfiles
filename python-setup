@@ -4,6 +4,8 @@ pip2 install \
   pynvim
 pip3 install \
   pynvim \
+  python-language-server \
+  jedi \
   sqlparse
 
 # If neovim has issues finding the package
