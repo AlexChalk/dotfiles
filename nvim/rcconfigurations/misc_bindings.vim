@@ -24,6 +24,12 @@ augroup quickfix
   autocmd Filetype qf nnoremap <buffer> q :ccl<CR>
 augroup END
 
+" Escape hatch from markdown.lsp-hover files
+augroup lsphover
+  autocmd!
+  autocmd Filetype markdown.lsp-hover nnoremap <buffer> q :q<CR>
+augroup END
+
 " Open and source vimrc
 nmap <leader>ocs :sp $HOME/dotfiles/nvim/init.vim<cr>
 nmap <leader>oct :tabedit $HOME/dotfiles/nvim/init.vim<cr>

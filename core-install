@@ -14,6 +14,7 @@ brew tap homebrew/cask-versions
 brew cask install \
   basictex \
   brave-browser \
+  keepingyouawake \
   kitty \
   java8 \
   ngrok \

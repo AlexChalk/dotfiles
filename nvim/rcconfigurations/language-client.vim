@@ -7,16 +7,24 @@
 " jsconfig.json info: https://code.visualstudio.com/docs/languages/jsconfig
 
 nmap gd :LspDefinition<CR>
-nmap <leader>lK :LspHover<CR>
+nmap <leader>K :LspHover<CR>
 nmap fR :LspReferences<CR>
 nmap <leader>lr :LspRename<CR>
 nmap fI :LspImplementation<CR>
 " i is for interface
 nmap gid :LspTypeDefinition<CR>
-nmap <leader>lcs <plug>(lsp-status)
+nmap <leader>ls <plug>(lsp-status)
+nmap <leader>lcs <plug>(lsp-document-symbol)
 
 nmap <leader>ql :call lsp#disable()<CR>
 nmap <leader>sl :call lsp#enable()<CR>
+
+let g:lsp_diagnostics_echo_cursor = 1
+" let g:lsp_signs_enabled = 1
+" let g:lsp_signs_error = {'text': '✗', 'texthl': 'GruvboxRedSign', 'linehl': 'Error'}
+" let g:lsp_signs_warning = {}
+" let g:lsp_signs_information = {}
+" let g:lsp_signs_hint = {}
 
 if executable('typescript-language-server')
   au User lsp_setup call lsp#register_server({

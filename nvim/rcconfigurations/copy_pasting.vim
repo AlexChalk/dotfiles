@@ -18,3 +18,6 @@ nmap <leader>caf ggVGy
 " replace-with-register bindings for system clipboard
 nmap <leader>gr "+gr
 nmap <leader>gR "+gR
+
+" paste-and-search (freezes right now)
+" nmap <leader>sp :rg<space><c-f>pA<cr>
