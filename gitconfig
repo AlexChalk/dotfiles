@@ -64,3 +64,5 @@
 	renames = copies
 [rebase]
 	autosquash = true
+[credential]
+	helper = osxkeychain
