@@ -59,3 +59,11 @@ if executable('pyls')
       \ 'whitelist': ['python'],
       \ })
 endif
+
+if executable('hie-wrapper')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'hie-wrapper',
+        \ 'cmd': {server_info->['hie-wrapper']},
+        \ 'whitelist': ['haskell'],
+        \ })
+endif

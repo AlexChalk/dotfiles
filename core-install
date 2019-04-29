@@ -78,3 +78,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 echo "Clone Personal Notes"
 git clone git@gitlab.com:adc17/personal-wiki.git $HOME/vimwiki
+
+echo "Haskell tooling"
+git clone https://github.com/haskell/haskell-ide-engine --recurse-submodules

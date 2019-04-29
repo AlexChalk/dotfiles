@@ -73,6 +73,7 @@ Plug 'moll/vim-node'
 " Misc Langs
 Plug 'elmcast/elm-vim', { 'for': ['elm'] }
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }
+" Plug 'bitc/vim-hdevtools', { 'for': ['haskell'] }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'tsx'] }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }

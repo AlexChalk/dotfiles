@@ -5,8 +5,11 @@
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
       \ 'ruby': ['rubocop'],
+      \ 'haskell': ['hie', 'hlint', 'stack_build', 'stack_ghc'],
       \ 'eruby': [''],
       \}
+
+" ['cabal_ghc', 'ghc', 'ghc_mod', 'hdevtools', 'hie', 'hlint', 'stack_build', 'stack_ghc']
 
 nmap <silent> <leader><C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <leader><C-j> <Plug>(ale_next_wrap)
@@ -32,5 +35,8 @@ let g:ale_fixers = {
       \   'json': [
       \       'fixjson', 
       \       'jq'
+      \   ],
+      \   'haskell': [
+      \       'hfmt', 
       \   ],
       \}
