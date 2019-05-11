@@ -5,7 +5,7 @@
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
       \ 'ruby': ['rubocop'],
-      \ 'haskell': ['hie', 'hlint', 'stack_build', 'stack_ghc'],
+      \ 'haskell': ['stack_ghc'],
       \ 'eruby': [''],
       \}
 
