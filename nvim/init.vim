@@ -5,6 +5,8 @@ set nocompatible
 
 " Redefine conflicting vim wiki binding
 let g:vimwiki_map_prefix = '<Leader><Leader>w'
+let g:vimwiki_conceal_onechar_markers = 0
+" let g:vimwiki_url_maxsave = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Plug

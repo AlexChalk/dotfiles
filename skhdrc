@@ -17,10 +17,10 @@ ctrl + cmd - 1  : chunkc tiling::monitor -f 1
 ctrl + cmd - 2  : chunkc tiling::monitor -f 2
 
 # send window to monitor and follow focus
-ctrl + shift + cmd - u  : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
-ctrl + shift + cmd - i  : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
-ctrl + shift + cmd - 1  : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
-ctrl + shift + cmd - 2  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
+ctrl + alt + cmd - u  : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
+ctrl + alt + cmd - i  : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
+ctrl + alt + cmd - 1  : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
+ctrl + alt + cmd - 2  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
 
 # move window
 ctrl - left  : chunkc tiling::window --swap west
