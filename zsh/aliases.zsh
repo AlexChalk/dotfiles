@@ -17,3 +17,4 @@ alias antibodyupdate='antibody bundle < $HOME/dotfiles/zsh_plugins.txt | sed -e 
 alias jsconfinit='cp $HOME/dotfiles/default.jsconfig.json jsconfig.json'
 alias nostack='source $HOME/dotfiles/bin/nostack'
 alias pyinit='eval "$(pyenv init -)"'
+alias k='kubectl'

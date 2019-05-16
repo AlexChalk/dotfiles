@@ -6,7 +6,7 @@ nnoremap <CR> o<ESC>
 nnoremap <Leader><CR> O<ESC>
 
 " Easier command-mode binding
-nmap <leader>; :
+" nmap <leader>; :
 
 " En-dashes (in insert mode) <ctrl>k -N
 " Em-dashes (in insert mode) <ctrl>k -M

@@ -85,8 +85,8 @@ Plug 'LnL7/vim-nix', { 'for': 'nix' }
 " Clojure
 Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'clojurescript'] }
 Plug 'tpope/vim-classpath', { 'for': ['clojure', 'clojurescript'] }
-Plug 'clojure-vim/async-clj-highlight', { 'for': ['clojure', 'clojurescript'] }
 Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'clojurescript'] }
+Plug 'guns/vim-clojure-highlight', { 'for': ['clojure', 'clojurescript'] }
 Plug 'markwoodhall/vim-sayid', { 'for': ['clojure', 'clojurescript'] }
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'eraserhd/parinfer-rust', { 'for': ['clojure', 'clojurescript', 'lisp'], 'do': 'cargo build --release' }
