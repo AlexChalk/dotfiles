@@ -4,11 +4,13 @@
 nnoremap <leader>pp :let g:parinfer_mode = "paren"<cr>
 nnoremap <leader>pi :let g:parinfer_mode = "indent"<cr>
 nnoremap <leader>ps :let g:parinfer_mode = "smart"<cr>
+" not a real mode, but stops plugin from running
+nnoremap <leader>po :let g:parinfer_mode = "off"<cr>
 
-" Reload all definitions for file in repl
+" reverse vim-clojure-static behaviour (I don't know why it messes with this, but if I realize I might change it back)
 augroup clojure
   autocmd!
-  autocmd FileType clojure map <leader>ra :w<cr>:Require!<cr>
+  autocmd FileType clojure set iskeyword-=?,*,!,+,/,=,<,>,.,:,$ 
 augroup END
 
 " Indentation settings
@@ -16,10 +18,31 @@ let g:clojure_fuzzy_indent = 1
 let g:clojure_fuzzy_indent_patterns = ['.*']
 let g:clojure_fuzzy_indent_blacklist = ['->', ':require']
 
+" Refresh repl
+function! s:Refresh(bang,ns)
+  let cmd = ('(clojure.tools.namespace.repl/refresh'.(a:bang ? '-all' : '').')')
+  echo cmd
+  try
+    call fireplace#session_eval(cmd)
+    return ''
+  catch /^Clojure:.*/
+    return ''
+  endtry
+endfunction
+
+function! s:setup_refresh()
+  command! -buffer -bar -bang -complete=customlist,fireplace#ns_complete -nargs=? Refresh :exe s:Refresh(<bang>0, <q-args>)
+  nnoremap <silent><buffer> cpf :Refresh<CR>
+endfunction
+
+augroup fireplace_refresh
+  autocmd!
+  autocmd FileType clojure call s:setup_refresh()
+augroup END
+
 
 " https://github.com/bhauman/lein-figwheel/wiki/Using-the-Figwheel-REPL-with-Vim
-" Begin connection to figwheel repl
-nnoremap <leader>cfr :Connect<cr>
+" Begin connection to figwheel repl: :Connect<cr>
 
 " Treat pixie like clojure
 augroup pixie

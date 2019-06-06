@@ -89,7 +89,8 @@ Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'clojurescript'] }
 Plug 'guns/vim-clojure-highlight', { 'for': ['clojure', 'clojurescript'] }
 Plug 'markwoodhall/vim-sayid', { 'for': ['clojure', 'clojurescript'] }
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'eraserhd/parinfer-rust', { 'for': ['clojure', 'clojurescript', 'lisp'], 'do': 'cargo build --release' }
+Plug 'eraserhd/parinfer-rust', { 'for': ['clojure', 'clojurescript'], 'do': 'cargo build --release' }
+" Plug 'bhurlow/vim-parinfer', { 'for': ['clojure', 'clojurescript'] }
 
 " Wiki
 Plug 'vimwiki/vimwiki'
