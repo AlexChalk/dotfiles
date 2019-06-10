@@ -1,6 +1,10 @@
 # Lsp dir
 .lsp
 
+# Yarn stuff
+.yarn/
+.yarnrc
+
 # Stack dirs
 .stack-work
 

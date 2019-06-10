@@ -4,7 +4,7 @@
 filetype plugin indent on
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start    
-set scrolloff=3	              " Maintain slight scroll
+set scrolloff=2	              " Maintain slight scroll
 set showcmd		                " Display incomplete commands
 set history=50	              " Keep 50 lines of command line history
 set ignorecase                " Make searches case-insensitive by default.
@@ -30,6 +30,7 @@ set textwidth=85          " Make it obvious where
 set colorcolumn=+1        " 85 characters is
 set splitbelow            " set default :sp position
 set splitright            " set default :vsp position
+set cursorline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabs and wrapping

@@ -24,6 +24,9 @@ export LC_ALL="en_CA.UTF-8"
 # Neovim colors
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+# Nix package manager
+if [ -e /Users/adc/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/adc/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
 # use <c-s> in all applications
 stty -ixon
 

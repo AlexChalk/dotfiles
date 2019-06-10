@@ -6,13 +6,13 @@
 " Project root issues: https://github.com/autozimu/LanguageClient-neovim/issues/464
 " jsconfig.json info: https://code.visualstudio.com/docs/languages/jsconfig
 
-nmap gd :LspDefinition<CR>
+nmap <leader>gD :LspDefinition<CR>
 nmap <leader>K :LspHover<CR>
-nmap fR :LspReferences<CR>
+nmap <leader>fR :LspReferences<CR>
 nmap <leader>lr :LspRename<CR>
-nmap fI :LspImplementation<CR>
+nmap <leader>fI :LspImplementation<CR>
 " i is for interface
-nmap gid :LspTypeDefinition<CR>
+nmap <leader>gid :LspTypeDefinition<CR>
 nmap <leader>ls <plug>(lsp-status)
 nmap <leader>lcs <plug>(lsp-document-symbol)
 

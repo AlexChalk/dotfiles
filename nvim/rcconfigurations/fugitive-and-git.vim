@@ -79,6 +79,7 @@ xnoremap <leader>gb :Gbrowse<cr>
 
 " Review a PR
 nnoremap <leader>grpr :Git! request-pull -p master ./<cr>
+nnoremap <leader>grp<space> :Git! request-pull -p  ./<left><left><left>
 nnoremap <leader>gdfaf :Git! diff HEAD<cr>
 nnoremap <leader>gdfa<space> :Git! diff<space>
 

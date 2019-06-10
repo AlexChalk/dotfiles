@@ -4,6 +4,7 @@
 " nnoremap gj j
 " nnoremap gk k
 
+set nostartofline
 
 nnoremap <M-j> :m .+1<CR>==
 nnoremap <M-k> :m .-2<CR>==

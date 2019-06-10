@@ -1,6 +1,6 @@
 cnoreabbrev PrettyJson %!jq .
 cnoreabbrev MinifyJson %!jq -c .
-cnoreabbrev PrettyXml %!xq -x .
+cnoreabbrev PrettyXml %!xq .
 cnoreabbrev MinifyXml %!minify --type=xml
 
 nmap <leader>fj :PrettyJson<cr>
