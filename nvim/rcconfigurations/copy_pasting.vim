@@ -9,7 +9,7 @@ nmap gy <Plug>SystemCopy
 xmap gy <Plug>SystemCopy
 nmap gyy <Plug>SystemCopyLine
 nmap gp <Plug>SystemPaste
-nmap gpp <Plug>SystemPasteLine
+nmap "+p <Plug>SystemPasteLine
 
 " Copy the entire buffer into the system register
 nmap <leader>cac ggVG"+y

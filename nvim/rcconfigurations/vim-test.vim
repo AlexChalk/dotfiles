@@ -3,6 +3,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let test#strategy = 'vtr'
 let test#javascript#jasmine#file_pattern = '\.test\.js'
+let test#javascript#mocha#file_pattern = '\vtests?/.*\.(ts|js|jsx|coffee)$'
 
 let g:test#javascript#mocha#options = ''
 
@@ -13,7 +14,8 @@ function! MochaBabel()
     let g:test#javascript#mocha#options = ''
   else
     let s:babel_loaded = 1
-    let g:test#javascript#mocha#options = '--compilers js:babel-core/register'
+    let g:test#javascript#mocha#options = '--require ts-node/register'
+    " let g:test#javascript#mocha#options = '--require ts-node/register --require @babel/register'
   endif
 endfunc
 command! MochaBabel :call MochaBabel()

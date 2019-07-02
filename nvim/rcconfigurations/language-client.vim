@@ -10,16 +10,19 @@ nmap <leader>gD :LspDefinition<CR>
 nmap <leader>K :LspHover<CR>
 nmap <leader>fR :LspReferences<CR>
 nmap <leader>lr :LspRename<CR>
-nmap <leader>fI :LspImplementation<CR>
+nmap <leader>gI :LspImplementation<CR>
 " i is for interface
-nmap <leader>gid :LspTypeDefinition<CR>
+nmap <leader>giD :LspTypeDefinition<CR>
 nmap <leader>ls <plug>(lsp-status)
-nmap <leader>lcs <plug>(lsp-document-symbol)
+nmap <leader>lcs <plug>(lsp-workspace-symbol)
 
 nmap <leader>ql :call lsp#disable()<CR>
 nmap <leader>sl :call lsp#enable()<CR>
 
 let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_virtual_text_enabled = 0
+let g:lsp_highlight_references_enabled = 0
+let g:lsp_highlights_enabled = 0
 " let g:lsp_signs_enabled = 1
 " let g:lsp_signs_error = {'text': '✗', 'texthl': 'GruvboxRedSign', 'linehl': 'Error'}
 " let g:lsp_signs_warning = {}
