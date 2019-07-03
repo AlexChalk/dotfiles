@@ -11,6 +11,7 @@ nnoremap <leader>gcof :Gread<cr>
 nnoremap <leader>gaf :Gwrite<cr>
 nnoremap <leader>guf :silent exec '!git unstage %'<cr>
 nnoremap <leader>gaa :silent exec '!git aa'<cr>
+nnoremap <leader>gaia :silent exec '!git add --intent-to-add .'<cr>
 nnoremap <leader>gua :silent exec '!git unstage .'<cr>
 nnoremap <leader>ge<space> :Gedit<space>
 nnoremap <leader>gec :Gedit<cr>
@@ -22,7 +23,7 @@ nnoremap <leader>gvsc :Gvsplit<cr>
 
 " Logging/searching 
 
-nnoremap <leader>glr :Glog<cr>
+nnoremap <leader>glr :0Glog<cr>
 nnoremap <leader>glc :Glog -- %<cr>
 " To search on other branches: Ggrep 'text' branch
 nnoremap <leader>gg :Ggrep

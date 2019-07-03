@@ -8,8 +8,9 @@
 # Stack dirs
 .stack-work
 
-# Nested tslint files #
-*/tslint.json
+# Nested lint files (indicative that i pulled them out of node_modules for ale in a monorepo) #
+*/**/tslint.json
+*/**/eslintrc.json
 jsconfig.json
 
 # Commonly used scratch files #
