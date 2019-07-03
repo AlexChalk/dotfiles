@@ -10,6 +10,7 @@ yarn.lock
 # Node Modules #
 ##############################
 node_modules
+dist
 
 # CLJ(S) Builds #
 ##############################

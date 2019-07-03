@@ -14,14 +14,7 @@ case $HIST_STAMPS in
   *) alias history='fc -l 1' ;;
 esac
 
-setopt append_history
-setopt extended_history
-# setopt hist_expire_dups_first
-
-setopt hist_find_no_dups
-# setopt hist_ignore_dups # ignore duplication command history list
-setopt hist_ignore_space
-setopt hist_verify
-setopt inc_append_history
-setopt share_history # share command history data
-
+setopt extended_history # save timestamp and duration
+setopt hist_verify # don't execute after selection, let user modify
+setopt share_history # read from and write to hist file entries for other concurrent sessions
+setopt hist_ignore_dups # Do not record an event that was just recorded again.
