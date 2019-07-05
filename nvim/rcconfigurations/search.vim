@@ -19,15 +19,19 @@ let g:ctrlsf_mapping = {
       \ 'popen'   : 'p',
       \ 'popenf'  : 'P',
       \ 'quit'    : 'q',
-      \ 'next'    : '<C-J>',
-      \ 'prev'    : '<C-K>',
+      \ 'next'    : '<C-N>',
+      \ 'prev'    : '<C-P>',
       \ 'pquit'   : 'q',
       \ 'loclist' : '',
       \ 'chgmode' : 'M',
       \ 'stop'    : '<C-C>',
       \}
 
-nnoremap <leader>tsr :CtrlSFToggle<cr>
+" subdir search
+" :CtrlSF {pattern} /path/to/dir
+
+nnoremap <leader>so :CtrlSFOpen<cr>
+nnoremap <leader>su :CtrlSFUpdate<cr>
 
 nmap <leader>dK <Plug>DashSearch
 

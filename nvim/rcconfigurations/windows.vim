@@ -1,5 +1,5 @@
 " Pre-populate a split/edit command with the current directory
-nmap <leader>nsv :vsp <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <leader>nvs :vsp <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 nmap <leader>nsp :sp <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 nmap <leader>nns :e <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 " CTRL-W CTRL-F	Split current window in two.  Edit file name under cursor.
