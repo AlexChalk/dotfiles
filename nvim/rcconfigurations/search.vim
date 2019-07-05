@@ -1,13 +1,13 @@
 cnoreabbrev rg CtrlSF
 cnoreabbrev rgg rg
 
-let g:ctrlsf_ackprg = 'ag'
+let g:ctrlsf_ackprg = 'rg'
 
 let g:ctrlsf_default_view_mode = 'compact'
 
-let g:ctrlsf_extra_backend_args = {
-      \ 'ag': '--path-to-ignore $HOME/.ignore'
-      \ }
+" let g:ctrlsf_extra_backend_args = {
+"       \ 'ag': '--path-to-ignore $HOME/.ignore'
+"       \ }
 
 let g:ctrlsf_mapping = {
       \ 'open'    : ['<CR>', 'o'],
