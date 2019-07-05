@@ -13,8 +13,8 @@ nmap <leader>lr :LspRename<CR>
 nmap <leader>gI :LspImplementation<CR>
 " i is for interface
 nmap <leader>giD :LspTypeDefinition<CR>
-nmap <leader>ls <plug>(lsp-status)
-nmap <leader>lcs <plug>(lsp-workspace-symbol)
+nmap <leader>lgs <plug>(lsp-status)
+nmap <leader>lws <plug>(lsp-workspace-symbol)
 
 nmap <leader>ql :call lsp#disable()<CR>
 nmap <leader>sl :call lsp#enable()<CR>

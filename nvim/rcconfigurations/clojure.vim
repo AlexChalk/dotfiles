@@ -1,11 +1,11 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clojure
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>pp :let g:parinfer_mode = "paren"<cr>
-nnoremap <leader>pi :let g:parinfer_mode = "indent"<cr>
-nnoremap <leader>ps :let g:parinfer_mode = "smart"<cr>
+nnoremap <leader>lp :let g:parinfer_mode = "paren"<cr>
+nnoremap <leader>li :let g:parinfer_mode = "indent"<cr>
+nnoremap <leader>ls :let g:parinfer_mode = "smart"<cr>
 " not a real mode, but stops plugin from running
-nnoremap <leader>po :let g:parinfer_mode = "off"<cr>
+nnoremap <leader>lo :let g:parinfer_mode = "off"<cr>
 
 " reverse vim-clojure-static behaviour (I don't know why it messes with this, but if I realize I might change it back)
 augroup clojure
@@ -73,6 +73,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rainbow Parens
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:rainbow#blacklist = [233, 234] ansi or HEX
 augroup rainbow_lisp
   autocmd!
   autocmd FileType lisp,elisp,racket,clojure,scheme RainbowParentheses

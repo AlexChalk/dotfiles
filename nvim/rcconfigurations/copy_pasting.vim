@@ -5,11 +5,11 @@ nnoremap P P`[v`]=
 nnoremap <leader>"+p "+p
 nnoremap <leader>"+P "+P
 
-nmap gy <Plug>SystemCopy
-xmap gy <Plug>SystemCopy
-nmap gyy <Plug>SystemCopyLine
-nmap gp <Plug>SystemPaste
-nmap "+p <Plug>SystemPasteLine
+nmap <leader>y <Plug>SystemCopy
+xmap <leader>y <Plug>SystemCopy
+nmap <leader>yy <Plug>SystemCopyLine
+nmap <leader>p <Plug>SystemPaste
+nmap <leader>pp <Plug>SystemPasteLine
 
 " Copy the entire buffer into the system register
 nmap <leader>cac ggVG"+y
