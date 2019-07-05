@@ -12,7 +12,7 @@ nnoremap <leader>guf :silent exec '!git unstage %'<cr>
 nnoremap <leader>gaa :silent exec '!git aa'<cr>
 nnoremap <leader>gat :silent exec '!git add --intent-to-add .'<cr>
 nnoremap <leader>gua :silent exec '!git unstage .'<cr>
-nnoremap <leader>ge<space> :Gedit<space>
+nnoremap <leader>go<space> :Gedit<space>
 nnoremap <leader>gd<space> :Gvdiff<space>
 nnoremap <leader>gdc :Gvdiff<cr>
 nnoremap <leader>gdm :Gvdiff master:%<cr>
@@ -74,8 +74,8 @@ nnoremap <leader>gb :Gbrowse<cr>
 xnoremap <leader>gb :Gbrowse<cr>
 
 " Review a PR
-nnoremap <leader>gprm :Git! request-pull -p master ./<cr>
-nnoremap <leader>gpr<space> :Git! request-pull -p  ./<left><left><left>
+nnoremap <leader>grpm :Git! request-pull -p master ./<cr>
+nnoremap <leader>grp<space> :Git! request-pull -p  ./<left><left><left>
 nnoremap <leader>gdfh :Git! diff HEAD<cr>
 nnoremap <leader>gdf<space> :Git! diff<space>
 " Nothing, --cached, or HEAD

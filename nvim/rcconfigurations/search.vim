@@ -1,4 +1,4 @@
-cnoreabbrev rg CtrlSF
+call SetupCommandAlias("rg", "CtrlSF")
 cnoreabbrev rgg rg
 
 let g:ctrlsf_ackprg = 'rg'
@@ -26,6 +26,11 @@ let g:ctrlsf_mapping = {
       \ 'chgmode' : 'M',
       \ 'stop'    : '<C-C>',
       \}
+
+let g:ctrlsf_auto_close = {
+      \ "normal" : 0,
+      \ "compact": 0
+      \ }
 
 " subdir search
 " :CtrlSF {pattern} /path/to/dir
