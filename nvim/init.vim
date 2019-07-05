@@ -75,11 +75,9 @@ Plug 'moll/vim-node'
 " Misc Langs
 Plug 'elmcast/elm-vim', { 'for': ['elm'] }
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }
-" Plug 'bitc/vim-hdevtools', { 'for': ['haskell'] }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'tsx'] }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
-" Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'LnL7/vim-nix', { 'for': 'nix' }
 
 " Clojure
@@ -90,7 +88,6 @@ Plug 'guns/vim-clojure-highlight', { 'for': ['clojure', 'clojurescript'] }
 Plug 'markwoodhall/vim-sayid', { 'for': ['clojure', 'clojurescript'] }
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'eraserhd/parinfer-rust', { 'for': ['clojure', 'clojurescript'], 'do': 'cargo build --release' }
-" Plug 'bhurlow/vim-parinfer', { 'for': ['clojure', 'clojurescript'] }
 
 " Wiki
 Plug 'vimwiki/vimwiki'
@@ -103,6 +100,17 @@ call plug#end()
 " Change leader and change space to prior leader functionality
 let mapleader = ","
 nnoremap <space> ,
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Start-of-line only cabbrevs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" example use: call SetupCommandAlias("pg", "postgres://")
+function! SetupCommandAlias(input, output)
+  exec 'cabbrev <expr> '.a:input
+        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:input.'")'
+        \ .'? ("'.a:output.'") : ("'.a:input.'"))'
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Source my customizations
