@@ -2,9 +2,9 @@
 
 The dotfiles for my macOS unix environment.
 
-Vim, git, zsh, and tmux are the main tools I use. I have [antibody][] to manage zsh plugins and [vim-plug][] to manage vim plugins. [ripgrep][] and [fd][] are my searchers of choice.
+Vim, git, zsh, and tmux are the main tools I use. I have [zplugin][] to manage zsh plugins and [vim-plug][] to manage vim plugins. [ripgrep][] and [fd][] are my searchers of choice.
 
-[antibody]: https://github.com/getantibody/antibody
+[zplugin]: https://github.com/zdharma/zplugin
 [vim-plug]: https://github.com/junegunn/vim-plug
 [ripgrep]: https://github.com/BurntSushi/ripgrep
 [fd]: https://github.com/sharkdp/fd

@@ -1,3 +1,5 @@
+# Simplified from here: https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/theme-and-appearance.zsh
+
 # ls colors
 autoload -U colors && colors
 

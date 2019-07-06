@@ -30,19 +30,33 @@ if [ -e /Users/adc/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/adc/.nix-p
 # use <c-s> in all applications
 stty -ixon
 
-# Needed for Z installation.
-. `brew --prefix`/etc/profile.d/z.sh
-
 # Source fzf
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
-setopt prompt_subst
+### Added by Zplugin's installer: https://github.com/zdharma/zplugin
+source '/Users/adc/.zplugin/bin/zplugin.zsh'
 
-[ -f $HOME/.zsh_plugins.sh ] && source $HOME/.zsh_plugins.sh
+# Theme (don't lazy load prompt as we want it from start)
+zplugin snippet OMZ::lib/git.zsh
+setopt promptsubst
+zplugin light adc17/pure-red-stars
 
-source $HOME/dotfiles/compinit.zsh
+# Z
+zplugin ice wait"0" lucid blockf
+zplugin light agkozak/zsh-z
 
-# User configuration
+# Completion
+zplugin ice wait"0" lucid blockf
+zplugin snippet OMZ::lib/completion.zsh
+zplugin ice wait"0" lucid blockf
+zplugin light zsh-users/zsh-completions
+zplugin ice wait"0" lucid
+zplugin snippet $HOME/dotfiles/zsh-completions-personal.zsh
+
+# Syntax highlighting
+zplugin ice wait"0" lucid atinit"zpcompinit; zpcdreplay"
+zplugin light zsh-users/zsh-syntax-highlighting
+
 for zsh_source in $HOME/dotfiles/zsh/*.zsh; do
   source $zsh_source
 done

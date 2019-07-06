@@ -27,7 +27,6 @@ brew install \
   curl \
   fd \
   fzf \
-  getantibody/tap/antibody \
   git \
   gnu-sed --with-default-names \
   heroku/brew/heroku \
@@ -71,6 +70,9 @@ curl -L https://git.io/n-install | bash
 
 echo "Rust"
 curl https://sh.rustup.rs -sSf | sh
+
+echo "zplugin Setup"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 
 echo "Vim Plug Setup"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

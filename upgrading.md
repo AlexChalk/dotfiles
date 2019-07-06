@@ -33,7 +33,7 @@
   * Run `core-install` selectively (delete lines as appropriate)
   * Run `build-symlinks`.
   * Set shell: Préférences Système > Users and Groups > Unlock > Right Click on Picture > Advanced options > `/usr/local/bin/zsh`.
-  * Restart shell, run `antibodyupdate`, `python-setup`,  `node-setup`, `ruby-setup`, `wm-install`, and anything missing from `core-install`.
+  * Restart shell, run `python-setup`,  `node-setup`, `ruby-setup`, `wm-install`, and anything missing from `core-install`.
   * Open neovim, run `:CheckHealth` and follow any instructions.
   * If you want to use emacs, create real `.emacs.d` directory in `$HOME` and add symlinks to `init.el` file and `lisp` dir from dotfiles.
 3. Apps
