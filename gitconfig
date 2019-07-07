@@ -1,14 +1,14 @@
 [core]
-	excludesfile = ~/dotfiles/gitignore_global
-	autocrlf = input
-	safecrlf = true
+  excludesfile = ~/dotfiles/gitignore_global
+  autocrlf = input
+  safecrlf = true
   pager = less -F -X
-	editor = nvim
+  editor = nvim
 [user]
-	name = Alexander Chalk
-	email = contact@alexchalk.net
+  name = Alexander Chalk
+  email = contact@alexchalk.net
 [color]
-	ui = auto
+  ui = auto
 [push]
   default = upstream
 [merge]
@@ -61,8 +61,8 @@
   ups = !git checkout staging && git pull && git checkout -
   rups = !git sup && git rebase staging
 [diff]
-	renames = copies
+  renames = copies
 [rebase]
-	autosquash = true
+  autosquash = true
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
