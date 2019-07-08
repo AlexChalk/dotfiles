@@ -25,7 +25,7 @@ export LC_ALL="en_CA.UTF-8"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # Nix package manager
-if [ -e /Users/adc/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/adc/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # use <c-s> in all applications
 stty -ixon
@@ -34,7 +34,7 @@ stty -ixon
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 ### Added by Zplugin's installer: https://github.com/zdharma/zplugin
-source '/Users/adc/.zplugin/bin/zplugin.zsh'
+source $HOME/.zplugin/bin/zplugin.zsh
 
 # Theme (don't lazy load prompt as we want it from start)
 zplugin snippet OMZ::lib/git.zsh
