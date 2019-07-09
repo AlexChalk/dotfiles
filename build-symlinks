@@ -38,3 +38,4 @@ ln -s $HOME/dotfiles/skhdrc .skhdrc
 mkdir .vim
 mkdir .vim/tmp
 mkdir .vim/undo
+mkdir .vim-plug-snapshots

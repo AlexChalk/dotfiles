@@ -3,19 +3,22 @@
 # Add personal scripts to PATH
 export PATH="$PATH:$HOME/dotfiles/bin"
 export PATH="$PATH:$HOME/bin-personal"
-# Add haskell packages to PATH
-export PATH="$HOME/.local/bin:$PATH"
-# Add gnu-sed as 'sed' to PATH
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-# Add rust to PATH
-export PATH="$HOME/.cargo/bin:$PATH"
-# Add ruby to PATH
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-# Add go to PATH
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
-# Add n (nvm alternative) to PATH
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  # Add haskell packages to PATH
+  export PATH="$HOME/.local/bin:$PATH"
+  # Add gnu-sed as 'sed' to PATH
+  export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+  # Add rust to PATH
+  export PATH="$HOME/.cargo/bin:$PATH"
+  # Add ruby to PATH
+  export PATH="/usr/local/opt/ruby/bin:$PATH"
+  # Add go to PATH
+  export GOPATH="$HOME/go"
+  export PATH="$GOPATH/bin:$PATH"
+  # Add n (nvm alternative) to PATH
+  export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+fi
 
 export LANG="en_CA.UTF-8"
 export LC_ALL="en_CA.UTF-8"
@@ -34,6 +37,7 @@ stty -ixon
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 ### Added by Zplugin's installer: https://github.com/zdharma/zplugin
+# Check back for rollback feature: https://github.com/zdharma/zplugin/issues/135#issuecomment-497585546
 source $HOME/.zplugin/bin/zplugin.zsh
 
 # Theme (don't lazy load prompt as we want it from start)

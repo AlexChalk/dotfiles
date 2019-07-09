@@ -10,7 +10,8 @@ let g:vimwiki_conceal_onechar_markers = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Plug
-" Remember to run :PlugUpdate and :PlugUpgrade once in a while
+" Remember to run :PlugUpdate (and :PlugUpgrade if on macOS) once in a while
+" For versioning: :SavePlugSnapshot
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('$HOME/.local/share/nvim/plugged')
 
@@ -124,6 +125,14 @@ function! s:SourceConfigFilesIn(directory)
   endfor
 endfunction
 call s:SourceConfigFilesIn('rcconfigurations')
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VersionedPluginBuilds
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! SavePlugSnapshot()
+  execute "PlugSnapshot! " . "$HOME/.vim-plug-snapshots/" . strftime("%Y-%m-%d_%X") . ".vim"
+endfunction
+command! SavePlugSnapshot :call SavePlugSnapshot()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " repeat.vim code
