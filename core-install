@@ -39,7 +39,6 @@ brew install \
   python@2 \
   pipenv \
   ruby \
-  reattach-to-user-namespace \
   ripgrep \
   rlwrap \
   stack \
