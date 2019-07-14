@@ -46,7 +46,6 @@ Plug 'prabirshrestha/async.vim'
 
 " Toomey other
 Plug 'christoomey/vim-sort-motion'
-Plug 'christoomey/vim-system-copy'
 
 " Tpope other
 Plug 'tpope/vim-speeddating'

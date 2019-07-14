@@ -3,11 +3,10 @@
 nnoremap p p`[v`]=
 nnoremap P P`[v`]=
 
-nmap cy <Plug>SystemCopy
-xmap cy <Plug>SystemCopy
-nmap cyy <Plug>SystemCopyLine
-nmap cp <Plug>SystemPaste
-nmap cpp <Plug>SystemPasteLine
+nnoremap cy "+y
+xnoremap cy "+y
+nnoremap cyy "+yy
+nnoremap cp "+p
 
 " Copy the entire buffer into the system register
 nmap <leader>cac ggVG"+y
@@ -18,8 +17,8 @@ nmap <leader>caf ggVGy
 nmap <Leader>r  <Plug>ReplaceWithRegisterOperator
 nmap <Leader>rr <Plug>ReplaceWithRegisterLine
 xmap <Leader>r  <Plug>ReplaceWithRegisterVisual
-nmap <leader>cr "+<leader>r
-nmap <leader>crr "+<leader>rr
+nmap c<leader>r "+<leader>r
+nmap c<leader>rr "+<leader>rr
 
 " paste-and-search (freezes right now)
 " nmap <leader>sp :rg<space><c-f>pA<cr>
