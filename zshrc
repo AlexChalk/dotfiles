@@ -20,8 +20,14 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
 fi
 
+# fzf for nixos
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+fi
+
 export LANG="en_CA.UTF-8"
 export LC_ALL="en_CA.UTF-8"
+# export EDITOR="nvim"
 
 
 # Neovim colors
@@ -38,6 +44,7 @@ stty -ixon
 
 ### Added by Zplugin's installer: https://github.com/zdharma/zplugin
 # Check back for rollback feature: https://github.com/zdharma/zplugin/issues/135#issuecomment-497585546
+# Update plugins: `zpl update --all`; update and compile zplugin: `zpl self-update`.
 source $HOME/.zplugin/bin/zplugin.zsh
 
 # Theme (don't lazy load prompt as we want it from start)

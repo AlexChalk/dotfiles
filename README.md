@@ -18,3 +18,54 @@ Vim, git, zsh, and tmux are the main tools I use. I have [zplugin][] to manage z
 ### Putting your dotfiles on github.
 
 This excellent article [here](http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/) covers all the reasons I decided to upload my dotfiles to github. It also explains how you can do it too.
+
+
+## Notes to self
+
+### Nix
+
+When you install nix-darwin, it seems to create a /etc/zshenv symlink to a file in
+its own `static` dir. As zsh always runs /etc/zshenv on startup, there's no need to
+add anything extra (like the readme seems to suggest doing for bash) to get things
+working.
+
+The one thing you might want to consider doing is check there's no existing
+`/etc/zshenv`, and if there is, making a backup, before you install.
+
+## Versioning nixos
+
+- System upgrade: sudo nixos-rebuild switch
+- System rollback: sudo nixos-rebuild switch --rollback
+- User upgrade: 
+- User rollback: nix-env --rollback
+- Garbage collect everything (sudo to include system builds): nix-collect-garbage -d/--delete-older-than 
+
+- Autoclear to 1gb when less than 100mb space remaining:
+nix.extraOptions = ''
+  min-free = ${toString (100 * 1024 * 1024)}
+  max-free = ${toString (1024 * 1024 * 1024)}
+'';
+
+note tmux paste-buffer shortcut for server (c-s ])
+
+  'run manually:
+  rustup install stable
+  rustup default stable'
+
+## Versioning vim plugins
+
+Run `SavePlugSnapshot` before your run `PlugUpdate`; it will save a `.vim` file that
+you can source to revert your changes.
+
+Versioning vim-plug: this isn't really necessary, as you should only upgrade if it's
+broken anyway (new features aren't added), but you can do so here if you really want
+to: `https://github.com/junegunn/vim-plug/wiki/faq#shouldnt-vim-plug-update-itself-on-plugupdate-like-vundle`
+
+## Versioning zsh plugins
+
+Not supported right now by zplugin; but they have plans to add it, so wait.
+Versioning zplugin: again, wait, hopefully their plans include that too.
+
+## Browser
+
+Use firefox sync
