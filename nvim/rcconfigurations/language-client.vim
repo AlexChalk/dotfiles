@@ -10,6 +10,7 @@ nmap <leader>gD :LspDefinition<CR>
 nmap <leader>K :LspHover<CR>
 nmap <leader>fR :LspReferences<CR>
 nmap <leader>lr :LspRename<CR>
+nmap <leader>ld :LspDocumentDiagnostics<CR>
 nmap <leader>gI :LspImplementation<CR>
 " i is for interface
 nmap <leader>giD :LspTypeDefinition<CR>
@@ -19,6 +20,7 @@ nmap <leader>lws <plug>(lsp-workspace-symbol)
 nmap <leader>ql :call lsp#disable()<CR>
 nmap <leader>sl :call lsp#enable()<CR>
 
+let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_virtual_text_enabled = 0
 let g:lsp_highlight_references_enabled = 0
@@ -34,7 +36,7 @@ if executable('typescript-language-server')
       \ 'name': 'typescript-language-server',
       \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
       \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-      \ 'whitelist': ['typescript'],
+      \ 'whitelist': ['typescript', 'typescript.tsx'],
       \ })
 
 

@@ -18,3 +18,4 @@ setopt extended_history # save timestamp and duration
 setopt hist_verify # don't execute after selection, let user modify
 setopt share_history # read from and write to hist file entries for other concurrent sessions
 setopt hist_ignore_dups # Do not record an event that was just recorded again.
+setopt hist_find_no_dups
