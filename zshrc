@@ -27,7 +27,6 @@ fi
 
 export LANG="en_CA.UTF-8"
 export LC_ALL="en_CA.UTF-8"
-# export EDITOR="nvim"
 
 
 # Neovim colors
@@ -48,7 +47,6 @@ stty -ixon
 source $HOME/.zplugin/bin/zplugin.zsh
 
 # Theme (don't lazy load prompt as we want it from start)
-zplugin snippet OMZ::lib/git.zsh
 setopt promptsubst
 zplugin light adc17/pure-red-stars
 
