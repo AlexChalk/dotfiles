@@ -16,7 +16,7 @@ brew cask install \
   brave-browser \
   keepingyouawake \
   kitty \
-  java8 \
+  adoptopenjdk8 \
   ngrok \
   typora
 
@@ -46,7 +46,6 @@ brew install \
   tmux \
   tree \
   watchman \
-  z \
   zsh \
 
 brew tap universal-ctags/universal-ctags
