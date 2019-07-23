@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+dir=$(basename "$PWD")
+path=$(git rev-parse --show-prefix)
+root_dir=$(git rev-parse --show-toplevel)
+
+git worktree add $root_dir-worktrees/$dir -b wt-$dir &> /dev/null
+
+echo $root_dir-worktrees/$dir/$path

@@ -48,6 +48,7 @@
   ri = rebase --interactive
   rpm = "!f() { git rebase --onto master $1 $2; }; f"
   rrF = "!f() { git reset --hard HEAD@{$1}; }; f"
+  rmwt = "!f() { git worktree remove $1 && git branch -d wt-$1; }; f"
   s = stash -u
   sdF = stash drop
   sc = commit --amend --no-edit
