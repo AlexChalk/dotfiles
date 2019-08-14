@@ -30,7 +30,7 @@
   * Airplay settings in "Monitors".
   * Finder: Finder > Preferences (general, tags, sidebar), Finder > Presentation for default behaviour.
   * Keyboard: modifiers, repetitions, text, shortcuts (launchpad, screenshots, spotlight), input sources.
-  * Automator -> screensaver, save as 'start screen saver', shortcuts -> services -> start screen saver.
+  * Automator -> quick action, start screensaver, save as 'start screen saver', shortcuts -> services -> start screen saver.
   * Trackpad point and click.
 2. Core utils (included in core-install)
   * xcode-select --install

@@ -1,12 +1,12 @@
 
-env:
-
+# env:
+#
 window:
   dimensions:
-    columns: 400
-    lines: 90
+    columns: 0 #400
+    lines: 0 #90
 
-  fullscreen: true
+  startup_mode: Maximized
 
   padding:
     x: 0
@@ -27,29 +27,27 @@ tabspaces: 2
 
 font:
   normal:
-    family: Triplicate T4c
+    family: Triplicate T3c
 
   bold:
-    family: Triplicate T4c
+    family: Triplicate T3c
 
   italic:
-    family: Triplicate T4c
+    family: Triplicate T3c
 
   size: 14.5
 
   offset:
-    x: 0
-    y: 0
+    x: 1
+    y: 0 
 
   glyph_offset:
     x: 0
     y: 0
 
-  scale_with_dpi: true
+  scale_with_dpi: false
 
   use_thin_strokes: true
-
-render_timer: false
 
 custom_cursor_colors: true
 
@@ -75,27 +73,35 @@ colors:
     cyan:    '0x8ec07c'
     white:   '0xd5c4a1'
 
-  # bright:
-  #   black:   '0x665c54'
-  #   red:     '0xfb4934'
-  #   green:   '0xb8bb26'
-  #   yellow:  '0xfabd2f'
-  #   blue:    '0x83a598'
-  #   magenta: '0xd3869b'
-  #   cyan:    '0x8ec07c'
-  #   white:   '0xfbf1c7'
+  bright:
+    black:   '0x665c54'
+    red:     '0xfb4934'
+    green:   '0xb8bb26'
+    yellow:  '0xfabd2f'
+    blue:    '0x83a598'
+    magenta: '0xd3869b'
+    cyan:    '0x8ec07c'
+    white:   '0xfbf1c7'
 
 
   # Bright colors
-  bright:
-    black:   '0x665c54'
-    red:     '0xfe8019'
-    green:   '0x3c3836'
-    yellow:  '0x504945'
-    blue:    '0xbdae93'
-    magenta: '0xebdbb2'
-    cyan:    '0xd65d0e'
-    white:   '0xfbf1c7'
+  # bright:
+  #   black:   '0x665c54'
+  #   red:     '0xfe8019'
+  #   green:   '0x3c3836'
+  #   yellow:  '0x504945'
+  #   blue:    '0xbdae93'
+  #   magenta: '0xebdbb2'
+  #   cyan:    '0xd65d0e'
+  #   white:   '0xfbf1c7'
+
+  indexed_colors:
+    - { index: 16, color: '0xfe8019' }
+    - { index: 17, color: '0xd65d0e' }
+    - { index: 18, color: '0x3c3836' }
+    - { index: 19, color: '0x504945' }
+    - { index: 20, color: '0xbdae93' }
+    - { index: 21, color: '0xebdbb2' }
 
 
 visual_bell:
@@ -239,3 +245,6 @@ key_bindings:
   - { key: F11,      mods: Command, chars: "\x1b[23;3~"                  }
   - { key: F12,      mods: Command, chars: "\x1b[24;3~"                  }
   - { key: NumpadEnter,             chars: "\n"                          }
+
+shell:
+  program: zsh
