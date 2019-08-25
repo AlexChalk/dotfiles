@@ -14,7 +14,8 @@ mkdir .boot
 ln -s $HOME/dotfiles/boot.properties .boot/boot.properties
 mkdir .clojure
 ln -s $HOME/dotfiles/clojure/deps.edn .clojure/deps.edn
-mkdir -p .config/nvim
+mkdir .config
+mkdir .config/nvim
 ln -s $HOME/dotfiles/nvim/init.vim .config/nvim/init.vim
 mkdir .config/nvim/Ultisnips
 mkdir .config/nvim/ftdetect
@@ -23,18 +24,10 @@ mkdir .config/nvim/ftplugin
 ln -s $HOME/dotfiles/nvim/ftplugin/* .config/nvim/ftplugin
 ln -s $HOME/dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips
 ln -s $HOME/dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips/typescript.snippets
-mkdir Library/KeyBindings
-ln -s $HOME/dotfiles/DefaultKeyBinding.dict Library/KeyBindings/DefaultKeyBinding.dict
 mkdir .ghc
 ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
 mkdir .ctags.d
 ln -s $HOME/dotfiles/ctags .ctags.d/defaults.ctags
-mkdir .config/alacritty
-mkdir .config/kitty
-ln -s $HOME/dotfiles/alacritty.yml .config/alacritty/alacritty.yml
-ln -s $HOME/dotfiles/kitty.conf .config/kitty/kitty.conf
-ln -s $HOME/dotfiles/chunkwmrc .chunkwmrc
-ln -s $HOME/dotfiles/skhdrc .skhdrc
 mkdir .vim
 mkdir .vim/tmp
 mkdir .vim/undo
