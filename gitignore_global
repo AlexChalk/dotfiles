@@ -11,6 +11,8 @@
 # Nested lint files (indicative that i pulled them out of node_modules for ale in a monorepo) #
 */**/tslint.json
 */**/eslintrc.json
+*/**/.eslintrc.json
+*/**/.eslintrc
 jsconfig.json
 
 # Commonly used scratch files #

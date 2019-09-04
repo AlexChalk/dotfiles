@@ -28,7 +28,8 @@ let g:ale_fixers = {
       \       'prettier'
       \   ],
       \   'typescript': [
-      \       'tslint',
+      \       'eslint',
+      \       'tslint'
       \   ],
       \   'elm': [
       \       'elm-format',
