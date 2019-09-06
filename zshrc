@@ -64,7 +64,8 @@ zplugin ice wait"0" lucid blockf
 zplugin snippet OMZ::lib/completion.zsh
 zplugin ice wait"0" lucid blockf
 zplugin light zsh-users/zsh-completions
-zplugin ice wait"0" lucid
+
+zplugin ice wait"0" lucid blockf
 zplugin snippet $HOME/dotfiles/zsh-completions-personal.zsh
 
 # Syntax highlighting
