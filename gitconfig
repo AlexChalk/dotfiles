@@ -35,7 +35,7 @@
   hardF = reset --hard
   issues = !hub browse --issues
   la = log --oneline --decorate --graph --all
-  lc = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
+  lc = log --date=local --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ad%C(reset)] %s'
   lm = log -1
   mo = "!f() { git merge $(git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)); }; f"
   p = push
