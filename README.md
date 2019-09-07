@@ -22,17 +22,11 @@ This excellent article [here](http://blog.smalleycreative.com/tutorials/using-gi
 
 ## Notes to self
 
-### Nix
+## Nix(os)
 
-When you install nix-darwin, it seems to create a /etc/zshenv symlink to a file in
-its own `static` dir. As zsh always runs /etc/zshenv on startup, there's no need to
-add anything extra (like the readme seems to suggest doing for bash) to get things
-working.
+No great need for nix-darwin on macos.
 
-The one thing you might want to consider doing is check there's no existing
-`/etc/zshenv`, and if there is, making a backup, before you install.
-
-## Versioning nixos
+### Versioning nixos
 
 - System upgrade: sudo nixos-rebuild switch
 - System rollback: sudo nixos-rebuild switch --rollback
@@ -40,17 +34,13 @@ The one thing you might want to consider doing is check there's no existing
 - User rollback: nix-env --rollback
 - Garbage collect everything (sudo to include system builds): nix-collect-garbage -d/--delete-older-than 
 
-- Autoclear to 1gb when less than 100mb space remaining:
+- Autoclear to 1gb when less than 100mb space remaining (pi):
 nix.extraOptions = ''
   min-free = ${toString (100 * 1024 * 1024)}
   max-free = ${toString (1024 * 1024 * 1024)}
 '';
 
-note tmux paste-buffer shortcut for server (c-s ])
-
-  'run manually:
-  rustup install stable
-  rustup default stable'
+Note: tmux paste-buffer shortcut for server is (c-s ]).
 
 ## Versioning vim plugins
 
@@ -68,4 +58,4 @@ Versioning zplugin: again, wait, hopefully their plans include that too.
 
 ## Browser
 
-Use firefox sync
+Use firefox sync.
