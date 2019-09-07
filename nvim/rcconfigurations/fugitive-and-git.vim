@@ -2,6 +2,8 @@
 " :1:%            The current file's common ancestor during a conflict
 " :2:#            The alternate file in the target branch during a conflict
 " :3:#5           The file from buffer #5 in the merged branch during a conflict
+"
+set tags^=./.git/tags;
 
 " Adding/removing/viewing/splitting
 
