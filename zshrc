@@ -18,21 +18,23 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export PATH="$GOPATH/bin:$PATH"
   # Add n (nvm alternative) to PATH
   export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+
+
+  export HOMEBREW_NO_INSTALL_CLEANUP="true"
+  export NIX_CHANNEL="nixos-19.03"
+  export NIX_REMOTE_SYSTEMS="/etc/nix/machines"
 fi
+
+# export LANG="en_CA.UTF-8"
+# export LC_ALL="en_CA.UTF-8"
 
 # fzf for nixos
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
 fi
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  # export LANG="en_CA.UTF-8"
-  # export LC_ALL="en_CA.UTF-8"
-  export HOMEBREW_NO_INSTALL_CLEANUP="true"
-  export NIX_CHANNEL="nixos-19.03"
-  export NIX_REMOTE_SYSTEMS="/etc/nix/machines"
-fi
-
+# fzf for others
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 # Neovim colors
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -42,9 +44,6 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 
 # use <c-s> in all applications
 stty -ixon
-
-# Source fzf
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 ### Added by Zplugin's installer: https://github.com/zdharma/zplugin
 # Check back for rollback feature: https://github.com/zdharma/zplugin/issues/135#issuecomment-497585546
@@ -65,6 +64,7 @@ zplugin snippet OMZ::lib/completion.zsh
 zplugin ice wait"0" lucid blockf
 zplugin light zsh-users/zsh-completions
 
+# n.b. this will be cached and require deleting if there are changes
 zplugin ice wait"0" lucid blockf
 zplugin snippet $HOME/dotfiles/zsh-completions-personal.zsh
 
