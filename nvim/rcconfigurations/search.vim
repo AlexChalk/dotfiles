@@ -21,7 +21,7 @@ let g:ctrlsf_mapping = {
       \ 'quit'    : 'q',
       \ 'next'    : '<C-N>',
       \ 'prev'    : '<C-P>',
-      \ 'pquit'   : 'q',
+      \ 'pquit'   : 'Q',
       \ 'loclist' : '',
       \ 'chgmode' : 'M',
       \ 'stop'    : '<C-C>',

@@ -30,6 +30,12 @@ augroup lsphover
   autocmd Filetype markdown.lsp-hover nnoremap <buffer> q :q<CR>
 augroup END
 
+" Escape hatch from fugitiveblame files
+augroup fugitiveblame
+  autocmd!
+  autocmd Filetype fugitiveblame nmap <buffer> q gq
+augroup END
+
 " Open and source vimrc
 nmap <leader>ocs :sp $HOME/dotfiles/nvim/init.vim<cr>
 nmap <leader>oct :tabedit $HOME/dotfiles/nvim/init.vim<cr>

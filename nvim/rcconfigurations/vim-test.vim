@@ -8,7 +8,7 @@ let test#javascript#mocha#file_pattern = '\vtests?/.*\.(ts|js|jsx|coffee)$'
 let g:test#javascript#mocha#options = ''
 
 function! MochaBabel()
-  let g:test#javascript#mocha#options = '--require babel-register'
+  let g:test#javascript#mocha#options = '--require @babel/register'
 endfunc
 command! MochaBabel :call MochaBabel()
 
