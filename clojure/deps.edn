@@ -1,7 +1,17 @@
 {:aliases {:nrepl {:extra-deps {nrepl/nrepl {:mvn/version "0.6.0"} ;; or "RELEASE"
-                                com.billpiel/sayid {:mvn/version "0.0.17"}
-                                cider/cider-nrepl  {:mvn/version "0.22.0"}}
+                                com.billpiel/sayid {:mvn/version "0.0.17"}}
                    :main-opts  ["-m" "nrepl.cmdline"]}
+
+           :cider-clj {:extra-deps {org.clojure/clojure {:mvn/version "1.10.1"}
+                                    cider/cider-nrepl {:mvn/version "0.22.3"}}
+                       :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
+
+           :cider-cljs {:extra-deps {org.clojure/clojure {:mvn/version "1.10.1"}
+                                     org.clojure/clojurescript {:mvn/version "1.10.339"}
+                                     cider/cider-nrepl {:mvn/version "0.22.3"}
+                                     cider/piggieback {:mvn/version "0.4.1"}}
+                        :main-opts ["-m" "nrepl.cmdline" "--middleware"
+                                    "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
 
            :rebel {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
                    :main-opts  ["-m" "rebel-readline.main"]}}}

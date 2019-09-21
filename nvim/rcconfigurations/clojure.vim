@@ -13,7 +13,9 @@ endfunc
 command! POff :call POff()
 
 function! POn()
-  let g:parinfer_mode = "smart"
+  if g:parinfer_mode == "off"
+    let g:parinfer_mode = "smart"
+  endif
   ParinferOn
 endfunc
 command! POn :call POn()
