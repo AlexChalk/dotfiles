@@ -7,7 +7,7 @@
 " jsconfig.json info: https://code.visualstudio.com/docs/languages/jsconfig
 
 nmap <leader>gD :LspDefinition<CR>
-" nmap <leader>K :LspHover<CR>
+nmap <leader>K :LspHover<CR>
 nmap <leader>fR :LspReferences<CR>
 nmap <leader>lr :LspRename<CR>
 nmap <leader>ld :LspDocumentDiagnostics<CR>

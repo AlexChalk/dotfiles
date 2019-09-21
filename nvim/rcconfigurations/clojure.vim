@@ -26,7 +26,7 @@ augroup clojure
   autocmd!
   autocmd FileType clojure set iskeyword-=?,*,!,+,/,=,<,>,.,:,$ 
   autocmd FileType clojure POff
-  autocmd InsertEnter *.clj,*.cljs,*.cljc POn
+  autocmd InsertEnter *.clj,*.cljs,*.cljc,*.edn POn
 augroup END
 
 " Indentation settings
