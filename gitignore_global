@@ -17,6 +17,7 @@ jsconfig.json
 
 # Commonly used scratch files #
 scratch.sql
+curls.txt
 
 # Vim and Emacs backup files #
 ##############################

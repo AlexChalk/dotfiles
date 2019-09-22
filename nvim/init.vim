@@ -40,11 +40,12 @@ Plug 'janko-m/vim-test'
 
 Plug 'rizzatti/dash.vim'
 
-" prabirshrestha
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/async.vim'
+
+" lsp
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 
 " Toomey other
 Plug 'christoomey/vim-sort-motion'

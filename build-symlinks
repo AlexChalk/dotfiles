@@ -24,6 +24,7 @@ mkdir .config/nvim/ftplugin
 ln -s $HOME/dotfiles/nvim/ftplugin/* .config/nvim/ftplugin
 ln -s $HOME/dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips
 ln -s $HOME/dotfiles/nvim/Ultisnips/javascript.snippets .config/nvim/Ultisnips/typescript.snippets
+ln -s $HOME/dotfiles/nvim/coc-settings.json .config/nvim/coc-settings.json
 mkdir .ghc
 ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
 mkdir .ctags.d

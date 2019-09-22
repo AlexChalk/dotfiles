@@ -3,7 +3,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ale_linters = {
-      \ 'javascript': ['eslint'],
+      \ 'javascript': [],
+      \ 'typescript': [],
       \ 'ruby': ['rubocop'],
       \ 'haskell': ['stack_ghc'],
       \ 'eruby': [''],
@@ -24,12 +25,10 @@ nmap <silent> <leader>tl <Plug>(ale_toggle_buffer)
 nnoremap <Leader>fl :ALEFix<CR>
 let g:ale_fixers = {
       \   'javascript': [
-      \       'eslint',
       \       'prettier'
       \   ],
       \   'typescript': [
-      \       'eslint',
-      \       'tslint'
+      \       'prettier'
       \   ],
       \   'elm': [
       \       'elm-format',

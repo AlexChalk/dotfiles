@@ -4,9 +4,6 @@
 let g:UltiSnipsSnippetsDir="$HOME/.vim/UltiSnips"
 let g:UltiSnipsExpandTrigger = '<C-]>'
 
-let g:asyncomplete_smart_completion = 1
-let g:asyncomplete_auto_popup = 0
-
 " Manual popup
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -16,10 +13,24 @@ endfunction
 inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
   \ <SID>check_back_space() ? "\<TAB>" :
-  \ asyncomplete#force_refresh()
+  \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Auto popup
+" Fancy coc completion + snippets
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? coc#_select_confirm() :
+"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+"
+" let g:coc_snippet_next = '<tab>'
+
+
+" Asyncomplete
+" let g:asyncomplete_smart_completion = 1
+" let g:asyncomplete_auto_popup = 0
+
+" Asyncomplete auto popup
 " let g:asyncomplete_auto_popup = 1
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
