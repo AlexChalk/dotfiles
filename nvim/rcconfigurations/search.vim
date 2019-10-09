@@ -18,7 +18,7 @@ let g:ctrlsf_mapping = {
       \ 'tabb'    : 'T',
       \ 'popen'   : 'p',
       \ 'popenf'  : 'P',
-      \ 'quit'    : 'q',
+      \ 'quit'    : '',
       \ 'next'    : '<C-N>',
       \ 'prev'    : '<C-P>',
       \ 'pquit'   : 'Q',

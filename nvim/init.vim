@@ -42,6 +42,8 @@ Plug 'rizzatti/dash.vim'
 
 Plug 'prabirshrestha/async.vim'
 
+Plug 'EinfachToll/DidYouMean'
+
 " lsp
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}

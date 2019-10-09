@@ -36,6 +36,12 @@ augroup fugitiveblame
   autocmd Filetype fugitiveblame nmap <buffer> q gq
 augroup END
 
+" Escape hatch from ctrlsf as builtin squashes rightmost window sometimes
+augroup ctrlsf
+  autocmd!
+  autocmd Filetype ctrlsf nmap <buffer> q :q<CR>
+augroup END
+
 " Open and source vimrc
 nmap <leader>ocs :sp $HOME/dotfiles/nvim/init.vim<cr>
 nmap <leader>oct :tabedit $HOME/dotfiles/nvim/init.vim<cr>
