@@ -8,6 +8,7 @@
   "coc.preferences.messageLevel": "warning",
   "diagnostic.displayByAle": false,
   "diagnostic.enable": true,
+  "eslint.filetypes": ["javascript", "javascriptreact", "typescript"],
   "languageserver": {
     "clojure-lsp": {
       "command": "bash",
