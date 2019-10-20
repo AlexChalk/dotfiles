@@ -18,4 +18,5 @@ alias nostack='source $HOME/dotfiles/bin/nostack'
 alias pyinit='eval "$(pyenv init -)"'
 alias k='kubectl'
 alias intwt='git intwt | pbcopy && cd $(pbpaste)'
+alias vim='nvim'
 
