@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 cd $HOME
+mkdir bin-personal
 ln -s $HOME/dotfiles/zshrc .zshrc
 ln -s $HOME/dotfiles/tmux.conf .tmux.conf
 ln -s $HOME/dotfiles/ignore .ignore
@@ -14,6 +15,8 @@ mkdir .boot
 ln -s $HOME/dotfiles/boot.properties .boot/boot.properties
 mkdir .clojure
 ln -s $HOME/dotfiles/clojure/deps.edn .clojure/deps.edn
+mkdir .config/kitty
+ln -s $HOME/dotfiles/kitty.conf .config/kitty/kitty.conf
 mkdir .config
 mkdir .config/nvim
 ln -s $HOME/dotfiles/nvim/init.vim .config/nvim/init.vim

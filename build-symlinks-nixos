@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+source ./build-symlinks
+
+cd $HOME
+ln -s $HOME/dotfiles/sway .config/
+ln -s $HOME/dotfiles/waybar .config/
