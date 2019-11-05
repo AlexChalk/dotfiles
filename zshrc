@@ -25,9 +25,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export NIX_REMOTE_SYSTEMS="/etc/nix/machines"
 fi
 
-if [[ "$OSTYPE" != darwin* ]]; then
-  export XKB_DEFAULT_OPTIONS=ctrl:nocaps,altwin:swap_lalt_lwin
-fi
+# if [[ "$OSTYPE" != darwin* ]]; then
+#   export XKB_DEFAULT_OPTIONS=ctrl:nocaps,altwin:swap_lalt_lwin
+# fi
 
 # export LANG="en_CA.UTF-8"
 # export LC_ALL="en_CA.UTF-8"

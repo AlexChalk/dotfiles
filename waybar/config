@@ -34,12 +34,12 @@
         "tooltip": false
     },
     "custom/storage": {
-      "format": "{percentage}% ",
-      "format-alt": "{} ",
-      "format-alt-click": "click-right",
-      "return-type": "json",
-      "interval": 60,
-      "exec": "$HOME/.config/waybar/modules/storage.sh"
+        "format": "{percentage}% ",
+        "format-alt": "{} ",
+        "format-alt-click": "click-right",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "$HOME/.config/waybar/modules/storage.sh"
     },
     "network": {
         "format": "{icon}",
@@ -50,20 +50,18 @@
             "ethernet": [""],
             "disconnected": [""]
         },
-    "tooltip": false
+        "tooltip": false
     },
     "pulseaudio": {
-        "format": "{icon}",
-        "format-alt": "{volume} {icon}",
-        "format-alt-click": "click-right",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {
-          "phone": [" ", " ", " ", " "],
-          "default": ["", "", "", ""]
+            "headphones": "",
+            "default": ["", ""]
         },
-        "scroll-step": 10,
-        "on-click": "pavucontrol",
-        "tooltip": false
+        "on-click": "amixer sset Master toggle",
+        "on-click-right": "pavucontrol"
     },
     "backlight": {
         "format": "{icon}",
