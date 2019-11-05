@@ -62,7 +62,7 @@ input type:pointer {
 
 # Keyboard mouse emulator
 input 7504:24866:Ultimate_Gadget_Laboratories_Ultimate_Hacking_Keyboard {
-  pointer_accel -0.82
+  pointer_accel -0.92
 }
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
