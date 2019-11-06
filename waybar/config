@@ -46,16 +46,17 @@
         "format-alt": "{ipaddr}/{cidr} {icon}",
         "format-alt-click": "click-right",
         "format-icons": {
-            "wifi": ["", "" ,""],
-            "ethernet": [""],
-            "disconnected": [""]
+            "wifi": "",
+            "ethernet": "",
+            "disconnected": ""
         },
+        "interval": 2,
         "tooltip": false
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}%",
-        "format-muted": "",
+        "format-muted": " MUTE",
         "format-icons": {
             "headphones": "",
             "default": ["", ""]

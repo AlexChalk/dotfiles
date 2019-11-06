@@ -57,7 +57,7 @@ input type:touchpad {
 
 # Trackpad, Identifier: 2:10:TPPS/2_IBM_TrackPoint
 input type:pointer {
-  pointer_accel -0.62
+  pointer_accel -0.52
 }
 
 # Keyboard mouse emulator
@@ -212,6 +212,10 @@ bindsym $mod+r mode "resize"
 
 bindsym XF86MonBrightnessDown exec light -U 5
 bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
+bindsym XF86AudioMute exec amixer sset Master toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
 
 set {
   $nag         exec swaynagmode
@@ -254,6 +258,4 @@ bindsym {
 swaynag_command $nag -R
 
 # Status Bar:
-bar {
-  swaybar_command waybar
-}
+exec_always $HOME/.config/waybar/waybar.sh
