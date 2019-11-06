@@ -15,9 +15,8 @@ mkdir .boot
 ln -s $HOME/dotfiles/boot.properties .boot/boot.properties
 mkdir .clojure
 ln -s $HOME/dotfiles/clojure/deps.edn .clojure/deps.edn
-mkdir .config/kitty
-ln -s $HOME/dotfiles/kitty.conf .config/kitty/kitty.conf
 mkdir .config
+ln -s $HOME/dotfiles/kitty .config
 mkdir .config/nvim
 ln -s $HOME/dotfiles/nvim/init.vim .config/nvim/init.vim
 mkdir .config/nvim/Ultisnips

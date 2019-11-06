@@ -23,10 +23,12 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export HOMEBREW_NO_INSTALL_CLEANUP="true"
   export NIX_CHANNEL="nixos-19.03"
   export NIX_REMOTE_SYSTEMS="/etc/nix/machines"
+  export MY_MACHINE="macos"
 fi
 
 if [[ "$OSTYPE" != darwin* ]]; then
   export XDG_CURRENT_DESKTOP="Unity"
+  export MY_MACHINE="nixos"
 fi
 
 # export LANG="en_CA.UTF-8"
