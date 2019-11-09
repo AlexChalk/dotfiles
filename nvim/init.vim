@@ -89,6 +89,9 @@ Plug 'LnL7/vim-nix', { 'for': 'nix' }
 " Clojure
 Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'clojurescript'] }
 Plug 'tpope/vim-classpath', { 'for': ['clojure', 'clojurescript'] }
+" Plug 'tpope/vim-salve', { 'for': ['clojure', 'clojurescript'] }
+" Plug 'tpope/vim-projectionist', { 'for': ['clojure', 'clojurescript'] }
+" Plug 'tpope/vim-dispatch', { 'for': ['clojure', 'clojurescript'] }
 Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'clojurescript'] }
 Plug 'guns/vim-clojure-highlight', { 'for': ['clojure', 'clojurescript'] }
 Plug 'markwoodhall/vim-sayid', { 'for': ['clojure', 'clojurescript'] }

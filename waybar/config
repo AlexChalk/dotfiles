@@ -50,7 +50,6 @@
             "ethernet": "",
             "disconnected": ""
         },
-        "interval": 2,
         "tooltip": false
     },
     "pulseaudio": {
