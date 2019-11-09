@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-npm i -g neovim \
+yarn global add neovim \
   elm \
   elm-format \
   elm-oracle \
@@ -10,4 +10,5 @@ npm i -g neovim \
   purescript \
   purescript-psa \
   pulp \
-  bower
+  bower \
+  shadow-cljs

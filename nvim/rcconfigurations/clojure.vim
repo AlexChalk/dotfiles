@@ -15,11 +15,23 @@ augroup clojure-keyword
   autocmd FileType clojure call coc#config('diagnostic.enable', 0)
 augroup END
 
-let g:fireplace_cljs_repl = '(figwheel.main.api/cljs-repl "dev")'
+" let g:fireplace_cljs_repl = '(figwheel.main.api/cljs-repl "dev")'
 " Clojurescript repl connect is project/tooling dependent, here is an example with figwheel-main:
-" 1. :Connect nrepl://localhost:<port>
-" 2. Piggieback (figwheel.main.api/start "dev")
-" 3. Piggieback (figwheel.main.api/cljs-repl "dev")
+" 1. CLI: clj -A:cider-cljs
+" 2. :Connect nrepl://localhost:<port>
+" 3. Piggieback (figwheel.main.api/start "dev")
+" 4. Open website
+" 5. Piggieback (figwheel.main.api/cljs-repl "dev")
+
+" Shadow-cljs
+" 1. CLI: shadow-cljs watch <buildname>
+" 2. :Connect nrepl://localhost:<clj-repl-port>
+" 3. :Piggieback :<buildname>
+" 4. Refresh browser
+" 5. For CLJ, CLI: clj -A:cider-clj
+" 6. :Connect nrepl://localhost:<port>
+" 7. (Can't find a way to start cljs repl from within clj repl like with figwheel, so
+"    would have to switch back and forth between connections if moving from clojure to cljs).
 
 " Treat pixie like clojure
 augroup pixie
