@@ -1,6 +1,10 @@
 # Lsp dir
 .lsp
 
+# cpcache
+.cpcache
+
+
 # Yarn stuff
 .yarn/
 .yarnrc
