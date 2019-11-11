@@ -3,11 +3,11 @@
 intwt() {
   dir=$(basename "$PWD")
   path=$(git rev-parse --show-prefix)
-  root_dir=$(git rev-parse --show-toplevel)
+  git_dir=$(basename `git rev-parse --show-toplevel`)
 
-  git worktree add $root_dir-worktrees/$dir -b wt-$dir &> /dev/null
+  git worktree add $HOME/worktrees/$git_dir-worktrees/$dir -b wt-$dir &> /dev/null
 
-  echo $root_dir-worktrees/$dir/$path
+  echo $HOME/worktrees/$git_dir-worktrees/$dir/$path
 }
 
 intwt
