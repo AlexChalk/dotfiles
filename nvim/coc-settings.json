@@ -8,7 +8,11 @@
   "coc.preferences.messageLevel": "warning",
   "diagnostic.displayByAle": false,
   "diagnostic.enable": true,
-  "eslint.filetypes": ["javascript", "javascriptreact", "typescript"],
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript"
+  ],
   "languageserver": {
     "clojure-lsp": {
       "command": "bash",
@@ -113,6 +117,21 @@
             }
           }
         }
+      }
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": [
+        "go.mod",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "filetypes": [
+        "go"
+      ],
+      "initializationOptions": {
+        "usePlaceholders": true
       }
     }
   }
