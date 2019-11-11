@@ -7,6 +7,7 @@ function! s:Refresh(bang,ns)
   let cmd = ('(clojure.tools.namespace.repl/refresh'.(a:bang ? '-all' : '').')')
   echo cmd
   try
+    call fireplace#session_eval("(require '(clojure.tools.namespace repl))")
     call fireplace#session_eval(cmd)
     return ''
   catch /^Clojure:.*/
