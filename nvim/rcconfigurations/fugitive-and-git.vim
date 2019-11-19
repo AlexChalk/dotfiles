@@ -16,6 +16,7 @@ nnoremap <leader>gat :silent exec '!git add --intent-to-add .'<cr>
 nnoremap <leader>gua :silent exec '!git unstage .'<cr>
 nnoremap <leader>go<space> :Gedit<space>
 nnoremap <leader>gd<space> :Gvdiff<space>
+nnoremap <leader>gds :Gdiffsplit!<cr>
 nnoremap <leader>gdc :Gvdiff<cr>
 nnoremap <leader>gdm :Gvdiff master:%<cr>
 nnoremap <leader>gs<space> :Gvsplit<space>
