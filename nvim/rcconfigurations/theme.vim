@@ -15,6 +15,8 @@ set laststatus=2
 set ttimeoutlen=10
 let g:airline_extensions = ['ale']
 let g:airline#extensions#ale#enabled = 1
+let g:airline_theme='base16'
+" let g:airline_theme='base16_gruvbox_dark_hard'
 
 function! AirlineInit()
   let g:airline_section_a = airline#section#create(['mode'])

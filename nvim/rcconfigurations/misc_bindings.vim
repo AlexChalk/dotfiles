@@ -56,3 +56,4 @@ nmap <leader>nh :nohls<cr>
 
 " diff open files
 nmap <leader>dt :difft<cr>
+" :diffs ~file~ — diff open file against provided new file

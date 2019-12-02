@@ -12,6 +12,10 @@
 # Stack dirs
 .stack-work
 
+# All lint files (changes now made by separate package)
+.eslintrc.json
+.eslintcache
+
 # Nested lint files (indicative that i pulled them out of node_modules for ale in a monorepo) #
 */**/tslint.json
 */**/eslintrc.json
