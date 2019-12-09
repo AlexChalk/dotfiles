@@ -5,3 +5,6 @@ source ./build-symlinks
 cd $HOME
 ln -s $HOME/dotfiles/sway .config/
 ln -s $HOME/dotfiles/waybar .config/
+# mkdir .config/xdg
+# ln -s $HOME/dotfiles/waybar .config/xdg/
+ln -s $HOME/dotfiles/kanshi .config/
