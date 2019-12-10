@@ -19,4 +19,4 @@ alias pyinit='eval "$(pyenv init -)"'
 alias k='kubectl'
 alias intwt='git intwt | pbcopy && cd $(pbpaste)'
 alias vim='nvim'
-
+alias wl-paste-tr='wl-paste | tr -d "\r"'
