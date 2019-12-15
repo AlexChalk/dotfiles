@@ -19,8 +19,9 @@ set $term kitty
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-# set $menu wofi -S drun | xargs swaymsg exec --
+set $menu swaymsg exec BEMENU_BACKEND=wayland $(j4-dmenu-desktop --dmenu="bemenu --list 10 --fn 'Triplicate T4c 12' --ignorecase" --term="kitty")
+# set $menu swaymsg exec BEMENU_BACKEND=wayland "$(dmenu_path | bemenu --list 10 --fn 'Triplicate T4c 12')"
+# set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # set $menu wofi -I -i --show drun | xargs swaymsg exec --
 
 ### Output configuration
