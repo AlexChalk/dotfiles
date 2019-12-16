@@ -51,6 +51,7 @@ bindsym $mod+slash exec 'swaylock -f -c 000000'
 input type:touchpad {
   dwt enabled
   tap enabled
+  click_method clickfinger
   pointer_accel 0.2
   natural_scroll enabled
 }
