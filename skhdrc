@@ -13,14 +13,28 @@ ctrl + cmd - l : chunkc tiling::window --focus east
 # focus monitor
 ctrl + cmd - u  : chunkc tiling::monitor -f prev
 ctrl + cmd - i  : chunkc tiling::monitor -f next
-ctrl + cmd - 1  : chunkc tiling::monitor -f 1
-ctrl + cmd - 2  : chunkc tiling::monitor -f 2
+ctrl + cmd - 9  : chunkc tiling::monitor -f 1
+ctrl + cmd - 0  : chunkc tiling::monitor -f 2
 
 # send window to monitor and follow focus
 ctrl + alt + cmd - u  : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
 ctrl + alt + cmd - i  : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
-ctrl + alt + cmd - 1  : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
-ctrl + alt + cmd - 2  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
+ctrl + alt + cmd - 9  : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
+ctrl + alt + cmd - 0  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
+
+# configuring more advanced desktop operations (e.g. tiling::desktop
+# --focus/--create--annihilate) requires disabling SIP and installing SA.
+# https://koekeishiya.github.io/chunkwm/docs/sa.html
+# https://github.com/koekeishiya/chunkwm/wiki/Useful-tips-and-workarounds
+
+# send window to desktop
+ctrl + shift - 8 : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
+ctrl + shift - 9 : chunkc tiling::window --send-to-desktop prev
+ctrl + shift - 0 : chunkc tiling::window --send-to-desktop next
+ctrl + shift - 1 : chunkc tiling::window --send-to-desktop 1
+ctrl + shift - 2 : chunkc tiling::window --send-to-desktop 2
+ctrl + shift - 3 : chunkc tiling::window --send-to-desktop 3
+ctrl + shift - 4 : chunkc tiling::window --send-to-desktop 4
 
 # move window
 ctrl - left  : chunkc tiling::window --swap west
