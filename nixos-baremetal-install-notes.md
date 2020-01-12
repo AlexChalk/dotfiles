@@ -20,3 +20,6 @@ ln -s $HOME/swaynagmode/swaynagmode .
 
 re-add primary channel for user account so primary channel update for user
 apps can be performed without sudo.
+
+Adding a printer:
+http://localhost:631/admin/
