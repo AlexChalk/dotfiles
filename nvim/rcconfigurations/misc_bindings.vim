@@ -40,6 +40,7 @@ augroup END
 augroup ctrlsf
   autocmd!
   autocmd Filetype ctrlsf nmap <buffer> q :q<CR>
+  autocmd Filetype ctrlsf nunmap <C-X>
 augroup END
 
 " Open and source vimrc

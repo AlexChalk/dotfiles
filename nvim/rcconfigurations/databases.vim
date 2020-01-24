@@ -6,3 +6,9 @@ vmap <leader>sdb :DB<CR>
 call SetupCommandAlias("pg", "DB w:db = postgres://")
 " cnoreabbrev pg DB w:db = postgres://
 " DB w:db = postgres:///db-name
+"
+" function! WriteCommitAndQuit()
+"     w
+"     silent !git commit -am "auto"
+"     q
+" endfunction

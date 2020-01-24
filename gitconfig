@@ -32,6 +32,7 @@
   df = diff --word-diff --color-words
   dfc = diff --word-diff --cached --color-words
   fall = fetch --all
+  fo = fetch origin
   glog = log -E -i --grep
   hardF = reset --hard
   issues = !hub browse --issues
@@ -39,6 +40,7 @@
   lc = log --date=local --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ad%C(reset)] %s'
   lm = log -1
   mo = "!f() { git merge $(git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)); }; f"
+  merge-origin = "!f() { git merge $(git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)); }; f"
   p = push
   pf = push --force-with-lease
   pr = !hub compare

@@ -8,8 +8,10 @@
 set updatetime=1000
 
 " Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> <leader><C-k> <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader><C-j> <Plug>(coc-diagnostic-next)
 
 nmap <silent> <leader>gD <Plug>(coc-definition)
 nmap <silent> <leader>K :call CocAction('doHover')<CR>
@@ -25,7 +27,7 @@ nmap <silent> <leader>giD <Plug>(coc-type-definition)
 nmap <leader>ql :CocDisable<CR>
 nmap <leader>sl :CocEnable<CR>
 
-nmap <silent> <leader>lf <Plug>(coc-format)
+nmap <silent> <leader>fl <Plug>(coc-format)
 
 " Don't trigger on . or ' in node: "suggest.autoTrigger": "none",
 " nmap <leader>la :call CocAction('workspaceSymbol', 'config')

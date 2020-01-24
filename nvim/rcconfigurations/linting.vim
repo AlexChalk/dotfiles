@@ -22,7 +22,7 @@ nmap <silent> <leader>tl <Plug>(ale_toggle_buffer)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autoformatting with ALE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>fl :ALEFix<CR>
+" nnoremap <Leader>fl :ALEFix<CR>
 let g:ale_fixers = {
       \   'javascript': [
       \       'prettier'

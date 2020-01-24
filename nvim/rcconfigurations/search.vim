@@ -12,7 +12,7 @@ let g:ctrlsf_default_view_mode = 'compact'
 let g:ctrlsf_mapping = {
       \ 'open'    : ['<CR>', 'o'],
       \ 'openb'   : 'O',
-      \ 'split'   : '<C-O>',
+      \ 'split'   : '<C-X>',
       \ 'vsplit'  : '<C-V>',
       \ 'tab'     : '<C-T>',
       \ 'tabb'    : 'T',
