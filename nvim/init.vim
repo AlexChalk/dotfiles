@@ -30,15 +30,12 @@ Plug 'tommcdo/vim-exchange'
 Plug 'vim-scripts/ReplaceWithRegister'
 
 Plug 'SirVer/ultisnips'
-Plug 'easymotion/vim-easymotion'
 
 Plug 'chrisbra/matchit' " Including in nvim runtime/plugin
 Plug 'machakann/vim-highlightedyank'
 
 Plug 'w0rp/ale'
 Plug 'janko-m/vim-test'
-
-Plug 'rizzatti/dash.vim'
 
 Plug 'prabirshrestha/async.vim'
 
@@ -67,8 +64,7 @@ Plug 'tpope/vim-heroku'
 
 " Themes
 Plug 'chriskempson/base16-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 
 " Shell interop
 Plug 'christoomey/vim-tmux-navigator'
@@ -93,7 +89,6 @@ Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'clojurescript'] }
 Plug 'tpope/vim-classpath', { 'for': ['clojure', 'clojurescript'] }
 " Plug 'tpope/vim-salve', { 'for': ['clojure', 'clojurescript'] }
 " Plug 'tpope/vim-projectionist', { 'for': ['clojure', 'clojurescript'] }
-" Plug 'tpope/vim-dispatch', { 'for': ['clojure', 'clojurescript'] }
 Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'clojurescript'] }
 Plug 'guns/vim-clojure-highlight', { 'for': ['clojure', 'clojurescript'] }
 Plug 'markwoodhall/vim-sayid', { 'for': ['clojure', 'clojurescript'] }
@@ -131,7 +126,7 @@ endfunction
 " Source my customizations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! s:SourceConfigFilesIn(directory)
-  let directory_splat = '$HOME/dotfiles/nvim/' . a:directory . '/*'
+  let directory_splat = '$HOME/dotfiles/nvim/' . a:directory . '/*.vim'
   for config_file in split(glob(directory_splat), '\n')
     if filereadable(config_file)
       execute 'source' config_file
