@@ -15,7 +15,7 @@ let g:lightline = {
       \ 'colorscheme': 'jellybeans',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'parinfermode', 'filename' ] ],
+      \             [ 'parinfermode', 'filename', 'modified' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'filetype', 'cocstatus', 'readonly' ] ]
       \ },
