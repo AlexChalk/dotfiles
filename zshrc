@@ -59,6 +59,8 @@ source $HOME/.zplugin/bin/zplugin.zsh
 # Theme (don't lazy load prompt as we want it from start)
 setopt promptsubst
 zplugin light adc17/pure-red-stars
+zplugin ice wait"0" lucid blockf
+zplugin snippet OMZ::lib/theme-and-appearance.zsh
 
 # Z
 zplugin ice wait"0" lucid blockf

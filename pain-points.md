@@ -2,7 +2,6 @@
 
 - consistent way of distinguishing between OSes/machines
 - asinine abbreviations
-- omz-theme-and-appearance file/ls colors in nix (just import from omz/modify env var?)
 - writing my own vim functions (lua?)
 - turn off ctags for certain filetypes
 - piping cli output to vim commands
@@ -28,3 +27,5 @@ startup time on linux is around 115ms worst case without airline and netrw call
 
 2. ale vs coc system
 - removed ale, enhanced coc
+
+3. omz-theme-and-appearance file/ls colors in nix (just import from omz, consider modify env var if still annoying)
