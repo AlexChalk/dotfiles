@@ -34,7 +34,6 @@ Plug 'SirVer/ultisnips'
 Plug 'chrisbra/matchit' " Including in nvim runtime/plugin
 Plug 'machakann/vim-highlightedyank'
 
-Plug 'w0rp/ale'
 Plug 'janko-m/vim-test'
 
 Plug 'prabirshrestha/async.vim'

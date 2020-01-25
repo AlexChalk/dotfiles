@@ -38,8 +38,6 @@ let g:ctrlsf_auto_close = {
 nnoremap <leader>so :CtrlSFOpen<cr>
 nnoremap <leader>su :CtrlSFUpdate<cr>
 
-nmap <leader>dK <Plug>DashSearch
-
 " Project-wide search and replace
 " :args `rg -l search_expression .`
 " :argdo %s/old/new/g | w
