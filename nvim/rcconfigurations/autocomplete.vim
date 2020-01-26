@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocomplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsSnippetsDir="$HOME/.vim/UltiSnips"
+let g:UltiSnipsSnippetsDir="$HOME/.config/nvim/UltiSnips"
 let g:UltiSnipsExpandTrigger = '<C-]>'
 
 " Manual popup

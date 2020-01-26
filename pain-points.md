@@ -5,7 +5,6 @@
 - writing my own vim functions (lua?)
 - turn off ctags for certain filetypes
 - piping cli output to vim commands
-- fix ultisnips on linux
 - slow ruby scripts -> lua rewrites?
 
 ## Considering too much work until further notice:
