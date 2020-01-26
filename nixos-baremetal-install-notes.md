@@ -23,3 +23,4 @@ apps can be performed without sudo.
 
 Adding a printer:
 http://localhost:631/admin/
+Works fine with canon mg2900 provided it isn't idling.
