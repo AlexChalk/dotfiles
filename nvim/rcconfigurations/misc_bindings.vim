@@ -5,6 +5,9 @@
 nnoremap <CR> o<ESC>
 nnoremap <Leader><CR> O<ESC>
 
+" Echo full filename
+nnoremap <Leader>ef :echo @%<CR>
+
 " Easier command-mode binding
 " nmap <leader>; :
 
@@ -34,6 +37,12 @@ augroup END
 augroup fugitiveblame
   autocmd!
   autocmd Filetype fugitiveblame nmap <buffer> q gq
+augroup END
+
+" Escape hatch from fugitive files
+augroup fugitive
+  autocmd!
+  autocmd Filetype fugitive nmap <buffer> q gq
 augroup END
 
 " Escape hatch from ctrlsf as builtin squashes rightmost window sometimes

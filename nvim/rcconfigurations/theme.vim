@@ -8,6 +8,8 @@ endif
 syntax enable
 colorscheme base16-gruvbox-dark-medium
 
+set laststatus=2
+set ttimeoutlen=10
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

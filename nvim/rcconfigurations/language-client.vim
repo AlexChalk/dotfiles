@@ -8,8 +8,10 @@
 set updatetime=1000
 
 " Use `[r` and `]r` to navigate diagnostics
-nmap <silent> [r <Plug>(coc-diagnostic-prev)
-nmap <silent> ]r <Plug>(coc-diagnostic-next)
+" nmap <silent> [r <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]r <Plug>(coc-diagnostic-next)
+nmap <silent> <leader><C-k> <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader><C-j> <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gD <Plug>(coc-definition)
 nmap <silent> <leader>K :call CocAction('doHover')<CR>
 nmap <silent> <leader>fR <Plug>(coc-references)
