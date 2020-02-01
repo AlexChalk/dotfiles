@@ -1,7 +1,7 @@
 # Default config for sway
 
 # Remappings
-input * xkb_options "ctrl:nocaps,altwin:swap_lalt_lwin"
+input * xkb_options "ctrl:nocaps,altwin:swap_lalt_lwin,compose:ralt"
 
 ### Variables
 
