@@ -100,6 +100,7 @@ endif
 
 " Wiki
 Plug 'vimwiki/vimwiki'
+Plug 'dhruvasagar/vim-table-mode'
 
 call plug#end()
 
