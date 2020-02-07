@@ -3,8 +3,8 @@ if [ -z "$HISTFILE" ]; then
   HISTFILE=$HOME/.zsh_history
 fi
 
-HISTSIZE=30000
-SAVEHIST=30000
+HISTSIZE=50
+SAVEHIST=50
 
 # Show history
 case $HIST_STAMPS in

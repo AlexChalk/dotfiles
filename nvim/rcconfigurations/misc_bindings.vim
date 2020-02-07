@@ -8,6 +8,9 @@ nnoremap <Leader><CR> O<ESC>
 " Echo full filename
 nnoremap <Leader>ef :echo @%<CR>
 
+" Re-read all buffers in case underlying files have been modified (e.g. by git hook/linter)
+nnoremap <Leader>ra :checktime<CR>
+
 " Easier command-mode binding
 " nmap <leader>; :
 

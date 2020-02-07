@@ -5,7 +5,8 @@ set nocompatible
 
 " Redefine conflicting vim wiki binding
 let g:vimwiki_map_prefix = '<Leader><Leader>w'
-let g:vimwiki_conceal_onechar_markers = 0
+" let g:vimwiki_conceal_onechar_markers = 0
+let g:vimwiki_conceallevel = 2
 " let g:vimwiki_url_maxsave = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -60,6 +61,7 @@ Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-heroku'
+Plug 'tpope/vim-abolish'
 
 " Themes
 Plug 'chriskempson/base16-vim'
