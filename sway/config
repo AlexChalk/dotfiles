@@ -30,6 +30,11 @@ set $menu swaymsg exec BEMENU_BACKEND=wayland $(j4-dmenu-desktop --dmenu="bemenu
 # Default wallpaper
 output * bg ~/lion-images/lion-arrière-plan.jpg fill
 
+# Sane firefox webRTC indicator
+for_window [app_id="firefox" title="Firefox - Sharing Indicator"] {
+  kill
+}
+
 # Use kanshi to configure monitors/resolution
 
 ### Idle configuration
