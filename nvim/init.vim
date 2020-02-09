@@ -103,6 +103,8 @@ endif
 " Wiki
 Plug 'vimwiki/vimwiki'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'godlygeek/tabular'
+Plug 'ledger/vim-ledger'
 
 call plug#end()
 
