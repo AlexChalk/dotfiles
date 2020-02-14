@@ -105,6 +105,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 Plug 'ledger/vim-ledger'
+Plug 'gyim/vim-boxdraw'
 
 call plug#end()
 
