@@ -280,3 +280,4 @@ exec_always pkill kanshi; exec kanshi
 
 # Status Bar:
 exec_always $HOME/.config/waybar/waybar.sh
+exec systemctl --user import-environment
