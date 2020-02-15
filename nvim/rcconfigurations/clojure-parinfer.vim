@@ -27,5 +27,5 @@ nnoremap <leader>lo :POff<cr>
 augroup clojure
   autocmd!
   autocmd FileType clojure POff
-  autocmd InsertEnter *.clj,*.cljs,*.cljc,*.edn POn
+  autocmd InsertEnter *.clj,*.cljs,*.cljc,*.edn,*.joke POn
 augroup END

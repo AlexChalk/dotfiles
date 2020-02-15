@@ -39,6 +39,12 @@ augroup pixie
   autocmd BufNewFile,BufRead *.pxi set filetype=clojure
 augroup END
 
+" Treat joker like clojure
+augroup joker
+  autocmd!
+  autocmd BufNewFile,BufRead *.joke set filetype=clojure
+augroup END
+
 " Source
 " open: ]<C-D>
 " split <C-W>d 
