@@ -45,6 +45,7 @@
         "format": "{icon}",
         "format-alt": "{ipaddr}/{cidr} {icon}",
         "format-alt-click": "click-right",
+        "interval": 30,
         "format-icons": {
             "wifi": "",
             "ethernet": "",
