@@ -18,6 +18,7 @@ brew cask install \
   kitty \
   adoptopenjdk8 \
   ngrok \
+  postgres \
   typora
 
 brew install \
@@ -34,7 +35,6 @@ brew install \
   jq \
   leiningen \
   neovim \
-  postgresql \
   python \
   python@2 \
   pipenv \
