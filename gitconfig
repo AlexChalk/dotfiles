@@ -20,6 +20,7 @@
   aa = add .
   aac = !git aa && git c
   aaca = !git aa && git ca
+  ai = add . --patch
   b = branch
   browse = !hub browse
   c = commit
@@ -55,6 +56,7 @@
   s = stash -u
   sdF = stash drop
   sc = commit --amend --no-edit
+  sha = rev-parse --short HEAD
   sl = stash list
   sla = log --oneline --decorate --graph --all -10
   sm = "!f() { git stash push -u --message $1; }; f"
