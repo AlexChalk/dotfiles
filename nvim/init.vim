@@ -77,6 +77,9 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
 Plug 'moll/vim-node'
 
+" Debugger
+Plug 'puremourning/vimspector', { 'do' : './install_gadget.py --force-enable-node' }
+
 " Misc Langs
 Plug 'elmcast/elm-vim', { 'for': ['elm'] }
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }

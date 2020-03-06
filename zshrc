@@ -31,6 +31,8 @@ if [[ "$OSTYPE" != darwin* ]]; then
   export MY_MACHINE="nixos"
 fi
 
+export EDITOR="nvim"
+bindkey -e
 # export LANG="en_CA.UTF-8"
 # export LC_ALL="en_CA.UTF-8"
 
