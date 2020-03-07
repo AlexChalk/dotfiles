@@ -59,8 +59,13 @@ stty -ixon
 source $HOME/.zplugin/bin/zplugin.zsh
 
 # Theme (don't lazy load prompt as we want it from start)
-setopt promptsubst
-zplugin light adc17/pure-red-stars
+# setopt promptsubst
+# zplugin light adc17/pure-red-stars
+zplugin ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'; 
+zplugin light sindresorhus/pure
+PROMPT='%(?.%F{blue}.%F{red})❯% %(?.%F{yellow}.%F{red})❯%(?.%F{green}.%F{red})❯%f '
+PURE_CMD_MAX_EXEC_TIME=3600
+
 zplugin ice wait"0" lucid blockf
 zplugin snippet OMZ::lib/theme-and-appearance.zsh
 
