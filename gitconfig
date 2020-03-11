@@ -5,7 +5,7 @@
   pager = less -F -X
   editor = nvim
 [user]
-  name = Alexander Chalk
+  name = Alex Chalk
   email = contact@alexchalk.net
 [color]
   ui = auto

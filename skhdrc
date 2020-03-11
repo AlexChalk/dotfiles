@@ -35,6 +35,7 @@ ctrl + shift - 1 : chunkc tiling::window --send-to-desktop 1
 ctrl + shift - 2 : chunkc tiling::window --send-to-desktop 2
 ctrl + shift - 3 : chunkc tiling::window --send-to-desktop 3
 ctrl + shift - 4 : chunkc tiling::window --send-to-desktop 4
+ctrl + shift - 5 : chunkc tiling::window --send-to-desktop 5
 
 # move window
 ctrl - left  : chunkc tiling::window --swap west

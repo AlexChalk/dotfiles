@@ -74,7 +74,7 @@ Plug 'mattboehm/vim-unstack'
 
 " Javascript
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'jsx'] }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx', 'typescriptreact'] }
 Plug 'moll/vim-node'
 
 " Debugger
