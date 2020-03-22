@@ -63,7 +63,7 @@ source $HOME/.zplugin/bin/zplugin.zsh
 # zplugin light adc17/pure-red-stars
 zplugin ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'; 
 zplugin light sindresorhus/pure
-PROMPT='%(?.%F{blue}.%F{yellow})❯% %(?.%F{yellow}.%F{red})❯%(?.%F{green}.%F{magenta})❯%f '
+PROMPT='%(?.%F{blue}.%F{yellow})❯% %(?.%F{yellow}.%F{magenta})❯%(?.%F{green}.%F{red})❯%f '
 PURE_CMD_MAX_EXEC_TIME=3600
 
 zplugin ice wait"0" lucid blockf
