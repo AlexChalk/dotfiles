@@ -110,7 +110,13 @@ Plug 'godlygeek/tabular'
 Plug 'ledger/vim-ledger'
 Plug 'gyim/vim-boxdraw'
 
+Plug 'kongo2002/fsharp-vim'
+Plug 'fsharp/FsAutoComplete', { 'do': 'dotnet tool restore && dotnet fake build --target LocalRelease' }
+
 call plug#end()
+
+" let g:fsharp#automatic_workspace_init = 0
+" https://github.com/fsharp/FsAutoComplete/releases/latest/download/fsautocomplete.netcore.zip
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader

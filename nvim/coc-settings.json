@@ -34,6 +34,20 @@
       "trace.server": "verbose",
       "initializationOptions": {}
     },
+    "fsharp": {
+      "command": "dotnet",
+      "args": [
+        "/home/adc/.local/share/nvim/plugged/FsAutoComplete/src/FsAutoComplete/bin/Release/netcoreapp2.1/dotnet-fsautocomplete.dll",
+        "--background-service-enabled"
+      ],
+      "filetypes": [
+        "fsharp"
+      ],
+      "ignoredRootPaths": [
+        "/",
+        "~"
+      ]
+    },
     "haskell": {
       "command": "hie-wrapper",
       "rootPatterns": [
