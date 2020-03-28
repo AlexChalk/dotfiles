@@ -14,6 +14,8 @@ elif [[ -e .git/rebase-merge ]] ; then
     exec git rebase --abort "$@"
 elif [[ -e .git/MERGE_MODE ]] ; then
     exec git merge --abort "$@"
+elif [[ -e .git/BISECT_START ]] ; then
+    exec git bisect reset
 else
     echo git-abort: unknown state
     exit -1
