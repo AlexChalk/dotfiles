@@ -7,6 +7,9 @@
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=1000
 
+" Coc confirm completion (gets you autoimport in js/ts)
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+
 " Use `[r` and `]r` to navigate diagnostics
 " nmap <silent> [r <Plug>(coc-diagnostic-prev)
 " nmap <silent> ]r <Plug>(coc-diagnostic-next)
