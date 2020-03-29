@@ -37,16 +37,21 @@
     "fsharp": {
       "command": "dotnet",
       "args": [
-        "/home/adc/.local/share/nvim/plugged/FsAutoComplete/src/FsAutoComplete/bin/Release/netcoreapp2.1/dotnet-fsautocomplete.dll",
+        "/home/adc/release-fsautocomplete/fsautocomplete.dll",
         "--background-service-enabled"
       ],
       "filetypes": [
         "fsharp"
       ],
+      "initializationOptions": {
+        "AutomaticWorkspaceInit": true
+      },
       "ignoredRootPaths": [
         "/",
         "~"
-      ]
+      ],
+      "settings": {
+      }
     },
     "haskell": {
       "command": "hie-wrapper",

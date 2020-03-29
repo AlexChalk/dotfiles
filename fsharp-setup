@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+cd $HOME
+mkdir release-fsautocomplete
+cd release-fsautocomplete
+
+curl --location https://github.com/fsharp/FsAutoComplete/releases/latest/download/fsautocomplete.netcore.zip --output $HOME/release-fsautocomplete/zip
+
+unzip zip
+rm zip

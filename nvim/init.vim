@@ -77,6 +77,10 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx', 'typescriptreact'] }
 Plug 'moll/vim-node'
 
+" FSharp
+" Plug 'kongo2002/fsharp-vim'
+Plug 'adc17/fsharp-vim'
+
 " Debugger
 Plug 'puremourning/vimspector', { 'do' : './install_gadget.py --force-enable-node' }
 
@@ -109,9 +113,6 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 Plug 'ledger/vim-ledger'
 Plug 'gyim/vim-boxdraw'
-
-Plug 'kongo2002/fsharp-vim'
-Plug 'fsharp/FsAutoComplete', { 'do': 'dotnet tool restore && dotnet fake build --target LocalRelease' }
 
 call plug#end()
 

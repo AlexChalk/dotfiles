@@ -1,6 +1,9 @@
 # Lsp dir
 .lsp
 
+# fsharp lsp
+.ionide
+
 # cpcache
 .cpcache
 
