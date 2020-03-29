@@ -35,9 +35,10 @@
       "initializationOptions": {}
     },
     "fsharp": {
+      "shell": true,
       "command": "dotnet",
       "args": [
-        "/home/adc/release-fsautocomplete/fsautocomplete.dll",
+        "$HOME/release-fsautocomplete/fsautocomplete.dll",
         "--background-service-enabled"
       ],
       "filetypes": [
