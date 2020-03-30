@@ -77,10 +77,10 @@ nnoremap <leader>gb :Gbrowse<cr>
 xnoremap <leader>gb :Gbrowse<cr>
 
 " Review a PR
-nnoremap <leader>grpm :Git! request-pull -p master ./<cr>
-nnoremap <leader>grp<space> :Git! request-pull -p  ./<left><left><left>
-nnoremap <leader>gdfh :Git! diff HEAD<cr>
-nnoremap <leader>gdf<space> :Git! diff<space>
+nnoremap <leader>grpm :Git --paginate request-pull -p master ./<cr>
+nnoremap <leader>grp<space> :Git --paginate request-pull -p  ./<left><left><left>
+nnoremap <leader>gdfh :Git --paginate diff HEAD<cr>
+nnoremap <leader>gdf<space> :Git --paginate diff<space>
 " Nothing, --cached, or HEAD
 
 " Fix line length on commit messages: gqip
