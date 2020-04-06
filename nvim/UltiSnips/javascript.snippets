@@ -42,14 +42,44 @@ snippet req
 require("${0:module}");
 endsnippet
 
-snippet des "Describe (js)" b
+snippet des "Describe" b
 describe("${1:description}", () => {
 	$0
 });
 endsnippet
 
-snippet it "it (js)" b
+snippet it "it" b
 it("${1:description}", () => {
+	$0
+});
+endsnippet
+
+snippet ita "it async" b
+it("${1:description}", async () => {
+	$0
+});
+endsnippet
+
+snippet bef "before each" b
+beforeEach(() => {
+	$0
+});
+endsnippet
+
+snippet af "after each" b
+afterEach(() => {
+	$0
+});
+endsnippet
+
+snippet befa "before each async" b
+beforeEach(async () => {
+	$0
+});
+endsnippet
+
+snippet afa "after each async" b
+afterEach(async () => {
 	$0
 });
 endsnippet
