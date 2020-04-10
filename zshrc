@@ -26,6 +26,10 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export MY_MACHINE="macos"
 fi
 
+if [[ "$OSTYPE" != darwin* && -d "$HOME/.config/yarn/global/node_modules/.bin" ]]; then
+  export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+fi
+
 if [[ "$OSTYPE" != darwin* ]]; then
   export XDG_CURRENT_DESKTOP="Unity"
   export MY_MACHINE="nixos"
