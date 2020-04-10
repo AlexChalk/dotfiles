@@ -1,4 +1,3 @@
-" Send blocks to ghci
 augroup golang
   autocmd!
   autocmd FileType go nmap <buffer> <leader>sir ($v%J%ds(0i:<esc>V<leader>sr3u
