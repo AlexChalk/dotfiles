@@ -82,7 +82,7 @@ Plug 'moll/vim-node'
 Plug 'adc17/fsharp-vim'
 
 " Debugger
-Plug 'puremourning/vimspector', { 'do' : './install_gadget.py --force-enable-node' }
+Plug 'puremourning/vimspector', { 'do' : 'n 10.15.3 && ./install_gadget.py --force-enable-node' }
 
 " Misc Langs
 Plug 'elmcast/elm-vim', { 'for': ['elm'] }
