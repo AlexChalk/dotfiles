@@ -15,12 +15,12 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 " nmap <silent> ]r <Plug>(coc-diagnostic-next)
 nmap <silent> <leader><C-k> <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader><C-j> <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>gD <Plug>(coc-definition)
+nmap <silent> <leader>gdd <Plug>(coc-definition)
 nmap <silent> <leader>K :call CocAction('doHover')<CR>
-nmap <silent> <leader>fR <Plug>(coc-references)
+nmap <silent> <leader>fr <Plug>(coc-references)
 nmap <silent> <leader>lr <Plug>(coc-rename)
-nmap <silent> <leader>gI <Plug>(coc-implementation)
-nmap <silent> <leader>giD <Plug>(coc-type-definition)
+nmap <silent> <leader>fi <Plug>(coc-implementation)
+nmap <silent> <leader>gid <Plug>(coc-type-definition)
 
 " <C-K>/<C-J> to navigate in interactive mode
 " Search workspace symbols

@@ -15,10 +15,10 @@ nnoremap <leader>gaa :silent exec '!git aa'<cr>
 nnoremap <leader>gat :silent exec '!git add --intent-to-add .'<cr>
 nnoremap <leader>gua :silent exec '!git unstage .'<cr>
 nnoremap <leader>go<space> :Gedit<space>
-nnoremap <leader>gd<space> :Gvdiff<space>
-nnoremap <leader>gds :Gdiffsplit!<cr>
-nnoremap <leader>gdc :Gvdiff<cr>
-nnoremap <leader>gdm :Gvdiff master:%<cr>
+nnoremap <leader>gdf<space> :Gvdiff<space>
+nnoremap <leader>gdfs :Gdiffsplit!<cr>
+nnoremap <leader>gdfc :Gvdiff<cr>
+nnoremap <leader>gdfm :Gvdiff master:%<cr>
 nnoremap <leader>gs<space> :Gvsplit<space>
 
 " Logging/searching 
@@ -80,7 +80,7 @@ xnoremap <leader>gb :Gbrowse<cr>
 nnoremap <leader>grpm :Git --paginate request-pull -p master ./<cr>
 nnoremap <leader>grp<space> :Git --paginate request-pull -p  ./<left><left><left>
 nnoremap <leader>gdfh :Git --paginate diff HEAD<cr>
-nnoremap <leader>gdf<space> :Git --paginate diff<space>
+nnoremap <leader>gdfu<space> :Git --paginate diff<space>
 " Nothing, --cached, or HEAD
 
 " Fix line length on commit messages: gqip
