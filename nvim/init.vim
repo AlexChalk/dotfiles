@@ -126,6 +126,9 @@ call plug#end()
 let mapleader = ","
 nnoremap <space> ,
 
+" abolish calls it 'mixed', i prefer 'pascal'
+nmap crp crm
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Start-of-line only cabbrevs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
