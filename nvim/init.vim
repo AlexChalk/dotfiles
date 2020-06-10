@@ -5,9 +5,8 @@ set nocompatible
 
 " Redefine conflicting vim wiki binding
 let g:vimwiki_map_prefix = '<Leader><Leader>w'
-" let g:vimwiki_conceal_onechar_markers = 0
-let g:vimwiki_conceallevel = 2
-" let g:vimwiki_url_maxsave = 0
+" let g:vimwiki_conceallevel = 1
+" let g:rst_fold_enabled=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Plug
@@ -109,10 +108,9 @@ endif
 
 " Wiki
 Plug 'vimwiki/vimwiki'
-Plug 'dhruvasagar/vim-table-mode'
+Plug 'gu-fan/riv.vim' 
 Plug 'godlygeek/tabular'
 Plug 'ledger/vim-ledger'
-Plug 'gyim/vim-boxdraw'
 
 call plug#end()
 
