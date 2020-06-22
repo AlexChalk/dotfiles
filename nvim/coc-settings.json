@@ -6,6 +6,10 @@
   "suggest.autoTrigger": "trigger",
   "list.previewHighlightGroup": "Visual",
   "coc.preferences.messageLevel": "warning",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "diagnostic.displayByAle": false,
   "diagnostic.enable": true,
   "eslint.filetypes": [
