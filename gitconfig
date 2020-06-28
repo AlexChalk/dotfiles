@@ -26,7 +26,7 @@
   c = commit
   ca = commit --amend
   ci = !hub ci-status
-  clsfbF = !git branch --list --format '%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' | sed '/^$/d' | xargs git branch -D
+  cleanF = !git branch --list --format '%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' | sed '/^$/d' | xargs git branch -D
   co = checkout
   coF = !git co . && git clean -fd
   compare = !hub compare
