@@ -19,6 +19,20 @@ let g:pandoc#spell#enabled = 0
 "g:pandoc#hypertext#open_cmd
 "g:pandoc#toc#position
 
+let g:vimwiki_key_mappings =
+  \ {
+  \   'all_maps': 1,
+  \   'global': 1,
+  \   'headers': 1,
+  \   'text_objs': 1,
+  \   'table_format': 1,
+  \   'table_mappings': 1,
+  \   'lists': 1,
+  \   'links': 0,
+  \   'html': 1,
+  \   'mouse': 0,
+  \ }
+
 augroup wiki
   autocmd!
   autocmd Filetype vimwiki nmap <buffer> <CR> o<ESC>
