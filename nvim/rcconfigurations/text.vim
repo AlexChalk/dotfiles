@@ -33,6 +33,8 @@ let g:vimwiki_key_mappings =
   \   'mouse': 0,
   \ }
 
+let g:vimwiki_ext2syntax = {'.wiki': 'default'}
+
 augroup wiki
   autocmd!
   autocmd Filetype vimwiki nmap <buffer> <CR> o<ESC>
