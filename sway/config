@@ -277,6 +277,7 @@ exec_always {
 }
 
 exec_always pkill kanshi; exec kanshi
+exec --no-startup-id pulseaudio --start
 
 # Status Bar:
 exec_always $HOME/.config/waybar/waybar.sh
