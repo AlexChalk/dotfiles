@@ -5,7 +5,7 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "custom/storage", "backlight", "pulseaudio", "network", "idle_inhibitor", "battery", "clock"],
+    "modules-right": ["custom/storage", "backlight", "pulseaudio", "network", "idle_inhibitor", "battery", "clock"],
     "sway/mode": {
         "format": " {}"
     },
@@ -54,9 +54,9 @@
         "tooltip": false
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
-        "format-muted": " MUTE",
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "MUTE ",
         "format-icons": {
             "headphones": "",
             "default": ["", ""]
@@ -66,10 +66,10 @@
         "on-click-right": "pavucontrol"
     },
     "backlight": {
-        "format": "{icon}",
-        "format-alt": "{percent}% {icon}",
+        "format": "{percent}% {icon}",
+        "format-alt": "{icon}",
         "format-alt-click": "click-right",
-        "format-icons": ["", ""],
+        "format-icons": [""],
         "on-scroll-down": "light -U 1",
         "on-scroll-up": "light -A 1"
     },
@@ -80,8 +80,5 @@
             "deactivated": ""
         },
         "tooltip": false
-    },
-    "tray": {
-        "icon-size": 18
     }
 }
