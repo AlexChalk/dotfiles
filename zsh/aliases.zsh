@@ -22,3 +22,4 @@ alias wl-paste-tr='wl-paste | tr -d "\r"'
 alias yuse='yarn policies set-version $(jq .engines.yarn package.json | tr -d '"'"'"'"'"')'
 alias lock='swaylock -f -c 000000'
 alias vimpair="vim -c 'set nornu'"
+alias gh='GITHUB_TOKEN= gh'
