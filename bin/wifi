@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [[ "$@" == "state" ]] ; then
+  exec nmcli networking connectivity
+elif [[ "$@" == "tui" ]] ; then
+  exec nmtui
+elif [[ "$@" == "watch" ]] ; then
+  exec watch nmcli device wifi list
+else
+  exec nmcli device wifi "$@"
+fi
