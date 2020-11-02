@@ -49,10 +49,10 @@ exec swayidle -w \
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 bindsym $mod+slash exec 'swaylock -f -c 000000'
-bindsym $mod+Shift+0 exec slurp | grim -g - $HOME/Screenshots/Screenshot-region-$(date +'%Y-%m-%d-%H%M%S.png')
-bindsym $mod+Shift+9 exec grim $HOME/Screenshots/Screenshot-region-$(date +'%Y-%m-%d-%H%M%S.png')
-bindsym $mod+Shift+8 exec slurp | grim -g - - | wl-copy
-bindsym $mod+Shift+7 exec grim - | wl-copy
+bindsym $mod+Shift+8 exec slurp | grim -g - $HOME/Screenshots/Screenshot-region-$(date +'%Y-%m-%d-%H%M%S.png')
+bindsym $mod+Shift+7 exec grim $HOME/Screenshots/Screenshot-region-$(date +'%Y-%m-%d-%H%M%S.png')
+bindsym $mod+Shift+0 exec slurp | grim -g - - | wl-copy
+bindsym $mod+Shift+9 exec grim - | wl-copy
 
 ### Input configuration
 

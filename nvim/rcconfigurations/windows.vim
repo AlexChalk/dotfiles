@@ -1,7 +1,7 @@
 " Pre-populate a split/edit command with the current directory
-nmap <leader>nvs :vsp <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <leader>nvsp :vsp <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 nmap <leader>nsp :sp <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
-nmap <leader>nns :e <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <leader>nnsp :e <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 " CTRL-W CTRL-F	Split current window in two.  Edit file name under cursor.
 
 " maximize a vim window
