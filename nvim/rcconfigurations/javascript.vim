@@ -3,7 +3,7 @@ let g:jsx_ext_required = 0
 
 let g:javascript_plugin_jsdoc = 1
 
-nnoremap <leader>cls ^iconsole.log('>>>', JSON.stringify(<esc>A, null, 4));<esc>
+nnoremap <leader>cls yiw^iconsole.log('>>><c-r>0', JSON.stringify(<esc>A, null, 4));<esc>
 
 function JsFix()
   call CocAction('format')
