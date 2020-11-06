@@ -84,7 +84,7 @@ else
 endif
 
 " Misc Langs
-Plug 'elmcast/elm-vim', { 'for': ['elm'] }
+Plug 'Zaptic/elm-vim', { 'for': ['elm'] }
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'tsx'] }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }

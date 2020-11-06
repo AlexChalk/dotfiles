@@ -17,6 +17,14 @@
   "diagnostic.enable": true,
   "eslint.filetypes": ["javascript", "javascriptreact", "typescript"],
   "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmAnalyseTrigger": "change"
+      }
+    },
     "clojure-lsp": {
       "command": "bash",
       "args": ["-c", "clojure-lsp"],
