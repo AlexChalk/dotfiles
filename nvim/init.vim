@@ -35,6 +35,10 @@ Plug 'prabirshrestha/async.vim'
 
 Plug 'EinfachToll/DidYouMean'
 
+Plug 'ap/vim-css-color' 
+
+Plug 'thiagoalessio/rainbow_levels.vim'
+
 " lsp
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
