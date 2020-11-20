@@ -27,7 +27,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 if [[ "$OSTYPE" != darwin* && -d "$HOME/.config/yarn/global/node_modules/.bin" ]]; then
-  export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+  export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
 fi
 
 if [[ "$OSTYPE" != darwin* ]]; then
