@@ -64,7 +64,7 @@ source $HOME/.zplugin/bin/zplugin.zsh
 
 # Theme (don't lazy load prompt as we want it from start)
 # setopt promptsubst
-# zplugin light adc17/pure-red-stars
+# zplugin light AlexChalk/pure-red-stars
 zplugin ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'; 
 zplugin light sindresorhus/pure
 PROMPT='%(?.%F{blue}.%F{yellow})❯% %(?.%F{yellow}.%F{magenta})❯%(?.%F{green}.%F{red})❯%f '

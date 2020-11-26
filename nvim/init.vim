@@ -78,7 +78,7 @@ Plug 'moll/vim-node'
 
 " FSharp
 " Plug 'kongo2002/fsharp-vim'
-Plug 'adc17/fsharp-vim'
+Plug 'AlexChalk/fsharp-vim'
 
 " Debugger
 if has('mac')
