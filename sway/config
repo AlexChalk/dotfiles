@@ -2,6 +2,7 @@
 
 # Remappings
 input * xkb_options "ctrl:nocaps,altwin:swap_lalt_lwin,compose:ralt"
+input keyboard xkb_file "$HOME/dotfiles/server-0.xkb"
 
 ### Variables
 
@@ -32,7 +33,7 @@ set $emoji_launcher $term --class launcher -e emoji_launcher
 output * bg ~/lion-images/lion-arrière-plan.jpg fill
 
 # Sane firefox webRTC indicator
-for_window [app_id="firefox" title="Firefox - Sharing Indicator"] {
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] {
   kill
 }
 
@@ -266,6 +267,7 @@ bindsym {
 }
 
 font monospace 12
+
 # -R is recommended for swaynag_command so that, upon a syntax error in your sway config, the
 # 'Reload Sway' option will be initially selected instead of the 'Exit Sway' option
 swaynag_command $nag -R
@@ -278,6 +280,10 @@ exec_always {
     # gsettings set $gnome-schema icon-theme 'Your icon theme'
     gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
 }
+
+
+# output eDP-1 scale 1.2
+# output eDP-1 pos 0 0 res 1920x1080
 
 exec_always pkill kanshi; exec kanshi
 exec --no-startup-id pulseaudio --start
