@@ -1,0 +1,7 @@
+directory: ~/beets-data/music
+library: ~/beets-data/musiclibrary.db
+plugins: embedart scrub
+embedart:
+  auto: no
+scrub:
+  auto: no

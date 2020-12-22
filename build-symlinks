@@ -17,6 +17,8 @@ mkdir .clojure
 ln -s $HOME/dotfiles/clojure/deps.edn .clojure/deps.edn
 mkdir .config
 ln -s $HOME/dotfiles/kitty .config
+mkdir .config/beets
+ln -s $HOME/dotfiles/beets-config.yaml .config/beets/config.yaml
 mkdir .config/nvim
 ln -s $HOME/dotfiles/nvim/init.vim .config/nvim/init.vim
 mkdir .config/nvim/UltiSnips
