@@ -24,53 +24,16 @@ sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-v
 echo "Setting up homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew tap homebrew/cask-versions
-
-brew cask install \
-  basictex \
-  brave-browser \
-  keepingyouawake \
-  kitty \
-  adoptopenjdk8 \
-  ngrok \
-  postgres \
-  typora
-
 brew install \
-  awk \
-  boot-clj \
-  clojure \
-  curl \
-  fd \
-  fzf \
-  git \
   gnu-sed --with-default-names \
-  heroku/brew/heroku \
-  hub \
-  jq \
-  leiningen \
-  neovim \
-  python \
-  python@2 \
-  pipenv \
-  ruby \
-  ripgrep \
-  rlwrap \
-  stack \
-  the_silver_searcher \
-  tmux \
-  tree \
-  watchman \
-  zsh \
+  1password \
+  adguard \
+  keepingyouawake \
+  homebrew/cask/postgres \
+  typora \
+  zoom
 
-brew tap universal-ctags/universal-ctags
-brew install --HEAD universal-ctags/universal-ctags/universal-ctags
-
-brew services start postgres
-psql -d postgres -c "create database adc".
-
-echo "Performing homebrew post-installations"
-$(brew --prefix)/opt/fzf/install
+sudo mkdir -p /etc/paths.d && echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
 
 echo "Node"
 curl -L https://git.io/n-install | bash
@@ -78,8 +41,8 @@ curl -L https://git.io/n-install | bash
 echo "Rust"
 curl https://sh.rustup.rs -sSf | sh
 
-echo "zplugin Setup"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+echo "zinit Setup"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
 echo "Vim Plug Setup"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
