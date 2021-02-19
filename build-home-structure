@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+cd $HOME
+mkdir bin-personal
+
+if [[ "$OSTYPE" != darwin* ]]; then
+  mkdir Screenshots
+fi
+
+ln -s $HOME/dotfiles/zshrc .zshrc
+ln -s $HOME/dotfiles/tmux.conf .tmux.conf
+ln -s $HOME/dotfiles/ignore .ignore
+ln -s $HOME/dotfiles/ignore .fdignore
+ln -s $HOME/dotfiles/gitconfig .gitconfig
+ln -s $HOME/dotfiles/rubocop.yml .rubocop.yml
+ln -s $HOME/dotfiles/psqlrc .psqlrc
+
+mkdir .lein
+ln -s $HOME/dotfiles/lein/profiles.clj .lein/profiles.clj
+
+mkdir .boot
+ln -s $HOME/dotfiles/boot.properties .boot/boot.properties
+
+mkdir .clojure
+ln -s $HOME/dotfiles/clojure/deps.edn .clojure/deps.edn
+
+mkdir .config
+ln -s $HOME/dotfiles/kitty .config/
+ln -s $HOME/dotfiles/beets .config/
+ln -s $HOME/dotfiles/alacritty .config/
+ln -s $HOME/dotfiles/nvim .config/
+
+mkdir .ghc
+ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
+
+mkdir .ctags.d
+ln -s $HOME/dotfiles/ctags .ctags.d/defaults.ctags
+
+mkdir .vim
+mkdir .vim/tmp
+mkdir .vim/undo
+mkdir .vim-plug-snapshots
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  mkdir Library/KeyBindings
+  ln -s $HOME/dotfiles/DefaultKeyBinding.dict Library/KeyBindings/DefaultKeyBinding.dict
+
+  ln -s $HOME/dotfiles/chunkwmrc .chunkwmrc
+  ln -s $HOME/dotfiles/skhdrc .skhdrc
+else # using linux
+  ln -s $HOME/dotfiles/sway .config/
+  ln -s $HOME/dotfiles/waybar .config/
+  ln -s $HOME/dotfiles/kanshi .config/
+fi
