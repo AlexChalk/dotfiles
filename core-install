@@ -6,8 +6,23 @@ touch .hushlogin
 echo "Getting command line tools"
 xcode-select --install
 
-echo "Setting up homebrew and packages"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+echo "Setting up SSH"
+ssh-keygen -t ed25519 -C "contact@alexchalk.net"
+eval "$(ssh-agent -s)"
+ssh-add $HOME/.ssh/id_ed25519
+if [[ "$OSTYPE" == darwin* ]]; then
+  echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519" >> $HOME/.ssh/config
+fi
+
+# Fonts
+echo "Getting personal fonts"
+git clone git@github.com:AlexChalk/fonts-private.git $HOME/Library/Fonts
+
+echo "Setting up nix"
+sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --no-daemon
+
+echo "Setting up homebrew"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew tap homebrew/cask-versions
 
@@ -57,12 +72,6 @@ psql -d postgres -c "create database adc".
 echo "Performing homebrew post-installations"
 $(brew --prefix)/opt/fzf/install
 
-echo "Setting up SSH"
-ssh-keygen -t rsa -b 4096 -C "contact@alexchalk.net"
-echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_rsa" >> $HOME/.ssh/config
-eval "$(ssh-agent -s)"
-ssh-add -K $HOME/.ssh/id_rsa
-
 echo "Node"
 curl -L https://git.io/n-install | bash
 
@@ -77,7 +86,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "Clone Personal Notes"
-git clone git@gitlab.com:AlexChalk/personal-wiki.git $HOME/vimwiki
+git clone git@github.com:AlexChalk/personal-wiki.git $HOME/vimwiki
 
 echo "Haskell tooling"
 git clone https://github.com/haskell/haskell-ide-engine --recurse-submodules
