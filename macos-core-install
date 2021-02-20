@@ -25,15 +25,24 @@ echo "Setting up homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew install \
-  gnu-sed --with-default-names \
   1password \
   adguard \
+  firefox \
   keepingyouawake \
+  kitty \
   homebrew/cask/postgres \
   typora \
   zoom
 
 sudo mkdir -p /etc/paths.d && echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
+
+echo "Window managers"
+brew install \ 
+  koekeishiya/formulae/yabai \
+  koekeishiya/formulae/skhd
+
+brew services start yabai
+brew services start skhd
 
 echo "Node"
 curl -L https://git.io/n-install | bash

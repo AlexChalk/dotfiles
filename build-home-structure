@@ -24,7 +24,7 @@ ln -s $HOME/dotfiles/boot.properties .boot/boot.properties
 mkdir .clojure
 ln -s $HOME/dotfiles/clojure/deps.edn .clojure/deps.edn
 
-mkdir .config
+mkdir -p .config
 ln -s $HOME/dotfiles/kitty .config/
 ln -s $HOME/dotfiles/beets .config/
 ln -s $HOME/dotfiles/alacritty .config/
