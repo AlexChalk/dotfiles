@@ -57,39 +57,39 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 # use <c-s> in all applications
 stty -ixon
 
-### Added by Zplugin's installer: https://github.com/zdharma/zplugin
-# Check back for rollback feature: https://github.com/zdharma/zplugin/issues/135#issuecomment-497585546
-# Update plugins: `zpl update --all`; update and compile zplugin: `zpl self-update`.
-source $HOME/.zplugin/bin/zplugin.zsh
+### Added by Zinit's installer: https://github.com/zdharma/zinit
+# Check back for rollback feature: https://github.com/zdharma/zinit/issues/135#issuecomment-497585546
+# Update plugins: `zinit update --all`; update and compile zinit: `zinit self-update`.
+source $HOME/.zinit/bin/zinit.zsh
 
 # Theme (don't lazy load prompt as we want it from start)
 # setopt promptsubst
-# zplugin light AlexChalk/pure-red-stars
-zplugin ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'; 
-zplugin light sindresorhus/pure
+# zinit light AlexChalk/pure-red-stars
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'; 
+zinit light sindresorhus/pure
 PROMPT='%(?.%F{blue}.%F{yellow})❯% %(?.%F{yellow}.%F{magenta})❯%(?.%F{green}.%F{red})❯%f '
 PURE_CMD_MAX_EXEC_TIME=3600
 
-zplugin ice wait"0" lucid blockf
-zplugin snippet OMZ::lib/theme-and-appearance.zsh
+zinit ice wait"0" lucid blockf
+zinit snippet OMZ::lib/theme-and-appearance.zsh
 
 # Z
-zplugin ice wait"0" lucid blockf
-zplugin light agkozak/zsh-z
+zinit ice wait"0" lucid blockf
+zinit light agkozak/zsh-z
 
 # Completion
-zplugin ice wait"0" lucid blockf
-zplugin snippet OMZ::lib/completion.zsh
-zplugin ice wait"0" lucid blockf
-zplugin light zsh-users/zsh-completions
+zinit ice wait"0" lucid blockf
+zinit snippet OMZ::lib/completion.zsh
+zinit ice wait"0" lucid blockf
+zinit light zsh-users/zsh-completions
 
 # n.b. this will be cached and require deleting if there are changes
-zplugin ice wait"0" lucid blockf
-zplugin snippet $HOME/dotfiles/zsh-completions-personal.zsh
+zinit ice wait"0" lucid blockf
+zinit snippet $HOME/dotfiles/zsh-completions-personal.zsh
 
 # Syntax highlighting
-zplugin ice wait"0" lucid atinit"zpcompinit; zpcdreplay"
-zplugin light zsh-users/zsh-syntax-highlighting
+zinit ice wait"0" lucid atinit"zpcompinit; zpcdreplay"
+zinit light zsh-users/zsh-syntax-highlighting
 
 for zsh_source in $HOME/dotfiles/zsh/*.zsh; do
   source $zsh_source
