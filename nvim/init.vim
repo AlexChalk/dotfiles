@@ -11,11 +11,6 @@ set nocompatible
 call plug#begin('$HOME/.local/share/nvim/plugged')
 
 " General
-if has('mac') " otherwise these are managed by nixos
-  Plug '/usr/local/opt/fzf'
-  Plug 'junegunn/fzf.vim'
-endif
-
 Plug 'dyng/ctrlsf.vim'
 
 Plug 'chaoren/vim-wordmotion'
