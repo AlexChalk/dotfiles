@@ -46,9 +46,6 @@ Plug 'fannheyward/coc-texlab', {'do': 'yarn install --frozen-lockfile'}
 " Toomey other
 Plug 'christoomey/vim-sort-motion'
 
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-
 " Tpope other
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
@@ -80,11 +77,7 @@ Plug 'moll/vim-node'
 Plug 'AlexChalk/fsharp-vim'
 
 " Debugger
-if has('mac')
-  Plug 'puremourning/vimspector', { 'do' : 'n 10.15.3 && ./install_gadget.py --force-enable-node' }
-else
-  Plug 'puremourning/vimspector', { 'do' : './install_gadget.py --force-enable-node' }
-endif
+Plug 'puremourning/vimspector', { 'do' : 'nix-shell -p nodejs-10_x --run \"./install_gadget.py --force-enable-node\"' }
 
 " Misc Langs
 Plug 'Zaptic/elm-vim', { 'for': ['elm'] }
@@ -99,15 +92,13 @@ Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'clojurescript'] }
 Plug 'tpope/vim-classpath', { 'for': ['clojure', 'clojurescript'] }
 " Plug 'tpope/vim-salve', { 'for': ['clojure', 'clojurescript'] }
 " Plug 'tpope/vim-projectionist', { 'for': ['clojure', 'clojurescript'] }
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'clojurescript'] }
 Plug 'guns/vim-clojure-highlight', { 'for': ['clojure', 'clojurescript'] }
 Plug 'markwoodhall/vim-sayid', { 'for': ['clojure', 'clojurescript'] }
 Plug 'junegunn/rainbow_parentheses.vim'
-" if has('mac') " otherwise I'm using nixos
-"   Plug 'eraserhd/parinfer-rust', { 'for': ['clojure', 'clojurescript'], 'do': 'cargo build --release' }
-" else
-"   Plug 'eraserhd/parinfer-rust', { 'for': ['clojure', 'clojurescript'], 'do': 'nix-shell --run \"cargo build --release\"' }
-" endif
+" Plug 'eraserhd/parinfer-rust', { 'for': ['clojure', 'clojurescript'], 'do': 'nix-shell --run \"cargo build --release\"' }
 
 " Wiki
 Plug 'vimwiki/vimwiki'
