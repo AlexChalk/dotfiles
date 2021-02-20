@@ -5,98 +5,88 @@
 ################################################################
 
 # focus window
-ctrl + cmd - h : chunkc tiling::window --focus west
-ctrl + cmd - j : chunkc tiling::window --focus south; chunkc tiling::window --focus west
-ctrl + cmd - k : chunkc tiling::window --focus north; chunkc tiling::window --focus east
-ctrl + cmd - l : chunkc tiling::window --focus east
+ctrl + cmd - h : yabai -m window --focus west; yabai -m window --focus stack.prev
+ctrl + cmd - j : yabai -m window --focus south
+ctrl + cmd - k : yabai -m window --focus north
+ctrl + cmd - l : yabai -m window --focus east; yabai -m window --focus stack.next
 
 # focus monitor
-ctrl + cmd - u  : chunkc tiling::monitor -f prev
-ctrl + cmd - i  : chunkc tiling::monitor -f next
-ctrl + cmd - 9  : chunkc tiling::monitor -f 1
-ctrl + cmd - 0  : chunkc tiling::monitor -f 2
-
-# send window to monitor and follow focus
-ctrl + alt + cmd - u  : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
-ctrl + alt + cmd - i  : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
-ctrl + alt + cmd - 9  : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
-ctrl + alt + cmd - 0  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
-
-# configuring more advanced desktop operations (e.g. tiling::desktop
-# --focus/--create--annihilate) requires disabling SIP and installing SA.
-# https://koekeishiya.github.io/chunkwm/docs/sa.html
-# https://github.com/koekeishiya/chunkwm/wiki/Useful-tips-and-workarounds
+ctrl + cmd - u  : yabai -m display --focus prev
+ctrl + cmd - i  : yabai -m display --focus next
+ctrl + cmd - 9  : yabai -m display --focus 1
+ctrl + cmd - 0  : yabai -m display --focus 2
 
 # send window to desktop
-ctrl + shift - 8 : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
-ctrl + shift - 9 : chunkc tiling::window --send-to-desktop prev
-ctrl + shift - 0 : chunkc tiling::window --send-to-desktop next
-ctrl + shift - 1 : chunkc tiling::window --send-to-desktop 1
-ctrl + shift - 2 : chunkc tiling::window --send-to-desktop 2
-ctrl + shift - 3 : chunkc tiling::window --send-to-desktop 3
-ctrl + shift - 4 : chunkc tiling::window --send-to-desktop 4
-ctrl + shift - 5 : chunkc tiling::window --send-to-desktop 5
+shift + cmd - 1 : yabai -m window --space 1
+shift + cmd - 2 : yabai -m window --space 2
+shift + cmd - 3 : yabai -m window --space 3
+shift + cmd - 4 : yabai -m window --space 4
+shift + cmd - 5 : yabai -m window --space 5
 
-# move window
-ctrl - left  : chunkc tiling::window --swap west
-ctrl - down  : chunkc tiling::window --swap south
-ctrl - up  : chunkc tiling::window --swap north
-ctrl - right  : chunkc tiling::window --swap east
+shift + cmd - u : yabai -m window --display 1
+shift + cmd - i : yabai -m window --display 2
+
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
 
 ################################################################
 # Resizing
 ################################################################
 
 # adjust region size
-ctrl + shift + cmd - h : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge east
-ctrl + shift + cmd - j : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge south; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge north
-ctrl + shift + cmd - k : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge north; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge south
-ctrl + shift + cmd - l : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge east; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge west
+shift + cmd - left : \
+    yabai -m window --resize left:-20:0 ; \
+    yabai -m window --resize right:-20:0
 
-# equalize size of windows
-ctrl + shift + cmd - 0 : chunkc tiling::desktop --equalize
+shift + cmd - down : \
+    yabai -m window --resize bottom:0:20 ; \
+    yabai -m window --resize top:0:20
+
+shift + cmd - up : \
+    yabai -m window --resize top:0:-20 ; \
+    yabai -m window --resize bottom:0:-20
+
+shift + cmd - right : \
+    yabai -m window --resize right:20:0 ; \
+    yabai -m window --resize left:20:0
+
 
 ################################################################
 # Misc
 ################################################################
 
+# equalize size of windows
+# shift + cmd - / : yabai -m space --balance
+
 # toggle window fullscreen
-ctrl + alt - y : chunkc tiling::window --toggle fullscreen
+shift + cmd - f : yabai -m window --toggle zoom-fullscreen
 
 # change layout of desktop
-ctrl + alt + cmd - y : chunkc tiling::desktop --layout monocle
-ctrl + alt + cmd - o : chunkc tiling::desktop --layout bsp
-ctrl + alt + cmd - p : chunkc tiling::desktop --layout float
+shift + cmd - s : yabai -m space --layout stack
+shift + cmd - q : yabai -m space --layout bsp
 
-# mirror tree y-axis
-alt - m : chunkc tiling::desktop --mirror vertical
+# # mirror tree y-axis
+# shift + cmd - y : yabai -m space --mirror y-axis
+# # mirror tree x-axis
+# shift + cmd - x : yabai -m space --mirror x-axis
 
 # rotate tree
-alt - r : chunkc tiling::desktop --rotate 90
+shift + cmd - r: yabai -m space --rotate 90
 
 ################################################################
 # Float
 ################################################################
 
 # float / unfloat window and center on screen
-ctrl + alt - w : chunkc tiling::window --toggle float;\
-chunkc tiling::window --grid-layout 12:12:1:1:10:10
-
-# float next window to be tiled
-ctrl + alt - n : chunkc set window_float_next 1
+shift + cmd - space : yabai -m window --toggle float; yabai -m window --grid 12:12:1:1:10:10
 
 # Move focused window to middle (ideal readability)
-ctrl + alt + cmd - space : chunkc tiling::window --grid-layout 5:5:1:0:3:5
-
-
-# make floating window fill left-half of screen
-ctrl + alt + cmd - h : chunkc tiling::window --grid-layout 1:2:0:0:1:1
+shift + cmd - m : yabai -m window --grid 5:5:1:0:3:5
 
 # center floating window
-ctrl + alt + cmd - j : chunkc tiling::window --grid-layout 12:12:1:1:10:10
+shift + cmd - n : yabai -m window --grid 12:12:1:1:10:10
 
 # make floating window fill screen
-ctrl + alt + cmd - k : chunkc tiling::window --grid-layout 1:1:0:0:1:1
-
-# make floating window fill right-half of screen
-ctrl + alt + cmd - l : chunkc tiling::window --grid-layout 1:2:1:0:1:1
+shift + cmd - b : yabai -m window --grid 1:1:0:0:1:1

@@ -45,7 +45,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
   mkdir Library/KeyBindings
   ln -s $HOME/dotfiles/DefaultKeyBinding.dict Library/KeyBindings/DefaultKeyBinding.dict
 
-  ln -s $HOME/dotfiles/chunkwmrc .chunkwmrc
+  ln -s $HOME/dotfiles/yabairc .yabairc
   ln -s $HOME/dotfiles/skhdrc .skhdrc
 else # using linux
   ln -s $HOME/dotfiles/sway .config/
