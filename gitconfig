@@ -13,6 +13,8 @@
   default = upstream
 [merge]
   ff = only
+[pull]
+  ff = only
 [fetch]
   prune = true
 [alias]
