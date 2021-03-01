@@ -1,6 +1,9 @@
 # Lsp dir
 .lsp
 
+# .vim dir (created by coc sometimes)
+.vim
+
 # fsharp lsp
 .ionide
 

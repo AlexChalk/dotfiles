@@ -15,7 +15,7 @@
   - Dock position/behaviour.
   - Computer name in "Sharing".
   - Airplay settings in "Monitors".
-  - Finder: Finder > Preferences (general, tags, sidebar), Finder > Presentation for default behaviour.
+  - Finder: Finder > Preferences (general, tags, sidebar), Finder > (right click in white space) > show view options for default behaviour.
   - Keyboard: modifiers, repetitions, text, shortcuts (launchpad, screenshots, spotlight), input sources.
   - Automator -> quick action, start screensaver, save as 'start screen saver', shortcuts -> services -> start screen saver.
   - Trackpad point and click.

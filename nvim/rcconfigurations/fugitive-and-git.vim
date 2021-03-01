@@ -63,7 +63,7 @@ nnoremap <leader>glm :Gedit HEAD^{}<cr>
 
 " Praise
 " o to open commit in split O for tab, g? to see other options
-nnoremap <leader>gp :Gblame<cr>
+nnoremap <leader>gp :Git blame<cr>
 
 " Status
 " <CR> edit

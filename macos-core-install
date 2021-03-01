@@ -7,6 +7,7 @@ echo "Getting command line tools"
 xcode-select --install
 
 echo "Setting up SSH"
+# https://docs.github.com/en/github-ae@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 ssh-keygen -t ed25519 -C "contact@alexchalk.net"
 eval "$(ssh-agent -s)"
 ssh-add $HOME/.ssh/id_ed25519
@@ -24,13 +25,14 @@ sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-v
 echo "Setting up homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install \
+brew install --cask \
   1password \
   adguard \
   firefox \
   keepingyouawake \
   kitty \
-  homebrew/cask/postgres \
+  postgres \
+  signal \
   typora \
   zoom
 

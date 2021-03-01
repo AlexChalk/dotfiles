@@ -52,7 +52,7 @@ fi
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # Nix package manager
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh && -z $CONFIG_SHELL ]]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # use <c-s> in all applications
 stty -ixon
@@ -65,9 +65,15 @@ source $HOME/.zinit/bin/zinit.zsh
 # Theme (don't lazy load prompt as we want it from start)
 # setopt promptsubst
 # zinit light AlexChalk/pure-red-stars
+if [[ -n $CONFIG_SHELL ]]; then
+    nix_shell="nix-shell"
+else
+    nix_shell=""
+fi
+
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'; 
 zinit light sindresorhus/pure
-PROMPT='%(?.%F{blue}.%F{yellow})❯% %(?.%F{yellow}.%F{magenta})❯%(?.%F{green}.%F{red})❯%f '
+PROMPT='%F{magenta}$nix_shell% %(?.%F{blue}.%F{yellow})❯% %(?.%F{yellow}.%F{magenta})❯%(?.%F{green}.%F{red})❯%f '
 PURE_CMD_MAX_EXEC_TIME=3600
 
 zinit ice wait"0" lucid blockf
