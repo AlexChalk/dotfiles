@@ -87,6 +87,8 @@ Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'tsx'] }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 Plug 'LnL7/vim-nix', { 'for': 'nix' }
+Plug 'vim-python/python-syntax', { 'for': 'python' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
 " Clojure
 Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'clojurescript'] }
@@ -110,6 +112,9 @@ Plug 'ledger/vim-ledger'
 
 call plug#end()
 
+let g:python_highlight_all = 1
+let g:python_highlight_indent_errors = 0
+let g:python_highlight_space_errors = 0
 " let g:fsharp#automatic_workspace_init = 0
 " https://github.com/fsharp/FsAutoComplete/releases/latest/download/fsautocomplete.netcore.zip
 
