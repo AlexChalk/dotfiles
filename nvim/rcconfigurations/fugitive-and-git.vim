@@ -7,7 +7,7 @@ set tags^=./.git/tags;
 
 " Adding/removing/viewing/splitting
 
-nnoremap <leader>gcc :Gcommit<cr>
+nnoremap <leader>gcc :Git commit<cr>
 nnoremap <leader>gcof :Gread<cr>
 nnoremap <leader>gaf :Gwrite<cr>
 nnoremap <leader>guf :silent exec '!git unstage %'<cr>
@@ -16,7 +16,7 @@ nnoremap <leader>gat :silent exec '!git add --intent-to-add .'<cr>
 nnoremap <leader>gua :silent exec '!git unstage .'<cr>
 nnoremap <leader>go<space> :Gedit<space>
 nnoremap <leader>gdf<space> :Gvdiff<space>
-nnoremap <leader>gdfs :Gdiffsplit!<cr>
+nnoremap <leader>gdfs :Gvdiffsplit!<cr>
 nnoremap <leader>gdfc :Gvdiff<cr>
 nnoremap <leader>gdfm :Gvdiff master:%<cr>
 nnoremap <leader>gs<space> :Gvsplit<space>

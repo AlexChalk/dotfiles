@@ -1,0 +1,5 @@
+#!/bin/bash
+
+nix-channel --update
+nix-env -iA nixpkgs.adcPackages
+nix-collect-garbage --delete-older-than 14d 

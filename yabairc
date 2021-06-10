@@ -40,8 +40,7 @@ yabai -m config auto_balance                off
 
 # ====== Rules =======================
 
-yabai -m rule --add label="1Password" app="^1Password$" manage=off
-yabai -m rule --add label="Finder" app="^Finder$" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add label="About This Mac" app="^System Information$" manage=off
 yabai -m rule --add label="System Preferences" app="^System Preferences$" manage=off
 yabai -m rule --add label="FaceTime" app="^FaceTime$" manage=off

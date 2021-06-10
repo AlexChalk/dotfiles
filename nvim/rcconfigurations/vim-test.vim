@@ -3,6 +3,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let test#strategy = 'vtr'
 let test#javascript#mocha#file_pattern = '\vtests?/.*\.(ts|tsx|js|jsx|coffee)$'
+let g:test#python#runner = 'pytest'
 
 nmap <silent> <leader>rta :TestNearest<CR>
 nmap <silent> <leader>rtf :TestFile<CR>

@@ -21,7 +21,6 @@ Plug 'vim-scripts/ReplaceWithRegister'
 
 Plug 'SirVer/ultisnips'
 
-Plug 'chrisbra/matchit' " Including in nvim runtime/plugin
 Plug 'machakann/vim-highlightedyank'
 
 Plug 'janko-m/vim-test'
@@ -78,7 +77,7 @@ Plug 'moll/vim-node'
 Plug 'AlexChalk/fsharp-vim'
 
 " Debugger
-Plug 'puremourning/vimspector', { 'do' : 'nix-shell -p nodejs-10_x --run \"./install_gadget.py --force-enable-node\"' }
+Plug 'puremourning/vimspector', { 'do' : 'nix-shell -p python37Packages.setuptools nodejs-10_x --run \"./install_gadget.py --enable-python --force-enable-node\"' }
 
 " Misc Langs
 Plug 'Zaptic/elm-vim', { 'for': ['elm'] }
@@ -118,6 +117,7 @@ let g:python_highlight_space_errors = 0
 " let g:fsharp#automatic_workspace_init = 0
 " https://github.com/fsharp/FsAutoComplete/releases/latest/download/fsautocomplete.netcore.zip
 
+let g:vimspector_enable_mappings = 'HUMAN'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -140,6 +140,7 @@ function! SetupCommandAlias(input, output)
         \ .'? ("'.a:output.'") : ("'.a:input.'"))'
 endfunction
 
+call SetupCommandAlias("reload", "!touch uwsgi.reload")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Source my customizations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

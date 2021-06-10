@@ -3,8 +3,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
-let g:VtrPercentage = 30 
-let g:VtrOrientation = "h"
+let g:VtrPercentage = 20 
+let g:VtrOrientation = "v"
 
 " C-\ to unfocus
 map <leader>st :VtrFocusRunner<CR>
