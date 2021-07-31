@@ -228,7 +228,7 @@ bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
 bindsym XF86AudioMute exec amixer sset Master toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
+bindsym XF86AudioMicMute exec amixer set Capture toggle
 
 set {
   $nag         exec swaynagmode
