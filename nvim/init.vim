@@ -155,17 +155,14 @@ endfunction
 call s:SourceConfigFilesIn('rcconfigurations')
 
 lua << EOF
-function load_lua_configs()
-  for filename in io.popen('dir $HOME/.config/nvim/lua/conf'):lines() do
-    lua_extension = filename:find("%.lua$")
-
-    if (lua_extension ~= nil) then
-      require('conf/' .. filename:sub(1, lua_extension - 1))
-    end
-  end
+function build_import(filename)
+  lua_extension = filename:find("%.lua$")
+  return 'conf/' .. filename:sub(1, lua_extension - 1)
 end
 
-load_lua_configs()
+for filename in io.popen('dir $HOME/.config/nvim/lua/conf'):lines() do
+  require(build_import(filename))
+end
 EOF
 
 " -- your lua code here
