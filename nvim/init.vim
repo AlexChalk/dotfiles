@@ -154,15 +154,18 @@ function! s:SourceConfigFilesIn(directory)
 endfunction
 call s:SourceConfigFilesIn('rcconfigurations')
 
-" -- require("conf/start")
 lua << EOF
-function remove_dot_lua(filename)
-  return filename:sub(1,filename:len()-4)
+function load_lua_configs()
+  for filename in io.popen('dir $HOME/.config/nvim/lua/conf'):lines() do
+    lua_extension = filename:find("%.lua$")
+
+    if (lua_extension ~= nil) then
+      require('conf/' .. filename:sub(1, lua_extension - 1))
+    end
+  end
 end
 
-for filename in io.popen('dir $HOME/.config/nvim/lua/conf'):lines() do
-  require('conf/' .. remove_dot_lua(filename))
-end
+load_lua_configs()
 EOF
 
 " -- your lua code here
