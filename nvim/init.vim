@@ -160,7 +160,7 @@ function build_import(filename)
   return 'conf/' .. filename:sub(1, lua_extension - 1)
 end
 
-for filename in io.popen('dir $HOME/.config/nvim/lua/conf'):lines() do
+for filename in io.popen('dir $HOME/.config/nvim/lua/conf -1'):lines() do
   require(build_import(filename))
 end
 EOF
