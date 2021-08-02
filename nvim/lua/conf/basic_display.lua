@@ -16,7 +16,7 @@ opt.cursorline = true
 
 
 function ToggleTextWidth()
-  if vim.bo.textwidth == 0 then
+  if vim.o.textwidth == 0 then
     opt.textwidth=85
   else
     opt.textwidth=0
