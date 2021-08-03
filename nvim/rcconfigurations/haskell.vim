@@ -1,13 +1,3 @@
-" Send blocks to ghci
-augroup haskell
-  autocmd!
-  autocmd FileType haskell nmap <buffer> <leader>sbr {o:{<esc>}<bs>o:}<esc>0d^vip<leader>sr3u
-
-  " autocmd FileType haskell nnoremap <buffer> <leader> :HdevtoolsType<CR>
-  " autocmd FileType haskell nnoremap <buffer> <leader> :HdevtoolsInfo<CR>
-  " autocmd FileType haskell nnoremap <buffer> <silent> <leade> :HdevtoolsClear<CR>
-augroup END
-
 let g:hdevtools_stack = 1
 
 
