@@ -23,5 +23,5 @@ function ToggleTextWidth()
   end
 end
 
--- https://github.com/neovim/neovim/pull/11613
+-- PR for native lua: https://github.com/neovim/neovim/pull/11613
 vim.cmd("command! ToggleTextWidth lua ToggleTextWidth()")
