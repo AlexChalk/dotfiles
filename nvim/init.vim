@@ -141,6 +141,7 @@ function! SetupCommandAlias(input, output)
 endfunction
 
 call SetupCommandAlias("reload", "!touch uwsgi.reload")
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Source my customizations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -160,7 +161,7 @@ function build_import(filename)
   return 'conf/' .. filename:sub(1, lua_extension - 1)
 end
 
-for filename in io.popen('dir $HOME/.config/nvim/lua/conf -1'):lines() do
+for filename in io.popen('ls -1 $HOME/.config/nvim/lua/conf'):lines() do
   require(build_import(filename))
 end
 EOF

@@ -73,8 +73,8 @@ nnoremap <leader>gp :Git blame<cr>
 " g? other options
 nnoremap <leader>gss :Gstatus<cr>
 " Browse in github
-nnoremap <leader>gb :Gbrowse<cr>
-xnoremap <leader>gb :Gbrowse<cr>
+nnoremap <leader>gb :GBrowse<cr>
+xnoremap <leader>gb :GBrowse<cr>
 
 " Review a PR
 nnoremap <leader>grpm :Git --paginate request-pull -p master ./<cr>
