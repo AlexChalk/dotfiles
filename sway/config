@@ -285,8 +285,14 @@ exec_always {
 # output eDP-1 scale 1.2
 # output eDP-1 pos 0 0 res 1920x1080
 
+set $laptop eDP-1
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+
 exec_always pkill kanshi; exec kanshi
 exec --no-startup-id pulseaudio --start
+
+exec_always $HOME/.config/sway/clamshell.sh
 
 # Status Bar:
 exec_always $HOME/.config/waybar/waybar.sh
