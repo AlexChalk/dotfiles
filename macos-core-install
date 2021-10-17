@@ -28,9 +28,15 @@ echo "Setting up homebrew"
 brew install --cask \
   1password \
   adguard \
+  docker \
   firefox \
+  flux \
+  insomnia \
   keepingyouawake \
   kitty \
+  maestral \
+  ngrok \
+  obsidian \
   postgres \
   signal \
   typora \
@@ -39,13 +45,15 @@ brew install --cask \
 
 sudo mkdir -p /etc/paths.d && echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
 
+echo "Misc. non-nix"
+brew install \
+  circleci \
+  openapi-generator
+
 echo "Graalvm (nix broken on mac)"
 brew install \ 
   clojure-lsp/brew/clojure-lsp-native \
   borkdude/brew/babashka
-
-echo "Zsh (faster startup than nix)"
-brew install zsh
 
 echo "Window managers"
 brew install \ 
