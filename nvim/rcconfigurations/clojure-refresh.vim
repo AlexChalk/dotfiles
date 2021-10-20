@@ -3,11 +3,12 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Refresh repl
+" https://github.com/tpope/vim-fireplace/pull/102/files
 function! s:Refresh(bang,ns)
   let cmd = ('(clojure.tools.namespace.repl/refresh'.(a:bang ? '-all' : '').')')
   echo cmd
   try
-    call fireplace#session_eval("(require '(clojure.tools.namespace repl))")
+    call fireplace#session_eval("(require '[clojure.tools.namespace.repl]])")
     call fireplace#session_eval(cmd)
     return ''
   catch /^Clojure:.*/
