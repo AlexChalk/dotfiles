@@ -18,6 +18,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export PATH="$GOPATH/bin:$PATH"
   # Add n (nvm alternative) to PATH
   export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+  export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 
   export HOMEBREW_NO_INSTALL_CLEANUP="true"
