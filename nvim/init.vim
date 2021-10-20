@@ -90,7 +90,7 @@ Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
 " Clojure
-Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'clojurescript'] }
+Plug 'Olical/conjure', { 'for': ['clojure', 'clojurescript'] }
 Plug 'tpope/vim-classpath', { 'for': ['clojure', 'clojurescript'] }
 " Plug 'tpope/vim-salve', { 'for': ['clojure', 'clojurescript'] }
 " Plug 'tpope/vim-projectionist', { 'for': ['clojure', 'clojurescript'] }
