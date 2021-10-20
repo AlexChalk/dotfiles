@@ -7,6 +7,9 @@
 # fsharp lsp
 .ionide
 
+# clojure-lsp
+.clj-kondo
+
 # cpcache
 .cpcache
 

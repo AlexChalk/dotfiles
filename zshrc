@@ -52,6 +52,9 @@ fi
 # Neovim colors
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+# # Leiningen ultra workaround
+export LEIN_USE_BOOTCLASSPATH=no
+
 # Nix package manager
 if [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh && -z $CONFIG_SHELL ]]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
