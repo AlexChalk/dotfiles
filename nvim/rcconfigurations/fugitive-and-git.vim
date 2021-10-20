@@ -22,15 +22,16 @@ nnoremap <leader>gdfm :Gvdiff master:%<cr>
 nnoremap <leader>gs<space> :Gvsplit<space>
 
 " Logging/searching 
+" If history is long commands take limit argument, e.g. :0Gclog -10<cr>
 
-nnoremap <leader>glf :Glog -- %<cr>
-nnoremap <leader>gfh :0Glog<cr>
+nnoremap <leader>glf :Gclog -- %<cr>
+nnoremap <leader>gfh :0Gclog<cr>
 " To search on other branches: Ggrep 'text' branch
 nnoremap <leader>gg :Ggrep
-" To search commit messages for text: Glog --grep=text --
-nnoremap <leader>gscm :Glog --grep= --<left><left><left>
-" To search for text added or removed by commit: Glog -Stext --
-nnoremap <leader>gscf :Glog -S --<left><left><left>
+" To search commit messages for text: Gclog --grep=text --
+nnoremap <leader>gscm :Gclog --grep= --<left><left><left>
+" To search for text added or removed by commit: Gclog -Stext --
+nnoremap <leader>gscf :Gclog -S --<left><left><left>
 
 " Diffing 
 " [c — jump to previous change hunk
@@ -71,7 +72,7 @@ nnoremap <leader>gp :Git blame<cr>
 " S open in vsplit
 " U checkout
 " g? other options
-nnoremap <leader>gss :Gstatus<cr>
+nnoremap <leader>gss :Git<cr>
 " Browse in github
 nnoremap <leader>gb :GBrowse<cr>
 xnoremap <leader>gb :GBrowse<cr>
