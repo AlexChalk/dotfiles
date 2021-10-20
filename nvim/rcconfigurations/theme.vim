@@ -8,6 +8,12 @@ endif
 syntax enable
 colorscheme base16-gruvbox-dark-medium
 
+" If not using my terminal emulator, i.e. no window manager
+if $TERM == "tmux"
+  highlight clear
+  highlight ColorColumn guibg=grey
+endif
+
 set laststatus=2
 set ttimeoutlen=10
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
