@@ -1,5 +1,5 @@
 " Open nerdtree equivalent
-nnoremap <Leader>sf :Explore<CR>
+nnoremap <Leader>pf :Explore<CR>
 
 " Tweaks for browsing
 let g:netrw_banner=0        " disable annoying banner
