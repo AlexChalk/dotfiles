@@ -23,3 +23,5 @@ alias yuse='yarn policies set-version $(jq .engines.yarn package.json | tr -d '"
 alias lock='swaylock -f -c 000000'
 alias vimpair="vim -c 'set nornu'"
 alias gh='GITHUB_TOKEN= gh'
+alias clam_on='swaymsg output eDP-1 disable'
+alias clam_off='swaymsg output eDP-1 enable'
