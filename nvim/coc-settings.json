@@ -31,10 +31,18 @@
       "command": "bash",
       "args": ["-c", "clojure-lsp"],
       "filetypes": ["clojure"],
-      "rootPatterns": ["project.clj", "deps.edn"],
+      "disableDiagnostics": false,
+      "rootPatterns": ["deps.edn", "project.clj"],
       "additionalSchemes": ["jar", "zipfile"],
       "trace.server": "verbose",
-      "initializationOptions": {}
+      "initializationOptions": {
+        "project-specs": [{
+          "project-path": "deps.edn",
+          "classpath-cmd": ["clj", "-Spath"]
+        }],
+        "use-metadata-for-privacy?": true,
+        "ignore-classpath-directories": true
+      }
     },
     "fsharp": {
       "shell": true,
