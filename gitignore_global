@@ -8,7 +8,8 @@
 .ionide
 
 # clojure-lsp
-.clj-kondo
+.clj-kondo/.cache
+**/.clj-kondo/.cache
 
 # cpcache
 .cpcache
@@ -50,6 +51,7 @@ curls.txt
 .lein-repl-history
 .nrepl-port
 target
+.rebel_readline_history
 
 # Compiled source #
 ###################

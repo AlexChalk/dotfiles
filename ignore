@@ -13,6 +13,11 @@ node_modules
 dist
 coverage
 
+# Clojure #
+##############################
+.clj-kondo/.cache
+**/.clj-kondo/.cache
+
 # CLJ(S) Builds #
 ##############################
 out/

@@ -39,7 +39,12 @@
         "project-specs": [{
           "project-path": "deps.edn",
           "classpath-cmd": ["clj", "-Spath"]
-        }],
+        },
+        {
+          "project-path": "project.clj",
+          "classpath-cmd": ["lein", "classpath"]
+        }
+        ],
         "use-metadata-for-privacy?": true,
         "ignore-classpath-directories": true
       }

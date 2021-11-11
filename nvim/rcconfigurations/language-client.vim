@@ -21,6 +21,11 @@ nmap <silent> <leader>fr <Plug>(coc-references)
 nmap <silent> <leader>lr <Plug>(coc-rename)
 nmap <silent> <leader>fi <Plug>(coc-implementation)
 nmap <silent> <leader>gid <Plug>(coc-type-definition)
+nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
+" or just <c-w>w to enter/exit hover window
+" - https://github.com/neoclide/coc.nvim/issues/1405#issuecomment-674587738
 
 " <C-K>/<C-J> to navigate in interactive mode
 " Search workspace symbols
