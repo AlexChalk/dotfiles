@@ -1,4 +1,4 @@
-call SetupCommandAlias("rg", "CtrlSF")
+lua SetupCommandAlias("rg", "CtrlSF")
 cnoreabbrev rgg rg
 
 let g:ctrlsf_ackprg = 'rg'

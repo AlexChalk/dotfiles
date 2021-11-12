@@ -1,15 +1,14 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Top settings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua vim.api.nvim_command('set nocompatible')
+----------------------------------------------------------------
+-- Top settings
+----------------------------------------------------------------
+vim.api.nvim_command('set nocompatible')
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim Plug
-" Remember to run :PlugUpdate (and :PlugUpgrade if on macOS) once in a while
-" For versioning: :SavePlugSnapshot
-" Look at switching to packer once it has snapshots: https://github.com/wbthomason/packer.nvim/pull/370
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua << EOF
+----------------------------------------------------------------
+-- Vim Plug
+-- Remember to run :PlugUpdate (and :PlugUpgrade if on macOS) once in a while
+-- For versioning: :SavePlugSnapshot
+-- Look at switching to packer once it has snapshots: https://github.com/wbthomason/packer.nvim/pull/370
+----------------------------------------------------------------
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '$HOME/.local/share/nvim/plugged')
 
@@ -113,73 +112,77 @@ Plug('godlygeek/tabular')
 Plug('ledger/vim-ledger')
 
 vim.call('plug#end')
-EOF
 
-" lua << EOF
-" require'lspconfig'.bashls.setup{}
-" require'lspconfig'.clojure_lsp.setup{}
-" require'lspconfig'.dockerls.setup{}
-" require'lspconfig'.elmls.setup{}
-" require'lspconfig'.eslint.setup{}
-" require'lspconfig'.hls.setup{}
-" require'lspconfig'.jsonls.setup{}
-" require'lspconfig'.pyright.setup{}
-" require'lspconfig'.rnix.setup{}
-" require'lspconfig'.rust_analyzer.setup{}
-" require'lspconfig'.sumneko_lua.setup{}
-" require'lspconfig'.terraformls.setup{}
-" require'lspconfig'.texlab.setup{}
-" require'lspconfig'.tsserver.setup{}
-" require'lspconfig'.vimls.setup{}
-"
-" vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true})
-" vim.api.nvim_buf_set_keymap(0, 'n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true})
-" EOF
+-- require'lspconfig'.bashls.setup{}
+-- require'lspconfig'.clojure_lsp.setup{}
+-- require'lspconfig'.dockerls.setup{}
+-- require'lspconfig'.elmls.setup{}
+-- require'lspconfig'.eslint.setup{}
+-- require'lspconfig'.hls.setup{}
+-- require'lspconfig'.jsonls.setup{}
+-- require'lspconfig'.pyright.setup{}
+-- require'lspconfig'.rnix.setup{}
+-- require'lspconfig'.rust_analyzer.setup{}
+-- require'lspconfig'.sumneko_lua.setup{}
+-- require'lspconfig'.terraformls.setup{}
+-- require'lspconfig'.texlab.setup{}
+-- require'lspconfig'.tsserver.setup{}
+-- require'lspconfig'.vimls.setup{}
+--
+-- vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true})
+-- vim.api.nvim_buf_set_keymap(0, 'n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true})
+--
+-- let g:fsharp#automatic_workspace_init = 0
+-- https://github.com/fsharp/FsAutoComplete/releases/latest/download/fsautocomplete.netcore.zip
 
-" let g:fsharp#automatic_workspace_init = 0
-" https://github.com/fsharp/FsAutoComplete/releases/latest/download/fsautocomplete.netcore.zip
-
-lua vim.g.vimspector_enable_mappings = 'HUMAN'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Leader
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Change leader and change space to prior leader functionality
-lua << EOF
+vim.g.vimspector_enable_mappings = 'HUMAN'
+----------------------------------------------------------------
+-- Leader
+----------------------------------------------------------------
+-- Change leader and change space to prior leader functionality
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 vim.api.nvim_set_keymap('n', '<space>', ',', { noremap = true })
-EOF
 
-" abolish calls it 'mixed', i prefer 'pascal'
-lua vim.api.nvim_set_keymap('n', 'crp', 'crm', { noremap = false })
+-- abolish calls it 'mixed', i prefer 'pascal'
+vim.api.nvim_set_keymap('n', 'crp', 'crm', { noremap = false })
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Start-of-line only cabbrevs
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+----------------------------------------------------------------
+-- Start-of-line only cabbrevs
+----------------------------------------------------------------
+function _G.abbreviate_or_noop(input, output)
+  local cmdtype = vim.fn.getcmdtype()
+  local cmdline = vim.fn.getcmdline()
 
-" example use: call SetupCommandAlias("pg", "postgres://")
-function! SetupCommandAlias(input, output)
-  exec 'cabbrev <expr> '.a:input
-        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:input.'")'
-        \ .'? ("'.a:output.'") : ("'.a:input.'"))'
-endfunction
+  if (cmdtype == ":" and cmdline == input) then 
+    return output
+  else
+    return input
+  end
+end
 
-call SetupCommandAlias("reload", "!touch uwsgi.reload")
+-- example use: SetupCommandAlias("pg", "postgres://")
+function SetupCommandAlias(input, output)
+  vim.api.nvim_command("cabbrev <expr> " .. input .. " " .. "v:lua.abbreviate_or_noop('" .. input .. "', '" .. output .. "')")
+end
+SetupCommandAlias("reload", "!touch uwsgi.reload")
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Source my customizations
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! s:SourceConfigFilesIn(directory)
-  let directory_splat = '$HOME/dotfiles/nvim/' . a:directory . '/*.vim'
-  for config_file in split(glob(directory_splat), '\n')
-    if filereadable(config_file)
-      execute 'source' config_file
-    endif
-  endfor
-endfunction
-call s:SourceConfigFilesIn('rcconfigurations')
+----------------------------------------------------------------
+-- Source my customizations
+----------------------------------------------------------------
+function SourceConfigFilesIn(directory)
+  local directory_splat = "$HOME/dotfiles/nvim/" .. directory .. "/*.vim"
+  local glob = vim.fn.glob(directory_splat)
+  local config_files = vim.fn.split(glob, "\n")
 
-lua << EOF
+  for i, config_file in ipairs(config_files) do
+    if (vim.fn.filereadable(config_file)) then
+      vim.api.nvim_command("source " .. config_file)
+    end
+  end
+end
+SourceConfigFilesIn('rcconfigurations')
+
 function build_import(filename)
   lua_extension = filename:find("%.lua$")
   return 'conf/' .. filename:sub(1, lua_extension - 1)
@@ -188,12 +191,13 @@ end
 for filename in io.popen('ls -1 $HOME/.config/nvim/lua/conf'):lines() do
   require(build_import(filename))
 end
-EOF
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VersionedPluginBuilds
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! SavePlugSnapshot()
-  execute "PlugSnapshot! " . "$HOME/.vim-plug-snapshots/" . strftime("%Y-%m-%d_%X") . ".vim"
-endfunction
-command! SavePlugSnapshot :call SavePlugSnapshot()
+----------------------------------------------------------------
+-- VersionedPluginBuilds
+----------------------------------------------------------------
+function SavePlugSnapshot()
+  local datetime = os.date("%Y-%m-%d_%H:%M:%S")
+  vim.api.nvim_command('PlugSnapshot! $HOME/.vim-plug-snapshots/' .. datetime .. '.vim')
+end
+
+vim.api.nvim_command('command! SavePlugSnapshot :lua SavePlugSnapshot()')
