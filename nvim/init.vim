@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Top settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible
+lua vim.api.nvim_command('set nocompatible')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Plug
@@ -115,23 +115,43 @@ Plug('ledger/vim-ledger')
 vim.call('plug#end')
 EOF
 
-let g:python_highlight_all = 1
-let g:python_highlight_indent_errors = 0
-let g:python_highlight_space_errors = 0
+" lua << EOF
+" require'lspconfig'.bashls.setup{}
+" require'lspconfig'.clojure_lsp.setup{}
+" require'lspconfig'.dockerls.setup{}
+" require'lspconfig'.elmls.setup{}
+" require'lspconfig'.eslint.setup{}
+" require'lspconfig'.hls.setup{}
+" require'lspconfig'.jsonls.setup{}
+" require'lspconfig'.pyright.setup{}
+" require'lspconfig'.rnix.setup{}
+" require'lspconfig'.rust_analyzer.setup{}
+" require'lspconfig'.sumneko_lua.setup{}
+" require'lspconfig'.terraformls.setup{}
+" require'lspconfig'.texlab.setup{}
+" require'lspconfig'.tsserver.setup{}
+" require'lspconfig'.vimls.setup{}
+"
+" vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true})
+" vim.api.nvim_buf_set_keymap(0, 'n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true})
+" EOF
+
 " let g:fsharp#automatic_workspace_init = 0
 " https://github.com/fsharp/FsAutoComplete/releases/latest/download/fsautocomplete.netcore.zip
 
-let g:vimspector_enable_mappings = 'HUMAN'
+lua vim.g.vimspector_enable_mappings = 'HUMAN'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Change leader and change space to prior leader functionality
-let mapleader = ","
-let maplocalleader = ","
-nnoremap <space> ,
+lua << EOF
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
+vim.api.nvim_set_keymap('n', '<space>', ',', { noremap = true })
+EOF
 
 " abolish calls it 'mixed', i prefer 'pascal'
-nmap crp crm
+lua vim.api.nvim_set_keymap('n', 'crp', 'crm', { noremap = false })
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Start-of-line only cabbrevs
@@ -170,9 +190,6 @@ for filename in io.popen('ls -1 $HOME/.config/nvim/lua/conf'):lines() do
 end
 EOF
 
-" -- your lua code here
-"   require("conf/" .. filename)
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VersionedPluginBuilds
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -180,8 +197,3 @@ function! SavePlugSnapshot()
   execute "PlugSnapshot! " . "$HOME/.vim-plug-snapshots/" . strftime("%Y-%m-%d_%X") . ".vim"
 endfunction
 command! SavePlugSnapshot :call SavePlugSnapshot()
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" repeat.vim code
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)

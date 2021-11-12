@@ -5,8 +5,8 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-syntax enable
-colorscheme base16-gruvbox-dark-medium
+lua vim.opt.syntax = "enable"
+lua vim.cmd('colorscheme base16-gruvbox-dark-medium')
 
 " If not using my terminal emulator, i.e. no window manager
 if $TERM == "tmux"
@@ -14,8 +14,8 @@ if $TERM == "tmux"
   highlight ColorColumn guibg=grey
 endif
 
-set laststatus=2
-set ttimeoutlen=10
+lua vim.opt.laststatus = 2
+lua vim.opt.ttimeoutlen = 10
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
