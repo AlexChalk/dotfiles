@@ -10,7 +10,7 @@ opt.undolevels = 1000
 opt.undoreload = 10000
 
 -- Because undo is persistent, we don't need tmp as well
--- PR for native lua: https://github.com/neovim/neovim/pull/12378
+-- PR for native lua: https://github.com/neovim/neovim/pull/14661
 vim.cmd([[
   augroup notempundofile
     autocmd!
