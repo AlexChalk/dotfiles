@@ -1,8 +1,0 @@
---sort=yes
---tag-relative=yes
---recurse
---exclude=node_modules
---exclude=build
---exclude=coverage
---exclude=vendor
---exclude=bower_components

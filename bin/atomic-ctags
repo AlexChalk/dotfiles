@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-if [ -d .git ]; then
-  tempfile=$(mktemp ".git/tags.XXXXX")
-  ctags -R -f "$tempfile" && mv "$tempfile" .git/tags
-  # ctags -R --tag-relative=yes --exclude=dist -f "$tempfile" && mv "$tempfile" .git/tags
-fi

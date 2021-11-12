@@ -33,9 +33,6 @@ ln -s $HOME/dotfiles/nvim .config/
 mkdir .ghc
 ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
 
-mkdir .ctags.d
-ln -s $HOME/dotfiles/ctags .ctags.d/defaults.ctags
-
 mkdir .vim
 mkdir .vim/tmp
 mkdir .vim/undo
