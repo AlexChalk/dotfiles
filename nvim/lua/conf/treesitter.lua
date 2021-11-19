@@ -1,7 +1,7 @@
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup({
   ensure_installed = { "clojure", "python" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
-    enable = true,              -- false will disable the whole extension
+    enable = true, -- false will disable the whole extension
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
@@ -11,7 +11,7 @@ require'nvim-treesitter.configs'.setup {
       -- let rainbow parens continue to do its thing
       ["punctuation.bracket"] = "",
       -- ["constructor"]         = "",
-    }
+    },
   },
   incremental_selection = {
     enable = true,
@@ -26,7 +26,7 @@ require'nvim-treesitter.configs'.setup {
     select = {
       enable = true,
 
-      -- Automatically jump forward to textobj, similar to targets.vim 
+      -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
 
       keymaps = {
@@ -67,6 +67,6 @@ require'nvim-treesitter.configs'.setup {
     },
   },
   indent = {
-    enable = true
-  }
-}
+    enable = true,
+  },
+})

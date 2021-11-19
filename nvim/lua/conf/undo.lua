@@ -5,7 +5,7 @@ local opt = vim.opt
 local home = os.getenv("HOME")
 
 opt.undofile = true
-opt.undodir = home .. '/.vim/undo'
+opt.undodir = home .. "/.vim/undo"
 opt.undolevels = 1000
 opt.undoreload = 10000
 
