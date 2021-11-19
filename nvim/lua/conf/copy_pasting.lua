@@ -23,29 +23,29 @@ vim.api.nvim_set_keymap('n', '<leader>crr', '"+<leader>rr', { noremap = false })
 -- paste-and-search (freezes right now)
 -- vim.api.nvim_set_keymap('n', '<leader>sp', ':rg<space><c-f>pA<cr>', { noremap = false })
 
+-----------------------------------------------------
+-- Clipboard
+-----------------------------------------------------
 -- Wayland clipboard provider that strips carriage returns (GTK3 issue).
 
 -- This is needed because currently there's an issue where GTK3 applications on
 -- Wayland contain carriage returns at the end of the lines (this is a root
 -- issue that needs to be fixed).
-
 -- https://github.com/neovim/neovim/issues/10223
 if (vim.env.WAYLAND_DISPLAY ~= nil) then
-  -- Migration to lua blocked by lambdas:
+  -- Call out to external script as can't use lambdas yet:
   -- https://github.com/nanotee/nvim-lua-guide#conversion-is-not-always-possible
   -- https://github.com/neovim/neovim/issues/13436#issuecomment-767431218
-  vim.cmd([[
-    let g:clipboard = {
-        \   'name': 'wayland-strip-carriage',
-        \   'copy': {
-        \      '+': 'wl-copy --foreground --type text/plain',
-        \      '*': 'wl-copy --foreground --type text/plain --primary',
-        \    },
-        \   'paste': {
-        \      '+': {-> systemlist('wl-paste --no-newline | tr -d "\r"')},
-        \      '*': {-> systemlist('wl-paste --no-newline --primary | tr -d "\r"')},
-        \   },
-        \   'cache_enabled': 1,
-        \ }
-  ]])
+  vim.g.clipboard = {
+    name = 'wayland-strip-carriage',
+    copy = {
+      ['+'] = 'wl-copy --foreground --type text/plain',
+      ['*'] = 'wl-copy --foreground --type text/plain --primary',
+    },
+    paste = {
+      ['+'] = 'nvim-wl-paste',
+      ['*'] = 'nvim-wl-paste --primary',
+    },
+    cache_enabled = true,
+  }
 end

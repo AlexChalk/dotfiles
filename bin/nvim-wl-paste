@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ "$1" = "--primary" ]; then
+  wl-paste --no-newline --primary | tr -d "\r"
+else
+  wl-paste --no-newline | tr -d "\r"
+fi
