@@ -3,6 +3,11 @@
 ----------------------------------------------------------------
 vim.opt.compatible = false
 
+-- Workaround code:
+-- vim.api.nvim_command
+-- vim.cmd
+-- vim.api.nvim_exec
+
 ----------------------------------------------------------------
 -- Vim Plug
 -- Remember to run :PlugUpdate (and :PlugUpgrade if on macOS) once in a while
