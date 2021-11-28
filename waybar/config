@@ -2,10 +2,9 @@
     "layer": "bottom",
     "position": "top",
     "height": 38,
-
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/storage", "backlight", "pulseaudio", "network", "idle_inhibitor", "battery", "clock"],
+    "modules-right": ["backlight", "pulseaudio", "network", "idle_inhibitor", "disk", "battery", "clock"],
     "sway/mode": {
         "format": " {}"
     },
@@ -33,13 +32,9 @@
         },
         "tooltip": false
     },
-    "custom/storage": {
-        "format": "{percentage}% ",
-        "format-alt": "{} ",
-        "format-alt-click": "click-right",
-        "return-type": "json",
-        "interval": 60,
-        "exec": "$HOME/.config/waybar/modules/storage.sh"
+    "disk": {
+        "format": "{percentage_free}% ",
+        "interval": 60
     },
     "network": {
         "format": "{icon}",
