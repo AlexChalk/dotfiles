@@ -66,6 +66,7 @@
   spn = "!f() { git stash pop stash@{$1}; }; f"
   uncommit = reset --soft HEAD^
   unstage = reset
+  up = "!f() { git checkout $1 && git pull && git checkout -; }; f"
   upm = !git checkout master && git pull && git checkout -
   rup = "!f() { git checkout $1 && git pull && git checkout - && git rebase $1; }; f"
   rupm = !git upm && git rebase master

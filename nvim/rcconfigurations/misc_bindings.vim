@@ -56,9 +56,9 @@ augroup ctrlsf
 augroup END
 
 " Open and source vimrc
-nmap <leader>ocs :sp $HOME/dotfiles/nvim/init.vim<cr>
-nmap <leader>oct :tabedit $HOME/dotfiles/nvim/init.vim<cr>
-nmap <leader>rc :w<cr>:source $HOME/dotfiles/nvim/init.vim<cr>
+nmap <leader>ocs :sp $HOME/dotfiles/nvim/init.lua<cr>
+nmap <leader>oct :tabedit $HOME/dotfiles/nvim/init.lua<cr>
+nmap <leader>rc :w<cr>:source $HOME/dotfiles/nvim/init.lua<cr>
 
 " Change dir to current file's directory
 nmap <silent> <leader>cad :cd %:p:h<cr>

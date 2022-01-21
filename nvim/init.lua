@@ -130,6 +130,9 @@ Plug("vim-pandoc/vim-pandoc-syntax")
 Plug("godlygeek/tabular")
 Plug("ledger/vim-ledger")
 
+Plug('mfussenegger/nvim-dap')
+Plug('rcarriga/nvim-dap-ui')
+
 vim.call("plug#end")
 
 -- require'lspconfig'.bashls.setup{}

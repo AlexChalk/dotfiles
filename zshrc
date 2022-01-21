@@ -93,6 +93,10 @@ zinit snippet OMZ::lib/completion.zsh
 zinit ice wait"0" lucid blockf
 zinit light zsh-users/zsh-completions
 
+# Nix shell
+zinit ice wait"0" lucid blockf
+zinit light chisui/zsh-nix-shell
+
 # n.b. this will be cached and require deleting if there are changes
 zinit ice wait"0" lucid blockf
 zinit snippet $HOME/dotfiles/zsh-completions-personal.zsh

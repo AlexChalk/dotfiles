@@ -19,6 +19,11 @@
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
   "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"]
+    },
     "elmLS": {
       "command": "elm-language-server",
       "filetypes": ["elm"],
