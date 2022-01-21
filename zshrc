@@ -1,5 +1,9 @@
+# Store original path to revert in certain double-path-setting scenarios
+ORIGINAL_PATH=$PATH
+
 # Not all terminal emulators seem to add this—uncomment if needed.
 # export PATH="$PATH:/usr/local/bin"
+
 # Add personal scripts to PATH
 export PATH="$HOME/dotfiles/bin:$PATH"
 export PATH="$HOME/bin-personal:$PATH"
@@ -56,7 +60,7 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export LEIN_USE_BOOTCLASSPATH=no
 
 # Nix package manager
-if [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh && -z $CONFIG_SHELL ]]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # use <c-s> in all applications
 stty -ixon
@@ -108,5 +112,10 @@ zinit light zsh-users/zsh-syntax-highlighting
 for zsh_source in $HOME/dotfiles/zsh/*.zsh; do
   source $zsh_source
 done
+
+if [[ -n $IN_NIX_SHELL ]]; then
+  PREFIX="/Users/alexander/.nix-profile/bin:/Users/alexander/.zinit/plugins/chisui---zsh-nix-shell/scripts:"
+  export PATH=${ORIGINAL_PATH/#$PREFIX}
+fi
 
 ensure_tmux_is_running
