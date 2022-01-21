@@ -80,13 +80,12 @@ Plug("mxw/vim-jsx", { ["for"] = { "javascript", "jsx", "typescriptreact" } })
 Plug("moll/vim-node")
 
 -- FSharp
--- Plug('kongo2002/fsharp-vim')
 Plug("AlexChalk/fsharp-vim")
 
 -- Debugger
-Plug("puremourning/vimspector", {
-  ["do"] = 'nix-shell -p python37Packages.setuptools nodejs-10_x --run "./install_gadget.py --enable-python --force-enable-node"',
-})
+Plug("mfussenegger/nvim-dap")
+Plug("rcarriga/nvim-dap-ui")
+
 
 -- Misc Langs
 Plug("Zaptic/elm-vim", { ["for"] = { "elm" } })
@@ -123,9 +122,6 @@ Plug("vim-pandoc/vim-pandoc")
 Plug("vim-pandoc/vim-pandoc-syntax")
 Plug("godlygeek/tabular")
 Plug("ledger/vim-ledger")
-
-Plug("mfussenegger/nvim-dap")
-Plug("rcarriga/nvim-dap-ui")
 
 vim.call("plug#end")
 
@@ -177,7 +173,6 @@ function _G.abbreviate_or_noop(input, output)
   end
 end
 
--- example use: SetupCommandAlias("pg", "postgres://")
 function SetupCommandAlias(input, output)
   vim.api.nvim_command(
     "cabbrev <expr> "
@@ -190,7 +185,7 @@ function SetupCommandAlias(input, output)
       .. "')"
   )
 end
-SetupCommandAlias("reload", "!touch uwsgi.reload")
+-- example use: SetupCommandAlias("pg", "postgres://")
 
 ----------------------------------------------------------------
 -- Source my customizations
