@@ -84,12 +84,9 @@ Plug("moll/vim-node")
 Plug("AlexChalk/fsharp-vim")
 
 -- Debugger
-Plug(
-  "puremourning/vimspector",
-  {
-    ["do"] = 'nix-shell -p python37Packages.setuptools nodejs-10_x --run "./install_gadget.py --enable-python --force-enable-node"',
-  }
-)
+Plug("puremourning/vimspector", {
+  ["do"] = 'nix-shell -p python37Packages.setuptools nodejs-10_x --run "./install_gadget.py --enable-python --force-enable-node"',
+})
 
 -- Misc Langs
 Plug("Zaptic/elm-vim", { ["for"] = { "elm" } })
@@ -112,13 +109,10 @@ Plug(
 Plug("clojure-vim/clojure.vim", { ["for"] = { "clojure", "clojurescript" } })
 Plug("markwoodhall/vim-sayid", { ["for"] = { "clojure", "clojurescript" } })
 Plug("junegunn/rainbow_parentheses.vim")
-Plug(
-  "eraserhd/parinfer-rust",
-  {
-    ["for"] = { "clojure", "clojurescript" },
-    ["do"] = 'nix-shell --run "cargo build --release"',
-  }
-)
+Plug("eraserhd/parinfer-rust", {
+  ["for"] = { "clojure", "clojurescript" },
+  ["do"] = 'nix-shell --run "cargo build --release"',
+})
 
 -- Treesitter
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
@@ -130,8 +124,8 @@ Plug("vim-pandoc/vim-pandoc-syntax")
 Plug("godlygeek/tabular")
 Plug("ledger/vim-ledger")
 
-Plug('mfussenegger/nvim-dap')
-Plug('rcarriga/nvim-dap-ui')
+Plug("mfussenegger/nvim-dap")
+Plug("rcarriga/nvim-dap-ui")
 
 vim.call("plug#end")
 
