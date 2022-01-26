@@ -86,7 +86,6 @@ Plug("AlexChalk/fsharp-vim")
 Plug("mfussenegger/nvim-dap")
 Plug("rcarriga/nvim-dap-ui")
 
-
 -- Misc Langs
 Plug("Zaptic/elm-vim", { ["for"] = { "elm" } })
 Plug("neovimhaskell/haskell-vim", { ["for"] = { "haskell" } })
