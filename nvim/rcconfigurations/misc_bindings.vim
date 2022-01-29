@@ -42,12 +42,6 @@ augroup fugitiveblame
   autocmd Filetype fugitiveblame nmap <buffer> q gq
 augroup END
 
-" Escape hatch from fugitive files
-augroup fugitive
-  autocmd!
-  autocmd Filetype fugitive nmap <buffer> q gq
-augroup END
-
 " Escape hatch from ctrlsf as builtin squashes rightmost window sometimes
 augroup ctrlsf
   autocmd!
