@@ -7,7 +7,7 @@ echo "Getting command line tools"
 xcode-select --install
 
 echo "Setting up SSH"
-# https://docs.github.com/en/github-ae@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+# https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 ssh-keygen -t ed25519 -C "contact@alexchalk.net"
 eval "$(ssh-agent -s)"
 ssh-add $HOME/.ssh/id_ed25519
@@ -20,7 +20,12 @@ echo "Getting personal fonts"
 git clone git@github.com:AlexChalk/fonts-private.git $HOME/Library/Fonts
 
 echo "Setting up nix"
+echo "Run **after** restarting so filevault is enabled"
 sh <(curl -L https://nixos.org/nix/install)
+nix-channel --add https://nixos.org/channels/nixpkgs-21.11-darwin nixpkgs-21-11
+nix-channel --add https://nixos.org/channels/nixpkgs-21.11-darwin nixpkgs-stable
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs   
+nix-channel --update
 nix-env -iA nixpkgs-stable.nix_2_3
 
 echo "Setting up homebrew"
@@ -41,7 +46,7 @@ brew install --cask \
   obsidian \
   postgres-unofficial \
   signal \
-  uhk-agent \
+  homebrew/cask-drivers/uhk-agent \
   zoom
 
 sudo mkdir -p /etc/paths.d && echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
