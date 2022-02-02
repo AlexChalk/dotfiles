@@ -20,13 +20,11 @@ echo "Getting personal fonts"
 git clone git@github.com:AlexChalk/fonts-private.git $HOME/Library/Fonts
 
 echo "Setting up nix"
-echo "Run **after** restarting so filevault is enabled"
+echo "Run **after** enabling filevault (usually means restarting at least once)"
 sh <(curl -L https://nixos.org/nix/install)
-nix-channel --add https://nixos.org/channels/nixpkgs-21.11-darwin nixpkgs-21-11
 nix-channel --add https://nixos.org/channels/nixpkgs-21.11-darwin nixpkgs-stable
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs   
 nix-channel --update
-nix-env -iA nixpkgs-stable.nix_2_3
 
 echo "Setting up homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -58,12 +56,12 @@ brew install \
   openjdk
 
 echo "Graalvm (nix broken on mac)"
-brew install \ 
+brew install \
   clojure-lsp/brew/clojure-lsp-native \
   borkdude/brew/babashka
 
 echo "Window managers"
-brew install \ 
+brew install \
   koekeishiya/formulae/yabai \
   koekeishiya/formulae/skhd
 
