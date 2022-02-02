@@ -6,6 +6,8 @@
 
 # open finder
 ctrl + cmd - f : open ~
+# activate screensaver
+ctrl + cmd - s : open -a ScreenSaverEngine
 
 # focus window
 ctrl + cmd - h : yabai -m window --focus west; yabai -m window --focus stack.prev

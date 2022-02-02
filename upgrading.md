@@ -10,7 +10,7 @@ Note customizations in Finder > Preferences, and Finder > Presentation; system P
   - Airplay settings in "Monitors".
   - Finder: Finder > Preferences (general, tags, sidebar), Finder > (right click in white space) > show view options for default behaviour.
   - Keyboard: modifiers, repetitions, text, shortcuts (launchpad, screenshots, spotlight), input sources.
-  - Automator -> quick action, start screensaver, save as 'start screen saver', shortcuts -> services -> start screen saver.
+  - Spaces: Mission Control -> untick 'automatically rearrange spaces based on most recent use'
   - Trackpad point and click.
 2. Firefox
   - Customize
