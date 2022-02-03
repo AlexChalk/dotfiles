@@ -10,7 +10,8 @@ export PATH="$HOME/bin-personal:$PATH"
 
 if [[ "$OSTYPE" == darwin* ]]; then
   # Source homebrew
-  export PATH="/opt/homebrew/bin:$PATH"
+  # eval $(/opt/homebrew/bin/brew shellenv) # (recommended)
+  export PATH="/opt/homebrew/bin:$PATH" # (faster)
   # Add haskell packages to PATH
   export PATH="$HOME/.local/bin:$PATH"
   # Add gnu-sed as 'sed' to PATH
