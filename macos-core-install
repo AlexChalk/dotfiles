@@ -1,5 +1,29 @@
 #!/usr/bin/env bash
 
+# # Upgrade Process
+#
+# ## Before you begin
+# Note customizations in Finder > Preferences, and Finder > Presentation; system Preferences > Keyboard
+#
+# ## Initial Upgrade Process:
+# 1. MacOS system settings:
+# - Dock position/behaviour.
+# - Computer name in "Sharing".
+# - Airplay settings in "Monitors".
+# - Finder: Finder > Preferences (general, tags, sidebar), Finder > (right click in white space) > show view options for default behaviour.
+# - Keyboard: modifiers, repetitions, text, shortcuts (launchpad, screenshots, spotlight), input sources.
+# - Spaces: Mission Control -> untick 'automatically rearrange spaces based on most recent use'
+# - Trackpad point and click.
+# 2. Firefox
+# - Customize
+# - Extensions, themes
+# - Search
+# 3. zshenv
+# - `source $HOME/dotfiles/zsh/aliases.zsh`
+#
+# ## Misc
+# - Remember to improve this guide as you perform your next upgrade.
+
 cd $HOME
 touch .hushlogin
 
@@ -15,11 +39,14 @@ if [[ "$OSTYPE" == darwin* ]]; then
   echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519" >> $HOME/.ssh/config
 fi
 
-# Fonts
 echo "Getting personal fonts"
 git clone git@github.com:AlexChalk/fonts-private.git $HOME/Library/Fonts
 
-echo "Setting up nix"
+echo "Clone Personal Notes"
+git clone git@github.com:AlexChalk/personal-wiki.git $HOME/vimwiki
+git clone https://github.com/haskell/haskell-ide-engine --recurse-submodules
+
+echo "Setting up nix, make sure filevault encryption of main drive is complete"
 sh <(curl -L https://releases.nixos.org/nix/nix-2.3.16/install) --darwin-use-unencrypted-nix-store-volume --no-daemon
 
 nix-channel --add https://nixos.org/channels/nixpkgs-21.11-darwin nixpkgs-stable
@@ -27,32 +54,15 @@ nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 nix-channel --update
 
 diskutil list | grep -i nix
-diskutil apfs encryptvolume {{your-device-name}} -user disk
-# (store password, before entering)
+diskutil apfs encryptvolume {{your-device-name}} -user disk # (store password, before entering)
 diskutil apfs list # reboot if encryption is complete
+
+echo "Vim Plug Setup"
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "Setting up homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-brew install --cask \
-  1password \
-  adguard \
-  discord \
-  docker \
-  firefox \
-  flux \
-  insomnia \
-  keepingyouawake \
-  kitty \
-  maestral \
-  ngrok \
-  obsidian \
-  postgres-unofficial \
-  signal \
-  homebrew/cask-drivers/uhk-agent \
-  zoom
-
-sudo mkdir -p /etc/paths.d && echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
 
 echo "Misc. non-nix"
 brew install \
@@ -73,15 +83,23 @@ brew install \
 brew services start yabai
 brew services start skhd
 
-echo "zinit Setup"
-sh -c "$(curl -fsSL https://git.io/zinit-install)"
+echo "Casks"
+brew install --cask \
+  1password \
+  adguard \
+  discord \
+  docker \
+  firefox \
+  flux \
+  insomnia \
+  keepingyouawake \
+  kitty \
+  maestral \
+  ngrok \
+  obsidian \
+  postgres-unofficial \
+  signal \
+  homebrew/cask-drivers/uhk-agent \
+  zoom
 
-echo "Vim Plug Setup"
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-echo "Clone Personal Notes"
-git clone git@github.com:AlexChalk/personal-wiki.git $HOME/vimwiki
-
-echo "Haskell tooling"
-git clone https://github.com/haskell/haskell-ide-engine --recurse-submodules
+sudo mkdir -p /etc/paths.d && echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
