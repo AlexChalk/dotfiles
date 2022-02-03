@@ -126,8 +126,10 @@ for zsh_source in $HOME/dotfiles/zsh/*.zsh; do
 done
 
 if [[ -n $IN_NIX_SHELL ]]; then
-  PREFIX="/Users/alexander/.nix-profile/bin:/Users/alexander/.zinit/plugins/chisui---zsh-nix-shell/scripts:"
-  export PATH=${ORIGINAL_PATH/#$PREFIX}
+  NIX_PROFILE_PREFIX="${HOME}/.nix-profile/bin:"
+  ZSH_NIX_SHELL_PREFIX="${HOME}/.local/share/zinit/plugins/chisui---zsh-nix-shell/scripts:"
+  export PATH=${ORIGINAL_PATH/#$NIX_PROFILE_PREFIX}
+  export PATH=${PATH/#$ZSH_NIX_SHELL_PREFIX}
 fi
 
 ensure_tmux_is_running
