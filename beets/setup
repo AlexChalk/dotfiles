@@ -2,5 +2,28 @@
 
 set -e
 
+if ! type ffmpeg > /dev/null 2>&1; then
+  echo 'beets config needs ffmpeg to work correctly'
+  exit 1
+fi
+
+if ! type mp3val > /dev/null 2>&1; then
+  echo 'beets config needs mp3val to work correctly'
+  exit 1
+fi
+
+if ! type magick > /dev/null 2>&1; then
+  echo 'beets config needs imagemagick to work correctly'
+  exit 1
+fi
+
+if ! type flac > /dev/null 2>&1; then
+  echo 'beets config needs flac to work correctly'
+  exit 1
+fi
+
 pipx install beets
 pipx inject beets beetcamp requests $HOME/dotfiles/beets/albumsort
+
+# beet import --set genre="{genre}" ./path/to/new/files
+# beet remove -ad [-f] album

@@ -1,8 +1,8 @@
 directory: /Volumes/Entreposage/beets-data/music
 library: /Volumes/Entreposage/beets-data/musiclibrary.db
-plugins: albumsort bandcamp badfiles convert duplicates edit embedart fetchart ftintitle info inline metasync replaygain scrub
+plugins: albumsort bandcamp badfiles convert duplicates edit embedart fetchart ftintitle info inline replaygain scrub
 
-original_date: yes
+original_date: no
 per_disc_numbering: yes
 threaded: yes
 sort_album: albumartist+ year+ album+
@@ -18,7 +18,7 @@ paths:
 import:
   write: yes
   copy: yes
-  from_scratch: yes
+  from_scratch: no
   timid: yes
 
 duplicates:
@@ -28,6 +28,7 @@ badfiles:
   check_on_import: yes
   commands:
     m4a: ffmpeg -v error -f null - -i #noop to suppress error message
+    flac: flac --test --warnings-as-errors --silent
 
 fetchart:
   auto: yes
@@ -36,7 +37,7 @@ fetchart:
   maxwidth: 500
 embedart:
   auto: yes
-  # ifempty: yes
+  ifempty: no
   maxwidth: 500
 
 ftintitle:
@@ -47,11 +48,6 @@ scrub:
 
 replaygain:
   backend: ffmpeg
-
-metasync:
-  source: itunes
-  itunes:
-    library: /Volumes/Entreposage/sd_card_inc_music_feb_22/Musique/iTunes/iTunes Library.xml
 
 bandcamp:
   preferred_media: Vinyl,CD,Cassette
