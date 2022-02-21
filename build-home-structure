@@ -26,9 +26,9 @@ ln -s $HOME/dotfiles/clojure/deps.edn .clojure/deps.edn
 
 mkdir -p .config
 ln -s $HOME/dotfiles/kitty .config/
-ln -s $HOME/dotfiles/beets .config/
 ln -s $HOME/dotfiles/alacritty .config/
 ln -s $HOME/dotfiles/nvim .config/
+ln -s $HOME/dotfiles/beets/config .config/beets
 
 mkdir .ghc
 ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf

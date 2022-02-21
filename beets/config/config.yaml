@@ -1,0 +1,67 @@
+directory: /Volumes/Entreposage/beets-data/music
+library: /Volumes/Entreposage/beets-data/musiclibrary.db
+plugins: albumsort bandcamp badfiles convert duplicates edit embedart fetchart ftintitle info inline metasync replaygain scrub
+
+original_date: yes
+per_disc_numbering: yes
+threaded: yes
+sort_album: albumartist+ year+ album+
+
+item_fields:
+  disc_and_track: u'%02i-%02i' % (disc, track) if
+                    disctotal > 1 else u'%02i' % (track)
+paths:
+  default: $albumartist/$album%aunique{}/$disc_and_track $title
+  singleton: Non-Album/$artist/$title
+  comp: Compilations/$album%aunique{}/$disc_and_track $title
+
+import:
+  write: yes
+  copy: yes
+  from_scratch: yes
+  timid: yes
+
+duplicates:
+  album: yes
+
+badfiles:
+  check_on_import: yes
+  commands:
+    m4a: ffmpeg -v error -f null - -i #noop to suppress error message
+
+fetchart:
+  auto: yes
+  enforce_ratio: yes
+  minwidth: 500
+  maxwidth: 500
+embedart:
+  auto: yes
+  # ifempty: yes
+  maxwidth: 500
+
+ftintitle:
+  auto: yes
+
+scrub:
+  auto: yes
+
+replaygain:
+  backend: ffmpeg
+
+metasync:
+  source: itunes
+  itunes:
+    library: /Volumes/Entreposage/sd_card_inc_music_feb_22/Musique/iTunes/iTunes Library.xml
+
+bandcamp:
+  preferred_media: Vinyl,CD,Cassette
+  include_digital_only_tracks: true
+  search_max: 5
+  art: yes
+  comments_separator: "\n---\n"
+  exclude_extra_fields: []
+  genre:
+    capitalize: yes
+    maximum: 0
+    always_include: []
+    mode: progressive # classical, progressive or psychedelic

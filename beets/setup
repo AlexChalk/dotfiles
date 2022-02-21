@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -e
+
+pipx install beets
+pipx inject beets beetcamp requests $HOME/dotfiles/beets/albumsort
