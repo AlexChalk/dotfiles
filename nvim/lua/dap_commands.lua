@@ -11,6 +11,7 @@ M.attach_python_debugger = function(port)
     host = host,
     port = port,
     name = "Attach Debugger",
+    justMyCode = false,
     cwd = vim.fn.getcwd(),
   }
 
