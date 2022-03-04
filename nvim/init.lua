@@ -18,6 +18,11 @@ local Plug = vim.fn["plug#"]
 vim.call("plug#begin", "$HOME/.local/share/nvim/plugged")
 
 -- General
+Plug("nvim-lua/plenary.nvim")
+Plug("nvim-telescope/telescope.nvim")
+Plug("nvim-telescope/telescope-fzf-native.nvim", { ["do"] = "make" })
+Plug("kevinhwang91/nvim-bqf")
+
 Plug("dyng/ctrlsf.vim")
 
 Plug("chaoren/vim-wordmotion")
