@@ -1,6 +1,33 @@
 -----------------------------------------------------
 -- Clojure
 -----------------------------------------------------
+-- Clojure-parinfer
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>lpp",
+  ':let g:parinfer_mode = "paren"<cr>',
+  { noremap = true }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>lpi",
+  ':let g:parinfer_mode = "indent"<cr>',
+  { noremap = true }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>lps",
+  ':let g:parinfer_mode = "smart"<cr>',
+  { noremap = true }
+)
+
+-- PR for native lua: https://github.com/neovim/neovim/pull/14661
+vim.cmd([[
+augroup clojureparinfer
+  autocmd!
+  autocmd BufReadCmd zipfile:*/* setlocal nomodifiable
+augroup END
+]])
 
 -- Indentation settings
 -- vim.g.clojure_fuzzy_indent = 2
@@ -10,6 +37,7 @@
 -- Rainbow Parens
 -- vim.g["rainbow#blacklist"] = {233, 234} ansi or HEX
 -- PR for native lua: https://github.com/neovim/neovim/pull/14661
+-- from 0.7.0 :help api-autocmd
 vim.cmd([[
 augroup rainbow_lisp
   autocmd!
