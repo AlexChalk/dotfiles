@@ -22,7 +22,7 @@ import:
   timid: yes
 
 duplicates:
-  album: yes
+  album: no
 
 badfiles:
   check_on_import: yes

@@ -23,8 +23,6 @@ class AlbumSortPlugin(BeetsPlugin):
             tag_year = tags['original_year']
 
         if tags.get('comp', 0) == 1:
-            tags["title"] = f"{tags['title']} ({tags['artist']})"
-            tags["artist"] = "Various Artists"
             tags["album_sort"] = f"99 {tag_year} {tags['album']}"
         else:
             tags["album_sort"] = f"{tag_year} {tags['album']}"
