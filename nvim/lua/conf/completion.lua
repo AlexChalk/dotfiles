@@ -14,11 +14,105 @@
 -- - Use ^n and ^p to go back and forth in the suggestion list
 --
 local cmp = require("cmp")
--- local luasnip = require("luasnip")
+local luasnip = require("luasnip")
+local rep = require("luasnip.extras").rep
+local s = luasnip.s
+local t = luasnip.t
+local i = luasnip.i
+
+local javascript_snippets = {
+  s({ dscr = "{}", trig = "{}" }, { t({ "{", "  " }), i(0), t({ "", "}" }) }),
+  s({ dscr = "();", trig = "();" }, { t({ "(", "  " }), i(0), t({ "", ");" }) }),
+  s({ dscr = "{};", trig = "{};" }, { t({ "{", "  " }), i(0), t({ "", "};" }) }),
+  s({ dscr = "{});", trig = "{});" }, { t({ "{", "  " }), i(0), t({ "", "});" }) }),
+  s(
+    { dscr = "{}));", trig = "{}));" },
+    { t({ "{", "  " }), i(0), t({ "", "}));" }) }
+  ),
+  s({ dscr = "{},", trig = "{}," }, { t({ "{", "  " }), i(0), t({ "", "}," }) }),
+  s({ dscr = "('", trig = "('" }, { t({ "('" }), i(0), t({ "');" }) }),
+  s(
+    { dscr = "req", trig = "req" },
+    { t({ 'require("' }), i(0, "module"), t({ '");' }) }
+  ),
+  s({ dscr = "Describe", trig = "des" }, {
+    t({
+      'describe("',
+    }),
+    i(1, "description"),
+    t({ '", () => {', "  " }),
+    i(0),
+    t({ "", "});" }),
+  }),
+  s({ dscr = "it async", trig = "it" }, {
+    t({
+      'it("',
+    }),
+    i(1, "description"),
+    t({ '", async () => {', "  " }),
+    i(0),
+    t({ "", "});" }),
+  }),
+  s({ dscr = "it", trig = "its" }, {
+    t({
+      'it("',
+    }),
+    i(1, "description"),
+    t({ '", () => {', "  " }),
+    i(0),
+    t({ "", "});" }),
+  }),
+  s({ dscr = "before each", trig = "bef" }, {
+    t({ "beforeEach(() => {", "  " }),
+    i(0),
+    t({ "", "});" }),
+  }),
+  s({ dscr = "after each", trig = "af" }, {
+    t({ "afterEach(() => {", "  " }),
+    i(0),
+    t({ "", "});" }),
+  }),
+  s({ dscr = "before each async", trig = "befa" }, {
+    t({ "beforeEach(async () => {", "  " }),
+    i(0),
+    t({ "", "});" }),
+  }),
+  s({ dscr = "after each async", trig = "afa" }, {
+    t({ "afterEach(async () => {", "  " }),
+    i(0),
+    t({ "", "});" }),
+  }),
+  s({ dscr = "sfc", trig = "sfc" }, {
+    t({
+      "import React from 'react';",
+      "import PropTypes from 'prop-types';",
+      "",
+      "const ",
+    }),
+    i(1, "Component"),
+    t({ " = ({ " }),
+    i(2, "props"),
+    t({ " }) => {", "  " }),
+    i(0),
+    t({ "", "  return (", "    ", "  );", "};", "" }),
+    rep(1),
+    t({ ".propTypes = {", "  " }),
+    rep(2),
+    t({ ",", "};", "", "export default " }),
+    rep(1),
+    t({ ";" }),
+  }),
+}
+
+require("luasnip.loaders.from_vscode").load()
+
+luasnip.snippets = {
+  javascript = javascript_snippets,
+  typescript = javascript_snippets,
+}
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
--- require("luasnip.loaders.from_vscode").load({ paths = { "./luasnippets" } })
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0
@@ -34,16 +128,16 @@ cmp.setup({
   -- },
   snippet = {
     expand = function(args)
-      -- luasnip.lsp_expand(args.body) -- For `luasnip` users.
-      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
   },
   mapping = {
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      -- elseif luasnip.expand_or_jumpable() then
-      --   luasnip.expand_or_jump()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
       elseif has_words_before() then
         cmp.complete()
       else
@@ -54,8 +148,8 @@ cmp.setup({
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      -- elseif luasnip.jumpable(-1) then
-      --   luasnip.jump(-1)
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
@@ -68,15 +162,15 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ["<CR>"] = cmp.mapping.confirm { 
+    ["<CR>"] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.insert,
       select = true,
-    }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   },
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
-    -- { name = "luasnip" }, -- For luasnip users.
-    { name = 'ultisnips' }, -- For ultisnips users.
+    { name = "luasnip" }, -- For luasnip users.
+    -- { name = "ultisnips" }, -- For ultisnips users.
   }, {
     { name = "buffer" },
   }),
