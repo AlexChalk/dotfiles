@@ -20,6 +20,11 @@ local s = luasnip.s
 local t = luasnip.t
 local i = luasnip.i
 
+-- Manually trigger completion info
+-- https://github.com/neoclide/coc.nvim/wiki/Using-snippets (old way)
+-- https://github.com/hrsh7th/nvim-cmp/search?q=trigger+completion+is%3Aissue&type=issues
+-- https://github.com/hrsh7th/nvim-cmp/issues/178
+
 local javascript_snippets = {
   s({ dscr = "{}", trig = "{}" }, { t({ "{", "  " }), i(0), t({ "", "}" }) }),
   s({ dscr = "();", trig = "();" }, { t({ "(", "  " }), i(0), t({ "", ");" }) }),
