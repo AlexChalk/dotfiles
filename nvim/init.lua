@@ -24,6 +24,24 @@ vim.opt.compatible = false
 local Plug = vim.fn["plug#"]
 vim.call("plug#begin", "$HOME/.local/share/nvim/plugged")
 
+-- Completion
+Plug("neovim/nvim-lspconfig")
+Plug("hrsh7th/cmp-nvim-lua")
+Plug("hrsh7th/cmp-nvim-lsp")
+Plug("hrsh7th/cmp-buffer")
+Plug("hrsh7th/cmp-path")
+Plug("hrsh7th/cmp-cmdline")
+Plug("hrsh7th/nvim-cmp")
+Plug("petertriho/cmp-git")
+
+-- For luasnip users.
+Plug("L3MON4D3/LuaSnip")
+Plug("saadparwaiz1/cmp_luasnip")
+
+-- For ultisnips users.
+Plug("SirVer/ultisnips")
+Plug("quangnguyen30192/cmp-nvim-ultisnips")
+
 -- General
 Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim")
@@ -37,8 +55,6 @@ Plug("numToStr/Comment.nvim")
 
 Plug("tommcdo/vim-exchange")
 Plug("vim-scripts/ReplaceWithRegister")
-
-Plug("SirVer/ultisnips")
 
 Plug("machakann/vim-highlightedyank")
 

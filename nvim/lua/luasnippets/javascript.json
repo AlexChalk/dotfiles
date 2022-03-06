@@ -1,0 +1,138 @@
+{
+  "{}": {
+    "body": [
+      "{",
+      "  $0",
+      "}"
+    ],
+    "prefix": "{}"
+  },
+  "();": {
+    "body": [
+      "(",
+      "  $0",
+      ");"
+    ],
+    "prefix": "();"
+  },
+  "{};": {
+    "body": [
+      "{",
+      "  $0",
+      "};"
+    ],
+    "prefix": "{};"
+  },
+  "{});": {
+    "body": [
+      "{",
+      "  $0",
+      "});"
+    ],
+    "prefix": "{});"
+  },
+  "{}));": {
+    "body": [
+      "{",
+      "  $0",
+      "}));"
+    ],
+    "prefix": "{}));"
+  },
+  "{},": {
+    "body": [
+      "{",
+      "  $0",
+      "},"
+    ],
+    "prefix": "{},"
+  },
+  "('": {
+    "body": [
+      "('$0');"
+    ],
+    "prefix": "('"
+  },
+  "req": {
+    "body": [
+      "require(\"${0:module}\");"
+    ],
+    "prefix": "req"
+  },
+  "Describe": {
+    "body": [
+      "describe(\"${1:description}\", () => {",
+      "  $0",
+      "});"
+    ],
+    "prefix": "des"
+  },
+  "it async": {
+    "body": [
+      "it(\"${1:description}\", async () => {",
+      "  $0",
+      "});"
+    ],
+    "prefix": "it"
+  },
+  "it": {
+    "body": [
+      "it(\"${1:description}\", () => {",
+      "  $0",
+      "});"
+    ],
+    "prefix": "its"
+  },
+  "before each": {
+    "body": [
+      "beforeEach(() => {",
+      "  $0",
+      "});"
+    ],
+    "prefix": "bef"
+  },
+  "after each": {
+    "body": [
+      "afterEach(() => {",
+      "  $0",
+      "});"
+    ],
+    "prefix": "af"
+  },
+  "before each async": {
+    "body": [
+      "beforeEach(async () => {",
+      "  $0",
+      "});"
+    ],
+    "prefix": "befa"
+  },
+  "after each async": {
+    "body": [
+      "afterEach(async () => {",
+      "  $0",
+      "});"
+    ],
+    "prefix": "afa"
+  },
+  "sfc": {
+    "body": [
+      "import React from 'react';",
+      "import PropTypes from 'prop-types';",
+      "",
+      "const ${1:Component} = ({${2:props}}) => {",
+      "  $0",
+      "  return (",
+      "    ",
+      "  );",
+      "};",
+      "",
+      "$1.propTypes = {",
+      "  $2,",
+      "};",
+      "",
+      "export default $1;"
+    ],
+    "prefix": "sfc"
+  }
+}
