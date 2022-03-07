@@ -7,7 +7,7 @@ class AlbumSortPlugin(BeetsPlugin):
     def __init__(self, *args, **kwargs):
         album_sort_field = mediafile.MediaField(
             mediafile.MP3StorageStyle(u"TSOA"),
-            mediafile.MP4StorageStyle(u"----:com.apple.iTunes:Album Sort"),
+            mediafile.MP4StorageStyle(u"soal"),
             mediafile.StorageStyle(u"Album Sort")
         )
         self.add_media_field("album_sort", album_sort_field)
