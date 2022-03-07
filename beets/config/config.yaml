@@ -21,6 +21,10 @@ import:
   from_scratch: no
   timid: yes
 
+edit:
+  itemfields: track title artist album album_sort albumartist_sort artist_sort year original_year genre format
+  albumfields: album albumartist albumartist_sort genre
+
 duplicates:
   album: no
 
