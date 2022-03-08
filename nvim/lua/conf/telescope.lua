@@ -12,7 +12,7 @@ require("telescope").setup({
     },
     mappings = {
       i = {
-        ["<esc>"] = actions.close,
+        ["<C-e>"] = actions.close,
         ["<C-u>"] = false,
         ["<C-h>"] = "which_key",
       },
@@ -43,7 +43,7 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap(
   "n",
-  "<leader>fg",
+  "<leader>rg",
   "<cmd>Telescope live_grep<cr>",
   { noremap = true }
 )
@@ -59,3 +59,6 @@ vim.api.nvim_set_keymap(
   "<cmd>Telescope help_tags<cr>",
   { noremap = true }
 )
+
+vim.cmd("command! Rg Telescope live_grep")
+SetupCommandAlias("rg", "Rg")
