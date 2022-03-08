@@ -4,7 +4,7 @@ local s = luasnip.s
 local t = luasnip.t
 local i = luasnip.i
 
-local javascript_snippets = {
+local snippets = {
   s({ dscr = "{}", trig = "{}" }, { t({ "{", "  " }), i(0), t({ "", "}" }) }),
   s({ dscr = "();", trig = "();" }, { t({ "(", "  " }), i(0), t({ "", ");" }) }),
   s({ dscr = "{};", trig = "{};" }, { t({ "{", "  " }), i(0), t({ "", "};" }) }),
@@ -87,3 +87,5 @@ local javascript_snippets = {
     t({ ";" }),
   }),
 }
+
+return snippets

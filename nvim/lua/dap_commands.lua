@@ -1,6 +1,6 @@
 local dap = require("dap")
 
-M = {}
+local M = {}
 
 M.attach_python_debugger = function(port)
   local host = "127.0.0.1"
