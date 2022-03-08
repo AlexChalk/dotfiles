@@ -33,7 +33,7 @@ Plug("kevinhwang91/nvim-bqf")
 Plug("dyng/ctrlsf.vim")
 
 Plug("chaoren/vim-wordmotion")
-Plug("tomtom/tcomment_vim")
+Plug("numToStr/Comment.nvim")
 
 Plug("tommcdo/vim-exchange")
 Plug("vim-scripts/ReplaceWithRegister")
