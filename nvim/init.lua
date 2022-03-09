@@ -13,6 +13,7 @@ vim.opt.compatible = false
 -- - vim.pretty_print()
 -- - vim.api.nvim_{buf_}add{/del}_user_command()
 -- - vim.api.nvim_create_autocmd
+-- - vim.api.nvim_create_augroup
 -- - store lua functions in vim variables, e.g. vim.g.test_dict = {test_lambda = function() return 1 end}
 
 ----------------------------------------------------------------
