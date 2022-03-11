@@ -91,6 +91,15 @@ end
 lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = 'openFilesOnly',
+      },
+    },
+  },
   before_init = function(_, config)
     config.settings.python.pythonPath = get_python_path(config.root_dir)
   end
