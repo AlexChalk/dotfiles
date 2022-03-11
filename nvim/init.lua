@@ -103,7 +103,9 @@ Plug("tpope/vim-abolish")
 
 -- Themes
 Plug("chriskempson/base16-vim")
-Plug("itchyny/lightline.vim")
+-- Plug("itchyny/lightline.vim")
+Plug("nvim-lualine/lualine.nvim")
+Plug("arkav/lualine-lsp-progress")
 
 -- Shell interop
 Plug("christoomey/vim-tmux-navigator")
