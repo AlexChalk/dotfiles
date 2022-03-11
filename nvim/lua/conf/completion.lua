@@ -13,6 +13,8 @@
 -- - ^n for anything specified by the 'complete' option
 -- - Use ^n and ^p to go back and forth in the suggestion list
 
+local lspkind = require("lspkind")
+lspkind.init()
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 
@@ -63,6 +65,15 @@ cmp.setup.filetype("gitcommit", {
   }),
 })
 
+for _, sql_file in ipairs({ "sql", "mysql", "plsql" }) do
+  cmp.setup.filetype(sql_file, {
+    sources = cmp.config.sources({
+      { name = "vim-dadbod-completion" },
+      { name = "buffer" },
+    }),
+  })
+end
+
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
   sources = cmp.config.sources({
@@ -84,7 +95,7 @@ cmp.setup({
     ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
     ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
     ["<C-h>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<Tab>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ["<Tab>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default mapping.
     ["<C-e>"] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
@@ -100,6 +111,20 @@ cmp.setup({
     { name = "luasnip" },
     { name = "buffer" },
   }),
+  formatting = {
+    format = lspkind.cmp_format({
+      with_text = true,
+      menu = {
+        buffer = "[buf]",
+        nvim_lsp = "[lsp]",
+        nvim_lua = "[lua]",
+        path = "[path]",
+        luasnip = "[snip]",
+        gh_issues = "[gh]",
+        ["vim-dadbod-completion"] = "[sql]",
+      },
+    }),
+  },
   experimental = {
     native_menu = false,
     ghost_text = true,

@@ -39,14 +39,16 @@ Plug("hrsh7th/cmp-path")
 Plug("hrsh7th/cmp-cmdline")
 Plug("hrsh7th/nvim-cmp")
 Plug("petertriho/cmp-git")
+Plug("kristijanhusak/vim-dadbod-completion")
+Plug("onsails/lspkind-nvim")
 
 -- For luasnip users.
 Plug("L3MON4D3/LuaSnip")
 Plug("saadparwaiz1/cmp_luasnip")
 
 -- For ultisnips users.
-Plug("SirVer/ultisnips")
-Plug("quangnguyen30192/cmp-nvim-ultisnips")
+-- Plug("SirVer/ultisnips")
+-- Plug("quangnguyen30192/cmp-nvim-ultisnips")
 
 -- General
 Plug("nvim-lua/plenary.nvim")
@@ -54,7 +56,7 @@ Plug("nvim-telescope/telescope.nvim")
 Plug("nvim-telescope/telescope-fzf-native.nvim", { ["do"] = "make" })
 Plug("kevinhwang91/nvim-bqf")
 
-Plug("dyng/ctrlsf.vim")
+-- Plug("dyng/ctrlsf.vim")
 
 Plug("chaoren/vim-wordmotion")
 Plug("numToStr/Comment.nvim")
