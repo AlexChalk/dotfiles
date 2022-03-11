@@ -228,7 +228,7 @@ function SourceConfigFilesIn(directory)
   local glob = vim.fn.glob(directory_splat)
   local config_files = vim.fn.split(glob, "\n")
 
-  for i, config_file in ipairs(config_files) do
+  for _, config_file in ipairs(config_files) do
     if vim.fn.filereadable(config_file) then
       vim.api.nvim_command("source " .. config_file)
     end
@@ -236,8 +236,8 @@ function SourceConfigFilesIn(directory)
 end
 SourceConfigFilesIn("rcconfigurations")
 
-function build_import(filename)
-  lua_extension = filename:find("%.lua$")
+local function build_import(filename)
+  local lua_extension = filename:find("%.lua$")
   return "conf/" .. filename:sub(1, lua_extension - 1)
 end
 
