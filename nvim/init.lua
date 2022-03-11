@@ -70,14 +70,14 @@ Plug("ap/vim-css-color")
 Plug("thiagoalessio/rainbow_levels.vim")
 
 -- lsp
-Plug("neoclide/coc.nvim", { ["do"] = "yarn install --frozen-lockfile" })
-Plug("neoclide/coc-tsserver", { ["do"] = "yarn install --frozen-lockfile" })
-Plug("neoclide/coc-eslint", { ["do"] = "yarn install --frozen-lockfile" })
-Plug("neoclide/coc-tslint-plugin", { ["do"] = "yarn install --frozen-lockfile" })
-Plug("neoclide/coc-prettier", { ["do"] = "yarn install --frozen-lockfile" })
-Plug("fannheyward/coc-rust-analyzer", { ["do"] = "yarn install --frozen-lockfile" })
-Plug("fannheyward/coc-texlab", { ["do"] = "yarn install --frozen-lockfile" })
-Plug("fannheyward/coc-pyright", { ["do"] = "yarn install --frozen-lockfile" })
+-- Plug("neoclide/coc.nvim", { ["do"] = "yarn install --frozen-lockfile" })
+-- Plug("neoclide/coc-tsserver", { ["do"] = "yarn install --frozen-lockfile" })
+-- Plug("neoclide/coc-eslint", { ["do"] = "yarn install --frozen-lockfile" })
+-- Plug("neoclide/coc-tslint-plugin", { ["do"] = "yarn install --frozen-lockfile" })
+-- Plug("neoclide/coc-prettier", { ["do"] = "yarn install --frozen-lockfile" })
+-- Plug("fannheyward/coc-rust-analyzer", { ["do"] = "yarn install --frozen-lockfile" })
+-- Plug("fannheyward/coc-texlab", { ["do"] = "yarn install --frozen-lockfile" })
+-- Plug("fannheyward/coc-pyright", { ["do"] = "yarn install --frozen-lockfile" })
 
 -- Toomey other
 Plug("christoomey/vim-sort-motion")

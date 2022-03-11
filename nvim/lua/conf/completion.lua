@@ -12,18 +12,14 @@
 -- - ^x^] for tags only
 -- - ^n for anything specified by the 'complete' option
 -- - Use ^n and ^p to go back and forth in the suggestion list
---
+
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 
-luasnip.config.set_config {
+luasnip.config.set_config({
   history = true,
   updateevents = "TextChanged,TextChangedI",
-}
--- Manually trigger completion info
--- https://github.com/neoclide/coc.nvim/wiki/Using-snippets (old way)
--- https://github.com/hrsh7th/nvim-cmp/search?q=trigger+completion+is%3Aissue&type=issues
--- https://github.com/hrsh7th/nvim-cmp/issues/178
+})
 
 require("luasnip.loaders.from_vscode").load()
 
@@ -32,10 +28,30 @@ luasnip.snippets = {
   typescript = require("snippets.javascript"),
 }
 
-vim.api.nvim_set_keymap("i", "<c-j>", [[<Cmd>lua require("snip_commands").jump_forward()<CR>]], { silent = true })
-vim.api.nvim_set_keymap("i", "<c-k>", [[<Cmd>lua require("snip_commands").jump_back()<CR>]], { silent = true })
-vim.api.nvim_set_keymap("s", "<c-j>", [[<Cmd>lua require("snip_commands").jump_forward()<CR>]], { silent = true })
-vim.api.nvim_set_keymap("s", "<c-k>", [[<Cmd>lua require("snip_commands").jump_back()<CR>]], { silent = true })
+vim.api.nvim_set_keymap(
+  "i",
+  "<c-j>",
+  [[<Cmd>lua require("snip_commands").jump_forward()<CR>]],
+  { silent = true }
+)
+vim.api.nvim_set_keymap(
+  "i",
+  "<c-k>",
+  [[<Cmd>lua require("snip_commands").jump_back()<CR>]],
+  { silent = true }
+)
+vim.api.nvim_set_keymap(
+  "s",
+  "<c-j>",
+  [[<Cmd>lua require("snip_commands").jump_forward()<CR>]],
+  { silent = true }
+)
+vim.api.nvim_set_keymap(
+  "s",
+  "<c-k>",
+  [[<Cmd>lua require("snip_commands").jump_back()<CR>]],
+  { silent = true }
+)
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
@@ -55,65 +71,40 @@ cmp.setup.cmdline(":", {
   }),
 })
 
--- Setup lspconfig.
--- local capabilities = require("cmp_nvim_lsp").update_capabilities(
---   vim.lsp.protocol.make_client_capabilities()
--- )
--- -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require("lspconfig")["<YOUR_LSP_SERVER>"].setup({
---   capabilities = capabilities,
--- })
-
 cmp.setup({
   completion = {
     autocomplete = false, -- disable auto-completion.
   },
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      require("luasnip").lsp_expand(args.body)
     end,
   },
   mapping = {
-      ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-      ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-      ['<C-h>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-      ['<Tab>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-      ['<C-e>'] = cmp.mapping({
-        i = cmp.mapping.abort(),
-        c = cmp.mapping.close(),
-      }),
-      ['<C-l>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    },
-    sources = cmp.config.sources({
-      { name = 'nvim_lua' },
-      -- { name = 'nvim_lsp' },
-      -- { name = 'vsnip' }, -- For vsnip users.
-      { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
-      { name = 'buffer' },
-    })
-  })
-
--- _G.vimrc = _G.vimrc or {}
--- _G.vimrc.cmp = _G.vimrc.cmp or {}
--- _G.vimrc.cmp.omni = function()
---   cmp.complete({
---     config = {
---       sources = cmp.config.sources({
---         { name = "nvim_lua" },
---         -- { name = "nvim_lsp" },
---         -- { name = "luasnip" }, -- For luasnip users.
---         -- { name = "ultisnips" }, -- For ultisnips users.
---         { name = "buffer" },
---       }),
---     },
---   })
--- end
---
--- vim.cmd([[
---   inoremap <C-x><C-o> <Cmd>lua vimrc.cmp.omni()<CR>
--- ]])
+    ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+    ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+    ["<C-h>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    ["<Tab>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ["<C-e>"] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ["<C-l>"] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  },
+  sources = cmp.config.sources({
+    { name = "nvim_lua" },
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
+    { name = "buffer" },
+  }),
+  experimental = {
+    native_menu = false,
+    ghost_text = true,
+  },
+})
 
 require("cmp_git").setup({
   -- defaults
