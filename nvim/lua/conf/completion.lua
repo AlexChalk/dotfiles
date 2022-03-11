@@ -60,7 +60,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 -- Set configuration for specific filetype.
 cmp.setup.filetype("gitcommit", {
   sources = cmp.config.sources({
-    { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
+    { name = "cmp_git" },
     { name = "buffer" },
   }),
 })
@@ -120,7 +120,7 @@ cmp.setup({
         nvim_lua = "[lua]",
         path = "[path]",
         luasnip = "[snip]",
-        gh_issues = "[gh]",
+        cmp_git = "[gh]",
         ["vim-dadbod-completion"] = "[sql]",
       },
     }),
@@ -131,8 +131,9 @@ cmp.setup({
   },
 })
 
+local utils = require("cmp_git.utils")
+
 require("cmp_git").setup({
-  -- defaults
   filetypes = { "gitcommit" },
   remotes = { "upstream", "origin" }, -- in order of most to least prioritized
   git = {
@@ -150,7 +151,7 @@ require("cmp_git").setup({
     issues = {
       filter = "all", -- assigned, created, mentioned, subscribed, all, repos
       limit = 100,
-      state = "open", -- open, closed, all
+      state = "all", -- open, closed, all
       sort_by = function(issue) -- nil, "number", "title", "body", or custom function
         return string.format(
           "%010d",
@@ -182,68 +183,12 @@ require("cmp_git").setup({
       end,
     },
   },
-  gitlab = {
-    issues = {
-      limit = 100,
-      state = "opened", -- opened, closed, all
-      sort_by = function(issue) -- nil, "iid", "title", "description", or custom function
-        return string.format(
-          "%010d",
-          os.difftime(os.time(), utils.parse_gitlab_date(issue.updated_at))
-        )
-      end,
-      filter_fn = function(trigger_char, issue)
-        return string.format("%s %s %s", trigger_char, issue.iid, issue.title)
-      end,
-    },
-    mentions = {
-      limit = 100,
-      sort_by = nil, -- nil, "username", "name", or custom function
-      filter_fn = function(trigger_char, mention)
-        return string.format("%s %s", trigger_char, mention.username)
-      end,
-    },
-    merge_requests = {
-      limit = 100,
-      state = "opened", -- opened, closed, locked, merged
-      sort_by = function(mr) -- nil, "iid", "title", "description", or custom function
-        return string.format(
-          "%010d",
-          os.difftime(os.time(), utils.parse_gitlab_date(mr.updated_at))
-        )
-      end,
-      filter_fn = function(trigger_char, mr)
-        return string.format("%s %s %s", trigger_char, mr.iid, mr.title)
-      end,
-    },
-  },
   trigger_actions = {
     {
       debug_name = "git_commits",
       trigger_character = ":",
       action = function(sources, trigger_char, callback, params, git_info)
         return sources.git:get_commits(callback, params, trigger_char)
-      end,
-    },
-    {
-      debug_name = "gitlab_issues",
-      trigger_character = "#",
-      action = function(sources, trigger_char, callback, params, git_info)
-        return sources.gitlab:get_issues(callback, git_info, trigger_char)
-      end,
-    },
-    {
-      debug_name = "gitlab_mentions",
-      trigger_character = "@",
-      action = function(sources, trigger_char, callback, params, git_info)
-        return sources.gitlab:get_mentions(callback, git_info, trigger_char)
-      end,
-    },
-    {
-      debug_name = "gitlab_mrs",
-      trigger_character = "!",
-      action = function(sources, trigger_char, callback, params, git_info)
-        return sources.gitlab:get_merge_requests(callback, git_info, trigger_char)
       end,
     },
     {
