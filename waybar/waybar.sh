@@ -7,7 +7,7 @@ killall -q .waybar-wrapped
 while pgrep -x waybar >/dev/null; do sleep 1; done
 
 # Initialize pulseaudio if not already done
-amixer &> /dev/null
+amixer &>/dev/null
 
 # Launch main
 waybar
