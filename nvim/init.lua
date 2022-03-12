@@ -36,7 +36,7 @@ end
 local Plug = vim.fn["plug#"]
 vim.call("plug#begin", "$HOME/.local/share/nvim/plugged")
 
--- Completion
+-- LSP and Completion and Snippets
 Plug("neovim/nvim-lspconfig")
 Plug("hrsh7th/cmp-nvim-lua")
 Plug("hrsh7th/cmp-nvim-lsp")
@@ -48,22 +48,14 @@ Plug("petertriho/cmp-git")
 Plug("kristijanhusak/vim-dadbod-completion")
 Plug("onsails/lspkind-nvim")
 Plug("jose-elias-alvarez/null-ls.nvim")
-
--- For luasnip users.
 Plug("L3MON4D3/LuaSnip")
 Plug("saadparwaiz1/cmp_luasnip")
-
--- For ultisnips users.
--- Plug("SirVer/ultisnips")
--- Plug("quangnguyen30192/cmp-nvim-ultisnips")
 
 -- General
 Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim")
 Plug("nvim-telescope/telescope-fzf-native.nvim", { ["do"] = "make" })
 Plug("kevinhwang91/nvim-bqf")
-
--- Plug("dyng/ctrlsf.vim")
 
 Plug("chaoren/vim-wordmotion")
 Plug("numToStr/Comment.nvim")
@@ -83,16 +75,6 @@ Plug("ap/vim-css-color")
 
 Plug("thiagoalessio/rainbow_levels.vim")
 
--- lsp
--- Plug("neoclide/coc.nvim", { ["do"] = "yarn install --frozen-lockfile" })
--- Plug("neoclide/coc-tsserver", { ["do"] = "yarn install --frozen-lockfile" })
--- Plug("neoclide/coc-eslint", { ["do"] = "yarn install --frozen-lockfile" })
--- Plug("neoclide/coc-tslint-plugin", { ["do"] = "yarn install --frozen-lockfile" })
--- Plug("neoclide/coc-prettier", { ["do"] = "yarn install --frozen-lockfile" })
--- Plug("fannheyward/coc-rust-analyzer", { ["do"] = "yarn install --frozen-lockfile" })
--- Plug("fannheyward/coc-texlab", { ["do"] = "yarn install --frozen-lockfile" })
--- Plug("fannheyward/coc-pyright", { ["do"] = "yarn install --frozen-lockfile" })
-
 -- Toomey other
 Plug("christoomey/vim-sort-motion")
 
@@ -110,7 +92,6 @@ Plug("tpope/vim-abolish")
 
 -- Themes
 Plug("chriskempson/base16-vim")
--- Plug("itchyny/lightline.vim")
 Plug("nvim-lualine/lualine.nvim")
 Plug("arkav/lualine-lsp-progress")
 
@@ -169,25 +150,6 @@ Plug("ledger/vim-ledger")
 
 vim.call("plug#end")
 
--- require'lspconfig'.bashls.setup{}
--- require'lspconfig'.clojure_lsp.setup{}
--- require'lspconfig'.dockerls.setup{}
--- require'lspconfig'.elmls.setup{}
--- require'lspconfig'.eslint.setup{}
--- require'lspconfig'.hls.setup{}
--- require'lspconfig'.jsonls.setup{}
--- require'lspconfig'.pyright.setup{}
--- require'lspconfig'.rnix.setup{}
--- require'lspconfig'.rust_analyzer.setup{}
--- require'lspconfig'.sumneko_lua.setup{}
--- require'lspconfig'.terraformls.setup{}
--- require'lspconfig'.texlab.setup{}
--- require'lspconfig'.tsserver.setup{}
--- require'lspconfig'.vimls.setup{}
---
--- vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true})
--- vim.api.nvim_buf_set_keymap(0, 'n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true})
---
 -- let g:fsharp#automatic_workspace_init = 0
 -- https://github.com/fsharp/FsAutoComplete/releases/latest/download/fsautocomplete.netcore.zip
 
