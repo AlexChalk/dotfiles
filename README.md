@@ -1,20 +1,10 @@
 # Dotfiles
 
-The dotfiles for my macOS unix environment.
-
-Vim, git, zsh, and tmux are the main tools I use. I have [zplugin][] to manage zsh plugins and [vim-plug][] to manage vim plugins. [ripgrep][] and [fd][] are my searchers of choice.
-
-[zplugin]: https://github.com/zdharma/zplugin
-[vim-plug]: https://github.com/junegunn/vim-plug
-[ripgrep]: https://github.com/BurntSushi/ripgrep
-[fd]: https://github.com/sharkdp/fd
+The dotfiles for my unix environments. Neovim, git, zsh, and tmux are the main tools I use.
 
 ### Sources of Inspiration
 
-* Upcase: tutorials by Thoughtbot—I learnt a lot from the Git, Tmux, and Vim tracks.
+* TJ DeVries: his 'open open source' streams are really great, they're [here](https://www.youtube.com/c/TJDeVries/videos), dotfiles [here](https://github.com/tjdevries/config_manager).
+* Upcase: tutorials by Thoughtbot—I learnt a lot from the git, tmux, and vim tracks, link [here](https://thoughtbot.com/upcase).
 * Chris Toomey: the most prolific instructor on Upcase—I often grab things from his dotfiles, which are [here](https://github.com/christoomey/dotfiles/).
-* Oh My Zsh: although I no longer use it, I take things from it when I miss one of its features—check out the repo [here](https://github.com/robbyrussell/oh-my-zsh).
-
-### Putting your dotfiles on github.
-
-This excellent article [here](http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/) covers all the reasons I decided to upload my dotfiles to github. It also explains how you can do it too.
+* Oh My Zsh: although I no longer use it, I have taken things from it when I missed one of its features—check out the repo [here](https://github.com/robbyrussell/oh-my-zsh).
