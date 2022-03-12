@@ -33,25 +33,25 @@ luasnip.snippets = {
 vim.api.nvim_set_keymap(
   "i",
   "<c-j>",
-  [[<Cmd>lua require("snip_commands").jump_forward()<CR>]],
+  [[<Cmd>lua require("commands.snip").jump_forward()<CR>]],
   { silent = true }
 )
 vim.api.nvim_set_keymap(
   "i",
   "<c-k>",
-  [[<Cmd>lua require("snip_commands").jump_back()<CR>]],
+  [[<Cmd>lua require("commands.snip").jump_back()<CR>]],
   { silent = true }
 )
 vim.api.nvim_set_keymap(
   "s",
   "<c-j>",
-  [[<Cmd>lua require("snip_commands").jump_forward()<CR>]],
+  [[<Cmd>lua require("commands.snip").jump_forward()<CR>]],
   { silent = true }
 )
 vim.api.nvim_set_keymap(
   "s",
   "<c-k>",
-  [[<Cmd>lua require("snip_commands").jump_back()<CR>]],
+  [[<Cmd>lua require("commands.snip").jump_back()<CR>]],
   { silent = true }
 )
 

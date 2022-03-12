@@ -22,7 +22,7 @@ M.attach_python_debugger = function(port)
   require("dapui").open()
 end
 
--- lua require'dap_commands'.attach_python_debugger(3000)
+-- lua require'commands.dap'.attach_python_debugger(3000)
 -- lua require'dap'.continue()
 -- lua require'dapui'.open()
 -- lua require'dapui'.close()

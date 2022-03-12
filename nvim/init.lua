@@ -41,6 +41,7 @@ Plug("hrsh7th/nvim-cmp")
 Plug("petertriho/cmp-git")
 Plug("kristijanhusak/vim-dadbod-completion")
 Plug("onsails/lspkind-nvim")
+Plug("jose-elias-alvarez/null-ls.nvim")
 
 -- For luasnip users.
 Plug("L3MON4D3/LuaSnip")
