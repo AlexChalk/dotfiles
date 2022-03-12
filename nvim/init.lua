@@ -22,9 +22,15 @@ vim.opt.compatible = false
 -- For versioning: :SavePlugSnapshot
 -- Look at switching to packer once it has snapshots: https://github.com/wbthomason/packer.nvim/pull/370
 ----------------------------------------------------------------
-if vim.fn.empty(vim.fn.glob('$HOME/.local/share/nvim/site/autoload/plug.vim')) > 0 then
-  vim.fn.execute("!curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
-  vim.cmd("autocmd VimEnter  * PlugInstall --sync | source $HOME/dotfiles/nvim/init.lua")
+if
+  vim.fn.empty(vim.fn.glob("$HOME/.local/share/nvim/site/autoload/plug.vim")) > 0
+then
+  vim.fn.execute(
+    "!curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  )
+  vim.cmd(
+    "autocmd VimEnter  * PlugInstall --sync | source $HOME/dotfiles/nvim/init.lua"
+  )
 end
 
 local Plug = vim.fn["plug#"]

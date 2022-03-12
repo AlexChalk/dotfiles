@@ -61,7 +61,7 @@ require("lualine").setup({
         cond = nil,
         max_length = vim.o.columns, -- Maximum width of tabs component.
         mode = 2, -- 0: Shows tab_nr, 1: Shows tab_name, 2: Shows tab_nr + tab_name
-        tabs_color = { 
+        tabs_color = {
           active = { fg = "#e8e8d3", bg = "#666656" },
           inactive = { fg = "#666656", bg = "#30302c" },
         },
