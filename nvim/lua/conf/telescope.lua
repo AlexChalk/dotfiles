@@ -17,9 +17,9 @@ local multiopen = function(prompt_bufnr, open_cmd)
     local next_file = vim.fn.bufname(result.bufnr)
 
     if current_file == "" then
-      vim.api.nvim_command("edit" .. next_file)
+      vim.api.nvim_command("edit" .. " " .. next_file)
     else
-      vim.api.nvim_command(open_cmd .. next_file)
+      vim.api.nvim_command(open_cmd .. " " .. next_file)
     end
   end
 end
