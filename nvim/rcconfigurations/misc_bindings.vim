@@ -30,23 +30,10 @@ augroup quickfix
   autocmd Filetype qf nnoremap <buffer> q :ccl<CR>
 augroup END
 
-" Escape hatch from markdown.lsp-hover files
-augroup lsphover
-  autocmd!
-  autocmd Filetype markdown.lsp-hover nnoremap <buffer> q :q<CR>
-augroup END
-
 " Escape hatch from fugitiveblame files
 augroup fugitiveblame
   autocmd!
   autocmd Filetype fugitiveblame nmap <buffer> q gq
-augroup END
-
-" Escape hatch from ctrlsf as builtin squashes rightmost window sometimes
-augroup ctrlsf
-  autocmd!
-  autocmd Filetype ctrlsf nmap <buffer> q :q<CR>
-  autocmd Filetype ctrlsf nunmap <C-X>
 augroup END
 
 " Open and source vimrc
