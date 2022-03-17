@@ -19,8 +19,6 @@ null_ls.setup({
       extra_args = { "-v", "--config", "pyproject.toml" },
     }),
 
-    null_ls.builtins.formatting.nixpkgs_fmt,
-
     -- null_ls.builtins.formatting.latexindent,
 
     null_ls.builtins.formatting.pg_format,
