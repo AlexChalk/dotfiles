@@ -114,6 +114,13 @@ M.on_attach = function(_, bufnr)
   )
   vim.api.nvim_buf_set_keymap(
     bufnr,
+    "x",
+    "<leader>lca",
+    "<cmd>lua vim.lsp.buf.code_action()<CR>v",
+    opts
+  )
+  vim.api.nvim_buf_set_keymap(
+    bufnr,
     "n",
     "<leader>lsd",
     [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]],
