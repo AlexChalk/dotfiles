@@ -45,14 +45,14 @@ vim.api.nvim_set_keymap(
 -- Change dir to current file's directory
 vim.api.nvim_set_keymap(
   "n",
-  "<Leader>cad",
+  "<Leader>cd",
   ":cd %:p:h<CR>",
   { noremap = false, silent = true }
 )
 
 vim.api.nvim_set_keymap(
   "n",
-  "<Leader>cd",
+  "<Leader>lcd",
   ":lcd %:p:h<CR>",
   { noremap = false, silent = true }
 )
