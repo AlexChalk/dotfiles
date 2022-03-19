@@ -33,6 +33,8 @@ ln -s $HOME/dotfiles/beets/config .config/beets
 mkdir .ghc
 ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
 
+ln -s $HOME/dotfiles/eslintrc.yml .eslintrc.yml
+
 mkdir .vim
 mkdir .vim/tmp
 mkdir .vim/undo
