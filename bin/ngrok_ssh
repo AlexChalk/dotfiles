@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+url=`curl -s http://127.0.0.1:4040/api/tunnels | jq -r '.tunnels[0].public_url'`
+url_no_prefix="${url#tcp://}"
+
+domain="${url_no_prefix%:*}"
+port="${url_no_prefix#*:}"
+
+echo ssh pair-with-me@${domain} -p ${port}
