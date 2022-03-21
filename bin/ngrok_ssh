@@ -1,9 +1,27 @@
 #!/usr/bin/env bash
 
-url=`curl -s http://127.0.0.1:4040/api/tunnels | jq -r '.tunnels[0].public_url'`
-url_no_prefix="${url#tcp://}"
+set -e
 
-domain="${url_no_prefix%:*}"
-port="${url_no_prefix#*:}"
+if ! type jq >/dev/null 2>&1; then
+  echo 'You need to install jq to use this script, e.g. `brew install jq`.'
+  exit 1
+fi
+
+url=`curl -s http://127.0.0.1:4040/api/tunnels | jq -r '.tunnels[0].public_url'`
+
+if [ -z $url ]; then
+  echo "No ngrok url found, check if ngrok is running."
+  exit 1
+fi
+
+if [[ $url != tcp://* ]]; then
+  echo "No ngrok tcp url found, protocol found was '${url%://*}'."
+  exit 1
+fi
+
+url_no_protocol="${url#*://}"
+
+domain="${url_no_protocol%:*}"
+port="${url_no_protocol#*:}"
 
 echo ssh pair-with-me@${domain} -p ${port}
