@@ -153,7 +153,6 @@ vim.call("plug#end")
 -- let g:fsharp#automatic_workspace_init = 0
 -- https://github.com/fsharp/FsAutoComplete/releases/latest/download/fsautocomplete.netcore.zip
 
-vim.g.vimspector_enable_mappings = "HUMAN"
 ----------------------------------------------------------------
 -- Leader
 ----------------------------------------------------------------
@@ -196,19 +195,6 @@ end
 ----------------------------------------------------------------
 -- Source my customizations
 ----------------------------------------------------------------
-function SourceConfigFilesIn(directory)
-  local directory_splat = "$HOME/dotfiles/nvim/" .. directory .. "/*.vim"
-  local glob = vim.fn.glob(directory_splat)
-  local config_files = vim.fn.split(glob, "\n")
-
-  for _, config_file in ipairs(config_files) do
-    if vim.fn.filereadable(config_file) then
-      vim.api.nvim_command("source " .. config_file)
-    end
-  end
-end
-SourceConfigFilesIn("rcconfigurations")
-
 local function build_import(filename)
   local lua_extension = filename:find("%.lua$")
   return "conf/" .. filename:sub(1, lua_extension - 1)
