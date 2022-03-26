@@ -22,6 +22,8 @@ local multiopen = function(prompt_bufnr, open_cmd)
       vim.api.nvim_command(open_cmd .. " " .. next_file)
     end
   end
+
+  vim.api.nvim_command("cd .")
 end
 
 local function multi_selection_open_vsplit(prompt_bufnr)
