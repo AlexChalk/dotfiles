@@ -100,6 +100,7 @@ brew install --cask \
   obsidian \
   postgres-unofficial \
   signal \
+  tomatobar \
   homebrew/cask-drivers/uhk-agent \
   zoom
 
