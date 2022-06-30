@@ -3,7 +3,7 @@
 -----------------------------------------------------
 local opt = vim.opt
 
-vim.cmd("filetype indent plugin on")
+vim.api.nvim_command("filetype plugin indent on")
 
 -- Allow backspacing over everything in insert mode.
 opt.backspace = { "indent", "eol", "start" }

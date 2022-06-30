@@ -1,2 +1,4 @@
--- PR for native lua: https://github.com/neovim/neovim/pull/14661
-vim.cmd("au BufRead,BufNewFile *.tsv setf tsv")
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.tsv" },
+  command = "setf tsv",
+})

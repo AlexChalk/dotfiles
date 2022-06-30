@@ -25,4 +25,4 @@ vim.api.nvim_buf_set_keymap(
   "i<C-r>=v:lua.conventional_commit_type()<CR>",
   { noremap = true }
 )
-vim.cmd("inoreabbrev <buffer> BB BREAKING CHANGE:")
+vim.api.nvim_command("inoreabbrev <buffer> BB BREAKING CHANGE:")

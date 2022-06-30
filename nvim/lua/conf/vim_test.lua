@@ -11,13 +11,8 @@ vim.api.nvim_set_keymap("n", "<leader>rtf", ":TestFile<CR>", { noremap = false }
 vim.api.nvim_set_keymap("n", "<leader>rts", ":TestSuite<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>rtr", ":TestLast<CR>", { noremap = false })
 
--- Convert in 0.7 when lua functions can be passed to vim variables
--- https://github.com/nanotee/nvim-lua-guide#conversion-is-not-always-possible
--- vim.cmd([[
---   function! TypeScriptTransform(cmd) abort
---     return substitute(a:cmd, '\v(.*)mocha', 'TS_NODE_FILES=true ts-mocha', '')
---   endfunction
-
---   let g:test#custom_transformations = {'mocha': function('TypeScriptTransform')}
---   let g:test#transformation = 'mocha'
--- ]])
+-- local function TypeScriptTransform(cmd)
+--   return vim.fn.substitute(cmd, [[\v(.*)mocha]], "TS_NODE_FILES=true ts-mocha", "")
+-- end
+-- vim.g["test#custom_transformations"] = { mocha = TypeScriptTransform }
+-- vim.g["test#transformation"] = "mocha"

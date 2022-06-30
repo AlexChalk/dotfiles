@@ -21,13 +21,15 @@ vim.api.nvim_set_keymap(
   { noremap = true }
 )
 
--- PR for native lua: https://github.com/neovim/neovim/pull/14661
-vim.cmd([[
-augroup clojureparinfer
-  autocmd!
-  autocmd BufReadCmd zipfile:*/* setlocal nomodifiable
-augroup END
-]])
+local clojureparinfer = vim.api.nvim_create_augroup(
+  "clojureparinfer",
+  { clear = true }
+)
+vim.api.nvim_create_autocmd("BufReadCmd", {
+  pattern = { "zipfile:*/*" },
+  command = "setlocal nomodifiable",
+  group = clojureparinfer,
+})
 
 -- Indentation settings
 -- vim.g.clojure_fuzzy_indent = 2
@@ -36,14 +38,12 @@ augroup END
 
 -- Rainbow Parens
 -- vim.g["rainbow#blacklist"] = {233, 234} ansi or HEX
--- PR for native lua: https://github.com/neovim/neovim/pull/14661
--- from 0.7.0 :help api-autocmd
-vim.cmd([[
-augroup rainbow_lisp
-  autocmd!
-  autocmd FileType lisp,elisp,racket,clojure,scheme RainbowParentheses
-augroup END
-]])
+local rainbow_lisp = vim.api.nvim_create_augroup("rainbow_lisp", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "lisp", "elisp", "racket", "clojure", "scheme" },
+  command = "RainbowParentheses",
+  group = rainbow_lisp,
+})
 
 -- Autopairs
 vim.g.sexp_enable_insert_mode_mappings = 0
@@ -110,10 +110,12 @@ vim.g.sexp_mappings = {
 -- \ 'sexp_curly_tail_wrap_element':   '<LocalLeader>e}',
 
 -- Keywords
--- PR for native lua: https://github.com/neovim/neovim/pull/14661
--- vim.cmd([[
--- augroup clojure-keyword
---   autocmd!
---   autocmd FileType clojure set iskeyword-=?,*,!,+,/,=,<,>,.,:,$
--- augroup END
--- ]])
+-- local clojure_keyword = vim.api.nvim_create_augroup(
+--   "clojure_keyword",
+--   { clear = true }
+-- )
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = { "clojure" },
+--   command = "setlocal iskeyword-=?,*,!,+,/,=,<,>,.,:,$",
+--   group = clojure_keyword,
+-- })

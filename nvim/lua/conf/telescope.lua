@@ -110,5 +110,5 @@ vim.api.nvim_set_keymap(
   { noremap = true }
 )
 
-vim.cmd("command! Rg Telescope live_grep")
+vim.api.nvim_create_user_command("Rg", "Telescope live_grep", { nargs = 0 })
 SetupCommandAlias("rg", "Rg")

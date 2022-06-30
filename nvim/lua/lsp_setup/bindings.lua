@@ -140,7 +140,7 @@ M.on_attach = function(_, bufnr)
     "<cmd>lua vim.lsp.buf.formatting()<CR>",
     opts
   )
-  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+  vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, { nargs = 0 })
 end
 
 return M

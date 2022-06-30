@@ -43,10 +43,9 @@ vim.api.nvim_set_keymap("n", [[<c-w>\]], ":wincmd _<cr> ", { noremap = true })
 -- <c-w>o: Close every window in the current tabview but the current one
 
 -- automatically rebalance windows on vim resize
--- PR for native lua: https://github.com/neovim/neovim/pull/14661
-vim.cmd([[
-augroup windows
-  autocmd!
-  autocmd VimResized * :wincmd =
-augroup END
-]])
+local windows = vim.api.nvim_create_augroup("windows", { clear = true })
+vim.api.nvim_create_autocmd("VimResized", {
+  pattern = { "*" },
+  command = "wincmd =",
+  group = windows,
+})

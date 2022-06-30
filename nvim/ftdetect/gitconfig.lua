@@ -1,2 +1,4 @@
--- PR for native lua: https://github.com/neovim/neovim/pull/14661
-vim.cmd("au BufRead,BufNewFile gitconfig set syntax=gitconfig")
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "gitconfig" },
+  command = "set syntax=gitconfig",
+})

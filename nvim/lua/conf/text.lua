@@ -41,13 +41,29 @@ vim.g.vimwiki_key_mappings = {
 
 vim.g.vimwiki_ext2syntax = { [".wiki"] = "default" }
 
--- PR for native lua: https://github.com/neovim/neovim/pull/14661
-vim.cmd([[
-augroup wiki
-  autocmd!
-  autocmd Filetype vimwiki nmap <buffer> <CR> o<ESC>
-  autocmd Filetype vimwiki nmap <buffer> # <Plug>VimwikiAddHeaderLevel
-  autocmd Filetype vimwiki nmap <buffer> <C-]> <Plug>VimwikiFollowLink
-  autocmd Filetype vimwiki nmap <buffer> <C-T> <Plug>VimwikiGoBackLink
-augroup END
-]])
+local wiki = vim.api.nvim_create_augroup("wiki", { clear = true })
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = { "vimwiki" },
+  callback = function()
+    vim.keymap.set({ "n" }, "<CR>", "o<ESC>", { remap = true, buffer = true })
+    vim.keymap.set(
+      { "n" },
+      "#",
+      "<Plug>VimwikiAddHeaderLevel",
+      { remap = true, buffer = true }
+    )
+    vim.keymap.set(
+      { "n" },
+      "<C-]>",
+      "<Plug>VimwikiFollowLink",
+      { remap = true, buffer = true }
+    )
+    vim.keymap.set(
+      { "n" },
+      "<C-T>",
+      "<Plug>VimwikiGoBackLink",
+      { remap = true, buffer = true }
+    )
+  end,
+  group = wiki,
+})

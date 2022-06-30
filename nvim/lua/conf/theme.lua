@@ -6,7 +6,7 @@ if vim.fn.has("termguicolors") == 1 then
 end
 
 vim.opt.syntax = "enable"
-vim.cmd("colorscheme base16-gruvbox-dark-medium")
+vim.api.nvim_command("colorscheme base16-gruvbox-dark-medium")
 
 -- If not using my terminal emulator, i.e. no window manager
 if vim.env.TERM == "tmux" then

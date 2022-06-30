@@ -48,9 +48,6 @@ vim.api.nvim_set_keymap("n", "<leader>crr", '"+<leader>rr', { noremap = false })
 -- issue that needs to be fixed).
 -- https://github.com/neovim/neovim/issues/10223
 if vim.env.WAYLAND_DISPLAY ~= nil then
-  -- Call out to external script as can't use lambdas yet:
-  -- https://github.com/nanotee/nvim-lua-guide#conversion-is-not-always-possible
-  -- https://github.com/neovim/neovim/issues/13436#issuecomment-767431218
   vim.g.clipboard = {
     name = "wayland-strip-carriage",
     copy = {
@@ -58,8 +55,12 @@ if vim.env.WAYLAND_DISPLAY ~= nil then
       ["*"] = "wl-copy --foreground --type text/plain --primary",
     },
     paste = {
-      ["+"] = "nvim-wl-paste",
-      ["*"] = "nvim-wl-paste --primary",
+      ["+"] = function()
+        return vim.fn.systemlist('wl-paste --no-newline | tr -d "\r"')
+      end,
+      ["*"] = function()
+        return vim.fn.systemlist('wl-paste --no-newline --primary | tr -d "\r"')
+      end,
     },
     cache_enabled = true,
   }

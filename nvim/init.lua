@@ -11,7 +11,7 @@ vim.opt.compatible = false
 -- 0.7:
 -- - vim.keymap.set({ "i", "s" }, "<c-k>", function() ... end, { silent = true})
 -- - vim.pretty_print()
--- - vim.api.nvim_{buf_}add{/del}_user_command()
+-- - vim.api.nvim_{buf_}create{/del}_user_command()
 -- - vim.api.nvim_create_autocmd
 -- - vim.api.nvim_create_augroup
 -- - store lua functions in vim variables, e.g. vim.g.test_dict = {test_lambda = function() return 1 end}
@@ -28,9 +28,10 @@ then
   vim.fn.execute(
     "!curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   )
-  vim.cmd(
-    "autocmd VimEnter * PlugInstall --sync | source $HOME/dotfiles/nvim/init.lua"
-  )
+  vim.api.nvim_create_autocmd("VimEnter", {
+    pattern = { "*" },
+    command = "PlugInstall --sync | source $HOME/dotfiles/nvim/init.lua",
+  })
 end
 
 local Plug = vim.fn["plug#"]
@@ -191,6 +192,7 @@ function SetupCommandAlias(input, output)
       .. "')"
   )
 end
+
 -- example use: SetupCommandAlias("pg", "postgres://")
 
 ----------------------------------------------------------------
@@ -215,4 +217,4 @@ function SavePlugSnapshot()
   )
 end
 
-vim.api.nvim_command("command! SavePlugSnapshot :lua SavePlugSnapshot()")
+vim.api.nvim_create_user_command("SavePlugSnapshot", SavePlugSnapshot, { nargs = 0 })
