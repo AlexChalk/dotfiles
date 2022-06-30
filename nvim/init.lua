@@ -8,13 +8,9 @@ vim.opt.compatible = false
 -- vim.cmd
 -- vim.api.nvim_exec
 
--- 0.7:
+-- Remember:
 -- - vim.keymap.set({ "i", "s" }, "<c-k>", function() ... end, { silent = true})
 -- - vim.pretty_print()
--- - vim.api.nvim_{buf_}create{/del}_user_command()
--- - vim.api.nvim_create_autocmd
--- - vim.api.nvim_create_augroup
--- - store lua functions in vim variables, e.g. vim.g.test_dict = {test_lambda = function() return 1 end}
 
 ----------------------------------------------------------------
 -- Vim Plug
