@@ -8,6 +8,9 @@ ORIGINAL_PATH=$PATH
 export PATH="$HOME/dotfiles/bin:$PATH"
 export PATH="$HOME/bin-personal:$PATH"
 
+# Add tfswitch binaries to PATH
+export PATH="$HOME/bin:$PATH"
+
 if [[ "$OSTYPE" == darwin* ]]; then
   # Source homebrew
   # eval $(/opt/homebrew/bin/brew shellenv) # (recommended)
