@@ -38,7 +38,7 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap(
   "i",
-  "<c-k>",
+  "<c-l>",
   [[<Cmd>lua require("commands.snip").jump_back()<CR>]],
   { silent = true }
 )
@@ -94,7 +94,9 @@ cmp.setup({
   mapping = {
     ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
     ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-    ["<C-h>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+    ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+    ["<C-h>"] = cmp.mapping(cmp.mapping.complete({}), { "i", "c" }),
     ["<Tab>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default mapping.
     ["<C-e>"] = cmp.mapping({
       i = cmp.mapping.abort(),
