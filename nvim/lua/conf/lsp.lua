@@ -60,6 +60,10 @@ lspconfig.pyright.setup({
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         diagnosticMode = "openFilesOnly",
+        typeCheckingMode = "basic",
+        diagnosticSeverityOverrides = {
+          reportGeneralTypeIssues = "information",
+        },
       },
     },
   },
