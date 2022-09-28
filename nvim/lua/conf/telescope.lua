@@ -67,6 +67,15 @@ require("telescope").setup({
         },
       },
     },
+    live_grep = {
+      mappings = {
+        i = {
+          ["<C-V>"] = multi_selection_open_vsplit,
+          ["<C-X>"] = multi_selection_open_split,
+          ["<C-T>"] = multi_selection_open_tab,
+        },
+      },
+    },
   },
   extensions = {
     fzf = {
