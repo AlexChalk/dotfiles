@@ -96,6 +96,7 @@ brew install --cask \
   keepingyouawake \
   kitty \
   maestral \
+  mark-text \
   ngrok \
   obsidian \
   postgres-unofficial \
