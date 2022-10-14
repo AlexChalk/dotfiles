@@ -35,12 +35,12 @@ badfiles:
     flac: flac --test --warnings-as-errors --silent
 
 fetchart:
-  auto: yes
+  auto: no
   enforce_ratio: yes
   minwidth: 500
   maxwidth: 500
 embedart:
-  auto: yes
+  auto: no
   ifempty: no
   maxwidth: 500
   remove_art_file: yes
