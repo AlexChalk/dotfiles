@@ -43,7 +43,7 @@ embedart:
   auto: no
   ifempty: no
   maxwidth: 500
-  remove_art_file: yes
+  remove_art_file: no
 
 ftintitle:
   auto: yes
