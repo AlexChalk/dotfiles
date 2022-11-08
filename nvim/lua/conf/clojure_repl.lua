@@ -7,7 +7,10 @@ vim.g["conjure#mapping#prefix"] = "<localleader>l"
 vim.g["conjure#eval#result_register"] = "c"
 vim.g["conjure#eval#result_register"] = 1
 vim.g["conjure#eval#comment_prefix"] = ";; "
-vim.g["conjure#eval#gsubs"] = { ["do-comment"] = { "^%(comment[%s%c]", "(do " } }
+vim.g["conjure#eval#gsubs"] = {
+  ["do-comment"] = { "^%(comment[%s%c]", "(do " },
+  -- ["do-comment-single"] = { "^;;.", "" },
+}
 vim.g["conjure#mapping#log_split"] = "ls"
 vim.g["conjure#mapping#log_vsplit"] = "lv"
 vim.g["conjure#mapping#log_tab"] = "lt"

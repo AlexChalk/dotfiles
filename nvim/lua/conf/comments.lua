@@ -34,3 +34,7 @@ require("Comment").setup({
   pre_hook = nil,
   post_hook = nil,
 })
+
+local ft = require("Comment.ft")
+
+ft.clojure = { ";; %s" }
