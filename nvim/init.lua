@@ -122,7 +122,6 @@ Plug("Vimjas/vim-python-pep8-indent", { ["for"] = "python" })
 
 -- Clojure
 Plug("Olical/conjure", { ["for"] = { "clojure", "clojurescript" } })
-Plug("tpope/vim-classpath", { ["for"] = { "clojure", "clojurescript" } })
 Plug("guns/vim-sexp", { ["for"] = { "clojure", "clojurescript" } })
 Plug(
   "tpope/vim-sexp-mappings-for-regular-people",

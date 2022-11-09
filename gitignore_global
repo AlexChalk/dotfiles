@@ -1,5 +1,5 @@
-# Lsp dir
-.lsp
+# Lsp cache dir
+.lsp/.cache
 
 # .vim dir (created by coc sometimes)
 .vim
