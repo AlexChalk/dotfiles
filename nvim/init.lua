@@ -130,9 +130,12 @@ Plug(
 Plug("clojure-vim/clojure.vim", { ["for"] = { "clojure", "clojurescript" } })
 Plug("markwoodhall/vim-sayid", { ["for"] = { "clojure", "clojurescript" } })
 Plug("junegunn/rainbow_parentheses.vim")
-Plug("eraserhd/parinfer-rust", {
+-- Plug("eraserhd/parinfer-rust", {
+--   ["for"] = { "clojure", "clojurescript" },
+--   ["do"] = 'nix-shell --run "cargo build --release"',
+-- })
+Plug("kovisoft/paredit", {
   ["for"] = { "clojure", "clojurescript" },
-  ["do"] = 'nix-shell --run "cargo build --release"',
 })
 
 -- Treesitter
