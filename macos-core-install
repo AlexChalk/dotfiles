@@ -69,7 +69,7 @@ echo "Misc. non-nix"
 brew install \
   circleci \
   openapi-generator \
-  openjdk
+  openjdk@17
 
 echo "Graalvm (nix broken on mac)"
 brew install \
@@ -88,6 +88,8 @@ echo "Casks"
 brew install --cask \
   1password \
   adguard \
+  carbon-copy-cloner \
+  dash \
   discord \
   docker \
   firefox \
@@ -95,12 +97,15 @@ brew install --cask \
   insomnia \
   keepingyouawake \
   kitty \
+  loom \
   maestral \
   mark-text \
+  mp3tag \
   ngrok \
   obsidian \
   postgres-unofficial \
   signal \
+  temurin17 \
   tomatobar \
   homebrew/cask-drivers/uhk-agent \
   zoom
