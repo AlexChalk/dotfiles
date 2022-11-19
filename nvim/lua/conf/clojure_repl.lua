@@ -2,6 +2,16 @@
 -- Clojure
 -----------------------------------------------------
 
+local no_repl_lsp_analysis = vim.api.nvim_create_augroup(
+  "no_repl_lsp_analysis",
+  { clear = true }
+)
+vim.api.nvim_create_autocmd("BufNewFile", {
+  pattern = { "conjure-log-*" },
+  command = "lua vim.diagnostic.disable(0)",
+  group = no_repl_lsp_analysis,
+})
+
 --Conjure
 vim.g["conjure#mapping#prefix"] = "<localleader>l"
 vim.g["conjure#eval#result_register"] = "c"
