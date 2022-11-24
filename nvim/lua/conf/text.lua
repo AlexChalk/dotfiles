@@ -1,5 +1,5 @@
 -- Redefine conflicting vim wiki binding
-vim.g.vimwiki_map_prefix = "<Leader><Leader>w"
+vim.g.vimwiki_map_prefix = "<Leader><Leader><Leader>w"
 -- vim.g.vimwiki_list = {}
 -- vim.g.riv_global_leader = '<Leader>ee'
 -- vim.g.vimwiki_conceallevel = 1

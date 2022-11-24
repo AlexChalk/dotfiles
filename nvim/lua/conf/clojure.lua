@@ -48,7 +48,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Autopairs
 vim.g.sexp_enable_insert_mode_mappings = 0
 vim.g.sexp_mappings = {
-  sexp_outer_list = "zf",
+  sexp_outer_list = "af",
   sexp_inner_list = "if",
   sexp_outer_top_list = "aF",
   sexp_inner_top_list = "iF",
@@ -62,38 +62,38 @@ vim.g.sexp_mappings = {
   sexp_move_to_next_element_head = "W",  -- W with tpope plugin
   sexp_move_to_prev_element_tail = "gE", -- gE with tpope plugin
   sexp_move_to_next_element_tail = "E",  -- E with tpope plugin
-  sexp_flow_to_prev_close = "<M-[>",
-  sexp_flow_to_next_open = "<M-]>",
-  sexp_flow_to_prev_open = "<M-{>",
-  sexp_flow_to_next_close = "<M-}>",
-  sexp_flow_to_prev_leaf_head = "<M-S-b>",
-  sexp_flow_to_next_leaf_head = "<M-S-w>",
-  sexp_flow_to_prev_leaf_tail = "<M-S-g>",
-  sexp_flow_to_next_leaf_tail = "<M-S-e>",
+  sexp_flow_to_prev_close = "<LocalLeader>[",
+  sexp_flow_to_next_open = "<LocalLeader>]",
+  sexp_flow_to_prev_open = "<LocalLeader>{",
+  sexp_flow_to_next_close = "<LocalLeader>}",
+  sexp_flow_to_prev_leaf_head = "<LocalLeader><LocalLeader>b",
+  sexp_flow_to_next_leaf_head = "<LocalLeader><LocalLeader>w",
+  sexp_flow_to_prev_leaf_tail = "<LocalLeader><LocalLeader>ge",
+  sexp_flow_to_next_leaf_tail = "<LocalLeader><LocalLeader>e",
   sexp_move_to_prev_top_element = "[[",
   sexp_move_to_next_top_element = "]]",
   sexp_select_prev_element = "[e",
   sexp_select_next_element = "]e",
   sexp_indent = "==",
   sexp_indent_top = "=-",
-  sexp_round_head_wrap_list = "<LocalLeader>i",
-  sexp_round_tail_wrap_list = "<LocalLeader>I",
-  sexp_square_head_wrap_list = "<LocalLeader>[",
-  sexp_square_tail_wrap_list = "<LocalLeader>]",
-  sexp_curly_head_wrap_list = "<LocalLeader>{",
-  sexp_curly_tail_wrap_list = "<LocalLeader>}",
-  sexp_round_head_wrap_element = "",
-  sexp_round_tail_wrap_element = "",
-  sexp_square_head_wrap_element = "",
-  sexp_square_tail_wrap_element = "",
-  sexp_curly_head_wrap_element = "",
-  sexp_curly_tail_wrap_element = "",
+  sexp_round_head_wrap_list = "sf(",
+  sexp_round_tail_wrap_list = "sf)",
+  sexp_square_head_wrap_list = "sf[",
+  sexp_square_tail_wrap_list = "sf]",
+  sexp_curly_head_wrap_list = "sf{",
+  sexp_curly_tail_wrap_list = "sf}",
+  sexp_round_head_wrap_element = "se(",
+  sexp_round_tail_wrap_element = "se)",
+  sexp_square_head_wrap_element = "se[",
+  sexp_square_tail_wrap_element = "se]",
+  sexp_curly_head_wrap_element = "se{",
+  sexp_curly_tail_wrap_element = "se}",
   sexp_insert_at_list_head = "<I",
   sexp_insert_at_list_tail = ">I",
   sexp_splice_list = "<LocalLeader>@",
   sexp_convolute = "<LocalLeader>?",
-  sexp_raise_list = "<LocalLeader>o",
-  sexp_raise_element = "<LocalLeader>O",
+  sexp_raise_list = "<LocalLeader><LocalLeader>o",
+  sexp_raise_element = "<LocalLeader><LocalLeader>O",
   sexp_swap_list_backward = "<f",
   sexp_swap_list_forward = ">f",
   sexp_swap_element_backward = "<e",
@@ -103,11 +103,6 @@ vim.g.sexp_mappings = {
   sexp_capture_prev_element = "<(",
   sexp_capture_next_element = ">)",
 }
-
--- \ 'sexp_square_head_wrap_element':  '<LocalLeader>e[',
--- \ 'sexp_square_tail_wrap_element':  '<LocalLeader>e]',
--- \ 'sexp_curly_head_wrap_element':   '<LocalLeader>e{',
--- \ 'sexp_curly_tail_wrap_element':   '<LocalLeader>e}',
 
 -- Keywords
 -- local clojure_keyword = vim.api.nvim_create_augroup(
@@ -130,17 +125,8 @@ function! PareditMapKeysCustom()
     inoremap <buffer> <expr>   <BS>         PareditBackspace(0)
     inoremap <buffer> <expr>   <C-h>        PareditBackspace(0)
     inoremap <buffer> <expr>   <Del>        PareditDel()
-    if &ft =~ s:fts_balancing_all_brackets && g:paredit_smartjump
-        noremap  <buffer> <silent> (            :<C-U>call PareditSmartJumpOpening(0)<CR>
-        noremap  <buffer> <silent> )            :<C-U>call PareditSmartJumpClosing(0)<CR>
-        vnoremap <buffer> <silent> (            <Esc>:<C-U>call PareditSmartJumpOpening(1)<CR>
-        vnoremap <buffer> <silent> )            <Esc>:<C-U>call PareditSmartJumpClosing(1)<CR>
-    else
-        noremap  <buffer> <silent> (            :<C-U>call PareditJumpOpening('(',')',0)<CR>
-        noremap  <buffer> <silent> )            :<C-U>call PareditJumpClosing('(',')',0)<CR>
-        vnoremap <buffer> <silent> (            <Esc>:<C-U>call PareditJumpOpening('(',')',1)<CR>
-        vnoremap <buffer> <silent> )            <Esc>:<C-U>call PareditJumpClosing('(',')',1)<CR>
-    endif
+
+    " Work better than vim-sexp bindings
     noremap  <buffer> <silent> [[           :<C-U>call PareditFindDefunBck()<CR>
     noremap  <buffer> <silent> ]]           :<C-U>call PareditFindDefunFwd()<CR>
 
@@ -284,5 +270,4 @@ endfunction
 
 let g:paredit_map_func = 'PareditMapKeysCustom'
 let g:paredit_unmap_func = 'PareditUnmapKeysCustom'
-" let g:paredit_smartjump = 1
 ]=])
