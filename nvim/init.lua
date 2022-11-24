@@ -3,6 +3,9 @@
 ----------------------------------------------------------------
 vim.opt.compatible = false
 
+-- :nmap ,k gets you current normal mode mapping for any sequence
+-- :verbose map ,k gets you more info
+
 -- Workaround code:
 -- vim.api.nvim_command
 -- vim.cmd
