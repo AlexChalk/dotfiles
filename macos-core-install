@@ -22,6 +22,10 @@
 # - `source $HOME/dotfiles/zsh/aliases.zsh`
 #
 # ## Misc
+# - Adblocker filters:
+#   - @@||local.adguard.com/$third-party,script
+#   - ||accounts.google.com/gsi/iframe/select*$third-party
+#   https://kb.adguard.com/en/general/how-to-create-your-own-ad-filters
 # - Remember to improve this guide as you perform your next upgrade.
 
 cd $HOME
@@ -64,6 +68,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 echo "Setting up homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew tap homebrew/cask-versions
 
 echo "Misc. non-nix"
 brew install \
