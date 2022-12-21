@@ -9,6 +9,7 @@ require("lsp_setup.handlers")
 require("lsp_setup.null_ls")
 
 -- :help vim.lsp.buf
+-- lua vim.lsp.stop_client(vim.lsp.get_active_clients())
 
 -- LSP settings
 local lspconfig = require("lspconfig")

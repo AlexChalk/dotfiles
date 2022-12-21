@@ -1,5 +1,5 @@
 -----------------------------------------------------
 -- Clojure
 -----------------------------------------------------
-vim.opt.tabstop = 1
-vim.opt.shiftwidth = 1
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
