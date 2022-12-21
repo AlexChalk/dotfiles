@@ -1,4 +1,6 @@
 # Default config for sway
+exec dbus-sway-environment
+exec configure-gtk
 
 # Remappings
 input * xkb_options "ctrl:nocaps,altwin:swap_lalt_lwin,compose:ralt"
@@ -289,11 +291,12 @@ set $laptop eDP-1
 # bindswitch --reload --locked lid:on output $laptop disable
 # bindswitch --reload --locked lid:off output $laptop enable
 
-exec_always pkill kanshi; exec kanshi
-exec --no-startup-id pulseaudio --start
+# exec --no-startup-id pulseaudio --start
 
 exec_always $HOME/.config/sway/clamshell.sh
 
 # Status Bar:
 exec_always $HOME/.config/waybar/waybar.sh
 exec systemctl --user import-environment
+
+exec sleep 5; systemctl --user start kanshi.service

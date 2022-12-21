@@ -32,9 +32,12 @@ if [[ "$OSTYPE" == darwin* ]]; then
 
 
   export HOMEBREW_NO_INSTALL_CLEANUP="true"
-  export NIX_CHANNEL="nixos-19.03"
+  export NIX_CHANNEL="nixos-21.11"
   export NIX_REMOTE_SYSTEMS="/etc/nix/machines"
   export MY_MACHINE="macos"
+
+  export LANG="en_CA.UTF-8"
+  export LC_ALL="en_CA.UTF-8"
 fi
 
 if [[ "$OSTYPE" != darwin* && -d "$HOME/.config/yarn/global/node_modules/.bin" ]]; then
@@ -43,13 +46,12 @@ fi
 
 if [[ "$OSTYPE" != darwin* ]]; then
   export XDG_CURRENT_DESKTOP="Unity"
+  export XDG_SESSION_DESKTOP="Unity"
   export MY_MACHINE="nixos"
 fi
 
 export EDITOR="nvim"
 bindkey -e
-export LANG="en_CA.UTF-8"
-export LC_ALL="en_CA.UTF-8"
 
 # fzf for nixos
 if [ -n "${commands[fzf-share]}" ]; then
