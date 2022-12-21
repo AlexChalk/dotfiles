@@ -4,7 +4,7 @@
     "height": 38,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["backlight", "pulseaudio", "network", "idle_inhibitor", "disk", "battery", "clock"],
+    "modules-right": ["tray", "backlight", "pulseaudio", "network", "idle_inhibitor", "disk", "battery", "clock"],
     "sway/mode": {
         "format": " {}"
     },
@@ -75,5 +75,10 @@
             "deactivated": ""
         },
         "tooltip": false
+    },
+    "tray": {
+        "icon-size": 22,
+        "spacing": 20,
+        "show-passive-items": true
     }
 }
