@@ -297,6 +297,5 @@ exec_always $HOME/.config/sway/clamshell.sh
 
 # Status Bar:
 exec_always $HOME/.config/waybar/waybar.sh
-exec systemctl --user import-environment
 
-exec sleep 5; systemctl --user start kanshi.service
+exec "sleep 5; systemctl --user start sway-session.target"
