@@ -1,14 +1,12 @@
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+  vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     signs = {
       severity_limit = "Hint",
     },
     virtual_text = {
       severity_limit = "Warning",
     },
-  }
-)
+  })
 
 local rename = vim.lsp.handlers["textDocument/rename"]
 
@@ -26,12 +24,8 @@ vim.lsp.handlers["textDocument/rename"] = function(err, result, ...)
 
     for _, edit in ipairs(edits) do
       local start_line = edit.range.start.line + 1
-      local line = vim.api.nvim_buf_get_lines(
-        bufnr,
-        start_line - 1,
-        start_line,
-        false
-      )[1]
+      local line =
+        vim.api.nvim_buf_get_lines(bufnr, start_line - 1, start_line, false)[1]
 
       table.insert(entries, {
         bufnr = bufnr,

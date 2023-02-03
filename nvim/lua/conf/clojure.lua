@@ -21,10 +21,8 @@ vim.api.nvim_set_keymap(
   { noremap = true }
 )
 
-local clojureparinfer = vim.api.nvim_create_augroup(
-  "clojureparinfer",
-  { clear = true }
-)
+local clojureparinfer =
+  vim.api.nvim_create_augroup("clojureparinfer", { clear = true })
 vim.api.nvim_create_autocmd("BufReadCmd", {
   pattern = { "zipfile:*/*" },
   command = "setlocal nomodifiable",
@@ -59,10 +57,10 @@ vim.g.sexp_mappings = {
   sexp_inner_element = "ie",
   sexp_move_to_prev_bracket = "(",
   sexp_move_to_next_bracket = ")",
-  sexp_move_to_prev_element_head = "B",  -- B with tpope plugin
-  sexp_move_to_next_element_head = "W",  -- W with tpope plugin
+  sexp_move_to_prev_element_head = "B", -- B with tpope plugin
+  sexp_move_to_next_element_head = "W", -- W with tpope plugin
   sexp_move_to_prev_element_tail = "gE", -- gE with tpope plugin
-  sexp_move_to_next_element_tail = "E",  -- E with tpope plugin
+  sexp_move_to_next_element_tail = "E", -- E with tpope plugin
   sexp_flow_to_prev_close = "<LocalLeader>[",
   sexp_flow_to_next_open = "<LocalLeader>]",
   sexp_flow_to_prev_open = "<LocalLeader>{",
@@ -119,25 +117,25 @@ vim.g.sexp_mappings = {
 vim.g.paredit_smartjump = true
 
 -- Extra paredit mappings:
-    -- <Leader><      Smart leftwards slurp/barf
-    -- <Leader>>      Smart rightwards slurp/barf
+-- <Leader><      Smart leftwards slurp/barf
+-- <Leader>>      Smart rightwards slurp/barf
 
-    -- <Leader>J      Join two subsequent lists or strings.
-    -- <Leader>O      Split ("Open") current list or string at the cursor position. Opposite of Join.
-    -- <Leader>W / <Leader>w(     Wrap the current symbol in a pair of parentheses.
-    -- <Leader>w[     Wrap the current symbol in a pair of square brackets.
-    -- <Leader>w{     Wrap the current symbol in a pair of curly braces.
-    -- <Leader>w"     Wrap the current symbol in a pair of double quotes.
+-- <Leader>J      Join two subsequent lists or strings.
+-- <Leader>O      Split ("Open") current list or string at the cursor position. Opposite of Join.
+-- <Leader>W / <Leader>w(     Wrap the current symbol in a pair of parentheses.
+-- <Leader>w[     Wrap the current symbol in a pair of square brackets.
+-- <Leader>w{     Wrap the current symbol in a pair of curly braces.
+-- <Leader>w"     Wrap the current symbol in a pair of double quotes.
 
-    -- <Leader>S      Splice the current list into the containing list.
-    -- <Leader><Up>   Splice the current list into the containing list by deleting
-    --                everything backward from the cursor position up to the
-    --                opening paren. (Calls `d[(` before splicing)
+-- <Leader>S      Splice the current list into the containing list.
+-- <Leader><Up>   Splice the current list into the containing list by deleting
+--                everything backward from the cursor position up to the
+--                opening paren. (Calls `d[(` before splicing)
 
-    -- <Leader><Down> Splice the current list into the containing list by deleting
-    --                everything forward from the cursor position up to the
-    --                closing paren. (Calls `d])%` before splicing)
+-- <Leader><Down> Splice the current list into the containing list by deleting
+--                everything forward from the cursor position up to the
+--                closing paren. (Calls `d])%` before splicing)
 
-    -- <Leader>I      Raise the current symbol.
+-- <Leader>I      Raise the current symbol.
 
-    -- Leader removed from these keys when g.paredit_shortmaps is nonzero: <, >, J, O, W, S
+-- Leader removed from these keys when g.paredit_shortmaps is nonzero: <, >, J, O, W, S

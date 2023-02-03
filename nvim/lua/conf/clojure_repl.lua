@@ -2,10 +2,8 @@
 -- Clojure
 -----------------------------------------------------
 
-local no_repl_lsp_analysis = vim.api.nvim_create_augroup(
-  "no_repl_lsp_analysis",
-  { clear = true }
-)
+local no_repl_lsp_analysis =
+  vim.api.nvim_create_augroup("no_repl_lsp_analysis", { clear = true })
 
 vim.api.nvim_create_autocmd("BufNewFile", {
   pattern = { "conjure-log-*" },
@@ -57,7 +55,7 @@ vim.g["conjure#log#hud#passive_close_delay"] = 10
 vim.g["conjure#log#wrap"] = 1
 vim.g["conjure#client#clojure#nrepl#test#runner"] = "kaocha"
 vim.g["conjure#client#clojure#nrepl#test#call_suffix"] =
-'{:kaocha/color? false, :config-file "tests.edn"}'
+  '{:kaocha/color? false, :config-file "tests.edn"}'
 vim.g["conjure#client#clojure#nrepl#mapping#view_source"] = "vs"
 vim.g["conjure#client#clojure#nrepl#mapping#run_all_tests"] = "ta"
 vim.g["conjure#client#clojure#nrepl#mapping#run_current_ns_tests"] = "tn"
