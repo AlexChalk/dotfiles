@@ -11,12 +11,13 @@ export PATH="$HOME/bin-personal:$PATH"
 # Add tfswitch binaries to PATH
 export PATH="$HOME/bin:$PATH"
 
+# Add haskell and pipx packages to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
 if [[ "$OSTYPE" == darwin* ]]; then
   # Source homebrew
   # eval $(/opt/homebrew/bin/brew shellenv) # (recommended)
   export PATH="/opt/homebrew/bin:$PATH" # (faster)
-  # Add haskell packages to PATH
-  export PATH="$HOME/.local/bin:$PATH"
   # Add gnu-sed as 'sed' to PATH
   export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
   # Add rust to PATH
