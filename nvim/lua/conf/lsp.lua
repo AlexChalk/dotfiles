@@ -81,7 +81,7 @@ lspconfig.yamlls.setup({
   filetypes = { "yml", "yaml", "yaml.docker-compose" },
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
