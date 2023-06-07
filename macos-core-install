@@ -22,10 +22,11 @@
 # - `source $HOME/dotfiles/zsh/aliases.zsh`
 #
 # ## Misc
-# - Adblocker filters:
+# - Adblocker (ublock) filters:
 #   - @@||local.adguard.com/$third-party,script
 #   - ||accounts.google.com/gsi/iframe/select*$third-party
 #   https://kb.adguard.com/en/general/how-to-create-your-own-ad-filters
+# - Access token for hub: https://github.com/github/hub/issues/2655#issuecomment-735836048
 # - Remember to improve this guide as you perform your next upgrade.
 
 cd $HOME
