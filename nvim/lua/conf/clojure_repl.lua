@@ -19,6 +19,10 @@ vim.keymap.set(
 )
 
 --Conjure
+vim.g["conjure#client#clojure#nrepl#eval#print_options#level"] = false
+vim.g["conjure#client#clojure#nrepl#eval#print_options#length"] = 500
+
+vim.g["conjure#mapping#prefix"] = "<localleader>l"
 vim.g["conjure#mapping#prefix"] = "<localleader>l"
 vim.g["conjure#eval#result_register"] = "c"
 vim.g["conjure#eval#result_register"] = 1
