@@ -13,9 +13,9 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 
 vim.keymap.set(
   { "n" },
-  "<localleader>lar",
-  "ConjureEval (user/restart)",
-  { remap = true, buffer = true }
+  "<leader>lar",
+  ":ConjureEval (user/restart)<CR>",
+  { remap = true }
 )
 
 --Conjure
