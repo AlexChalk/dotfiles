@@ -21,6 +21,9 @@ capabilities = vim.tbl_deep_extend(
   capabilities,
   require("cmp_nvim_lsp").default_capabilities()
 )
+-- clojure-lsp expects a different key
+capabilities.workspace.workspaceEdit.documentChanges =
+  capabilities.workspace.workspaceEdit.resourceOperations
 
 local on_attach = require("lsp_setup.bindings").on_attach
 
