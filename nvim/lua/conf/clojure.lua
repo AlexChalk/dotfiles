@@ -116,7 +116,6 @@ vim.g.sexp_mappings = {
 
 vim.g.paredit_smartjump = true
 
-
 -- Extra sexp-for-regular-people mappings:
 -- dsf:                splice (delete surroundings of form)
 -- cse( / cse) / cseb: surround element in parentheses

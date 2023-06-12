@@ -137,7 +137,7 @@ M.on_attach = function(_, bufnr)
     bufnr,
     "n",
     "<leader>fl",
-    "<cmd>lua vim.lsp.buf.format()<CR>",
+    [[<cmd>lua vim.lsp.buf.format({ async = true, filter = function(client) return client.name ~= "lua_ls" end })<CR>]],
     opts
   )
   vim.api.nvim_create_user_command("Format", vim.lsp.buf.format, { nargs = 0 })
