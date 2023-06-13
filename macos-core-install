@@ -54,10 +54,11 @@ git clone https://github.com/haskell/haskell-ide-engine --recurse-submodules
 echo "Setting up nix, make sure filevault encryption of main drive is complete"
 sh <(curl -L https://releases.nixos.org/nix/nix-2.3.16/install) --darwin-use-unencrypted-nix-store-volume --no-daemon
 
-nix-channel --add https://nixos.org/channels/nixpkgs-21.11-darwin nixpkgs-stable
+nix-channel --add https://nixos.org/channels/nixpkgs-23.05-darwin nixpkgs-stable
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs   
 nix-channel --update
+nix-env --install --attr nixpkgs.nix nixpkgs.cacert
 
 diskutil list | grep -i nix
 diskutil apfs encryptvolume {{your-device-name}} -user disk # (store password, before entering)
