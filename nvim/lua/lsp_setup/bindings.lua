@@ -1,6 +1,7 @@
 local M = {}
 
 -- Diagnostic keymaps
+-- n.b. call function twice to jump into floating window, C-Wp to jump out
 vim.api.nvim_set_keymap(
   "n",
   "<leader>do",
@@ -42,6 +43,7 @@ M.on_attach = function(_, bufnr)
     "<cmd>lua vim.lsp.buf.definition()<CR>",
     opts
   )
+  -- n.b. call function twice to jump into floating window, C-Wp to jump out
   vim.api.nvim_buf_set_keymap(
     bufnr,
     "n",
