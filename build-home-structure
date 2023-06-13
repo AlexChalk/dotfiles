@@ -3,8 +3,14 @@
 cd $HOME
 mkdir bin-personal
 
+echo source \$HOME/dotfiles/zsh/aliases.zsh >> .zshenv
+
 if [[ "$OSTYPE" != darwin* ]]; then
   mkdir Screenshots
+fi
+
+if [[ "$OSTYPE" != darwin* ]]; then
+  echo setopt no_global_rcs >> .zshenv # Don't want nixos zsh customizations
 fi
 
 ln -s $HOME/dotfiles/zshrc .zshrc
