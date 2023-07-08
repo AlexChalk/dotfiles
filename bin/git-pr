@@ -80,8 +80,8 @@ def main
   # branch = remote_tracking_branch
   if opening?
     system 'git log --reverse master..HEAD --format="%H%n%s%n%b" > .git/pr-commits'
-    system 'gh compare'
-    system 'gh pull-request'
+    system 'hub compare'
+    system 'hub pull-request'
   else
     # open_pull_request_for_repo_branch(repo, branch)
     open_or_build_pull_request
