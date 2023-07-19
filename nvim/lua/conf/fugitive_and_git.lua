@@ -91,26 +91,15 @@ vim.api.nvim_set_keymap(
 -- ]c — jump to next change hunk
 
 -- Two-way diffing
-vim.api.nvim_set_keymap(
-  "x",
+vim.keymap.set(
+  { "n", "x" },
   "<leader>gsph",
   ":diffput | diffupdate<cr>",
   { noremap = true }
 )
-vim.api.nvim_set_keymap(
-  "x",
-  "<leader>gsh",
-  ":diffget | diffupdate<cr>",
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gsph",
-  ":diffput | diffupdate<cr>",
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
+
+vim.keymap.set(
+  { "n", "x" },
   "<leader>gsh",
   ":diffget | diffupdate<cr>",
   { noremap = true }
@@ -120,13 +109,12 @@ vim.api.nvim_set_keymap(
 
 -- No visual-line mappings for diffget, because fugitive isn't smart
 -- enough to correctly diffget partial hunks in a merge conflict.
-vim.api.nvim_set_keymap(
-  "x",
+vim.keymap.set(
+  { "n", "x" },
   "<leader>gsch",
   ":diffput 1 | diffupdate<cr>",
   { noremap = true }
 )
-
 vim.api.nvim_set_keymap(
   "n",
   "<leader>gsfh",
@@ -137,12 +125,6 @@ vim.api.nvim_set_keymap(
   "n",
   "<leader>gsmh",
   ":diffget //2 | diffupdate<cr>",
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gsch",
-  ":diffput 1 | diffupdate<cr>",
   { noremap = true }
 )
 
