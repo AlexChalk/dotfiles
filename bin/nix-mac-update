@@ -1,5 +1,5 @@
 #!/bin/bash
 
+nix-collect-garbage --delete-older-than 30d 
 nix-channel --update
 nix-env -iA nixpkgs.adcPackages
-nix-collect-garbage --delete-older-than 30d 

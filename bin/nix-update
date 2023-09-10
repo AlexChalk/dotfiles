@@ -2,8 +2,8 @@
 
 set -e
 
+sudo nix-collect-garbage --delete-older-than 14d 
 sudo nix-channel --update
 nix-channel --update
 sudo nixos-rebuild switch
 nix-env -iA nixos.adcPackages
-sudo nix-collect-garbage --delete-older-than 14d 
