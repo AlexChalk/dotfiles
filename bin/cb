@@ -1,0 +1,35 @@
+#!/bin/bash
+
+set -e
+
+cb() {
+  local space='[[:blank:]]+'
+  local bssid='[[:alnum:]]{2}:[[:alnum:]]{2}:[[:alnum:]]{2}:[[:alnum:]]{2}:[[:alnum:]]{2}:[[:alnum:]]{2}'
+  local bssid_list
+  local ret
+
+  readarray bssid_list <<<"$(nmcli --fields SSID,BSSID device wifi | grep --extended-regexp "$1""$space""$bssid" | awk '{ print $2 }')"
+
+  # for bssid in "${bssid_list[@]}"; do
+  # echo -n "${bssid_list[@]}" | while read -r bssid; do
+  while read -r bssid; do
+    echo "Trying $bssid"
+
+    nmcli connection modify --temporary "$1" 802-11-wireless.bssid "$bssid"
+    nmcli connection up "$1" >/dev/null 2>&1
+
+    sleep 10
+
+    ret=0
+    ping -c 1 duckduckgo.com >/dev/null 2>&1 || ret=$?
+
+    if [ $ret -eq 0 ]; then
+      echo "Success, connected to $1 using $bssid"
+      return 0
+    fi
+  done < <(echo -n "${bssid_list[@]}")
+  echo "Failed to connect to $1"
+  exit 1
+}
+
+cb "$@"
