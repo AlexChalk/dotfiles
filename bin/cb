@@ -6,7 +6,8 @@ cb() {
   local space='[[:blank:]]+'
   local bssid='[[:alnum:]]{2}:[[:alnum:]]{2}:[[:alnum:]]{2}:[[:alnum:]]{2}:[[:alnum:]]{2}:[[:alnum:]]{2}'
   local bssid_list
-  local ret
+  local retcon=0
+  local retping=0
 
   readarray bssid_list <<<"$(nmcli --fields SSID,BSSID device wifi | grep --extended-regexp "$1""$space""$bssid" | awk '{ print $NF }')"
 
@@ -16,15 +17,19 @@ cb() {
     echo "Trying $bssid…"
 
     nmcli connection modify --temporary "$1" 802-11-wireless.bssid "$bssid"
-    nmcli connection up "$1" >/dev/null 2>&1
+    timeout 10 nmcli connection up "$1" >/dev/null 2>&1 || retcon=$?
+    if [ $retcon -ne 0 ]; then
+      echo "Initial connection to $1 using $bssid unsuccessful…"
+      continue
+    fi
 
     echo "Waiting to test…"
     sleep 10
 
-    ret=0
-    ping -c 1 duckduckgo.com >/dev/null 2>&1 || ret=$?
+    # timeout 10 ping -c 1 -W 1 duckduckgo.com
+    curl --head --silent --expect100-timeout 1 --connect-timeout 1 duckduckgo.com >/dev/null 2>&1 || retping=$?
 
-    if [ $ret -eq 0 ]; then
+    if [ $retping -eq 0 ]; then
       echo "Success, connected to $1 using $bssid"
       return 0
     fi
