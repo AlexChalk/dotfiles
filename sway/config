@@ -39,6 +39,10 @@ for_window [app_id="firefox" title="Firefox — Sharing Indicator"] {
   kill
 }
 
+for_window [app_id="firefox" title="Bitwarden — Mozilla Firefox"] {
+  floating enable
+}
+
 # Use kanshi to configure monitors/resolution
 
 ### Idle configuration

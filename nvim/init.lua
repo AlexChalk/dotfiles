@@ -151,6 +151,7 @@ Plug("vim-pandoc/vim-pandoc")
 Plug("vim-pandoc/vim-pandoc-syntax")
 Plug("godlygeek/tabular")
 Plug("ledger/vim-ledger")
+-- Plug("dhruvasagar/vim-table-mode")
 
 vim.call("plug#end")
 
