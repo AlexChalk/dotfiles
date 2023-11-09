@@ -42,7 +42,6 @@ local servers = {
   "rnix",
   "rust_analyzer",
   "solargraph",
-  "terraformls",
   "texlab",
   "tsserver",
 }
@@ -80,6 +79,14 @@ lspconfig.pyright.setup({
     config.settings.python.pythonPath =
       require("commands.python").get_python_bin_path()
   end,
+})
+
+-- terraform-ls doesn't expect documentChanges
+local terraform_capabilities = vim.deepcopy(capabilities)
+terraform_capabilities.workspace.workspaceEdit.documentChanges = nil
+lspconfig.terraformls.setup({
+  on_attach = on_attach,
+  capabilities = terraform_capabilities,
 })
 
 lspconfig.yamlls.setup({
