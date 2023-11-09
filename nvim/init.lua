@@ -147,8 +147,6 @@ Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 Plug("nvim-treesitter/nvim-treesitter-textobjects")
 -- Wiki
 Plug("vimwiki/vimwiki")
-Plug("vim-pandoc/vim-pandoc")
-Plug("vim-pandoc/vim-pandoc-syntax")
 Plug("godlygeek/tabular")
 Plug("ledger/vim-ledger")
 -- Plug("dhruvasagar/vim-table-mode")
