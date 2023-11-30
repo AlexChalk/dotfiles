@@ -12,6 +12,7 @@ vim.api.nvim_command("colorscheme base16-gruvbox-dark-medium")
 if vim.env.TERM == "tmux" then
   vim.api.nvim_command("highlight clear")
   vim.api.nvim_command("highlight ColorColumn guibg=grey")
+  vim.api.nvim_command("highlight TelescopeSelection guibg=blue")
   vim.api.nvim_command("highlight NormalFloat guibg=black")
   vim.api.nvim_command("highlight NormalFloat guifg=yellow")
 end
