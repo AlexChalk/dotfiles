@@ -4,7 +4,11 @@ exec configure-gtk
 
 # Remappings
 input * xkb_options "ctrl:nocaps,altwin:swap_lalt_lwin,compose:ralt"
-input keyboard xkb_file "$HOME/dotfiles/server-0.xkb"
+
+# If you ever need to generate and setting XKB Layout for some reason:
+# https://wiki.archlinux.org/title/X_keyboard_extension
+# input keyboard xkb_file "$HOME/dotfiles/server-0.xkb"
+# xkbcomp $DISPLAY output.xkb
 
 ### Variables
 
