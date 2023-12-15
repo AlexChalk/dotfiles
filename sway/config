@@ -77,6 +77,11 @@ input type:touchpad {
   natural_scroll enabled
 }
 
+# Touch, identifier (t480): 10900:17997:G2Touch_Multi-Touch_by_G2TSP
+input type:touch {
+  events disabled
+}
+
 # Trackpad, Identifier: 2:10:TPPS/2_IBM_TrackPoint
 input type:pointer {
   pointer_accel 0.52
