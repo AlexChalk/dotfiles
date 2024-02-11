@@ -3,7 +3,7 @@ require("papis").setup({
   -- Papis.nvim can get them automatically from papis, but this is very slow. It is
   -- recommended to copy the relevant settings from your papis configuration file.
   papis_python = {
-    dir = vim.fn.expand("$HOME/papis-library/papers"),
+    dir = vim.fn.expand("$HOME/Dropbox/papis/papers"),
     info_name = "info.yaml", -- (when setting papis options `-` is replaced with `_` in the keys' names)
     notes_name = [[notes.norg]],
   },
