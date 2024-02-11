@@ -42,7 +42,6 @@ local servers = {
   "rnix",
   "rust_analyzer",
   "solargraph",
-  "texlab",
   "tsserver",
 }
 for _, lsp in ipairs(servers) do
@@ -92,6 +91,24 @@ lspconfig.jdtls.setup({
   on_attach = on_attach,
   capabilities = nil_workspace_edit_changes_capabilities,
 })
+
+lspconfig.texlab.setup({
+  on_attach = on_attach,
+  capabilities = nil_workspace_edit_changes_capabilities,
+  settings = {
+    texlab = {
+      build = {
+        executable = "tectonic",
+        args = { "-X", "compile", "%f", "--synctex", "--keep-intermediates" },
+        forwardSearchAfter = true,
+        onSave = true,
+      },
+      forwardSearch = {
+        executable = "zathura",
+        args = { "--synctex-forward", "%l:1:%f", "%p" },
+      },
+    },
+  },
 })
 
 lspconfig.yamlls.setup({
