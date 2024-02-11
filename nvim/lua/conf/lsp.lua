@@ -82,11 +82,16 @@ lspconfig.pyright.setup({
 })
 
 -- terraform-ls doesn't expect documentChanges
-local terraform_capabilities = vim.deepcopy(capabilities)
-terraform_capabilities.workspace.workspaceEdit.documentChanges = nil
+local nil_workspace_edit_changes_capabilities = vim.deepcopy(capabilities)
+nil_workspace_edit_changes_capabilities.workspace.workspaceEdit.documentChanges = nil
 lspconfig.terraformls.setup({
   on_attach = on_attach,
-  capabilities = terraform_capabilities,
+  capabilities = nil_workspace_edit_changes_capabilities,
+})
+lspconfig.jdtls.setup({
+  on_attach = on_attach,
+  capabilities = nil_workspace_edit_changes_capabilities,
+})
 })
 
 lspconfig.yamlls.setup({
