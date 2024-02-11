@@ -22,7 +22,8 @@ capabilities = vim.tbl_deep_extend(
   require("cmp_nvim_lsp").default_capabilities()
 )
 -- clojure-lsp expects a different key
-capabilities.workspace.workspaceEdit.documentChanges =
+local clojure_capabilities = vim.deepcopy(capabilities)
+clojure_capabilities.workspace.workspaceEdit.documentChanges =
   capabilities.workspace.workspaceEdit.resourceOperations
 
 local on_attach = require("lsp_setup.bindings").on_attach
@@ -38,10 +39,12 @@ local servers = {
   "eslint",
   "gopls",
   "hls",
+  "jdtls",
   "jsonls",
   "rnix",
   "rust_analyzer",
   "solargraph",
+  "terraformls",
   "tsserver",
 }
 for _, lsp in ipairs(servers) do
@@ -80,21 +83,9 @@ lspconfig.pyright.setup({
   end,
 })
 
--- terraform-ls doesn't expect documentChanges
-local nil_workspace_edit_changes_capabilities = vim.deepcopy(capabilities)
-nil_workspace_edit_changes_capabilities.workspace.workspaceEdit.documentChanges = nil
-lspconfig.terraformls.setup({
-  on_attach = on_attach,
-  capabilities = nil_workspace_edit_changes_capabilities,
-})
-lspconfig.jdtls.setup({
-  on_attach = on_attach,
-  capabilities = nil_workspace_edit_changes_capabilities,
-})
-
 lspconfig.texlab.setup({
   on_attach = on_attach,
-  capabilities = nil_workspace_edit_changes_capabilities,
+  capabilities = capabilities,
   settings = {
     texlab = {
       build = {
