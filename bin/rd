@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rd() {
+  ls -t "$HOME"/Downloads | head -n "$1" | while read -r f; do mv ~/Downloads/"$f" .; done
+}
+
+rd "$@"
