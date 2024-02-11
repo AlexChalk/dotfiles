@@ -1,0 +1,9 @@
+[settings]
+default-library = papers
+opentool = nvim
+
+[papers]
+dir = ~/papis-library/papers
+
+[books]
+dir = ~/papis-library/books

@@ -151,6 +151,11 @@ Plug("godlygeek/tabular")
 Plug("ledger/vim-ledger")
 -- Plug("dhruvasagar/vim-table-mode")
 
+-- Papis
+Plug("kkharji/sqlite.lua")
+Plug("MunifTanjim/nui.nvim")
+Plug("jghauser/papis.nvim")
+
 vim.call("plug#end")
 
 -- let g:fsharp#automatic_workspace_init = 0

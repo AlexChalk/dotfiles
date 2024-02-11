@@ -65,6 +65,13 @@ cmp.setup.filetype("gitcommit", {
   }),
 })
 
+cmp.setup.filetype("yaml", {
+  sources = cmp.config.sources({
+    { name = "papis" },
+    { name = "buffer" },
+  }),
+})
+
 for _, sql_file in ipairs({ "sql", "mysql", "plsql" }) do
   cmp.setup.filetype(sql_file, {
     sources = cmp.config.sources({
