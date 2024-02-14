@@ -37,6 +37,7 @@ ln -s $HOME/dotfiles/nvim .config/
 ln -s $HOME/dotfiles/beets/config .config/beets
 ln -s $HOME/dotfiles/clojure-lsp .config/
 ln -s $HOME/dotfiles/papis .config/
+ln -s $HOME/dotfiles/zathura .config/
 
 mkdir .ghc
 ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
