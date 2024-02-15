@@ -1,6 +1,6 @@
 [settings]
 default-library = papers
-opentool = nvim
+opentool = firefox
 
 [papers]
 dir = ~/Dropbox/papis/papers

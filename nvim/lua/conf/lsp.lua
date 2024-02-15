@@ -89,14 +89,19 @@ lspconfig.texlab.setup({
   settings = {
     texlab = {
       build = {
-        executable = "tectonic",
-        args = { "-X", "compile", "%f", "--synctex", "--keep-intermediates" },
-        forwardSearchAfter = true,
+        executable = "latexmk",
+        args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+        forwardSearchAfter = false,
         onSave = true,
       },
       forwardSearch = {
         executable = "zathura",
         args = { "--synctex-forward", "%l:1:%f", "%p" },
+      },
+      diagnostics = {
+        ignoredPatterns = {
+          "Undefined reference",
+        },
       },
     },
   },
