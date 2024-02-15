@@ -38,6 +38,7 @@ ln -s $HOME/dotfiles/beets/config .config/beets
 ln -s $HOME/dotfiles/clojure-lsp .config/
 ln -s $HOME/dotfiles/papis .config/
 ln -s $HOME/dotfiles/zathura .config/
+ln -s $HOME/dotfiles/gh .config/
 
 mkdir .ghc
 ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
