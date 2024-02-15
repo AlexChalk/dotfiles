@@ -138,6 +138,7 @@ Plug("junegunn/rainbow_parentheses.vim")
 --   ["do"] = 'nix-shell --run "cargo build --release"',
 -- })
 -- Plug("bhurlow/vim-parinfer")
+Plug("AlexChalk/vim-parinfer-noop")
 Plug("kovisoft/paredit", {
   ["for"] = { "clojure", "clojurescript" },
 })

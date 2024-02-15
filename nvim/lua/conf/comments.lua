@@ -32,7 +32,13 @@ require("Comment").setup({
   },
 
   pre_hook = nil,
-  post_hook = nil,
+  post_hook = function()
+    local filetypes = { clojure = true, clojurescript = true }
+    local current_filetype = vim.bo.filetype
+    if filetypes[current_filetype] then
+      vim.call("parinfer#process_form")
+    end
+  end,
 })
 
 local ft = require("Comment.ft")
