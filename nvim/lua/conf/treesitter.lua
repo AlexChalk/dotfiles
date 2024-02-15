@@ -7,6 +7,7 @@ require("nvim-treesitter.configs").setup({
     "markdown",
     "markdown_inline",
     "python",
+    "query",
     "terraform",
     "vim",
     "vimdoc",
