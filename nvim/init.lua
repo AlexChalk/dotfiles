@@ -152,6 +152,7 @@ Plug("vimwiki/vimwiki")
 Plug("godlygeek/tabular")
 Plug("ledger/vim-ledger")
 -- Plug("dhruvasagar/vim-table-mode")
+Plug("mechatroner/rainbow_csv")
 
 -- Papis
 Plug("kkharji/sqlite.lua")
