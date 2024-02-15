@@ -176,6 +176,9 @@ vim.api.nvim_set_keymap("n", "<space>", ",", { noremap = true })
 -- abolish calls it 'mixed', i prefer 'pascal'
 vim.api.nvim_set_keymap("n", "crp", "crm", { noremap = false })
 
+-- disable autoread
+vim.opt.autoread = false
+
 ----------------------------------------------------------------
 -- Start-of-line only cabbrevs
 ----------------------------------------------------------------
