@@ -3,6 +3,7 @@ require("nvim-treesitter.configs").setup({
     "c",
     "clojure",
     "hcl",
+    "latex",
     "lua",
     "markdown",
     "markdown_inline",

@@ -21,14 +21,14 @@ local luasnip = require("luasnip")
 luasnip.config.set_config({
   history = true,
   updateevents = "TextChanged,TextChangedI",
+  -- enable_autosnippets = true,
 })
 
 require("luasnip.loaders.from_vscode").load()
 
-luasnip.snippets = {
-  javascript = require("snippets.javascript"),
-  typescript = require("snippets.javascript"),
-}
+luasnip.add_snippets("javascript", require("snippets.javascript"))
+luasnip.add_snippets("typescript", require("snippets.javascript"))
+luasnip.add_snippets("tex", require("snippets.tex"))
 
 vim.api.nvim_set_keymap(
   "i",
