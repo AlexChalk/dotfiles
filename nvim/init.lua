@@ -146,7 +146,7 @@ Plug("kovisoft/paredit", {
 -- Plug("julienvincent/nvim-paredit")
 
 -- Treesitter
-Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
+Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate", ["tag"] = "v0.9.2", })
 Plug("nvim-treesitter/nvim-treesitter-textobjects")
 -- Wiki
 Plug("vimwiki/vimwiki")
