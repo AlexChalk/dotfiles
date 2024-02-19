@@ -5,6 +5,19 @@ if vim.fn.has("termguicolors") == 1 then
   vim.opt.termguicolors = true
 end
 
+require("base16-colorscheme").with_config({
+  telescope = true,
+  telescope_borders = true,
+  indentblankline = true,
+  notify = true,
+  ts_rainbow = true,
+  cmp = true,
+  illuminate = true,
+  lsp_semantic = false,
+  mini_completion = true,
+  dapui = true,
+})
+
 vim.opt.syntax = "enable"
 vim.api.nvim_command("colorscheme base16-gruvbox-dark-medium")
 
@@ -16,6 +29,16 @@ if vim.env.TERM == "tmux" then
   vim.api.nvim_command("highlight NormalFloat guibg=black")
   vim.api.nvim_command("highlight NormalFloat guifg=yellow")
 end
+
+-- Remove (almost) all italics
+vim.api.nvim_command("highlight TSComment gui=none")
+vim.api.nvim_command("highlight TSConstBuiltin gui=none")
+vim.api.nvim_command("highlight TSFuncBuiltin gui=none")
+vim.api.nvim_command("highlight TSTypeBuiltin gui=none")
+vim.api.nvim_command("highlight TSVariableBuiltin gui=none")
+vim.api.nvim_command("highlight LspInlayHint gui=none")
+vim.api.nvim_command("highlight @text.italic gui=italic")
+vim.api.nvim_command("highlight TSEmphasis gui=italic")
 
 vim.opt.laststatus = 2
 vim.opt.ttimeoutlen = 10

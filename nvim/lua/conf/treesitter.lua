@@ -14,6 +14,10 @@ require("nvim-treesitter.configs").setup({
     "vimdoc",
     "yaml",
   }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  sync_install = true,
+  auto_install = false,
+  ignore_install = {},
+  modules = {},
   highlight = {
     enable = true, -- false will disable the whole extension
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
@@ -21,11 +25,6 @@ require("nvim-treesitter.configs").setup({
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = { "clojure" },
-    custom_captures = {
-      -- let rainbow parens continue to do its thing
-      ["punctuation.bracket"] = "",
-      -- ["constructor"]         = "",
-    },
   },
   incremental_selection = {
     enable = true,

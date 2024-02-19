@@ -36,12 +36,17 @@ vim.api.nvim_create_autocmd("BufReadCmd", {
 
 -- Rainbow Parens
 -- vim.g["rainbow#blacklist"] = {233, 234} ansi or HEX
-local rainbow_lisp = vim.api.nvim_create_augroup("rainbow_lisp", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lisp", "elisp", "racket", "clojure", "scheme" },
-  command = "RainbowParentheses",
-  group = rainbow_lisp,
-})
+local rainbow_delimiters = require("rainbow-delimiters")
+vim.g.rainbow_delimiters = {
+  strategy = {
+    [""] = rainbow_delimiters.strategy["noop"],
+    lisp = rainbow_delimiters.strategy["global"],
+    elisp = rainbow_delimiters.strategy["global"],
+    racket = rainbow_delimiters.strategy["global"],
+    clojure = rainbow_delimiters.strategy["global"],
+    scheme = rainbow_delimiters.strategy["global"],
+  },
+}
 
 -- Autopairs
 vim.g.sexp_enable_insert_mode_mappings = 0

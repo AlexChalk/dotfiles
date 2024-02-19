@@ -92,7 +92,7 @@ Plug("tpope/vim-abolish")
 Plug("tpope/vim-rails")
 
 -- Themes
-Plug("chriskempson/base16-vim")
+Plug("RRethy/base16-nvim")
 Plug("nvim-lualine/lualine.nvim")
 Plug("arkav/lualine-lsp-progress")
 
@@ -132,7 +132,7 @@ Plug(
 )
 Plug("clojure-vim/clojure.vim", { ["for"] = { "clojure", "clojurescript" } })
 Plug("markwoodhall/vim-sayid", { ["for"] = { "clojure", "clojurescript" } })
-Plug("junegunn/rainbow_parentheses.vim")
+Plug("HiPhish/rainbow-delimiters.nvim")
 -- Plug("eraserhd/parinfer-rust", {
 --   ["for"] = { "clojure", "clojurescript" },
 --   ["do"] = 'nix-shell --run "cargo build --release"',
@@ -146,7 +146,7 @@ Plug("kovisoft/paredit", {
 -- Plug("julienvincent/nvim-paredit")
 
 -- Treesitter
-Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate", ["tag"] = "v0.9.2", })
+Plug("nvim-treesitter/nvim-treesitter")
 Plug("nvim-treesitter/nvim-treesitter-textobjects")
 -- Wiki
 Plug("vimwiki/vimwiki")
