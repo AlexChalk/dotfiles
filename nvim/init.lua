@@ -13,7 +13,7 @@ vim.opt.compatible = false
 
 -- Remember:
 -- - vim.keymap.set({ "i", "s" }, "<c-k>", function() ... end, { silent = true})
--- - vim.pretty_print()
+-- - vim.print()
 
 ----------------------------------------------------------------
 -- Vim Plug

@@ -21,7 +21,7 @@ require("base16-colorscheme").with_config({
 vim.opt.syntax = "enable"
 vim.api.nvim_command("colorscheme base16-gruvbox-dark-medium")
 
--- If not using my terminal emulator, i.e. no window manager
+-- Make legible if not using my terminal emulator, i.e. no window manager
 if vim.env.TERM == "tmux" then
   vim.api.nvim_command("highlight clear")
   vim.api.nvim_command("highlight ColorColumn guibg=grey")
