@@ -99,9 +99,7 @@ lspconfig.texlab.setup({
         args = { "--synctex-forward", "%l:1:%f", "%p" },
       },
       diagnostics = {
-        ignoredPatterns = {
-          "Undefined reference",
-        },
+        ignoredPatterns = {},
       },
     },
   },
