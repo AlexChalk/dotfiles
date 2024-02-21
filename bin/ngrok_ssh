@@ -19,6 +19,7 @@ if [[ $url != tcp://* ]]; then
   exit 1
 fi
 
+# https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
 url_no_protocol="${url#*://}"
 
 domain="${url_no_protocol%:*}"
