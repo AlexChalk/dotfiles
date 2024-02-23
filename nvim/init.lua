@@ -50,6 +50,8 @@ Plug("onsails/lspkind-nvim")
 Plug("jose-elias-alvarez/null-ls.nvim")
 Plug("L3MON4D3/LuaSnip")
 Plug("saadparwaiz1/cmp_luasnip")
+Plug("jalvesaq/zotcite")
+Plug("jalvesaq/cmp-zotcite")
 
 -- General
 Plug("nvim-lua/plenary.nvim")
