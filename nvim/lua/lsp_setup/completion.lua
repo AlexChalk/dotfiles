@@ -24,12 +24,6 @@ luasnip.config.set_config({
   -- enable_autosnippets = true,
 })
 
-vim.g.zotcite_filetypes = { "markdown", "pandoc", "rmd", "vimwiki", "tex" }
-vim.g.zotcite_conceallevel = 0
-require("cmp_zotcite").setup({
-  filetypes = { "pandoc", "markdown", "rmd", "quarto", "tex" },
-})
-
 require("luasnip.loaders.from_vscode").load()
 
 luasnip.add_snippets("javascript", require("snippets.javascript"))
@@ -122,7 +116,6 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = "nvim_lua" },
-    { name = "cmp_zotcite" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
