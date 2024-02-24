@@ -30,30 +30,13 @@ luasnip.add_snippets("javascript", require("snippets.javascript"))
 luasnip.add_snippets("typescript", require("snippets.javascript"))
 luasnip.add_snippets("tex", require("snippets.tex"))
 
-vim.api.nvim_set_keymap(
-  "i",
-  "<c-j>",
-  [[<Cmd>lua require("commands.snip").jump_forward()<CR>]],
-  { silent = true }
-)
-vim.api.nvim_set_keymap(
-  "i",
-  "<c-l>",
-  [[<Cmd>lua require("commands.snip").jump_back()<CR>]],
-  { silent = true }
-)
-vim.api.nvim_set_keymap(
-  "s",
-  "<c-j>",
-  [[<Cmd>lua require("commands.snip").jump_forward()<CR>]],
-  { silent = true }
-)
-vim.api.nvim_set_keymap(
-  "s",
-  "<c-k>",
-  [[<Cmd>lua require("commands.snip").jump_back()<CR>]],
-  { silent = true }
-)
+vim.keymap.set({ "i", "s" }, "<c-j>", function()
+  return require("commands.snip").jump_forward()
+end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<c-k>", function()
+  return require("commands.snip").jump_back()
+end, { silent = true })
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
@@ -121,6 +104,8 @@ cmp.setup({
     { name = "buffer" },
   }),
   formatting = {
+    fields = { "abbr", "kind", "menu" },
+    expandable_indicator = true,
     format = lspkind.cmp_format({
       mode = "text",
       menu = {
