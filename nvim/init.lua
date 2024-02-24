@@ -55,6 +55,7 @@ Plug("saadparwaiz1/cmp_luasnip")
 Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim")
 Plug("nvim-telescope/telescope-fzf-native.nvim", { ["do"] = "make" })
+Plug("nvim-telescope/telescope-bibtex.nvim")
 Plug("kevinhwang91/nvim-bqf")
 
 Plug("chaoren/vim-wordmotion")
