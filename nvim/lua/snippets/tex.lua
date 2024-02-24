@@ -18,12 +18,20 @@ local snippets = {
   ),
   s({ dscr = "citation", trig = [[\cite]] }, {
     t({
+      [[\cite{]],
+    }),
+    i(1, ""),
+    t({ "}" }),
+    i(0),
+  }),
+  s({ dscr = "citation_pinpoint", trig = [[\citep]] }, {
+    t({
       [[\cite[]],
     }),
     i(2, "pinpoint"),
-    t({ [[]{]] }),
+    t({ "]{" }),
     i(1, ""),
-    t({ [[} ]] }),
+    t({ "}" }),
     i(0),
   }),
 }

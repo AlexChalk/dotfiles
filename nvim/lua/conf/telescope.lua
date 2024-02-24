@@ -116,13 +116,6 @@ require("telescope").setup({
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("bibtex")
 
-vim.keymap.set(
-  { "i", "n", "s", "x" },
-  "<leader>pz",
-  "<cmd>Telescope bibtex format=plain<cr>",
-  {}
-)
-
 vim.api.nvim_set_keymap(
   "n",
   "<c-p>",
