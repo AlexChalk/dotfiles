@@ -17,9 +17,23 @@ local snippets = {
     { dscr = "block_quote", trig = [["""]] },
     { t({ [[\blockquote{]] }), i(1), t({ "}" }), i(0) }
   ),
-  -- n.b. These last two won't play nicely with luasnip.jump
-  -- I think this is also callback abuse.
   s({ dscr = "citation_pinpoint", trig = [[\citep]] }, {
+    t([[\cite[]]),
+    i(2, "pinpoint"),
+    t({ "]{" }),
+    i(1, ""),
+    t({ "}" }),
+    i(0),
+  }),
+  s({ dscr = "citation", trig = [[\cite]] }, {
+    t([[\cite{]]),
+    i(1, ""),
+    t("}"),
+    i(0),
+  }),
+  -- n.b. These last ones won't play nicely with luasnip.jump. I think this is also
+  -- callback abuse.
+  s({ dscr = "zotero_citation_pinpoint", trig = [[\zotp]] }, {
     t([[\cite[]]),
     i(2, "pinpoint"),
     t({ "]{" }),
@@ -35,11 +49,11 @@ local snippets = {
       },
     },
   }),
-  s({ dscr = "citation", trig = [[\cite]] }, {
+  s({ dscr = "zotero_citation", trig = [[\zot]] }, {
     t([[\cite{]]),
     i(1),
     t("}"),
-    i(2),
+    i(0),
   }, {
     callbacks = {
       [1] = {

@@ -31,7 +31,7 @@ require("papis").setup({
   -- and the second a lua pattern (where magic characters need to be escaped with
   -- `%`; https://www.lua.org/pil/20.2.html).
   cite_formats = {
-    tex = { "\\cite{%s}", "\\cite[tp]?%*?{%s}" },
+    tex = "%s",
     markdown = "@%s",
     rmd = "@%s",
     plain = "%s",
