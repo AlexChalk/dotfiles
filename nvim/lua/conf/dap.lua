@@ -22,7 +22,25 @@ dap.configurations.python = {
 }
 
 require("dapui").setup({
-  icons = { expanded = "▾", collapsed = "▸" },
+  icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
+  element_mappings = {}, --[[ Per-element overrides of global mappings ]]
+  expand_lines = true,
+  force_buffers = true,
+  controls = {
+    enabled = true,
+    element = "repl",
+    icons = {
+      pause = "⏸",
+      play = "⯈",
+      step_into = "↴",
+      step_over = "↷",
+      step_out = "↑",
+      step_back = "↶",
+      run_last = "🗘",
+      terminate = "🕱",
+      disconnect = "⏻",
+    },
+  },
   mappings = {
     -- Use a table to apply multiple mappings
     expand = { "<CR>", "<2-LeftMouse>" },
@@ -60,6 +78,10 @@ require("dapui").setup({
     mappings = {
       close = { "q", "<Esc>" },
     },
+  },
+  render = {
+    indent = 1,
+    max_value_lines = 100,
   },
   windows = { indent = 1 },
 })
