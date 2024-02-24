@@ -2,6 +2,7 @@ local luasnip = require("luasnip")
 local s = luasnip.s
 local t = luasnip.t
 local i = luasnip.i
+local events = require("luasnip.util.events")
 
 local snippets = {
   s(
@@ -16,23 +17,37 @@ local snippets = {
     { dscr = "block_quote", trig = [["""]] },
     { t({ [[\blockquote{]] }), i(1), t({ "}" }), i(0) }
   ),
-  s({ dscr = "citation", trig = [[\cite]] }, {
-    t({
-      [[\cite{]],
-    }),
-    i(1, ""),
-    t({ "}" }),
-    i(0),
-  }),
+  -- n.b. These last two won't play nicely with luasnip.jump
+  -- I think this is also callback abuse.
   s({ dscr = "citation_pinpoint", trig = [[\citep]] }, {
-    t({
-      [[\cite[]],
-    }),
+    t([[\cite[]]),
     i(2, "pinpoint"),
     t({ "]{" }),
     i(1, ""),
     t({ "}" }),
     i(0),
+  }, {
+    callbacks = {
+      [1] = {
+        [events.enter] = function(_)
+          return vim.cmd([[Telescope bibtex format=plain]])
+        end,
+      },
+    },
+  }),
+  s({ dscr = "citation", trig = [[\cite]] }, {
+    t([[\cite{]]),
+    i(1),
+    t("}"),
+    i(2),
+  }, {
+    callbacks = {
+      [1] = {
+        [events.enter] = function(_)
+          return vim.cmd([[Telescope bibtex format=plain]])
+        end,
+      },
+    },
   }),
 }
 
