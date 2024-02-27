@@ -14,6 +14,7 @@ vim.opt.compatible = false
 -- Remember:
 -- - vim.keymap.set({ "i", "s" }, "<c-k>", function() ... end, { silent = true})
 -- - vim.print()
+-- - https://neovim.io/doc/user/lua.html#vim.filetype.add()
 
 ----------------------------------------------------------------
 -- Vim Plug
