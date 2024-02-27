@@ -10,6 +10,7 @@ opt.shiftwidth = 2 -- indent of 2 columns
 opt.shiftround = true -- always indent to the nearest tabstop
 opt.expandtab = true -- use spaces instead of tabs
 opt.wrap = true -- wrap text
+opt.linebreak = true -- don't break mid-word
 
 -- Replace carriage return characters with real linebreaks
 -- %s/\\n/\r/g

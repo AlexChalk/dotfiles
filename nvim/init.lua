@@ -161,6 +161,8 @@ Plug("kkharji/sqlite.lua")
 Plug("MunifTanjim/nui.nvim")
 Plug("jghauser/papis.nvim")
 
+Plug("junegunn/goyo.vim")
+
 vim.call("plug#end")
 
 -- let g:fsharp#automatic_workspace_init = 0

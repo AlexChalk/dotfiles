@@ -19,26 +19,33 @@ require("base16-colorscheme").with_config({
 })
 
 vim.opt.syntax = "enable"
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "base16-gruvbox*",
+  group = vim.api.nvim_create_augroup("base16-gruvbox", { clear = true }),
+  callback = function()
+    -- Make legible if not using my terminal emulator, i.e. no window manager
+    if vim.env.TERM == "tmux" then
+      vim.api.nvim_command("highlight clear")
+      vim.api.nvim_command("highlight ColorColumn guibg=grey")
+      vim.api.nvim_command("highlight TelescopeSelection guibg=blue")
+      vim.api.nvim_command("highlight NormalFloat guibg=black")
+      vim.api.nvim_command("highlight NormalFloat guifg=yellow")
+    end
+
+    -- Remove (almost) all italics
+    vim.api.nvim_command("highlight TSComment gui=none")
+    vim.api.nvim_command("highlight TSConstBuiltin gui=none")
+    vim.api.nvim_command("highlight TSFuncBuiltin gui=none")
+    vim.api.nvim_command("highlight TSTypeBuiltin gui=none")
+    vim.api.nvim_command("highlight TSVariableBuiltin gui=none")
+    vim.api.nvim_command("highlight LspInlayHint gui=none")
+    vim.api.nvim_command("highlight @text.italic gui=italic")
+    vim.api.nvim_command("highlight TSEmphasis gui=italic")
+  end,
+})
+
 vim.api.nvim_command("colorscheme base16-gruvbox-dark-medium")
-
--- Make legible if not using my terminal emulator, i.e. no window manager
-if vim.env.TERM == "tmux" then
-  vim.api.nvim_command("highlight clear")
-  vim.api.nvim_command("highlight ColorColumn guibg=grey")
-  vim.api.nvim_command("highlight TelescopeSelection guibg=blue")
-  vim.api.nvim_command("highlight NormalFloat guibg=black")
-  vim.api.nvim_command("highlight NormalFloat guifg=yellow")
-end
-
--- Remove (almost) all italics
-vim.api.nvim_command("highlight TSComment gui=none")
-vim.api.nvim_command("highlight TSConstBuiltin gui=none")
-vim.api.nvim_command("highlight TSFuncBuiltin gui=none")
-vim.api.nvim_command("highlight TSTypeBuiltin gui=none")
-vim.api.nvim_command("highlight TSVariableBuiltin gui=none")
-vim.api.nvim_command("highlight LspInlayHint gui=none")
-vim.api.nvim_command("highlight @text.italic gui=italic")
-vim.api.nvim_command("highlight TSEmphasis gui=italic")
 
 vim.opt.laststatus = 2
 vim.opt.ttimeoutlen = 10
