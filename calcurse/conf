@@ -1,0 +1,7 @@
+format.notifydate=%a %F
+format.notifytime=%T
+format.outputdate=%D
+daemon.enable=yes
+notification.command=calcurse --next | xargs -0 notify-send --expire-time=20000 --hint=int:transient:1 "Calendar"
+notification.notifyall=all
+notification.warning=300

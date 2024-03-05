@@ -1,0 +1,14 @@
+[General]
+Binary = calcurse
+Hostname = caldav.fastmail.com
+Path = /dav/calendars/user/alexchalk@fastmail.com/1ff49658-7391-4559-aa86-63713180dbd1
+AuthMethod = basic
+InsecureSSL = No
+HTTPS = Yes
+SyncFilter = event,apt,recur-event,recur-apt,todo,recur,cal
+DryRun = No
+Verbose = No
+
+[Auth]
+Username = alexchalk@fastmail.com
+PasswordCommand = secret-tool lookup service caldav.fastmail.com

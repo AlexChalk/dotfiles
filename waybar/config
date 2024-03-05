@@ -18,6 +18,7 @@
     },
     "clock": {
         "format": "{:%a %d %b %H:%M}",
+        "on-click-right": "kitty --class=calcurse -e bash -c \"calcurse --appointment --format-apt=' - %S -> %E\n   %m\n' --format-recur-apt=' - %S -> %E\n   %m\n' | less +gg\"",
         "tooltip": false
     },
     "battery": {

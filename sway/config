@@ -47,6 +47,10 @@ for_window [app_id="firefox" title="Bitwarden — Mozilla Firefox"] {
   floating enable
 }
 
+for_window [app_id="calcurse"] {
+  floating enable, resize set width 400, resize set height 400, move position 1500 50 
+}
+
 # Use kanshi to configure monitors/resolution
 
 ### Idle configuration
@@ -101,6 +105,9 @@ input 7504:24866:Ultimate_Gadget_Laboratories_UHK_60_v1 {
 
 # Start a terminal
 bindsym $mod+Return exec $term
+
+# Check calendar
+bindsym $mod+c exec $term --class=calcurse -e bash -c "calcurse --appointment --format-apt=' - %S -> %E\n   %m\n' --format-recur-apt=' - %S -> %E\n   %m\n' | less +gg"
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -310,5 +317,8 @@ exec_always $HOME/.config/sway/clamshell.sh
 
 # Status Bar:
 exec_always $HOME/.config/waybar/waybar.sh
+
+# Calendar daemon:
+exec --no-startup-id calcurse --daemon
 
 exec "sleep 5; systemctl --user start sway-session.target"
