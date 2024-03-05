@@ -48,7 +48,7 @@ for_window [app_id="firefox" title="Bitwarden — Mozilla Firefox"] {
 }
 
 for_window [app_id="calcurse"] {
-  floating enable, resize set width 400, resize set height 400, move position 1500 50 
+  floating enable, resize set width 400, resize set height 400, move position 78 ppt 3 ppt
 }
 
 # Use kanshi to configure monitors/resolution
