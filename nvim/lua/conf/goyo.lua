@@ -20,3 +20,6 @@ end
 
 vim.api.nvim_create_autocmd("User", { pattern = "GoyoEnter", callback = goyo_enter })
 vim.api.nvim_create_autocmd("User", { pattern = "GoyoLeave", callback = goyo_leave })
+
+-- https://github.com/junegunn/goyo.vim/issues/79#issuecomment-134466320
+-- <c-w>= to fix margin size issues
