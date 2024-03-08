@@ -15,13 +15,14 @@ M.attach_python_debugger = function(port)
     cwd = vim.fn.getcwd(),
   }
 
-  local session = dap.attach(pythonAttachAdapter, pythonAttachConfig)
+  local session = dap.attach(pythonAttachAdapter, pythonAttachConfig, {})
   if session == nil then
     io.write("Error launching adapter")
   end
   require("dapui").open()
 end
 
+-- n.b. can use continue() to launch debugger from within file
 -- lua require'commands.dap'.attach_python_debugger(3000)
 -- lua require'dap'.continue()
 -- lua require'dapui'.open()
