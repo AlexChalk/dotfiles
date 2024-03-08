@@ -10,10 +10,9 @@ null_ls.setup({
     --   prefer_local = "node_modules/.bin",
     -- }),
 
-    null_ls.builtins.diagnostics.flake8,
+    require("none-ls.diagnostics.flake8"),
 
-    -- might need to pipx install this one
-    null_ls.builtins.formatting.reorder_python_imports,
+    null_ls.builtins.formatting.isort,
 
     null_ls.builtins.formatting.black.with({
       extra_args = { "-v", "--config", "pyproject.toml" },
