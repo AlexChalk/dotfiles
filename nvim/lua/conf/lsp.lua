@@ -32,7 +32,6 @@ local on_attach = require("lsp_setup.bindings").on_attach
 local servers = {
   "bashls",
   "clangd",
-  "clojure_lsp",
   "cssls",
   "dockerls",
   "elmls",
@@ -59,6 +58,11 @@ end
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
+
+lspconfig.clojure_lsp.setup({
+  on_attach = on_attach,
+  capabilities = clojure_capabilities,
+})
 
 lspconfig.pyright.setup({
   on_attach = on_attach,
