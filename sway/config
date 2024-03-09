@@ -28,6 +28,8 @@ set $term kitty
 # Note: it's recommended that you pass the final command to sway
 set $menu swaymsg exec BEMENU_BACKEND=wayland $(j4-dmenu-desktop --dmenu="bemenu --list 10 --fn 'Triplicate T4c 12' --ignorecase" --term="kitty")
 set $emoji_launcher $term --class launcher -e emoji_launcher
+set $calendar $term --class launcher -e calcurse
+set $calendar_small $term --class=calcurse -e bash -c "calcurse --appointment --format-apt=' - %S -> %E\n   %m\n' --format-recur-apt=' - %S -> %E\n   %m\n' | less +gg"
 # set $menu swaymsg exec BEMENU_BACKEND=wayland "$(dmenu_path | bemenu --list 10 --fn 'Triplicate T4c 12')"
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # set $menu wofi -I -i --show drun | xargs swaymsg exec --
@@ -107,7 +109,8 @@ input 7504:24866:Ultimate_Gadget_Laboratories_UHK_60_v1 {
 bindsym $mod+Return exec $term
 
 # Check calendar
-bindsym $mod+c exec $term --class=calcurse -e bash -c "calcurse --appointment --format-apt=' - %S -> %E\n   %m\n' --format-recur-apt=' - %S -> %E\n   %m\n' | less +gg"
+bindsym $mod+c exec $calendar
+bindsym $mod+Ctrl+c exec $calendar_small
 
 # Kill focused window
 bindsym $mod+Shift+q kill
