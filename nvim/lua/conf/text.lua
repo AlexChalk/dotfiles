@@ -19,6 +19,7 @@ vim.g.vimwiki_key_mappings = {
 }
 
 vim.g.vimwiki_ext2syntax = { [".wiki"] = "default" }
+vim.g.vimwiki_url_maxsave = 0
 
 local wiki = vim.api.nvim_create_augroup("wiki", { clear = true })
 vim.api.nvim_create_autocmd("Filetype", {
