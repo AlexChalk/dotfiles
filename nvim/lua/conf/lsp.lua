@@ -40,7 +40,7 @@ local servers = {
   "hls",
   "jdtls",
   "jsonls",
-  "rnix",
+  "nil_ls",
   "rust_analyzer",
   "solargraph",
   "terraformls",
