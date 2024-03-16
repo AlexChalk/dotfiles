@@ -13,7 +13,7 @@ require("base16-colorscheme").with_config({
   ts_rainbow = true,
   cmp = true,
   illuminate = true,
-  lsp_semantic = false,
+  lsp_semantic = true,
   mini_completion = true,
   dapui = true,
 })

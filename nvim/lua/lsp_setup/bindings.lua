@@ -27,7 +27,7 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true }
 )
 
-M.on_attach = function(_, bufnr)
+M.on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(
     bufnr,
@@ -143,6 +143,13 @@ M.on_attach = function(_, bufnr)
     opts
   )
   vim.api.nvim_create_user_command("Format", vim.lsp.buf.format, { nargs = 0 })
+
+  local no_lsp_highlighting = { lua = false }
+  local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+
+  if no_lsp_highlighting[filetype] then
+    client.server_capabilities.semanticTokensProvider = nil
+  end
 end
 
 return M
