@@ -45,7 +45,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
-vim.api.nvim_command("colorscheme base16-gruvbox-dark-medium")
+vim.cmd.colorscheme("base16-gruvbox-dark-medium")
 
 vim.opt.laststatus = 2
 vim.opt.ttimeoutlen = 10
