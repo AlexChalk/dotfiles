@@ -64,6 +64,16 @@ lspconfig.clojure_lsp.setup({
   capabilities = clojure_capabilities,
 })
 
+lspconfig.nil_ls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    ["nil"] = {
+      formatting = { command = { "nixpkgs-fmt" } },
+    },
+  },
+})
+
 lspconfig.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities,
