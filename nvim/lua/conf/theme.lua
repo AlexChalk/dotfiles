@@ -26,21 +26,21 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function()
     -- Make legible if not using my terminal emulator, i.e. no window manager
     if vim.env.TERM == "tmux" then
-      vim.api.nvim_command("highlight ColorColumn guibg=grey")
-      vim.api.nvim_command("highlight TelescopeSelection guibg=blue")
-      vim.api.nvim_command("highlight NormalFloat guibg=black")
-      vim.api.nvim_command("highlight NormalFloat guifg=yellow")
+      vim.cmd.highlight("ColorColumn guibg=grey")
+      vim.cmd.highlight("TelescopeSelection guibg=blue")
+      vim.cmd.highlight("NormalFloat guibg=black")
+      vim.cmd.highlight("NormalFloat guifg=yellow")
     end
 
     -- Remove (almost) all italics
-    vim.api.nvim_command("highlight TSComment gui=none")
-    vim.api.nvim_command("highlight TSConstBuiltin gui=none")
-    vim.api.nvim_command("highlight TSFuncBuiltin gui=none")
-    vim.api.nvim_command("highlight TSTypeBuiltin gui=none")
-    vim.api.nvim_command("highlight TSVariableBuiltin gui=none")
-    vim.api.nvim_command("highlight LspInlayHint gui=none")
-    vim.api.nvim_command("highlight @text.italic gui=italic")
-    vim.api.nvim_command("highlight TSEmphasis gui=italic")
+    vim.cmd.highlight("TSComment gui=none")
+    vim.cmd.highlight("TSConstBuiltin gui=none")
+    vim.cmd.highlight("TSFuncBuiltin gui=none")
+    vim.cmd.highlight("TSTypeBuiltin gui=none")
+    vim.cmd.highlight("TSVariableBuiltin gui=none")
+    vim.cmd.highlight("LspInlayHint gui=none")
+    vim.cmd.highlight("@text.italic gui=italic")
+    vim.cmd.highlight("TSEmphasis gui=italic")
   end,
 })
 
