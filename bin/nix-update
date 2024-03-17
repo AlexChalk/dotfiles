@@ -3,6 +3,7 @@
 set -e
 
 sudo nix-collect-garbage --delete-older-than 14d 
+nix-collect-garbage --delete-older-than 14d 
 sudo nix-channel --update
 nix-channel --update
 sudo nixos-rebuild switch
