@@ -26,7 +26,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function()
     -- Make legible if not using my terminal emulator, i.e. no window manager
     if vim.env.TERM == "tmux" then
-      vim.api.nvim_command("highlight clear")
       vim.api.nvim_command("highlight ColorColumn guibg=grey")
       vim.api.nvim_command("highlight TelescopeSelection guibg=blue")
       vim.api.nvim_command("highlight NormalFloat guibg=black")
