@@ -24,7 +24,7 @@ window#waybar.solo {
 
 #workspaces button {
     padding:    0 5px;
-    color:      rgba(217, 216, 216, 0.4);
+    color:      rgba(217, 216, 216, 0.8);
 }
 
 #workspaces button.visible {
