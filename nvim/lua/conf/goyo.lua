@@ -7,6 +7,8 @@ local function goyo_enter()
     place = { "statusline", "tabline", "winbar" },
     unhide = false,
   })
+  vim.opt.statusline = "%!v:lua.require('word_count').get_statusline()"
+  vim.cmd.highlight("StatusLine ctermfg=white guifg=#bdae93")
   vim.opt.showtabline = 0
 end
 

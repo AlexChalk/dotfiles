@@ -60,20 +60,6 @@ local function parinfer_mode()
   end
 end
 
-local function get_words()
-  local show_word_count = { [""] = true, markdown = true }
-  local filetype = vim.api.nvim_buf_get_option(0, "filetype")
-  local word_count = vim.fn.wordcount()
-
-  if word_count.visual_words then
-    return "WC: " .. tostring(word_count.visual_words)
-  elseif show_word_count[filetype] then
-    return "WC: " .. tostring(word_count.words)
-  else
-    return ""
-  end
-end
-
 require("lualine").setup({
   options = {
     icons_enabled = false,
@@ -87,7 +73,7 @@ require("lualine").setup({
     lualine_a = { "mode" },
     lualine_b = { parinfer_mode, "filename" },
     lualine_c = { "diff" },
-    lualine_x = { "lsp_progress", get_words },
+    lualine_x = { "lsp_progress", require("word_count").get_words },
     lualine_y = { "filetype", { "diagnostics", sources = { "nvim_lsp" } } },
     lualine_z = { "location" },
   },
