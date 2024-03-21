@@ -1,8 +1,10 @@
 -- Move up and down by visible lines if current line is wrapped
--- vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true })
--- vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true })
--- vim.api.nvim_set_keymap("n", "gj", "j", { noremap = true })
--- vim.api.nvim_set_keymap("n", "gk", "k", { noremap = true })
+vim.keymap.set({ "n" }, "<leader>gj", function()
+  vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true })
+  vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true })
+  vim.api.nvim_set_keymap("n", "gj", "j", { noremap = true })
+  vim.api.nvim_set_keymap("n", "gk", "k", { noremap = true })
+end, { silent = true, noremap = true })
 
 vim.opt.startofline = false
 vim.api.nvim_set_keymap("n", "<M-j>", ":m .+1<CR>==", { noremap = true })
