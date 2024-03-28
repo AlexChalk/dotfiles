@@ -1,7 +1,30 @@
 #!/bin/bash
 
 rd() {
-  ls -t "$HOME"/Downloads | head -n "$1" | while read -r f; do mv ~/Downloads/"$f" .; done
+  local dry_run=false
+  local downloads=""
+
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      -d | --dry-run)
+        dry_run=true
+        shift
+        ;;
+      --)
+        shift
+        break
+        ;;
+      *) break ;;
+    esac
+  done
+
+  downloads=$(ls -t "$HOME"/Downloads | head -n "$1")
+
+  if $dry_run; then
+    echo "$downloads"
+  else
+    echo "$downloads" | while read -r f; do mv ~/Downloads/"$f" .; done
+  fi
 }
 
 rd "$@"
