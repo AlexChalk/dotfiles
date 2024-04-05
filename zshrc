@@ -111,7 +111,6 @@ zinit ice wait"0" lucid blockf
 zinit light agkozak/zsh-z
 
 # Completion
-export CASE_SENSITIVE=false
 zinit ice wait"0" lucid blockf
 zinit snippet OMZ::lib/completion.zsh
 zinit ice wait"0" lucid blockf
