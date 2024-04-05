@@ -78,11 +78,11 @@ stty -ixon
 # Check back for rollback feature: https://github.com/zdharma/zinit/issues/135#issuecomment-497585546
 # Update plugins: `zinit update --all`; update and compile zinit: `zinit self-update`.
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-        print -P "%F{33} %F{34}Installation successful.%f%b" || \
-        print -P "%F{160} The clone has failed.%f%b"
+  print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+  command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+  command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+    print -P "%F{33} %F{34}Installation successful.%f%b" || \
+    print -P "%F{160} The clone has failed.%f%b"
 fi
 
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
@@ -93,12 +93,12 @@ autoload -Uz _zinit
 # setopt promptsubst
 # zinit light AlexChalk/pure-red-stars
 if [[ -n $CONFIG_SHELL ]]; then
-    nix_shell="nix-shell"
+  nix_shell="nix-shell"
 else
-    nix_shell=""
+  nix_shell=""
 fi
 
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'; 
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 PROMPT='%F{magenta}$nix_shell% %(?.%F{blue}.%F{yellow})❯% %(?.%F{yellow}.%F{magenta})❯%(?.%F{green}.%F{red})❯%f '
 PURE_CMD_MAX_EXEC_TIME=3600
