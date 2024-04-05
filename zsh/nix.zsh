@@ -1,7 +1,7 @@
 nix() {
   if [[ "$1" == "shell" ]]; then
     shift
-    CONFIG_SHELL=true command nix shell "$@"
+    USE_NIX_SHELL_PROMPT=true command nix shell "$@"
   else
     command nix "$@"
   fi
