@@ -9,6 +9,7 @@ local function goyo_enter()
   })
   vim.opt.statusline = "%!v:lua.require('word_count').get_statusline()"
   vim.cmd.highlight("StatusLine ctermfg=white guifg=#bdae93")
+  -- vim.cmd.colorscheme("base16-catppuccin-latte")
   vim.opt.showtabline = 0
 end
 
@@ -17,6 +18,7 @@ local function goyo_leave()
     place = { "statusline", "tabline", "winbar" },
     unhide = true,
   })
+  -- vim.cmd.colorscheme("base16-gruvbox-dark-medium")
   vim.opt.showtabline = 1
 end
 
