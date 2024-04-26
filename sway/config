@@ -49,6 +49,10 @@ for_window [app_id="firefox" title="Bitwarden — Mozilla Firefox"] {
   floating enable
 }
 
+for_window [class="Zotero" title="Progress"] {
+  floating enable
+}
+
 for_window [app_id="calcurse"] {
   floating enable, resize set width 400, resize set height 400, move position 78 ppt 3 ppt
 }
