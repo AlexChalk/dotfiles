@@ -2,7 +2,7 @@
 -- Tsv
 -----------------------------------------------------
 vim.bo.expandtab = false
-vim.bo.tabstop = 24
+vim.bo.tabstop = 38
 vim.api.nvim_buf_set_keymap(
   0,
   "i",
