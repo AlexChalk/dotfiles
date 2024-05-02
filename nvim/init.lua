@@ -129,17 +129,11 @@ Plug("Vimjas/vim-python-pep8-indent", { ["for"] = "python" })
 -- Clojure
 Plug("Olical/conjure", { ["for"] = { "clojure", "clojurescript" } })
 Plug("guns/vim-sexp", { ["for"] = { "clojure", "clojurescript" } })
+-- Plug("julienvincent/nvim-paredit")
 Plug("clojure-vim/clojure.vim", { ["for"] = { "clojure", "clojurescript" } })
 Plug("markwoodhall/vim-sayid", { ["for"] = { "clojure", "clojurescript" } })
 Plug("HiPhish/rainbow-delimiters.nvim")
--- Plug("eraserhd/parinfer-rust", {
---   ["for"] = { "clojure", "clojurescript" },
---   ["do"] = 'nix-shell --run "cargo build --release"',
--- })
--- Plug("bhurlow/vim-parinfer")
 Plug("AlexChalk/vim-parinfer-noop")
-
--- Plug("julienvincent/nvim-paredit")
 
 -- Treesitter
 Plug("nvim-treesitter/nvim-treesitter")

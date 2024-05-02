@@ -23,19 +23,13 @@ vim.api.nvim_set_keymap(
 
 local clojureparinfer =
   vim.api.nvim_create_augroup("clojureparinfer", { clear = true })
+
 vim.api.nvim_create_autocmd("BufReadCmd", {
   pattern = { "zipfile:*/*" },
   command = "setlocal nomodifiable",
   group = clojureparinfer,
 })
 
--- Indentation settings
--- vim.g.clojure_fuzzy_indent = 2
--- vim.g.clojure_fuzzy_indent_patterns = {'.*'}
--- vim.g.clojure_fuzzy_indent_blacklist = {'->', ':require'}
-
--- Rainbow Parens
--- vim.g["rainbow#blacklist"] = {233, 234} ansi or HEX
 local rainbow_delimiters = require("rainbow-delimiters")
 vim.g.rainbow_delimiters = {
   strategy = {
@@ -109,17 +103,6 @@ vim.g.sexp_mappings = {
   sexp_insert_at_list_tail = ">I",
   sexp_convolute = "<LocalLeader>?",
 }
-
--- Keywords
--- local clojure_keyword = vim.api.nvim_create_augroup(
---   "clojure_keyword",
---   { clear = true }
--- )
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = { "clojure" },
---   command = "setlocal iskeyword-=?,*,!,+,/,=,<,>,.,:,$",
---   group = clojure_keyword,
--- })
 
 -- local paredit = require("nvim-paredit")
 -- paredit.setup({
