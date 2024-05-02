@@ -66,6 +66,31 @@ vim.g.sexp_mappings = {
   sexp_move_to_next_element_head = "W", -- W with tpope plugin
   sexp_move_to_prev_element_tail = "gE", -- gE with tpope plugin
   sexp_move_to_next_element_tail = "E", -- E with tpope plugin
+  sexp_round_head_wrap_list = "sf(",
+  sexp_round_tail_wrap_list = "sf)",
+  sexp_square_head_wrap_list = "sf[",
+  sexp_square_tail_wrap_list = "sf]",
+  sexp_curly_head_wrap_list = "sf{",
+  sexp_curly_tail_wrap_list = "sf}",
+  sexp_round_head_wrap_element = "se(",
+  sexp_round_tail_wrap_element = "se)",
+  sexp_square_head_wrap_element = "se[",
+  sexp_square_tail_wrap_element = "se]",
+  sexp_curly_head_wrap_element = "se{",
+  sexp_curly_tail_wrap_element = "se}",
+  sexp_splice_list = "<LocalLeader>@",
+  sexp_raise_list = "<LocalLeader><LocalLeader>o",
+  sexp_raise_element = "<LocalLeader><LocalLeader>O",
+  sexp_swap_list_backward = "<f",
+  sexp_swap_list_forward = ">f",
+  sexp_swap_element_backward = "<e",
+  sexp_swap_element_forward = ">e",
+  sexp_emit_head_element = ">(",
+  sexp_emit_tail_element = "<)",
+  sexp_capture_prev_element = "<(",
+  sexp_capture_next_element = ">)",
+
+  -- no analogous nvim-paredit mapping
   sexp_flow_to_prev_close = "<LocalLeader>[",
   sexp_flow_to_next_open = "<LocalLeader>]",
   sexp_flow_to_prev_open = "<LocalLeader>{",
@@ -80,32 +105,9 @@ vim.g.sexp_mappings = {
   sexp_select_next_element = "]e",
   sexp_indent = "==",
   sexp_indent_top = "=-",
-  sexp_round_head_wrap_list = "sf(",
-  sexp_round_tail_wrap_list = "sf)",
-  sexp_square_head_wrap_list = "sf[",
-  sexp_square_tail_wrap_list = "sf]",
-  sexp_curly_head_wrap_list = "sf{",
-  sexp_curly_tail_wrap_list = "sf}",
-  sexp_round_head_wrap_element = "se(",
-  sexp_round_tail_wrap_element = "se)",
-  sexp_square_head_wrap_element = "se[",
-  sexp_square_tail_wrap_element = "se]",
-  sexp_curly_head_wrap_element = "se{",
-  sexp_curly_tail_wrap_element = "se}",
   sexp_insert_at_list_head = "<I",
   sexp_insert_at_list_tail = ">I",
-  sexp_splice_list = "<LocalLeader>@",
   sexp_convolute = "<LocalLeader>?",
-  sexp_raise_list = "<LocalLeader><LocalLeader>o",
-  sexp_raise_element = "<LocalLeader><LocalLeader>O",
-  sexp_swap_list_backward = "<f",
-  sexp_swap_list_forward = ">f",
-  sexp_swap_element_backward = "<e",
-  sexp_swap_element_forward = ">e",
-  sexp_emit_head_element = ">(",
-  sexp_emit_tail_element = "<)",
-  sexp_capture_prev_element = "<(",
-  sexp_capture_next_element = ">)",
 }
 
 -- Keywords
@@ -174,7 +176,7 @@ vim.g.paredit_smartjump = true
 --     -- should change the indentation of the form (such as when slurping or barfing).
 --     --
 --     -- When set to true then it will attempt to fix the indentation of nodes operated on.
---     enabled = false,
+--     enabled = true,
 --     -- A function that will be called after a slurp/barf if you want to provide a custom indentation
 --     -- implementation.
 --     indentor = require("nvim-paredit.indentation.native").indentor,
@@ -195,8 +197,8 @@ vim.g.paredit_smartjump = true
 --     [">f"] = { paredit.api.drag_form_forwards, "Drag form right" },
 --     ["<f"] = { paredit.api.drag_form_backwards, "Drag form left" },
 
---     ["<localleader>o"] = { paredit.api.raise_form, "Raise form" },
---     ["<localleader>O"] = { paredit.api.raise_element, "Raise element" },
+--     ["<localleader><localleader>o"] = { paredit.api.raise_form, "Raise form" },
+--     ["<localleader><localleader>O"] = { paredit.api.raise_element, "Raise element" },
 
 --     ["E"] = {
 --       paredit.api.move_to_next_element_tail,
@@ -243,25 +245,25 @@ vim.g.paredit_smartjump = true
 --       paredit.api.select_around_form,
 --       "Around form",
 --       repeatable = false,
---       mode = { "o", "v" }
+--       mode = { "o", "v" },
 --     },
 --     ["if"] = {
 --       paredit.api.select_in_form,
 --       "In form",
 --       repeatable = false,
---       mode = { "o", "v" }
+--       mode = { "o", "v" },
 --     },
 --     ["aF"] = {
 --       paredit.api.select_around_top_level_form,
 --       "Around top level form",
 --       repeatable = false,
---       mode = { "o", "v" }
+--       mode = { "o", "v" },
 --     },
 --     ["iF"] = {
 --       paredit.api.select_in_top_level_form,
 --       "In top level form",
 --       repeatable = false,
---       mode = { "o", "v" }
+--       mode = { "o", "v" },
 --     },
 --     ["ae"] = {
 --       paredit.api.select_element,
@@ -275,5 +277,125 @@ vim.g.paredit_smartjump = true
 --       repeatable = false,
 --       mode = { "o", "v" },
 --     },
---   }
+
+--     ["se("] = {
+--       function()
+--         -- place cursor and set mode to `insert`
+--         paredit.cursor.place_cursor(
+--           -- wrap element under cursor with `( ` and `)`
+--           paredit.wrap.wrap_element_under_cursor("( ", ")"),
+--           -- cursor placement opts
+--           { placement = "inner_start", mode = "insert" }
+--         )
+--       end,
+--       "Wrap element insert head ()",
+--     },
+--     ["se)"] = {
+--       function()
+--         paredit.cursor.place_cursor(
+--           paredit.wrap.wrap_element_under_cursor("(", ")"),
+--           { placement = "inner_end", mode = "insert" }
+--         )
+--       end,
+--       "Wrap element insert tail ()",
+--     },
+--     ["sf("] = {
+--       function()
+--         paredit.cursor.place_cursor(
+--           paredit.wrap.wrap_enclosing_form_under_cursor("( ", ")"),
+--           { placement = "inner_start", mode = "insert" }
+--         )
+--       end,
+--       "Wrap form insert head ()",
+--     },
+--     ["sf)"] = {
+--       function()
+--         paredit.cursor.place_cursor(
+--           paredit.wrap.wrap_enclosing_form_under_cursor("(", ")"),
+--           { placement = "inner_end", mode = "insert" }
+--         )
+--       end,
+--       "Wrap form insert tail ()",
+--     },
+
+--     ["se{"] = {
+--       function()
+--         -- place cursor and set mode to `insert`
+--         paredit.cursor.place_cursor(
+--           -- wrap element under cursor with `( ` and `)`
+--           paredit.wrap.wrap_element_under_cursor("{ ", "}"),
+--           -- cursor placement opts
+--           { placement = "inner_start", mode = "insert" }
+--         )
+--       end,
+--       "Wrap element insert head {}",
+--     },
+--     ["se}"] = {
+--       function()
+--         paredit.cursor.place_cursor(
+--           paredit.wrap.wrap_element_under_cursor("{", "}"),
+--           { placement = "inner_end", mode = "insert" }
+--         )
+--       end,
+--       "Wrap element insert tail {}",
+--     },
+--     ["sf{"] = {
+--       function()
+--         paredit.cursor.place_cursor(
+--           paredit.wrap.wrap_enclosing_form_under_cursor("{ ", "}"),
+--           { placement = "inner_start", mode = "insert" }
+--         )
+--       end,
+--       "Wrap form insert head {}",
+--     },
+--     ["sf}"] = {
+--       function()
+--         paredit.cursor.place_cursor(
+--           paredit.wrap.wrap_enclosing_form_under_cursor("{", "}"),
+--           { placement = "inner_end", mode = "insert" }
+--         )
+--       end,
+--       "Wrap form insert tail {}",
+--     },
+
+--     ["se["] = {
+--       function()
+--         -- place cursor and set mode to `insert`
+--         paredit.cursor.place_cursor(
+--           -- wrap element under cursor with `( ` and `)`
+--           paredit.wrap.wrap_element_under_cursor("[ ", "]"),
+--           -- cursor placement opts
+--           { placement = "inner_start", mode = "insert" }
+--         )
+--       end,
+--       "Wrap element insert head []",
+--     },
+--     ["se]"] = {
+--       function()
+--         paredit.cursor.place_cursor(
+--           paredit.wrap.wrap_element_under_cursor("[", "]"),
+--           { placement = "inner_end", mode = "insert" }
+--         )
+--       end,
+--       "Wrap element insert tail []",
+--     },
+--     ["sf["] = {
+--       function()
+--         paredit.cursor.place_cursor(
+--           paredit.wrap.wrap_enclosing_form_under_cursor("[ ", "]"),
+--           { placement = "inner_start", mode = "insert" }
+--         )
+--       end,
+--       "Wrap form insert head []",
+--     },
+--     ["sf]"] = {
+--       function()
+--         paredit.cursor.place_cursor(
+--           paredit.wrap.wrap_enclosing_form_under_cursor("[", "]"),
+--           { placement = "inner_end", mode = "insert" }
+--         )
+--       end,
+--       "Wrap form insert tail []",
+--     },
+--   },
 -- })
