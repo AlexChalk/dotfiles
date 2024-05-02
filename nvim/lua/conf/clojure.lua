@@ -49,7 +49,7 @@ vim.g.rainbow_delimiters = {
 }
 
 -- Autopairs
-vim.g.sexp_enable_insert_mode_mappings = 0
+vim.g.sexp_enable_insert_mode_mappings = true
 vim.g.sexp_insert_after_wrap = true
 vim.g.sexp_mappings = {
   sexp_outer_list = "af",
@@ -60,12 +60,12 @@ vim.g.sexp_mappings = {
   sexp_inner_string = "is",
   sexp_outer_element = "ae",
   sexp_inner_element = "ie",
-  sexp_move_to_prev_bracket = "(",
-  sexp_move_to_next_bracket = ")",
-  sexp_move_to_prev_element_head = "B", -- B with tpope plugin
-  sexp_move_to_next_element_head = "W", -- W with tpope plugin
-  sexp_move_to_prev_element_tail = "gE", -- gE with tpope plugin
-  sexp_move_to_next_element_tail = "E", -- E with tpope plugin
+  sexp_move_to_prev_bracket = "<localleader>[",
+  sexp_move_to_next_bracket = "<localleader>]",
+  sexp_move_to_prev_element_head = "<localleader>B", -- B with tpope plugin
+  sexp_move_to_next_element_head = "<localleader>W", -- W with tpope plugin
+  sexp_move_to_prev_element_tail = "<localleader>gE", -- gE with tpope plugin
+  sexp_move_to_next_element_tail = "<localleader>E", -- E with tpope plugin
   sexp_round_head_wrap_list = "sf(",
   sexp_round_tail_wrap_list = "sf)",
   sexp_square_head_wrap_list = "sf[",
@@ -91,14 +91,14 @@ vim.g.sexp_mappings = {
   sexp_capture_next_element = ">)",
 
   -- no analogous nvim-paredit mapping
-  sexp_flow_to_prev_close = "<LocalLeader>[",
-  sexp_flow_to_next_open = "<LocalLeader>]",
-  sexp_flow_to_prev_open = "<LocalLeader>{",
-  sexp_flow_to_next_close = "<LocalLeader>}",
-  sexp_flow_to_prev_leaf_head = "<LocalLeader><LocalLeader>b",
-  sexp_flow_to_next_leaf_head = "<LocalLeader><LocalLeader>w",
-  sexp_flow_to_prev_leaf_tail = "<LocalLeader><LocalLeader>ge",
-  sexp_flow_to_next_leaf_tail = "<LocalLeader><LocalLeader>e",
+  sexp_flow_to_next_open = "{",
+  sexp_flow_to_prev_close = "}",
+  sexp_flow_to_prev_open = "(",
+  sexp_flow_to_next_close = ")",
+  sexp_flow_to_prev_leaf_head = "B",
+  sexp_flow_to_next_leaf_head = "W",
+  sexp_flow_to_prev_leaf_tail = "gE",
+  sexp_flow_to_next_leaf_tail = "E",
   sexp_move_to_prev_top_element = "[[",
   sexp_move_to_next_top_element = "]]",
   sexp_select_prev_element = "[e",
@@ -120,38 +120,6 @@ vim.g.sexp_mappings = {
 --   command = "setlocal iskeyword-=?,*,!,+,/,=,<,>,.,:,$",
 --   group = clojure_keyword,
 -- })
-
-vim.g.paredit_smartjump = true
-
--- Extra sexp-for-regular-people mappings:
--- dsf:                splice (delete surroundings of form)
--- cse( / cse) / cseb: surround element in parentheses
--- cse[ / cse]:        surround element in brackets
--- cse{ / cse}:        surround element in braces
-
--- Extra paredit mappings:
--- <Leader><      Smart leftwards slurp/barf
--- <Leader>>      Smart rightwards slurp/barf
-
--- <Leader>J      Join two subsequent lists or strings.
--- <Leader>O      Split ("Open") current list or string at the cursor position. Opposite of Join.
--- <Leader>W / <Leader>w(     Wrap the current symbol in a pair of parentheses.
--- <Leader>w[     Wrap the current symbol in a pair of square brackets.
--- <Leader>w{     Wrap the current symbol in a pair of curly braces.
--- <Leader>w"     Wrap the current symbol in a pair of double quotes.
-
--- <Leader>S      Splice the current list into the containing list.
--- <Leader><Up>   Splice the current list into the containing list by deleting
---                everything backward from the cursor position up to the
---                opening paren. (Calls `d[(` before splicing)
-
--- <Leader><Down> Splice the current list into the containing list by deleting
---                everything forward from the cursor position up to the
---                closing paren. (Calls `d])%` before splicing)
-
--- <Leader>I      Raise the current symbol.
-
--- Leader removed from these keys when g.paredit_shortmaps is nonzero: <, >, J, O, W, S
 
 -- local paredit = require("nvim-paredit")
 -- paredit.setup({
