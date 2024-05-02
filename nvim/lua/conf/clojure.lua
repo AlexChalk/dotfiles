@@ -1,35 +1,6 @@
 -----------------------------------------------------
 -- Clojure
 -----------------------------------------------------
--- Clojure-parinfer
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>lpp",
-  ':let g:parinfer_mode = "paren"<cr>',
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>lpi",
-  ':let g:parinfer_mode = "indent"<cr>',
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>lps",
-  ':let g:parinfer_mode = "smart"<cr>',
-  { noremap = true }
-)
-
-local clojureparinfer =
-  vim.api.nvim_create_augroup("clojureparinfer", { clear = true })
-
-vim.api.nvim_create_autocmd("BufReadCmd", {
-  pattern = { "zipfile:*/*" },
-  command = "setlocal nomodifiable",
-  group = clojureparinfer,
-})
-
 local rainbow_delimiters = require("rainbow-delimiters")
 vim.g.rainbow_delimiters = {
   strategy = {
