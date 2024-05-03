@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e
+
+if ! type fd >/dev/null 2>&1; then
+  echo 'You need to install fd to use this command.'
+  exit 1
+fi
+
+recent() {
+  local file_extension="$1"
+  local count="$2"
+  local files
+  local sorted_files
+
+  readarray -d "" -t files < <(fd -0 -t f ."$file_extension"$)
+
+  if [[ "${#files[@]}" == 0 ]]; then
+    echo "No files."
+    exit 0
+  fi
+
+  sorted_files=$(printf "%s\0" "${files[@]}" | xargs -0 ls -tr)
+
+  if [ -n "$count" ]; then
+    echo "${sorted_files[@]}" | tail -n "$count"
+  else
+    echo "${sorted_files[@]}"
+  fi
+}
+
+recent "$@"
