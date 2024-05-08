@@ -6,6 +6,7 @@ M.get_words = function()
   local word_count = vim.fn.wordcount()
 
   if word_count.visual_words then
+    -- return "WC: " .. tostring(word_count.visual_chars)
     return "WC: " .. tostring(word_count.visual_words)
   elseif show_word_count[filetype] then
     return "WC: " .. tostring(word_count.words)
