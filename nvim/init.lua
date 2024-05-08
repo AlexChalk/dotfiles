@@ -16,6 +16,13 @@ vim.opt.compatible = false
 -- - vim.print()
 -- - https://neovim.io/doc/user/lua.html#vim.filetype.add()
 
+-- edit macro:
+-- - :let @q='
+-- - <Cntl-r><Cntl-r>q (or "qp in normal mode) to paste from register q
+-- edit
+-- - '
+-- - CR
+
 ----------------------------------------------------------------
 -- Vim Plug
 -- Remember to run :PlugUpdate (and :PlugUpgrade if on macOS) once in a while
