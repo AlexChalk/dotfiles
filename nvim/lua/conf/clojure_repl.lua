@@ -18,6 +18,20 @@ vim.keymap.set(
   { remap = true }
 )
 
+vim.keymap.set({ "n" }, "<leader>lut", function()
+  vim.cmd("ConjureEval (user/test-classpath)")
+  vim.defer_fn(function()
+    vim.cmd("ConjureEval (user/post-classpath)")
+  end, 200)
+end, { remap = true, silent = true })
+
+vim.keymap.set({ "n" }, "<leader>lud", function()
+  vim.cmd("ConjureEval (user/dev-classpath)")
+  vim.defer_fn(function()
+    vim.cmd("ConjureEval (user/post-classpath)")
+  end, 200)
+end, { remap = true, silent = true })
+
 --Conjure
 vim.g["conjure#client#clojure#nrepl#eval#print_options#level"] = false
 vim.g["conjure#client#clojure#nrepl#eval#print_options#length"] = 500
