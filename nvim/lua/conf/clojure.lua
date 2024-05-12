@@ -13,6 +13,14 @@ vim.g.rainbow_delimiters = {
   },
 }
 
+-- Readonly zip files (source code)
+local nozipmod = vim.api.nvim_create_augroup("nozipmod", { clear = true })
+vim.api.nvim_create_autocmd("BufReadCmd", {
+  pattern = { "zipfile:*/*" },
+  command = "setlocal nomodifiable",
+  group = nozipmod,
+})
+
 -- Autopairs
 vim.g.sexp_enable_insert_mode_mappings = true
 vim.g.sexp_insert_after_wrap = true
