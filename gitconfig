@@ -46,7 +46,7 @@
   merge-origin = "!f() { git merge $(git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)); }; f"
   p = push
   pf = push --force-with-lease
-  pr = !hub compare
+  pr = !gh pr create --web
   praise = blame
   r = rebase
   ra = rebase --abort
