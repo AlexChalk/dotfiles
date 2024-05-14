@@ -13,7 +13,7 @@ vim.opt.compatible = false
 
 -- Remember:
 -- - vim.keymap.set({ "i", "s" }, "<c-k>", function() ... end, { silent = true})
--- - vim.print()
+-- - vim.print(), then :messages if incomplete output displayed
 -- - https://neovim.io/doc/user/lua.html#vim.filetype.add()
 
 -- edit macro:
