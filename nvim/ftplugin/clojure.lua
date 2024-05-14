@@ -10,6 +10,7 @@ vim.keymap.set("n", "dd", function()
   vim.call("parinfer#delete_line")
 end, { buffer = 0, noremap = true })
 
+-- expr parses function ret value as if you'd set it as a string
 vim.keymap.set('o', 'j', function()
   if vim.v.operator ~= 'd' then
     return 'j'
