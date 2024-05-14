@@ -6,16 +6,22 @@ vim.keymap.set("n", "p", function()
   vim.call("parinfer#put_line")
 end, { buffer = 0, noremap = true })
 
-local clojureparinfer =
-  vim.api.nvim_create_augroup("clojureparinfer", { clear = true })
+vim.keymap.set("n", "dd", function()
+  vim.call("parinfer#delete_line")
+end, { buffer = 0, noremap = true })
 
-vim.api.nvim_create_autocmd("TextChanged", {
-  pattern = { "*.clj", "*.cljc", "*.cljs" },
-  callback = function()
-    local operation = vim.v.operator
-    if operation == "d" then
-      vim.call("parinfer#process_form")
-    end
-  end,
-  group = clojureparinfer,
-})
+vim.keymap.set('o', 'j', function()
+  if vim.v.operator ~= 'd' then
+    return 'j'
+  else
+    return 'j' .. '<Cmd>lua vim.call("parinfer#process_form")<CR>'
+  end
+end, { expr = true })
+
+vim.keymap.set('o', 'k', function()
+  if vim.v.operator ~= 'd' then
+    return 'k'
+  else
+    return 'k' .. '<Cmd>lua vim.call("parinfer#process_form")<CR>'
+  end
+end, { expr = true })
