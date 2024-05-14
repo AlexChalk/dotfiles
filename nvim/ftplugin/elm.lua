@@ -10,5 +10,5 @@ vim.api.nvim_buf_set_keymap(
   { noremap = false }
 )
 
-vim.api.nvim_set_keymap("n", "p", "p", { noremap = true })
-vim.api.nvim_set_keymap("n", "P", "P", { noremap = true })
+vim.api.nvim_buf_set_keymap(0, "n", "p", "p", { noremap = true })
+vim.api.nvim_buf_set_keymap(0, "n", "P", "P", { noremap = true })
