@@ -2,7 +2,7 @@
 -- -- Clojure
 -- -----------------------------------------------------
 -- Parinfer on put and delete (comments behaviour in comments.lua)
-vim.keymap.set("n", "<leader>pp", function()
+vim.keymap.set("n", "p", function()
   vim.call("parinfer#put_line")
 end, { buffer = 0, noremap = true })
 
