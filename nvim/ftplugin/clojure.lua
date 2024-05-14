@@ -10,19 +10,23 @@ vim.keymap.set("n", "dd", function()
   vim.call("parinfer#delete_line")
 end, { buffer = 0, noremap = true })
 
+vim.keymap.set("n", "<leader>mp", function()
+  vim.call("parinfer#do_indent")
+end, { buffer = 0, noremap = true })
+
 -- expr parses function ret value as if you'd set it as a string
-vim.keymap.set('o', 'j', function()
-  if vim.v.operator ~= 'd' then
-    return 'j'
+vim.keymap.set("o", "j", function()
+  if vim.v.operator ~= "d" then
+    return "j"
   else
-    return 'j' .. '<Cmd>lua vim.call("parinfer#process_form")<CR>'
+    return "j" .. '<Cmd>lua vim.call("parinfer#process_form")<CR>'
   end
 end, { buffer = 0, expr = true })
 
-vim.keymap.set('o', 'k', function()
-  if vim.v.operator ~= 'd' then
-    return 'k'
+vim.keymap.set("o", "k", function()
+  if vim.v.operator ~= "d" then
+    return "k"
   else
-    return 'k' .. '<Cmd>lua vim.call("parinfer#process_form")<CR>'
+    return "k" .. '<Cmd>lua vim.call("parinfer#process_form")<CR>'
   end
 end, { buffer = 0, expr = true })
