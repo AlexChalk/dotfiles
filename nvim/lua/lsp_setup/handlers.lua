@@ -18,6 +18,9 @@ vim.lsp.handlers["textDocument/rename"] = function(err, result, ...)
     return
   end
 
+  -- Todo: clojure stores changes in result.documentChanges and uri in
+  -- result.documentChanges[].textDocument.uri
+
   local entries = {}
   for uri, edits in pairs(result.changes) do
     local bufnr = vim.uri_to_bufnr(uri)
