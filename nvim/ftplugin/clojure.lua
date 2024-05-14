@@ -16,7 +16,7 @@ vim.keymap.set('o', 'j', function()
   else
     return 'j' .. '<Cmd>lua vim.call("parinfer#process_form")<CR>'
   end
-end, { expr = true })
+end, { buffer = 0, expr = true })
 
 vim.keymap.set('o', 'k', function()
   if vim.v.operator ~= 'd' then
@@ -24,4 +24,4 @@ vim.keymap.set('o', 'k', function()
   else
     return 'k' .. '<Cmd>lua vim.call("parinfer#process_form")<CR>'
   end
-end, { expr = true })
+end, { buffer = 0, expr = true })
