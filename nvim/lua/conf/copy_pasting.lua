@@ -1,5 +1,5 @@
 -- Autocorrect indentation after pasting, but keep non-indenting option
--- for when pasting large files from clipboard.
+-- for when pasting large files from clipboard. :h `[
 vim.api.nvim_set_keymap("n", "p", "p`[v`]=", { noremap = true })
 vim.api.nvim_set_keymap("n", "P", "P`[v`]=", { noremap = true })
 
