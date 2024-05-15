@@ -2,13 +2,24 @@
 -- -- Clojure
 -- -----------------------------------------------------
 -- Parinfer on put and delete (comments behaviour in comments.lua)
-vim.keymap.set("n", "p", function()
-  vim.call("parinfer#put_line")
-end, { buffer = 0, noremap = true })
-
 vim.keymap.set("n", "dd", function()
   vim.call("parinfer#delete_line")
 end, { buffer = 0, noremap = true })
+
+vim.api.nvim_buf_set_keymap(
+  0,
+  "n",
+  "p",
+  'p`[v`]=<Cmd>lua vim.call("parinfer#process_form")<CR>',
+  { noremap = true }
+)
+vim.api.nvim_buf_set_keymap(
+  0,
+  "n",
+  "P",
+  'P`[v`]=<Cmd>lua vim.call("parinfer#process_form")<CR>',
+  { noremap = true }
+)
 
 vim.keymap.set("n", "<leader>mp", function()
   vim.call("parinfer#do_indent")
