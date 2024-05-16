@@ -18,7 +18,9 @@
                          figwheel-sidecar/figwheel-sidecar {:mvn/version "0.5.21"}
                          cider/piggieback {:mvn/version "0.5.3"}}
             :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
-
+           :jet {:deps {borkdude/jet {:mvn/version "0.4.23"}}
+                 :exec-fn jet.main/exec
+                 :main-opts ["-m" "jet.main"]}
            :new
            {:extra-deps {com.github.seancorfield/clj-new {:mvn/version "1.2.404"}}
             :exec-fn clj-new/create
