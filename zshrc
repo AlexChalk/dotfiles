@@ -46,8 +46,6 @@ if [[ "$OSTYPE" != darwin* && -d "$HOME/.config/yarn/global/node_modules/.bin" ]
 fi
 
 if [[ "$OSTYPE" != darwin* ]]; then
-  export XDG_CURRENT_DESKTOP="Unity"
-  export XDG_SESSION_DESKTOP="Unity"
   export MY_MACHINE="nixos"
 fi
 
