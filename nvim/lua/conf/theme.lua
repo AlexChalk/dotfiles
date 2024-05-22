@@ -27,6 +27,9 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     -- Make legible if not using my terminal emulator, i.e. no window manager
     if vim.env.TERM == "tmux" then
       vim.cmd.highlight("ColorColumn guibg=grey")
+      vim.cmd.highlight("TSComment guifg=grey")
+      vim.cmd.highlight("gitcommitComment guifg=grey")
+      vim.cmd.highlight("Comment guifg=grey")
       vim.cmd.highlight("TelescopeSelection guibg=blue")
       vim.cmd.highlight("NormalFloat guibg=black")
       vim.cmd.highlight("NormalFloat guifg=yellow")
