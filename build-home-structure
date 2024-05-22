@@ -40,6 +40,7 @@ ln -s $HOME/dotfiles/papis .config/
 ln -s $HOME/dotfiles/zathura .config/
 ln -s $HOME/dotfiles/gh .config/
 ln -s $HOME/dotfiles/calcurse .config/
+ln -s $HOME/dotfiles/gtk-3.0 .config/
 
 mkdir .ghc
 ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
