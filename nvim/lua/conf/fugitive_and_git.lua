@@ -138,6 +138,7 @@ vim.api.nvim_set_keymap("n", "<leader>glm", ":Gedit HEAD^{}<cr>", { noremap = tr
 
 -- Praise
 -- o to open commit in split O for tab, g? to see other options
+-- ~ reblame on parent commit
 vim.api.nvim_set_keymap("n", "<leader>gp", ":Git blame<cr>", { noremap = true })
 
 -- Status
