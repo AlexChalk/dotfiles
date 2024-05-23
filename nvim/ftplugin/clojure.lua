@@ -1,6 +1,10 @@
 -- -----------------------------------------------------
 -- -- Clojure
 -- -----------------------------------------------------
+--
+-- vim.opt_local.iskeyword:remove({ '.', '/' })
+-- { "@", "48-57", "_", "192-255", "-", "?", "-", "*", "!", "+", "=", "<", ">", ":", "$", "%", "&", "|" }
+--
 -- Parinfer on put and delete (comments behaviour in comments.lua)
 vim.keymap.set("n", "dd", function()
   vim.call("parinfer#delete_line")
