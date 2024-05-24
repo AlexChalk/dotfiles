@@ -1,12 +1,13 @@
 {:aliases {:nrepl
-           {:extra-deps {nrepl/nrepl {:mvn/version "1.1.1"} ;; or "RELEASE"
+           {:extra-deps {nrepl/nrepl {:mvn/version "1.1.2"} ;; or "RELEASE"
                          com.billpiel/sayid {:mvn/version "0.1.0"}}
             :main-opts  ["-m" "nrepl.cmdline"]}
 
            :cider-clj
            {:extra-deps {org.clojure/clojure {:mvn/version "1.11.3"}
                          org.clojure/tools.namespace {:mvn/version "1.5.0"}
-                         cider/cider-nrepl {:mvn/version "0.47.1"}}
+                         nrepl/nrepl {:mvn/version "1.1.2"}
+                         cider/cider-nrepl {:mvn/version "0.48.0"}}
             :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
            :cider-cljs
