@@ -55,13 +55,32 @@ vim.opt.ttimeoutlen = 10
 ---------------------------------------------------------------
 -- Lightline
 ---------------------------------------------------------------
-local function parinfer_mode()
-  if vim.g.parinfer_mode == nil then
+local lsp_progress_api = require("lsp-progress.api")
+require("lsp-progress").setup({
+  format = function(client_messages)
+    local sign = ""
+    if #client_messages > 0 then
+      return sign .. " " .. table.concat(client_messages, " ")
+    end
+    if #lsp_progress_api.lsp_clients() > 0 then
+      return sign
+    end
     return ""
-  else
-    return vim.g.parinfer_mode
-  end
+  end,
+})
+
+local function lsp_progress()
+  return require("lsp-progress").progress()
 end
+
+local lsp_progress_refresh =
+  vim.api.nvim_create_augroup("lsp-progress-refresh", { clear = true })
+
+vim.api.nvim_create_autocmd("User", {
+  group = lsp_progress_refresh,
+  pattern = "LspProgressStatusUpdated",
+  callback = require("lualine").refresh,
+})
 
 require("lualine").setup({
   options = {
@@ -74,9 +93,9 @@ require("lualine").setup({
   },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = { parinfer_mode, "filename" },
+    lualine_b = { "filename" },
     lualine_c = { "diff" },
-    lualine_x = { "lsp_progress", require("word_count").get_words },
+    lualine_x = { lsp_progress, require("word_count").get_words },
     lualine_y = { "filetype", { "diagnostics", sources = { "nvim_lsp" } } },
     lualine_z = { "location" },
   },

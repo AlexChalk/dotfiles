@@ -104,7 +104,7 @@ Plug("tpope/vim-rails")
 -- Themes
 Plug("RRethy/base16-nvim")
 Plug("nvim-lualine/lualine.nvim")
-Plug("arkav/lualine-lsp-progress")
+Plug("linrongbin16/lsp-progress.nvim")
 
 -- Shell interop
 Plug("christoomey/vim-tmux-navigator")
