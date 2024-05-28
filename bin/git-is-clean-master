@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [[ $(git status --porcelain) ]]; then
+  echo "Uncommitted changes."
+  exit 1
+fi
+
+if [[ $(git rev-parse --abbrev-ref HEAD) != "master" ]]; then
+  echo "Current branch is not master."
+  exit 1
+fi
+
+if [[ $(git rev-parse master) != $(git rev-parse origin/master) ]]; then
+  echo "master != origin."
+  exit 1
+fi
+
+echo "Clean."
+exit 0
