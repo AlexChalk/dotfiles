@@ -11,4 +11,4 @@ Verbose = No
 
 [Auth]
 Username = alexchalk@fastmail.com
-PasswordCommand = secret-tool lookup service caldav.fastmail.com
+PasswordCommand = echo $CALENDAR_READ
