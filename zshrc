@@ -90,7 +90,9 @@ autoload -Uz _zinit
 # Theme (don't lazy load prompt as we want it from start)
 # setopt promptsubst
 # zinit light AlexChalk/pure-red-stars
-if [[ $USE_NIX_SHELL_PROMPT == true ]]; then
+if [[ -n $CUSTOM_NIXSHELL ]]; then
+  nix_shell=$CUSTOM_NIXSHELL
+elif [[ $USE_NIX_SHELL_PROMPT == true ]]; then
   nix_shell="nix-shell"
 elif [[ -n $CONFIG_SHELL ]]; then
   nix_shell="nix-shell"
