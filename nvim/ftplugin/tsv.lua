@@ -11,5 +11,4 @@ vim.api.nvim_buf_set_keymap(
   { noremap = true, silent = true, expr = true }
 )
 
--- For editing tsv files:
--- set nowrap
+vim.opt_local.wrap = false
