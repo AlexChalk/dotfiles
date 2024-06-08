@@ -18,7 +18,9 @@ vim.g.vimwiki_key_mappings = {
   mouse = 0,
 }
 
-vim.g.vimwiki_ext2syntax = { [".wiki"] = "default" }
+vim.g.vimwiki_list = { { path = "~/vimwiki/", syntax = "markdown", ext = "md" } }
+vim.g.vimwiki_global_ext = 0
+vim.g.vimwiki_ext2syntax = vim.empty_dict()
 vim.g.vimwiki_url_maxsave = 0
 
 local wiki = vim.api.nvim_create_augroup("wiki", { clear = true })
