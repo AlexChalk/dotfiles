@@ -1,5 +1,5 @@
-directory: /Volumes/Entreposage/beets-data/music
-library: /Volumes/Entreposage/beets-data/musiclibrary.db
+directory: ~/beets-data/music
+library: ~/beets-data/musiclibrary.db
 plugins: albumsort bandcamp badfiles convert duplicates edit embedart fetchart ftintitle info inline replaygain scrub
 
 original_date: no
