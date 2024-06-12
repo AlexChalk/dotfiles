@@ -1,85 +1,110 @@
 {
-    "layer": "bottom",
-    "position": "top",
-    "height": 38,
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["tray", "backlight", "pulseaudio", "network", "idle_inhibitor", "disk", "battery", "clock"],
-    "sway/mode": {
-        "format": " {}"
+  "layer": "bottom",
+  "position": "top",
+  "height": 38,
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode"
+  ],
+  "modules-center": [
+    "sway/window"
+  ],
+  "modules-right": [
+    "tray",
+    "backlight",
+    "pulseaudio",
+    "network",
+    "idle_inhibitor",
+    "disk",
+    "battery",
+    "clock"
+  ],
+  "sway/mode": {
+    "format": " {}"
+  },
+  "sway/workspaces": {
+    "format": "{name}",
+    "disable-scroll": true
+  },
+  "sway/window": {
+    "max-length": 80,
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%a %d %b %H:%M}",
+    "on-click-right": "kitty --class=calcurse -e bash -c \"calcurse --appointment --format-apt=' - %S -> %E\n   %m\n' --format-recur-apt=' - %S -> %E\n   %m\n' | less +gg\"",
+    "tooltip": false
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "format-charging": "{capacity}% ",
+    "interval": 30,
+    "states": {
+      "warning": 25,
+      "critical": 10
     },
-    "sway/workspaces": {
-        "format": "{name}",
-        "disable-scroll": true
+    "tooltip": false
+  },
+  "disk": {
+    "format": "{percentage_free}% ",
+    "interval": 60
+  },
+  "network": {
+    "format": "{icon}",
+    "format-alt": "{ipaddr}/{cidr} {icon}",
+    "format-alt-click": "click-right",
+    "interval": 60,
+    "format-icons": {
+      "wifi": "",
+      "ethernet": "",
+      "disconnected": ""
     },
-    "sway/window": {
-        "max-length": 80,
-        "tooltip": false
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "MUTE ",
+    "format-icons": {
+      "headphones": "",
+      "default": [
+        "",
+        ""
+      ]
     },
-    "clock": {
-        "format": "{:%a %d %b %H:%M}",
-        "on-click-right": "kitty --class=calcurse -e bash -c \"calcurse --appointment --format-apt=' - %S -> %E\n   %m\n' --format-recur-apt=' - %S -> %E\n   %m\n' | less +gg\"",
-        "tooltip": false
+    "on-click": "amixer sset Master toggle",
+    "tooltip": false,
+    "on-click-right": "pavucontrol"
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-alt": "{icon}",
+    "format-alt-click": "click-right",
+    "format-icons": [
+      ""
+    ],
+    "on-scroll-down": "light -U 1",
+    "on-scroll-up": "light -A 1"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
     },
-    "battery": {
-        "format": "{capacity}% {icon}",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""],
-        "format-charging": "{capacity}% ",
-        "interval": 30,
-        "states": {
-            "warning": 25,
-            "critical": 10
-        },
-        "tooltip": false
-    },
-    "disk": {
-        "format": "{percentage_free}% ",
-        "interval": 60
-    },
-    "network": {
-        "format": "{icon}",
-        "format-alt": "{ipaddr}/{cidr} {icon}",
-        "format-alt-click": "click-right",
-        "interval": 60,
-        "format-icons": {
-            "wifi": "",
-            "ethernet": "",
-            "disconnected": ""
-        },
-        "tooltip": false
-    },
-    "pulseaudio": {
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "MUTE ",
-        "format-icons": {
-            "headphones": "",
-            "default": ["", ""]
-        },
-        "on-click": "amixer sset Master toggle",
-        "tooltip": false,
-        "on-click-right": "pavucontrol"
-    },
-    "backlight": {
-        "format": "{percent}% {icon}",
-        "format-alt": "{icon}",
-        "format-alt-click": "click-right",
-        "format-icons": [""],
-        "on-scroll-down": "light -U 1",
-        "on-scroll-up": "light -A 1"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        },
-        "tooltip": false
-    },
-    "tray": {
-        "icon-size": 22,
-        "spacing": 20,
-        "show-passive-items": true
-    }
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 22,
+    "spacing": 20,
+    "show-passive-items": true
+  }
 }
