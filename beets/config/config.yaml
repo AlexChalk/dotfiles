@@ -58,7 +58,7 @@ bandcamp:
   preferred_media: Vinyl,CD,Cassette
   include_digital_only_tracks: true
   search_max: 5
-  art: yes
+  art: false
   comments_separator: "\n---\n"
   exclude_extra_fields: []
   genre:
