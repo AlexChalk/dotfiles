@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+# Adapted from below:
+# https://github.com/jaandrle/gh-compare/blob/35f55a5dc1505871d102b4f04f6387b73ea22e34/gh-compare
+
+set -o pipefail
+
+if [[ "$*" =~ "--help" ]]; then
+  echo -e "
+  USAGE
+    gh compare [[against] compare | -n [number] | -r comparison] [flags]
+  
+    [against] compare
+      This generate comparison for 'compare' branch/hash against 'against' branch/hash (default branch by default).
+      If both ommited, then compare current branch against the default one.
+    -n [number]
+      This generate comparison for 'number' commits ago to HEAD.
+    -r comparison
+      Provide a comparison by yourself.
+
+  FLAGS
+    --comparison    returns only comparison string
+    --url            generate comparison url for current repository
+    --help          prints this text
+  
+  EXAMPLES
+    gh compare
+    gh compare curr-branch
+    gh compare main curr-branch --comparison
+    gh compare c794e7718ef18011b9d96f812f62f31608deeca8 45c38cac44e96ee2545f1e70dba80b23058309bf
+    gh compare -n 5
+    gh compare -r 'main...curr-branch'
+"
+  exit 0
+fi
+
+main_star=$*
+
+function gotoExit() {
+  local url
+
+  [[ "$main_star" =~ "--comparison" ]] && echo "$1" && exit 0
+
+  url="$(gh repo view -q .url --json url)/compare/$1"
+
+  [[ "$main_star" =~ "--url" ]] && echo "$url" && exit 0
+
+  if [ "$(uname)" == "Darwin" ]; then
+    open -a Firefox "$url"
+  else
+    firefox "$url" &
+  fi
+  exit "$?"
+}
+
+[[ "$1" == "-n" ]] && gotoExit "$(git rev-parse HEAD~"$2")...$(git rev-parse HEAD)"
+[[ "$1" == "-r" ]] && gotoExit "$2"
+
+num_args=$#
+
+for arg in "$@"; do
+  [[ $arg == --* ]] && num_args=$((num_args - 1))
+done
+
+[ $num_args -gt 1 ] && gotoExit "$1...$2"
+[ $num_args -eq 1 ] && gotoExit "$(gh repo view -q .defaultBranchRef.name --json defaultBranchRef)...$1"
+gotoExit "$(gh repo view -q .defaultBranchRef.name --json defaultBranchRef)...$(git branch --show-current)"
