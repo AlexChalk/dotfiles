@@ -1,5 +1,12 @@
 # Personal Aliases
 # For a full list of active aliases, run `alias`.
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias yank="pbcopy"
+  alias put="pbpaste"
+else
+  alias yank="wl-copy"
+  alias put="wl-paste"
+fi
 alias tree='tree -C -I "*~|*#|node_modules|sprockets"'
 alias c='clear'
 alias brewup="brew update && brew upgrade && brew cleanup"
