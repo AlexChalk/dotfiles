@@ -325,6 +325,9 @@ exec_always $HOME/.config/sway/clamshell.sh
 # Status Bar:
 exec_always $HOME/.config/waybar/waybar.sh
 
+# Enables inhibit_idle when playing audio
+exec sway-audio-idle-inhibit
+
 # Calendar daemon:
 exec --no-startup-id calcurse --daemon
 
