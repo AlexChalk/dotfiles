@@ -60,6 +60,7 @@ exec swayidle -w \
   timeout 300 'swaylock -f -c 000000' \
   timeout 43200 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
+  lock 'swaylock -f -c 000000' \
   before-sleep 'swaylock -f -c 000000'
 
 # This will lock your screen after 300 seconds of inactivity, turn off your displays
