@@ -4,7 +4,7 @@ set -e
 
 sudo nix-collect-garbage --delete-older-than 14d 
 nix-collect-garbage --delete-older-than 14d 
-sudo nix-channel --update
-nix-channel --update
+nix flake update "$(dirname "$(realpath /etc/nixos/flake.nix)")" --commit-lock-file
+nix flake update "$HOME"/nix-configs/nix-profile-linux --commit-lock-file
 sudo nixos-rebuild switch
-nix-env -iA nixos.adcPackages
+nix profile upgrade adc-packages
