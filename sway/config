@@ -45,6 +45,10 @@ for_window [app_id="firefox" title="Bitwarden — Mozilla Firefox"] {
   floating enable
 }
 
+for_window [app_id="steam" title="Special Offers"] {
+  floating enable
+}
+
 for_window [class="Zotero" title="Progress"] {
   floating enable
 }
