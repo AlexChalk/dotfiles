@@ -1,0 +1,115 @@
+#!/usr/bin/env bb
+
+(require '[babashka.process :refer [process check]]
+         '[clojure.string :as str]
+         '[clojure.java.io :as io]
+         '[clojure.data.csv :as csv])
+
+(import java.time.LocalDate)
+(import java.time.format.DateTimeFormatter)
+
+(def csv-file-path (first *command-line-args*))
+
+(def csv-data
+  (with-open [reader (io/reader csv-file-path)]
+    (doall (csv/read-csv reader))))
+
+(def headers [:date :type "Name" :description "Amount"])
+(def body (rest csv-data))
+
+(def tag-keys (map (partial zipmap headers)))
+
+(def add-accounts
+  (map (fn [data]
+         (case (:type data)
+           "D�BIT" (assoc data "Incoming Account" "Expenses" "Outgoing Account" "Credit Card Riteba")
+           "CR�DIT" (assoc data "Incoming Account" "Credit Card Riteba" "Outgoing Account" "Income")))))
+
+(def format-dollars
+  (map (fn [data]
+         (-> data
+             (update "Amount" #(str/replace-first % #"^-" ""))
+             (update "Amount" #(str/replace % #"\.(\d)$" ".$10"))
+             (update "Amount" #(or (re-find #".*\..+" %) (str % ".00")))))))
+
+(defn format-date [date-string]
+  (let [input-formatter (DateTimeFormatter/ofPattern "M/d/yyyy")
+        output-formatter (DateTimeFormatter/ofPattern "MMM d, yyyy")
+        date (LocalDate/parse date-string input-formatter)]
+    (.format date output-formatter)))
+
+(defn format-month [date-string]
+  (let [input-formatter (DateTimeFormatter/ofPattern "M/d/yyyy")
+        output-formatter (DateTimeFormatter/ofPattern "MMMM yyyy")
+        date (LocalDate/parse date-string input-formatter)]
+    (.format date output-formatter)))
+
+(def add-datetime
+  (map (fn [data]
+         (-> data
+             (assoc "Date and time" (str (format-date (:date data)) ", 10:00"))
+             (assoc "Date" (format-date (:date data)))
+             (assoc "Month" (format-month (:date data)))))))
+
+(def add-defaults
+  (map (fn [data]
+         (-> data
+             (assoc "$" "CAD")
+             (assoc "Type" "Needs Review")
+             (assoc "Category" "Other")
+             (assoc "Is Exceptional Spend" "False")
+             (assoc "Original Amount" "")
+             (assoc "Original Currency" "")
+             (assoc "UUID" "")))))
+
+(def get-keys
+  (map (fn [data]
+         (select-keys data ["Name"
+                            "Amount"
+                            "$"
+                            "Type"
+                            "Outgoing Account"
+                            "Incoming Account"
+                            "Date and time"
+                            "Is Exceptional Spend"
+                            "Category"
+                            "Date"
+                            "Month"
+                            "Original Amount"
+                            "Original Currency"
+                            "UUID"]))))
+
+(def xf (comp tag-keys
+              add-accounts
+              format-dollars
+              add-datetime
+              add-defaults
+              get-keys))
+
+(def values
+  (transduce xf conj body))
+
+(def column-order ["Name"
+                   "Amount"
+                   "$"
+                   "Type"
+                   "Outgoing Account"
+                   "Incoming Account"
+                   "Date and time"
+                   "Is Exceptional Spend"
+                   "Category"
+                   "Date"
+                   "Month"
+                   "Original Amount"
+                   "Original Currency"
+                   "UUID"])
+
+(defn write-csv [filename data column-order]
+  (with-open [writer (io/writer filename)]
+    (let [headers column-order
+          rows (map (fn [data] (map #(get data %) column-order)) data)]
+      (csv/write-csv writer (cons headers rows)))))
+
+(def new-csv-file-path (str/replace csv-file-path #"\.csv$" "_formatted.csv"))
+
+(write-csv new-csv-file-path values column-order)
