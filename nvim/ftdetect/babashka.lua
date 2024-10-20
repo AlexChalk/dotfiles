@@ -2,8 +2,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*",
   callback = function()
     if vim.fn.getline(1):match("^#!.*%s*bb%s*$") then
-      vim.api.nvim_buf_set_option(0, "syntax", "clojure")
-      vim.api.nvim_buf_set_option(0, "filetype", "clojure")
+      vim.bo.filetype = "clojure"
+      vim.api.nvim_set_option_value("syntax", "clojure", { buf = 0 })
+      vim.api.nvim_set_option_value("filetype", "clojure", { buf = 0 })
     end
   end,
 })
