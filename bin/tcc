@@ -104,12 +104,17 @@
                    "Original Currency"
                    "UUID"])
 
-(defn write-csv [filename data column-order]
-  (with-open [writer (io/writer filename)]
-    (let [headers column-order
-          rows (map (fn [data] (map #(get data %) column-order)) data)]
-      (csv/write-csv writer (cons headers rows)))))
+(defn write-tsv [filename data]
+  (with-open [writer (clojure.java.io/writer filename)]
+    (doseq [row data]
+      (.write writer (str/join "\t" row))
+      (.write writer "\n"))))
 
-(def new-csv-file-path (str/replace csv-file-path #"\.csv$" "_formatted.csv"))
+(defn write-data [filename data column-order]
+  (let [headers column-order
+        rows (map (fn [data] (map #(get data %) column-order)) data)]
+    (write-tsv filename (cons headers rows))))
 
-(write-csv new-csv-file-path values column-order)
+(def new-file-path (str/replace csv-file-path #"\.csv$" "_formatted.tsv"))
+
+(write-data new-file-path values column-order)
