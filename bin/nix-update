@@ -5,7 +5,7 @@ set -e
 sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 14d
 nix profile wipe-history --older-than 14d
 sudo nix store gc
-nix flake update "$(dirname "$(realpath /etc/nixos/flake.nix)")" --commit-lock-file
-nix flake update "$HOME"/nix-configs/nix-profile-linux --commit-lock-file
+nix flake update --flake "$(dirname "$(realpath /etc/nixos/flake.nix)")" --commit-lock-file
+nix flake update --flake "$HOME"/nix-configs/nix-profile-linux --commit-lock-file
 sudo nixos-rebuild switch
-nix profile upgrade adc-packages
+nix profile upgrade nix-profile-linux
