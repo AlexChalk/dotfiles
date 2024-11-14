@@ -117,6 +117,9 @@
         rows (map (fn [data] (map #(get data %) column-order)) data)]
     (write-tsv filename (cons headers rows))))
 
-(def new-file-path (str/replace csv-file-path #"\.csv$" "_formatted.tsv"))
+(def new-file-path
+  (-> csv-file-path
+      (str/replace #" " "_")
+      (str/replace #"(?i)\.csv$" "_formatted.tsv")))
 
 (write-data new-file-path values column-order)
