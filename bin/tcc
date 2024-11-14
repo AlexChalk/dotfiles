@@ -23,7 +23,9 @@
   (map (fn [data]
          (case (:type data)
            "D�BIT" (assoc data "Incoming Account" "Expenses" "Outgoing Account" "Credit Card Riteba")
-           "CR�DIT" (assoc data "Incoming Account" "Credit Card Riteba" "Outgoing Account" "Income")))))
+           "DEBIT" (assoc data "Incoming Account" "Expenses" "Outgoing Account" "Credit Card Riteba")
+           "CR�DIT" (assoc data "Incoming Account" "Credit Card Riteba" "Outgoing Account" "Income")
+           "CREDIT" (assoc data "Incoming Account" "Credit Card Riteba" "Outgoing Account" "Income")))))
 
 (def format-dollars
   (map (fn [data]
