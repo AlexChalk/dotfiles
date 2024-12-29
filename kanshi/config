@@ -1,3 +1,8 @@
 profile {
 	output eDP-1 enable scale 1
 }
+
+profile {
+  output eDP-1 enable position 0,0 scale 1
+  output DP-2 enable position 1920,0 scale 1
+}
