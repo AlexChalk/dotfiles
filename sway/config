@@ -319,6 +319,10 @@ exec_always {
 # output eDP-1 scale 1.2
 # output eDP-1 pos 0 0 res 1920x1080
 
+# Uncomment for rough mirror hack, issue: https://github.com/swaywm/sway/issues/1666
+# output eDP-1 position 0,0 res 1920x1080
+# output DP-2 position 0,0 res 1920x1080
+
 set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
