@@ -159,6 +159,8 @@ Plug("jghauser/papis.nvim")
 
 Plug("junegunn/goyo.vim")
 
+Plug("jbyuki/nabla.nvim")
+
 vim.call("plug#end")
 
 -- let g:fsharp#automatic_workspace_init = 0

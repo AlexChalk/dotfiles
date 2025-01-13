@@ -49,3 +49,15 @@ vim.api.nvim_create_autocmd("Filetype", {
   end,
   group = wiki,
 })
+
+vim.keymap.set({ "n" }, "<leader>nab", function()
+  return require("nabla").enable_virt()
+end, { silent = true })
+
+vim.keymap.set({ "n" }, "<leader>nat", function()
+  return require("nabla").toggle_virt()
+end, { silent = true })
+
+vim.keymap.set({ "n" }, "<leader>nad", function()
+  return require("nabla").disable_virt()
+end, { silent = true })
