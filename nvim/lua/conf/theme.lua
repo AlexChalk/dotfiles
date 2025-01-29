@@ -52,6 +52,14 @@ vim.cmd.colorscheme("base16-gruvbox-dark-medium")
 vim.opt.laststatus = 2
 vim.opt.ttimeoutlen = 10
 
+vim.api.nvim_create_user_command("Light", function()
+  vim.cmd.colorscheme("base16-gruvbox-light-medium")
+end, {})
+
+vim.api.nvim_create_user_command("Dark", function()
+  vim.cmd.colorscheme("base16-gruvbox-dark-medium")
+end, {})
+
 ---------------------------------------------------------------
 -- Lightline
 ---------------------------------------------------------------
