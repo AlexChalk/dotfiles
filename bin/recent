@@ -25,7 +25,9 @@ recent() {
     exit 0
   fi
 
-  sorted_files=$(printf "%s\0" "${files[@]}" | xargs -0 ls -tr)
+  # select fourth (first non-datetime) field (-f4) and all subsequent fields
+  # (trailing -) to handle filenames with spaces
+  sorted_files=$(printf "%s\0" "${files[@]}" | xargs -0 stat -c '%y %n' | sort -n | cut -d' ' -f4-)
 
   if [ -n "$count" ]; then
     echo "${sorted_files[@]}" | tail -n "$count"
