@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if ! type pdftotext >/dev/null 2>&1; then
+  echo 'You need to install pdftotext to use this command.'
+  exit 1
+fi
+
+if [[ "$1" != *.pdf ]]; then
+  echo "Command only works for .pdf files."
+  exit 1
+fi
+
+pdftotext "$1" - | sed 's/•//' | sed --regexp-extended 's/^[[:digit:]]+[[:space:]]*$//' | wc --words
