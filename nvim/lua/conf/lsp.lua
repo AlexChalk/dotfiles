@@ -44,7 +44,7 @@ local servers = {
   "rust_analyzer",
   "solargraph",
   "terraformls",
-  "tsserver",
+  "ts_ls",
 }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
