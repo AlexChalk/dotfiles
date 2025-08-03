@@ -7,7 +7,7 @@ local no_repl_lsp_analysis =
 
 vim.api.nvim_create_autocmd("BufNewFile", {
   pattern = { "conjure-log-*" },
-  command = "lua vim.diagnostic.disable(0)",
+  command = "lua vim.diagnostic.enable(false)",
   group = no_repl_lsp_analysis,
 })
 
