@@ -1,8 +1,0 @@
-[settings]
-default-library = papers
-opentool = firefox
-database-backend = papis
-use-cache = False
-
-[papers]
-dir = ~/Dropbox/papis/papers

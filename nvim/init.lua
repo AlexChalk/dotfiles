@@ -152,11 +152,6 @@ Plug("ledger/vim-ledger")
 -- Plug("dhruvasagar/vim-table-mode")
 Plug("mechatroner/rainbow_csv")
 
--- Papis
-Plug("kkharji/sqlite.lua")
-Plug("MunifTanjim/nui.nvim")
-Plug("jghauser/papis.nvim")
-
 Plug("junegunn/goyo.vim")
 
 Plug("jbyuki/nabla.nvim")
