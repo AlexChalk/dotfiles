@@ -33,6 +33,20 @@ vim.keymap.set({ "n" }, "<leader>lud", function()
 end, { remap = true, silent = true })
 
 --Conjure
+vim.g["conjure#filetypes"] = {
+  "clojure",
+  "fennel",
+  "janet",
+  "hy",
+  "julia",
+  "racket",
+  "scheme",
+  "lua",
+  "lisp",
+  "python",
+  "rust",
+  "sql",
+}
 vim.g["conjure#client#clojure#nrepl#eval#print_options#level"] = false
 vim.g["conjure#client#clojure#nrepl#eval#print_options#length"] = 500
 

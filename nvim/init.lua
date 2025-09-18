@@ -135,7 +135,7 @@ Plug("vim-python/python-syntax", { ["for"] = "python" })
 Plug("Vimjas/vim-python-pep8-indent", { ["for"] = "python" })
 
 -- Clojure
-Plug("Olical/conjure", { ["for"] = { "clojure", "clojurescript" } })
+Plug("Olical/conjure")
 Plug("guns/vim-sexp", { ["for"] = { "clojure", "clojurescript" } })
 Plug("clojure-vim/clojure.vim", { ["for"] = { "clojure", "clojurescript" } })
 Plug("markwoodhall/vim-sayid", { ["for"] = { "clojure", "clojurescript" } })
