@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -e
+
+mkjot() {
+  local datetime
+  local title
+  local filename
+
+  datetime=$(date --iso-8601='seconds')
+
+  if [[ -z "$1" ]]; then
+    title="$datetime"
+  else
+    title="$1"
+  fi
+
+  # Replace any spaces with underscores
+  filename="${title// /_}"
+
+  cat <<EOF >"$HOME"/jot-repo/"$filename".md
+---
+created: $datetime
+modified: $datetime
+title: $title
+---
+
+
+EOF
+}
+
+mkjot "$@"
