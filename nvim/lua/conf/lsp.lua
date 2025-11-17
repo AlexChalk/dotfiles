@@ -104,7 +104,7 @@ lspconfig.texlab.setup({
     texlab = {
       build = {
         executable = "latexmk",
-        args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+        args = { "-pdf", "-xelatex", "-interaction=nonstopmode", "-synctex=1", "%f" },
         forwardSearchAfter = false,
         onSave = true,
       },
