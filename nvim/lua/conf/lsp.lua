@@ -11,9 +11,6 @@ require("lsp_setup.null_ls")
 -- :help vim.lsp.buf
 -- lua vim.lsp.stop_client(vim.lsp.get_active_clients())
 
--- LSP settings
-local lspconfig = require("lspconfig")
-
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend(
@@ -47,10 +44,11 @@ local servers = {
   "ts_ls",
 }
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
+  vim.lsp.config(lsp, {
     on_attach = on_attach,
     capabilities = capabilities,
   })
+  vim.lsp.enable(lsp)
 end
 
 -- Example custom server
@@ -59,12 +57,13 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-lspconfig.clojure_lsp.setup({
+vim.lsp.config('clojure_lsp', {
   on_attach = on_attach,
   capabilities = clojure_capabilities,
 })
+vim.lsp.enable('clojure_lsp')
 
-lspconfig.nil_ls.setup({
+vim.lsp.config('nil_ls', {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -73,8 +72,9 @@ lspconfig.nil_ls.setup({
     },
   },
 })
+vim.lsp.enable('nil_ls')
 
-lspconfig.pyright.setup({
+vim.lsp.config('pyright', {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -96,8 +96,9 @@ lspconfig.pyright.setup({
       require("commands.python").get_python_bin_path()
   end,
 })
+vim.lsp.enable('pyright')
 
-lspconfig.texlab.setup({
+vim.lsp.config('texlab', {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -118,14 +119,16 @@ lspconfig.texlab.setup({
     },
   },
 })
+vim.lsp.enable('texlab')
 
-lspconfig.yamlls.setup({
+vim.lsp.config('yamlls', {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "yml", "yaml", "yaml.docker-compose" },
 })
+vim.lsp.enable('yamlls')
 
-lspconfig.lua_ls.setup({
+vim.lsp.config('lua_ls', {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -152,3 +155,4 @@ lspconfig.lua_ls.setup({
     },
   },
 })
+vim.lsp.enable('lua_ls')
