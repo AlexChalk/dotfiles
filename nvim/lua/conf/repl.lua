@@ -47,6 +47,11 @@ vim.g["conjure#filetypes"] = {
   "rust",
   "sql",
 }
+
+vim.g["conjure#client#python#stdio#command"] = "nix shell " .. vim.fn.expand("$HOME") .. "/ml_env --command python -iq"
+-- vim.g["conjure#client#python#stdio#command"] = "nix shell " .. vim.fn.expand("$HOME") .. "/ml_env --command ipython --no-banner"
+-- vim.g["conjure#client#python#stdio#prompt-pattern"] = [[In \[\d+\]: ]]
+
 vim.g["conjure#client#clojure#nrepl#eval#print_options#level"] = false
 vim.g["conjure#client#clojure#nrepl#eval#print_options#length"] = 500
 
