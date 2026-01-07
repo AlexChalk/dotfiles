@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
-vim.cmd.colorscheme("base16-gruvbox-dark-medium")
+vim.cmd.colorscheme("base16-gruvbox-light-medium")
 
 vim.opt.laststatus = 2
 vim.opt.ttimeoutlen = 10
@@ -93,7 +93,7 @@ vim.api.nvim_create_autocmd("User", {
 require("lualine").setup({
   options = {
     icons_enabled = false,
-    theme = "jellybeans",
+    theme = "gruvbox_light",
     component_separators = { left = "|", right = "|" },
     section_separators = { left = "", right = "" },
     disabled_filetypes = {},
@@ -124,8 +124,8 @@ require("lualine").setup({
         max_length = vim.o.columns, -- Maximum width of tabs component.
         mode = 2, -- 0: Shows tab_nr, 1: Shows tab_name, 2: Shows tab_nr + tab_name
         tabs_color = {
-          active = { fg = "#e8e8d3", bg = "#666656" },
-          inactive = { fg = "#666656", bg = "#30302c" },
+          active = { fg = "#635c53", bg = "#fbf1c7" },
+          inactive = { fg = "#ab9d86", bg = "#ebdbb2" },
         },
       },
     },
