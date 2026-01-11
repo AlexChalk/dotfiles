@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+input="$1"
+basename="${input%.mov}"
+output="${basename}c.mp4"
+
+ffmpeg -i "$input" -vcodec libx264 -crf "$2" -preset slow "$output"
