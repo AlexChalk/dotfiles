@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if ! pgrep firefox >/dev/null; then
+  echo "Firefox isn't running"
+  exit 1
+fi
+
 VIDEO=$(fd -e mkv --max-depth 1 --type f . "$HOME/Videos" --exec stat -c '%Y %n' {} \; |
   sort -rn | head -1 | cut -d' ' -f2-)
 
