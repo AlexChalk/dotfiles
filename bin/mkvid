@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -e
+
+if ! type wf-recorder >/dev/null 2>&1; then
+  echo 'You need to install wf-recorder to use this command.'
+  exit 1
+fi
+
+mkvid() {
+  local datetime
+  local title
+  local filename
+
+  datetime=$(date --iso-8601='seconds')
+
+  if [[ -z "$1" ]]; then
+    title="$datetime"
+  else
+    title="$1"
+  fi
+
+  # Replace any spaces with underscores
+  filename="${title// /_}"
+
+  wf-recorder -f "$HOME"/Videos/"$filename".mkv
+}
+
+mkvid "$@"
