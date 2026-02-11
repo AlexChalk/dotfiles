@@ -339,6 +339,9 @@ exec_always $HOME/.config/waybar/waybar.sh
 # Enables inhibit_idle when playing audio
 exec sway-audio-idle-inhibit
 
+# Label xwayland windows
+for_window [shell="xwayland"] title_format "[XWayland] %title"
+
 # Calendar daemon:
 exec --no-startup-id calcurse --daemon
 
