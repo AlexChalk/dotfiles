@@ -23,7 +23,7 @@ mkvid() {
   # Replace any spaces with underscores
   filename="${title// /_}"
 
-  wf-recorder -f "$HOME"/Videos/"$filename".mkv
+  wf-recorder -c h264_vaapi -d /dev/dri/renderD128 -f "$HOME"/Videos/"$filename".mkv
 }
 
 mkvid "$@"
