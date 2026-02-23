@@ -1,6 +1,12 @@
-#!/usr/bin/bash
-if grep -q open /proc/acpi/button/lid/LID/state; then
-  swaymsg output 'eDP-1' enable
-else
-  swaymsg output 'eDP-1' disable
-fi
+#!/bin/bash
+
+LAPTOP_OUTPUT="eDP-1"
+LID_STATE_FILE="/proc/acpi/button/lid/LID/state"
+
+read -r LS < "$LID_STATE_FILE"
+
+case "$LS" in
+*open)   swaymsg output "$LAPTOP_OUTPUT" enable ;;
+*closed) swaymsg output "$LAPTOP_OUTPUT" disable ;;
+*)       echo "Could not get lid state" >&2 ; exit 1 ;;
+esac
