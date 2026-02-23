@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 2
+
 LAPTOP_OUTPUT="eDP-1"
 LID_STATE_FILE="/proc/acpi/button/lid/LID/state"
 
