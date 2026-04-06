@@ -253,8 +253,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
 bindsym XF86AudioMute exec amixer sset Master toggle
