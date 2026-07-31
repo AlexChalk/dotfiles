@@ -143,8 +143,8 @@ Plug("HiPhish/rainbow-delimiters.nvim")
 Plug("AlexChalk/vim-parinfer-noop")
 
 -- Treesitter
-Plug("nvim-treesitter/nvim-treesitter")
-Plug("nvim-treesitter/nvim-treesitter-textobjects")
+Plug("nvim-treesitter/nvim-treesitter", { ["branch"] = "main" })
+Plug("nvim-treesitter/nvim-treesitter-textobjects", { ["branch"] = "main" })
 -- Wiki
 Plug("vimwiki/vimwiki")
 Plug("godlygeek/tabular")
