@@ -43,6 +43,9 @@ ln -s $HOME/dotfiles/calcurse .config/
 ln -s $HOME/dotfiles/gtk-3.0 .config/
 ln -s $HOME/dotfiles/mako .config/
 
+mkdir -p .config/gcloud/configurations
+ln -s $HOME/dotfiles/gcloud/config_default .config/gcloud/configurations/
+
 mkdir .ghc
 ln -s $HOME/dotfiles/ghci.conf .ghc/ghci.conf
 
