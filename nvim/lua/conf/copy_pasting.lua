@@ -14,24 +14,9 @@ vim.api.nvim_set_keymap("n", "<leader>cac", 'ggVG"+y', { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>caf", "ggVGy", { noremap = false })
 
 -- Replace with register custom bindings
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>r",
-  "<Plug>ReplaceWithRegisterOperator",
-  { noremap = false }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>rr",
-  "<Plug>ReplaceWithRegisterLine",
-  { noremap = false }
-)
-vim.api.nvim_set_keymap(
-  "x",
-  "<Leader>r",
-  "<Plug>ReplaceWithRegisterVisual",
-  { noremap = false }
-)
+vim.api.nvim_set_keymap("n", "<Leader>r", "<Plug>ReplaceWithRegisterOperator", { noremap = false })
+vim.api.nvim_set_keymap("n", "<Leader>rr", "<Plug>ReplaceWithRegisterLine", { noremap = false })
+vim.api.nvim_set_keymap("x", "<Leader>r", "<Plug>ReplaceWithRegisterVisual", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>cr", '"+<leader>r', { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>crr", '"+<leader>rr', { noremap = false })
 

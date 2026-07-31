@@ -13,11 +13,8 @@ require("lsp_setup.null_ls")
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend(
-  "force",
-  capabilities,
-  require("cmp_nvim_lsp").default_capabilities()
-)
+capabilities =
+  vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 -- clojure-lsp expects a different key
 local clojure_capabilities = vim.deepcopy(capabilities)
 clojure_capabilities.workspace.workspaceEdit.documentChanges =
@@ -57,13 +54,13 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-vim.lsp.config('clojure_lsp', {
+vim.lsp.config("clojure_lsp", {
   on_attach = on_attach,
   capabilities = clojure_capabilities,
 })
-vim.lsp.enable('clojure_lsp')
+vim.lsp.enable("clojure_lsp")
 
-vim.lsp.config('nil_ls', {
+vim.lsp.config("nil_ls", {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -72,9 +69,9 @@ vim.lsp.config('nil_ls', {
     },
   },
 })
-vim.lsp.enable('nil_ls')
+vim.lsp.enable("nil_ls")
 
-vim.lsp.config('pyright', {
+vim.lsp.config("pyright", {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -92,13 +89,12 @@ vim.lsp.config('pyright', {
   },
   -- https://github.com/neovim/nvim-lspconfig/issues/500#issuecomment-851247107
   before_init = function(_, config)
-    config.settings.python.pythonPath =
-      require("commands.python").get_python_bin_path()
+    config.settings.python.pythonPath = require("commands.python").get_python_bin_path()
   end,
 })
-vim.lsp.enable('pyright')
+vim.lsp.enable("pyright")
 
-vim.lsp.config('texlab', {
+vim.lsp.config("texlab", {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -119,16 +115,16 @@ vim.lsp.config('texlab', {
     },
   },
 })
-vim.lsp.enable('texlab')
+vim.lsp.enable("texlab")
 
-vim.lsp.config('yamlls', {
+vim.lsp.config("yamlls", {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "yml", "yaml", "yaml.docker-compose" },
 })
-vim.lsp.enable('yamlls')
+vim.lsp.enable("yamlls")
 
-vim.lsp.config('lua_ls', {
+vim.lsp.config("lua_ls", {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -155,4 +151,4 @@ vim.lsp.config('lua_ls', {
     },
   },
 })
-vim.lsp.enable('lua_ls')
+vim.lsp.enable("lua_ls")

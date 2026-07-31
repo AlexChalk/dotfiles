@@ -8,7 +8,7 @@ opt.number = true -- set numbers behaviour
 opt.relativenumber = true -- set numbers behaviour
 
 opt.inccommand = "nosplit" -- show results of command incrementally
-opt.textwidth = 85 -- Make it obvious where
+opt.textwidth = 100 -- Make it obvious where
 opt.colorcolumn = "+1" -- 85 characters is
 opt.splitbelow = true -- set default :sp position
 opt.splitright = true -- set default :vsp position
@@ -16,7 +16,7 @@ opt.cursorline = true
 
 function ToggleTextWidth()
   if vim.o.textwidth == 0 then
-    opt.textwidth = 85
+    opt.textwidth = 100
   else
     opt.textwidth = 0
   end

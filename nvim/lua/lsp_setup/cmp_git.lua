@@ -40,10 +40,7 @@ require("cmp_git").setup({
       limit = 100,
       state = "open", -- open, closed, merged, all
       sort_by = function(pr) -- nil, "number", "title", "body", or custom function
-        return string.format(
-          "%010d",
-          os.difftime(os.time(), utils.parse_github_date(pr.updatedAt))
-        )
+        return string.format("%010d", os.difftime(os.time(), utils.parse_github_date(pr.updatedAt)))
       end,
       filter_fn = function(trigger_char, pr)
         return string.format("%s %s %s", trigger_char, pr.number, pr.title)

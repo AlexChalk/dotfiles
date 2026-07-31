@@ -128,24 +128,9 @@ vim.api.nvim_set_keymap(
   [[<cmd>Telescope find_files find_command=rg,--no-ignore,--hidden,--follow,--glob,!.git/*,--files<cr>]],
   { noremap = true }
 )
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>rg",
-  "<cmd>Telescope live_grep<cr>",
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>fb",
-  "<cmd>Telescope buffers<cr>",
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>fh",
-  "<cmd>Telescope help_tags<cr>",
-  { noremap = true }
-)
+vim.api.nvim_set_keymap("n", "<leader>rg", "<cmd>Telescope live_grep<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { noremap = true })
 
 vim.api.nvim_create_user_command("Rg", "Telescope live_grep", { nargs = 0 })
 SetupCommandAlias("rg", "Rg")

@@ -5,18 +5,9 @@ local i = luasnip.i
 local events = require("luasnip.util.events")
 
 local snippets = {
-  s(
-    { dscr = "italic", trig = "*" },
-    { t({ [[\textit{]] }), i(1), t({ "}" }), i(0) }
-  ),
-  s(
-    { dscr = "quote", trig = [["]] },
-    { t({ [[\textquote{]] }), i(1), t({ "}" }), i(0) }
-  ),
-  s(
-    { dscr = "block_quote", trig = [["""]] },
-    { t({ [[\blockquote{]] }), i(1), t({ "}" }), i(0) }
-  ),
+  s({ dscr = "italic", trig = "*" }, { t({ [[\textit{]] }), i(1), t({ "}" }), i(0) }),
+  s({ dscr = "quote", trig = [["]] }, { t({ [[\textquote{]] }), i(1), t({ "}" }), i(0) }),
+  s({ dscr = "block_quote", trig = [["""]] }, { t({ [[\blockquote{]] }), i(1), t({ "}" }), i(0) }),
   s({ dscr = "citation_pinpoint", trig = [[\citep]] }, {
     t([[\cite[]]),
     i(2, "pinpoint"),

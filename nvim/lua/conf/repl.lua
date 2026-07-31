@@ -2,8 +2,7 @@
 -- Clojure
 -----------------------------------------------------
 
-local no_repl_lsp_analysis =
-  vim.api.nvim_create_augroup("no_repl_lsp_analysis", { clear = true })
+local no_repl_lsp_analysis = vim.api.nvim_create_augroup("no_repl_lsp_analysis", { clear = true })
 
 vim.api.nvim_create_autocmd("BufNewFile", {
   pattern = { "conjure-log-*" },
@@ -11,12 +10,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
   group = no_repl_lsp_analysis,
 })
 
-vim.keymap.set(
-  { "n" },
-  "<leader>lar",
-  ":ConjureEval (user/restart)<CR>",
-  { remap = true }
-)
+vim.keymap.set({ "n" }, "<leader>lar", ":ConjureEval (user/restart)<CR>", { remap = true })
 
 vim.keymap.set({ "n" }, "<leader>lut", function()
   vim.cmd("ConjureEval (user/test-classpath)")
@@ -48,7 +42,9 @@ vim.g["conjure#filetypes"] = {
   "sql",
 }
 
-vim.g["conjure#client#python#stdio#command"] = "nix shell " .. vim.fn.expand("$HOME") .. "/ml_env --command python -iq"
+vim.g["conjure#client#python#stdio#command"] = "nix shell "
+  .. vim.fn.expand("$HOME")
+  .. "/ml_env --command python -iq"
 -- vim.g["conjure#client#python#stdio#command"] = "nix shell " .. vim.fn.expand("$HOME") .. "/ml_env --command ipython --no-banner"
 -- vim.g["conjure#client#python#stdio#prompt-pattern"] = [[In \[\d+\]: ]]
 

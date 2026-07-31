@@ -29,9 +29,7 @@ vim.opt.compatible = false
 -- For versioning: :SavePlugSnapshot
 -- Look at switching to packer once it has snapshots: https://github.com/wbthomason/packer.nvim/pull/370
 ----------------------------------------------------------------
-if
-  vim.fn.empty(vim.fn.glob("$HOME/.local/share/nvim/site/autoload/plug.vim")) > 0
-then
+if vim.fn.empty(vim.fn.glob("$HOME/.local/share/nvim/site/autoload/plug.vim")) > 0 then
   vim.fn.execute(
     "!curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   )
@@ -221,9 +219,7 @@ end
 ----------------------------------------------------------------
 function SavePlugSnapshot()
   local datetime = os.date("%Y-%m-%d_%H:%M:%S")
-  vim.api.nvim_command(
-    "PlugSnapshot! $HOME/.vim-plug-snapshots/" .. datetime .. ".vim"
-  )
+  vim.api.nvim_command("PlugSnapshot! $HOME/.vim-plug-snapshots/" .. datetime .. ".vim")
 end
 
 vim.api.nvim_create_user_command("SavePlugSnapshot", SavePlugSnapshot, { nargs = 0 })

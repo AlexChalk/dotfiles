@@ -26,12 +26,7 @@ vim.api.nvim_set_keymap(
 
 -- CTRL-W CTRL-F	Split current window in two.  Edit file name under cursor.
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<c-w>z",
-  ":wincmd _<cr>:wincmd |<cr>",
-  { noremap = true }
-)
+vim.api.nvim_set_keymap("n", "<c-w>z", ":wincmd _<cr>:wincmd |<cr>", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "<c-w>-", ":wincmd |<cr> ", { noremap = true })
 

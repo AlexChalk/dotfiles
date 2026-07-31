@@ -13,21 +13,6 @@ vim.keymap.set({ "n" }, "Ss", "<Plug>YSsurround", { noremap = false, silent = tr
 vim.keymap.set({ "n" }, "SS", "<Plug>YSsurround", { noremap = false, silent = true })
 vim.keymap.set({ "v" }, "S", "<Plug>VSurround", { noremap = false, silent = true })
 vim.keymap.set({ "v" }, "gS", "<Plug>VgSurround", { noremap = false, silent = true })
-vim.keymap.set(
-  { "i" },
-  "<C-S>",
-  "<Plug>Isurround",
-  { noremap = false, silent = true }
-)
-vim.keymap.set(
-  { "i" },
-  "<C-G>s",
-  "<Plug>Isurround",
-  { noremap = false, silent = true }
-)
-vim.keymap.set(
-  { "i" },
-  "<C-G>S",
-  "<Plug>ISurround",
-  { noremap = false, silent = true }
-)
+vim.keymap.set({ "i" }, "<C-S>", "<Plug>Isurround", { noremap = false, silent = true })
+vim.keymap.set({ "i" }, "<C-G>s", "<Plug>Isurround", { noremap = false, silent = true })
+vim.keymap.set({ "i" }, "<C-G>S", "<Plug>ISurround", { noremap = false, silent = true })

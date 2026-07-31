@@ -44,13 +44,7 @@ M.on_attach = function(client, bufnr)
     opts
   )
   -- n.b. call function twice to jump into floating window, C-Wp to jump out
-  vim.api.nvim_buf_set_keymap(
-    bufnr,
-    "n",
-    "<leader>K",
-    "<cmd>lua vim.lsp.buf.hover()<CR>",
-    opts
-  )
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   vim.api.nvim_buf_set_keymap(
     bufnr,
     "n",
@@ -93,13 +87,7 @@ M.on_attach = function(client, bufnr)
     "<cmd>lua vim.lsp.buf.type_definition()<CR>",
     opts
   )
-  vim.api.nvim_buf_set_keymap(
-    bufnr,
-    "n",
-    "<leader>lr",
-    "<cmd>lua vim.lsp.buf.rename()<CR>",
-    opts
-  )
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   vim.api.nvim_buf_set_keymap(
     bufnr,
     "n",

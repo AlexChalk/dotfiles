@@ -43,19 +43,9 @@ vim.api.nvim_set_keymap(
 )
 
 -- Change dir to current file's directory
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>cd",
-  ":cd %:p:h<CR>",
-  { noremap = false, silent = true }
-)
+vim.api.nvim_set_keymap("n", "<Leader>cd", ":cd %:p:h<CR>", { noremap = false, silent = true })
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>lcd",
-  ":lcd %:p:h<CR>",
-  { noremap = false, silent = true }
-)
+vim.api.nvim_set_keymap("n", "<Leader>lcd", ":lcd %:p:h<CR>", { noremap = false, silent = true })
 
 -- shortcut to turn search highlighting off
 vim.api.nvim_set_keymap("n", "<Leader>nh", ":nohls<CR>", { noremap = false })

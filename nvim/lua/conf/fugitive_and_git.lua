@@ -13,56 +13,21 @@ vim.opt.tags:prepend("./.git/tags;")
 vim.api.nvim_set_keymap("n", "<leader>gcc", ":Git commit<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>gcof", ":Gread<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>gaf", ":Gwrite<cr>", { noremap = true })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>guf",
-  ":silent exec '!git unstage %'<cr>",
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gaa",
-  ":silent exec '!git aa'<cr>",
-  { noremap = true }
-)
+vim.api.nvim_set_keymap("n", "<leader>guf", ":silent exec '!git unstage %'<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>gaa", ":silent exec '!git aa'<cr>", { noremap = true })
 vim.api.nvim_set_keymap(
   "n",
   "<leader>gat",
   ":silent exec '!git add --intent-to-add .'<cr>",
   { noremap = true }
 )
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gua",
-  ":silent exec '!git unstage .'<cr>",
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>go<space>",
-  ":Gedit<space>",
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gdf<space>",
-  ":Gvdiff<space>",
-  { noremap = true }
-)
+vim.api.nvim_set_keymap("n", "<leader>gua", ":silent exec '!git unstage .'<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>go<space>", ":Gedit<space>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>gdf<space>", ":Gvdiff<space>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>gdfs", ":Gvdiffsplit!<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>gdfc", ":Gvdiff<cr>", { noremap = true })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gdfm",
-  ":Gvdiff master:%<cr>",
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gs<space>",
-  ":Gvsplit<space>",
-  { noremap = true }
-)
+vim.api.nvim_set_keymap("n", "<leader>gdfm", ":Gvdiff master:%<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>gs<space>", ":Gvsplit<space>", { noremap = true })
 
 -- Logging/searching
 -- If history is long commands take limit argument, e.g. :0Gclog -10<cr>
@@ -79,54 +44,24 @@ vim.api.nvim_set_keymap(
   { noremap = true }
 )
 -- To search for text added or removed by commit: Gclog -Stext --
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gscf",
-  ":Gclog -S --<left><left><left>",
-  { noremap = true }
-)
+vim.api.nvim_set_keymap("n", "<leader>gscf", ":Gclog -S --<left><left><left>", { noremap = true })
 
 -- Diffing
 -- [c — jump to previous change hunk
 -- ]c — jump to next change hunk
 
 -- Two-way diffing
-vim.keymap.set(
-  { "n", "x" },
-  "<leader>gsph",
-  ":diffput | diffupdate<cr>",
-  { noremap = true }
-)
+vim.keymap.set({ "n", "x" }, "<leader>gsph", ":diffput | diffupdate<cr>", { noremap = true })
 
-vim.keymap.set(
-  { "n", "x" },
-  "<leader>gsh",
-  ":diffget | diffupdate<cr>",
-  { noremap = true }
-)
+vim.keymap.set({ "n", "x" }, "<leader>gsh", ":diffget | diffupdate<cr>", { noremap = true })
 
 -- Three-way diffing (merge conflicts)
 
 -- No visual-line mappings for diffget, because fugitive isn't smart
 -- enough to correctly diffget partial hunks in a merge conflict.
-vim.keymap.set(
-  { "n", "x" },
-  "<leader>gsch",
-  ":diffput 1 | diffupdate<cr>",
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gsfh",
-  ":diffget //3 | diffupdate<cr>",
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gsmh",
-  ":diffget //2 | diffupdate<cr>",
-  { noremap = true }
-)
+vim.keymap.set({ "n", "x" }, "<leader>gsch", ":diffput 1 | diffupdate<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>gsfh", ":diffget //3 | diffupdate<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>gsmh", ":diffget //2 | diffupdate<cr>", { noremap = true })
 
 -- Viewing commits
 -- - to go to parent commit
@@ -165,12 +100,7 @@ vim.api.nvim_set_keymap(
   ":Git --paginate request-pull -p  ./<left><left><left>",
   { noremap = true }
 )
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gdfh",
-  ":Git --paginate diff HEAD<cr>",
-  { noremap = true }
-)
+vim.api.nvim_set_keymap("n", "<leader>gdfh", ":Git --paginate diff HEAD<cr>", { noremap = true })
 vim.api.nvim_set_keymap(
   "n",
   "<leader>gdfu<space>",

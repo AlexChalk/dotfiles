@@ -81,8 +81,7 @@ local function lsp_progress()
   return require("lsp-progress").progress()
 end
 
-local lsp_progress_refresh =
-  vim.api.nvim_create_augroup("lsp-progress-refresh", { clear = true })
+local lsp_progress_refresh = vim.api.nvim_create_augroup("lsp-progress-refresh", { clear = true })
 
 vim.api.nvim_create_autocmd("User", {
   group = lsp_progress_refresh,

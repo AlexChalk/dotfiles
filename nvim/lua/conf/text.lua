@@ -28,24 +28,9 @@ vim.api.nvim_create_autocmd("Filetype", {
   pattern = { "vimwiki" },
   callback = function()
     vim.keymap.set({ "n" }, "<CR>", "o<ESC>", { remap = true, buffer = true })
-    vim.keymap.set(
-      { "n" },
-      "#",
-      "<Plug>VimwikiAddHeaderLevel",
-      { remap = true, buffer = true }
-    )
-    vim.keymap.set(
-      { "n" },
-      "<C-]>",
-      "<Plug>VimwikiFollowLink",
-      { remap = true, buffer = true }
-    )
-    vim.keymap.set(
-      { "n" },
-      "<C-T>",
-      "<Plug>VimwikiGoBackLink",
-      { remap = true, buffer = true }
-    )
+    vim.keymap.set({ "n" }, "#", "<Plug>VimwikiAddHeaderLevel", { remap = true, buffer = true })
+    vim.keymap.set({ "n" }, "<C-]>", "<Plug>VimwikiFollowLink", { remap = true, buffer = true })
+    vim.keymap.set({ "n" }, "<C-T>", "<Plug>VimwikiGoBackLink", { remap = true, buffer = true })
   end,
   group = wiki,
 })
