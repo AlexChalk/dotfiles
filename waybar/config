@@ -54,7 +54,7 @@
     "tooltip": false
   },
   "disk": {
-    "format": "{percentage_free}% ",
+    "format": "{free} ",
     "interval": 60
   },
   "network": {
