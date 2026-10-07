@@ -1,0 +1,2 @@
+XDG_VIDEOS_DIR="$HOME/Videos"
+XDG_PICTURES_DIR="$HOME/Pictures"
