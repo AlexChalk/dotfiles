@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+set -e
+
+mkres() {
+  local datetime
+  local title
+  local dirname
+  local filename
+  local french=false
+
+  while [ $# -gt 0 ]; do
+    case "$1" in
+    -f | --french)
+      french=true
+      shift
+      ;;
+    --)
+      shift
+      break
+      ;;
+    *) break ;;
+    esac
+  done
+
+  datetime=$(date --iso-8601='date')
+
+  if [[ -z "$1" ]]; then
+    title="$datetime"
+  else
+    title="$1"
+  fi
+
+  if $french; then
+    filename="resume-francais.tex"
+  else
+    filename="resume.tex"
+  fi
+
+  # Replace any spaces with underscores
+  dirname="resume_${title// /_}"
+
+  mkdir "$dirname"
+  cp "$HOME"/typeset-docs/*.otf "$dirname"/
+  cp "$HOME"/typeset-docs/*.cls "$dirname"/
+  cp "$HOME"/typeset-docs/"$filename" "$dirname"/
+}
+
+mkres "$@"
